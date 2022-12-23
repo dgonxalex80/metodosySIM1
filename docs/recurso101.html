@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Conceptos básicos</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Análisis de exploratorio de datos</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="recurso101.html">Conceptos básicos</a>
+</li>
+<li>
+  <a href="recurso102.html">Análisis de datos</a>
+</li>
+<li>
+  <a href="recurso103.html">Software R</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Conceptos básicos</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<div id="estadística" class="section level1">
+<h1><strong>Estadística</strong></h1>
+<p></br></br></br></p>
+<div id="qué-es" class="section level2">
+<h2><strong>¿Qué es?</strong></h2>
+<p></br></p>
+<p><strong>ESTADISTICA</strong> es una ciencia, la cual se encarga de
+suministrar diferentes métodos y procedimientos para recoger,
+clasificar, resumir, hallar regularidades y analizar los datos; así como
+de realizar inferencias a partir de ellos, con la finalidad de ayudar a
+la toma de decisiones y en su caso, formular predicciones.</p>
+<p></br></p>
+<p>La estadística surge como la herramienta ideal para cercar los
+efectos de incertidumbre inherentes a la gran mayoría de procesos
+biológicos, químicos, industriales y de comportamiento humano, en donde
+predominan los efectos del azar y la incertidumbre.</p>
+<p>En su desarrollo histórico la estadística ha superado las siguientes
+etapas:</p>
+<ul>
+<li><p>Conteo de poblaciones, riquezas y recursos naturales. Antes de
+Cristo – XVII.</p></li>
+<li><p>Cuantificación de probabilidades de éxito en los juegos de azar.
+Siglo XVIII.</p></li>
+<li><p>Optimización de la producción agrícola. Siglo XIX.</p></li>
+<li><p>Herramienta de apoyo en el desarrollo científico y tecnológico en
+todas las áreas del conocimiento.</p></li>
+</ul>
+<p></br></p>
+<p>El objetivo de la Estadística se centra en brindar apoyo en la
+transformación de datos en información. Teniendo en cuenta que los datos
+son sólo la representación numérica o categórica de una medición y la
+información es la integración de esos datos y factores del contexto para
+generar un criterio suficiente en la toma de decisiones.</p>
+<p>&lt;&lt; Llegará el día en el que el pensamiento estadístico será una
+condición tan necesaria para la convivencia eficiente como la capacidad
+de leer y escribir &gt;&gt;</p>
+<p>— H.G. Wells —</p>
+<p></br></br></br></p>
+</div>
+<div id="en-qué-se-utiliza" class="section level2">
+<h2><strong>¿En qué se utiliza?</strong></h2>
+<p>La estadística es una ciencia transversal a las diversas disciplinas
+del conocimiento, como, por ejemplo: finanzas, ingeniería, salud,
+economía, contabilidad, mercadeo, sociología y ciencias, entre muchas
+otras. Algunos ejemplos de su aplicación son:</p>
+<ul>
+<li><p>Finanzas: se realizan estudios para estimar el riesgo que tiene
+una inversión o el préstamo de dinero por parte de una entidad
+bancaria.</p></li>
+<li><p>Ingeniería: la estadística permite realizar el control de calidad
+de productos.</p></li>
+<li><p>Salud: es utilizada para realizar múltiples investigaciones que
+generan mejores tratamientos para las enfermedades.</p></li>
+<li><p>Economía: la estadística permite estudiar los determinantes del
+desempleo o el crecimiento económico en una región.</p></li>
+</ul>
+<p>Así mismo, si nos detuviéramos a analizar cada una de las disciplinas
+en las que se desenvuelve nuestras actividades diarias, encontraríamos
+ejemplos donde se tiene la necesidad de contar con información que nos
+permita tomar decisiones confiables.</p>
+<p></br></br></p>
+<div id="actividad" class="section level3">
+<h3><strong>Actividad</strong></h3>
+<p>De acuerdo con tu área de profesión, identifica alguna situación o
+actividad donde sea necesaria la estadística.</p>
+<p></br></br></br></p>
+</div>
+</div>
+</div>
+<div id="conceptos" class="section level1">
+<h1><strong>Conceptos</strong></h1>
+<p></br></br></p>
+<div id="análisis-descritivo" class="section level2">
+<h2><strong>Análisis descritivo</strong></h2>
+<p>La estadística descriptiva comprende los métodos para organizar,
+resumir y presentar datos de manera informativa. Su fin es únicamente
+exploratorio y se limita a describir lo observado en una población o
+muestra.</p>
+<p>Su objetivo es la exploración sin restricciones de los datos en busca
+de regularidades interesantes. Las conclusiones solo se aplican a los
+individuos y a las circunstancias para los cuales se obtuvieron los
+datos, además son informales y se basan en lo que se observa en los
+datos.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> : Descripción de la producción mensual de
+café durante el año 2016 través de una tabla o gráfico lineal o de
+barras, además se puede comparar las variaciones porcentuales del año
+2016 respecto al 2015.</p>
+<p></br></br></br></p>
+</div>
+<div id="inferencia-estadística" class="section level2">
+<h2><strong>Inferencia estadística</strong></h2>
+<p>La estadística inferencial consiste en el proceso inductivo que
+permite inferir o generalizar a toda la población características
+observadas en una muestra.</p>
+<p>Su objetivo es responder a preguntas concretas que se plantearon
+antes de la obtención de los datos. Las conclusiones se aplican a un
+grupo más amplio de individuos o situaciones, son formales y se hace
+explicito el grado de confianza que se tienen sobre ellas.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> : A partir de una muestra aleatoria regional
+en el Valle del Cauca de 550 estudiantes se encuentra que el 45% de
+ellos están cursando primaria, esta proporción se generaliza a toda la
+población del departamento.</p>
+<p></br></br></br></p>
+</div>
+<div id="validez" class="section level2">
+<h2><strong>Validez</strong></h2>
+<p>Es posible hacer uso de los pasos de una parsona para medir la
+distancia entre dos puntos. ¿Este sería confiable?</p>
+<p>La respuesta a esta pregunta es <strong>NO</strong>. Dado que los
+pasos de una persona pueden ser diferentes a los de otra persona debido
+a la diferencia en sus tallas. Las mediciones realizadas por diferentes
+pesonas genera una variabilidad extra inherente al sujeto que realiza la
+medición, afectando así los datos que se obtienen a partir de este.</p>
+<p>La mejor alternativa en este caso es hacer uso de instrumentos
+calibrados, estandarizados o validados, como metros, tallímetros, etc.
+De tal manera que, si la medición se toma varias veces con el mismo
+instrumento, esta no varié, de una a otra medición.</p>
+<p></br></p>
+<p>Es el grado en que la medición puede generalizarse a otras
+situaciones no medidas, depende en gran proporción de la conformación
+adecuada de la muestra a través de métodos estadísticos.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> : Un estudio desea concluir sobre el ingreso
+promedio por vivienda de las familias de la ciudad Cali. Si en el
+estudio solo se encuestan familias que pertenecen al estrato 1 ¿Se
+podría concluir que el ingreso promedio calculado sobre ese grupo
+representa el promedio de ingresos para toda la ciudad?</p>
+<p>La respuesta es <strong>NO</strong>, la información obtenida a partir
+de ese estudio no podrá ser generalizada a toda la población dado que
+sólo se tuvo en cuenta cierto sector de la ciudad y se ignoraron las
+familias del estrato 2 al 6.</p>
+<p><br/><br/></br></p>
+</div>
+<div id="unidad-de-análisis" class="section level2">
+<h2><strong>Unidad de análisis</strong></h2>
+<p>Son los elementos u objetos que tiene información sobre el fenómeno
+que se estudia, es decir aquellos objetos descritos por un conjunto de
+datos. Los individuos pueden ser personas, pero también pueden ser
+animales o cosas.</p>
+<p><strong>Ejemplo</strong> : Si se estudia el peso promedio de los
+estudiantes en una carrera de la universidad, cada uno de los
+estudiantes son los individuos.</p>
+<p></br></br></p>
+<div id="variable" class="section level3">
+<h3><strong>Variable</strong></h3>
+<p>Es cualquier característica de interés de un individuo. Una variable
+puede tomar distintos valores para distintos individuos.</p>
+<p><strong>Ejemplo</strong> : La edad de los estudiantes de primer
+semestre o el número de habitantes por vivienda.</p>
+<p></br></br></p>
+</div>
+</div>
+<div id="población" class="section level2">
+<h2><strong>Población</strong></h2>
+<p>Es el conjunto de todos los elementos de interés en un estudio, sobre
+los cuales se desea información y hacia los cuales se extenderán las
+conclusiones.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> : El total de estudiantes matriculados en la
+universidad o el total de la población en la ciudad de Cali.</p>
+<p></br></br></br></p>
+</div>
+<div id="muestra" class="section level2">
+<h2><strong>Muestra</strong></h2>
+<p>Es cualquier subconjunto representativo de la población, sobre el que
+se realizan los estudios para obtener conclusiones acerca de las
+características de la población.</p>
+<p><strong>Ejemplo</strong> : 100 estudiantes seleccionados del total de
+matriculados en la universidad o 500 personas seleccionadas de la
+población de Cali.</p>
+<p></br></br></br></p>
+</div>
+<div id="parámetro" class="section level2">
+<h2><strong>Parámetro</strong></h2>
+<p>Indicador estadístico calculado teniendo en cuenta los elementos de
+la población.</p>
+<p><strong>Ejemplo</strong>: Edad promedio de todos los estudiantes
+matriculados en la universidad o los ingresos promedio de toda la
+población de la ciudad de Cali.</p>
+<p></br></br></br></p>
+</div>
+<div id="estimador" class="section level2">
+<h2><strong>Estimador</strong></h2>
+<p>Indicador estadístico calculado teniendo en cuenta los elementos de
+la muestra.</p>
+<p><strong>Ejemplo</strong> : Edad promedio de una muestra de 100
+estudiantes matriculados en la universidad o los ingresos promedio de
+una muestra de 500 personas de la ciudad de Cali.</p>
+<p></br></br></br></p>
+</div>
+<div id="variable-1" class="section level2">
+<h2><strong>Variable</strong></h2>
+<p>Corresponde a caracteristicas tomadas de la unidad de análisis. Las
+variables se pueden clasificar segun su origen, naturaleza o relación
+con otras variables :</p>
+<p><img src="img/variable1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+<p><strong>Por su origen</strong> : Una variable es aleatoria cuando los
+valores resultantes de una medición no se pueden predecir de antemano.
+Podría decirse que ese valor se desconoce por completo. Si antes de
+medir, puede predecirse el valor que tendrá la variable, entonces se
+dice que ésta tiene carácter determinístico.</p>
+<p></br></br></p>
+<p><strong>Por su maturaleza</strong> : Si procede de un conteo
+(discreta) y si procede de una medición (continua).</p>
+<p></br></br></p>
+<p><strong>Por su relación con otras variables</strong> : Si su
+comportamiento está relacionado o depende de otra variable se califica
+como dependiente en caso contrario se clasifica como independiente</p>
+<p>Inicialmente nos concentraremos en la clasificación de las variables
+debido a su naturaleza :</p>
+<p></br></br></br></p>
+<div id="variables-cualitativas" class="section level3">
+<h3><strong>Variables cualitativas</strong></h3>
+<p>Sus valores (categorías o modalidades) no se pueden asociar
+naturalmente a un número, ni se pueden hacer operaciones matemáticas con
+ellos.</p>
+<p></br></br></br></p>
+</div>
+<div id="variables-cuantitativas" class="section level3">
+<h3><strong>Variables cuantitativas</strong></h3>
+<p>Toman valores numéricos y se pueden hacer operaciones matemáticas con
+ellos. Estas se clasifican en dos grupos: continuas y discretas.</p>
+<p></br></br></br></p>
+<div id="variables-continuas" class="section level4">
+<h4><strong>Variables continuas</strong></h4>
+<p>Las variables continuas pueden tomar cualquier valor real dentro de
+un intervalo, en general proceden de la medición de caracteristicas.</p>
+<p></br></br></p>
+<p><strong>Ejemplos</strong>:</p>
+<ul>
+<li>Estatura de los estudiantes de este curso,</li>
+<li>Temperaturas registradas al medio día durante el mes pasado,</li>
+<li>Peso de los profesores de estadística</li>
+</ul>
+<p></br></br></br></p>
+</div>
+<div id="variables-discretas" class="section level4">
+<h4><strong>Variables discretas</strong></h4>
+<p>Las variables discretas sólo toman valores enteros, por lo general
+proceden el conteo y empiezan por número de …</p>
+<p></br></br></p>
+<p><strong>Ejemplos</strong> :</p>
+<ul>
+<li>Número de hijos,</li>
+<li>Número de carros,</li>
+<li>Número de materias matriculas este semestre</li>
+</ul>
+<p><img src="img/escalas.png" width="70%" style="display: block; margin: auto;" /></p>
+<p></br></br></br></p>
+</div>
+</div>
+<div id="escalas-de-medición" class="section level3">
+<h3><strong>Escalas de medición</strong></h3>
+<p></br></br></p>
+<p><strong>Nominal</strong> : En las variables con escala de medición
+nominal, sus valores no se pueden ordenar, es decir que no existe una
+forma particular para ordenar sus valores. | Religión (católico,
+cristiano, evangélico, anóstico),</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> :</p>
+<ul>
+<li>Género (masculino, femenino),<br />
+</li>
+<li>Nacionalidad (colombiano, venezolano, ecuatoriano, …)</li>
+</ul>
+<p></br></br></br></p>
+<p><strong>Ordinal</strong> : En las variables con escala de medición
+ordinal, sus valores tienen un orden natural o se puede identificar un
+orden jerárquico entre sus valores o categorías.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> :</p>
+<ul>
+<li>Nivel educativo (primaria, secundaria, universitario,
+especialización, maestría, doctorado, postdoctorado),</li>
+<li>Estrato socioeconómico (1, 2, 3, 4, 5, 6)</li>
+<li>Nivel de estrés ( bajo, medio, alto)</li>
+</ul>
+<p></br></br></br></p>
+<p><strong>De intervalo</strong> : En estas variables el cero (0) es un
+valor arbitrario, no implica la ausencia de una característica.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> :</p>
+<p>Temperatura de cero grados no indica que no hay temperatura, sólo es
+un valor que toma la variable para esa escala.</p>
+<p></br></br></br></p>
+<p><strong>De razón</strong> : El cero (0) refleja ausencia de la
+característica, implica la ausencia de una característica.</p>
+<p></br></br></p>
+<p><strong>Ejemplo</strong> :</p>
+<ul>
+<li>Número de hijos</li>
+<li>Salario</li>
+<li>Ventas mesuales</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
