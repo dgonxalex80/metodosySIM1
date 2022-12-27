@@ -1,14 +1,16 @@
 ---
-title: <span style="color:#034a94"> **Indicadores de variabilidad o dispersión**</span>
+title: <span style="color:#034a94"> **Otros **</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
     toc: yes
     toc_depth: 2
     toc_float: yes
-    theme: default
+    theme: cerulean
 css: style.css
 ---
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 

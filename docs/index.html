@@ -12,12 +12,12 @@
 <meta name="author" content="" />
 
 
-<title> Análisis exploratorio de datos</title>
+<title> Contexto</title>
 
 <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,6 +33,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -240,18 +242,63 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Análisis de exploratorio de datos</a>
+      <a class="navbar-brand" href="index.html"> </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Met y Sim Est.
+  </a>
+</li>
+<li>
   <a href="recurso101.html">Conceptos básicos</a>
 </li>
-<li>
-  <a href="recurso102.html">Análisis de datos</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="recurso103.html">Software R</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Software R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -265,8 +312,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span style="color:#034A94">
-<strong>Análisis exploratorio de datos</strong></span></h1>
+<h1 class="title toc-ignore"><span style="color:#000000">
+<strong>Contexto</strong></span></h1>
 <h4 class="author"></h4>
 
 </div>
@@ -274,52 +321,45 @@ $(document).ready(function () {
 
 <p><img src="img/banner_presentacion.png" width="100%" style="display: block; margin: auto;" /></p>
 <p></br></br></p>
-<p>En esta unidad se abordaran las principales herramientas estadísticas
-para el análisis de datos, a traves de los conceptos principales y las
-herramientas estadísticas para resumir y analizar datos, además de los
-códigos en R que nos permiten hacerlos</p>
+<p>En esta unidad nos ocuparemos de construir conocimiento en torno a
+tres conceptos. Conceptos básicos de estadística , análisis exploratorio
+de datos y manejo del software R.</p>
 <p>Utilizaremos los pasos de la Metodología Estadística como estrategia
 para ubicar los métodos estadísticos empleados en este curso :</p>
 <p><br/></p>
-<div id="definición-del-problema" class="section level5">
-<h5>1. <strong>Definición del problema</strong></h5>
+<div id="definición-del-problema" class="section level3">
+<h3>1. <strong>Definición del problema</strong></h3>
 </div>
-<div id="definición-de-los-objetivos" class="section level5">
-<h5>2. <strong>Definición de los objetivos</strong></h5>
+<div id="definición-de-los-objetivos" class="section level3">
+<h3>2. <strong>Definición de los objetivos</strong></h3>
 </div>
-<div id="definición-de-las-variables-de-interés" class="section level5">
-<h5>3. <strong>Definición de las variables de interés</strong></h5>
+<div id="definición-de-las-variables-de-interés" class="section level3">
+<h3>3. <strong>Definición de las variables de interés</strong></h3>
 </div>
-<div id="diseño-del-experimento" class="section level5">
-<h5>4. <strong>Diseño del experimento</strong></h5>
+<div id="diseño-del-experimento" class="section level3">
+<h3>4. <strong>Diseño del experimento</strong></h3>
 </div>
-<div id="recolección-de-la-información" class="section level5">
-<h5>5. <strong>Recolección de la información</strong></h5>
+<div id="recolección-de-la-información" class="section level3">
+<h3>5. <strong>Recolección de la información</strong></h3>
 </div>
-<div id="procesamiento-de-los-datos" class="section level5">
-<h5>6. <strong>Procesamiento de los datos</strong></h5>
+<div id="procesamiento-de-los-datos" class="section level3">
+<h3>6. <strong>Procesamiento de los datos</strong></h3>
 </div>
 <div id="análisis-descriptivo-o-exploratorio-de-datos"
-class="section level5">
-<h5>7. <span style="color:#FF7F00"><strong>Análisis descriptivo o
-exploratorio de datos</strong></span></h5>
+class="section level3">
+<h3>7. <span style="color:#FF7F00"><strong>Análisis descriptivo o
+exploratorio de datos</strong></span></h3>
+<!-- #####    <span style="color:#C9C9C9">**Probabilidad**</span> -->
+<!-- #####    <span style="color:#C9C9C9">**Variable aleatoria**</span> -->
 </div>
-<div id="probabilidad" class="section level5">
-<h5><span
-style="color:#C9C9C9"><strong>Probabilidad</strong></span></h5>
+<div id="inferencia-estadística" class="section level3">
+<h3>8. <span style="color:#FF7F00"><strong>Inferencia
+estadística</strong></span></h3>
 </div>
-<div id="variable-aleatoria" class="section level5">
-<h5><span style="color:#C9C9C9"><strong>Variable
-aleatoria</strong></span></h5>
-</div>
-<div id="inferencia-estadística" class="section level5">
-<h5>8. <span style="color:#FF7F00"><strong>Inferencia
-estadística</strong></span></h5>
-</div>
-<div id="conclusiones-y-recomendaciones" class="section level5">
-<h5>9. <strong>Conclusiones y recomendaciones</strong></h5>
+<div id="conclusiones-y-recomendaciones" class="section level3">
+<h3>9. <strong>Conclusiones y recomendaciones</strong></h3>
 <p><br/><br/></p>
-<p><strong>Nota</strong> :</p>
+<p><span style="color:#FF7F00"><strong>Nota</strong></span>:</p>
 <p>La Métodologa Estadística está basada en el método científico que
 corresponde a un procedimiento iterativo de aprendizaje, el cual está
 compuesto por las siguientes etapas:</p>
@@ -331,15 +371,16 @@ resultados y decisión.</li>
 </ol>
 <p><br/><br/></p>
 <p>Es necesario tener en cuenta al realizar un análisis exploratorio de
-datos (paso 7 de la Metodología Estadística) los pasos previos a este,
-como son la definición del problema objeto de estudio, cual será nuestra
-meta (objetivos) o finalidad del estudio. Que variables debemos recoger
-para poder cumplir con el objetivo propuesto, además del diseño del
-experimento, es decir como se requiere recolectar la infomación, cuanta
-información, las fuentes y los medios para su procesamiento.</p>
-<p>Despues de tener claridad sobre los pasos anteriores (1 a 6) se
-empieza el análisis expleratorio de datos. Con él realizamos una primera
-aproximación a los objetivos planteados.</p>
+datos los pasos previos a este, como son la definición del problema
+objeto de estudio, cual será nuestra meta (objetivos) o finalidad del
+estudio. Que variables debemos recoger para poder cumplir con el
+objetivo propuesto, además del diseño del experimento, es decir como se
+requiere recolectar la infomación, cuanta información, las fuentes y los
+medios para su procesamiento.</p>
+<p>Despues de tener claridad sobre los pasos anteriores (1 a 6 de la
+metodología estadística) se empieza el análisis expleratorio de datos.
+Con él realizamos una primera aproximación a los objetivos
+planteados.</p>
 </div>
 
 

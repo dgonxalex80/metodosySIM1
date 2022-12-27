@@ -1,12 +1,12 @@
 ---
-title: <span style="color:#034a94"> **Conceptos básicos**</span>
+title: <span style="color:#034a94"> **Conceptos básicos**</span> 
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
     toc: yes
     toc_depth: 2
     toc_float: yes
-    theme: default
+    theme: cerulean
 css: style.css
 ---
 
@@ -14,9 +14,16 @@ css: style.css
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
+</br></br><br/>
+
 # **Estadística**
 
-</br></br></br>
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/statistics1.png")
+```
+
+</br></br>
 
 ## **¿Qué es?**
   
@@ -42,14 +49,12 @@ En su desarrollo histórico la estadística ha superado las siguientes etapas:
 
 El objetivo de la Estadística se centra en brindar apoyo en la transformación de datos en información. Teniendo en cuenta que los datos son sólo la representación numérica o categórica de una medición y la información es la integración de esos datos y factores del contexto para generar un criterio suficiente en la toma de decisiones.
 
-<< Llegará el día en el que el pensamiento estadístico será una condición tan necesaria para la convivencia eficiente como la capacidad de leer y escribir >>
+>Llegará el día en el que el pensamiento estadístico será una condición tan necesaria para la convivencia eficiente como la capacidad de leer y escribir --H.G. Wells --
 
-— H.G. Wells —
-
-</br></br></br>
+</br></br>
 
 
-## **¿En qué se utiliza?**
+## **¿Donde aplicarla?**
 
 La estadística es una ciencia transversal a las diversas disciplinas del conocimiento, como, por ejemplo: finanzas, ingeniería, salud, economía, contabilidad, mercadeo, sociología y ciencias, entre muchas otras.  Algunos ejemplos de su aplicación son:
 
@@ -84,11 +89,13 @@ La estadística descriptiva comprende los métodos para organizar, resumir y pre
 
 Su objetivo es la exploración sin restricciones de los datos en busca de regularidades interesantes. Las conclusiones solo se aplican a los individuos y a las circunstancias para los cuales se obtuvieron los datos, además son informales y se basan en lo que se observa en los datos.
 
+</br>
+
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+Descripción de la producción mensual de café durante el año 2016 través de una tabla o gráfico lineal o de barras, además se puede comparar las variaciones porcentuales del año 2016 respecto al 2015.
+
 </br></br>
-
-**Ejemplo** :  Descripción de la producción mensual de café durante el año 2016 través de una tabla o gráfico lineal o de barras, además se puede comparar las variaciones porcentuales del año 2016 respecto al 2015.
-
-</br></br></br>
 
 ## **Inferencia estadística**
 
@@ -96,11 +103,13 @@ La estadística inferencial consiste en el proceso inductivo que permite inferir
 
 Su objetivo es responder a preguntas concretas que se plantearon antes de la obtención de los datos. Las conclusiones se aplican a un grupo más amplio de individuos o situaciones, son formales y se hace explicito el grado de confianza que se tienen sobre ellas.
 
+</br>
+
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+A partir de una muestra aleatoria regional en el Valle del Cauca de 550 estudiantes se encuentra que el 45% de ellos están cursando primaria, esta proporción se generaliza a toda la población del departamento.
+
 </br></br>
-
-**Ejemplo** :  A partir de una muestra aleatoria regional en el Valle del Cauca de 550 estudiantes se encuentra que el 45% de ellos están cursando primaria, esta proporción se generaliza a toda la población del departamento.
-
-</br></br></br>
 
 ## **Validez**
 
@@ -116,75 +125,36 @@ otra medición.
 
 Es el grado en que la medición puede generalizarse a otras situaciones no medidas, depende en gran proporción de la conformación adecuada de la muestra a través de métodos estadísticos.
 
-</br></br>
+</br>
 
-**Ejemplo** :  Un estudio desea concluir sobre el ingreso promedio por vivienda de las familias de la ciudad Cali. Si en el estudio solo se encuestan familias que pertenecen al estrato 1 ¿Se podría concluir que el ingreso promedio calculado sobre ese grupo representa el promedio de ingresos para toda la ciudad?
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+Un estudio desea concluir sobre el ingreso promedio por vivienda de las familias de la ciudad Cali. Si en el estudio solo se encuestan familias que pertenecen al estrato 1 ¿Se podría concluir que el ingreso promedio calculado sobre ese grupo representa el promedio de ingresos para toda la ciudad?
 
 La respuesta es **NO**, la información obtenida a partir de ese estudio no podrá ser generalizada a toda la población dado que sólo se tuvo en cuenta cierto sector de la ciudad y se ignoraron las familias del estrato 2 al 6.
 
 
-<br/><br/></br>
+<br/></br>
 
 ## **Unidad de análisis** 
 
 Son los elementos u objetos que tiene información sobre el fenómeno que se estudia, es decir aquellos objetos descritos por un conjunto de datos. Los individuos pueden ser personas, pero también pueden ser animales o cosas.
 
-**Ejemplo** :  Si se estudia el peso promedio de los estudiantes en una carrera de la universidad, cada uno de los estudiantes son los individuos.
+<br/>
+
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+Si se estudia el peso promedio de los estudiantes en una carrera de la universidad, cada uno de los estudiantes son los individuos.
 
 </br></br>
-
-### **Variable** 
-
-Es cualquier característica de interés de un individuo. Una variable puede tomar distintos valores para distintos individuos.
-
-**Ejemplo** :  La edad de los estudiantes de primer semestre o el número de habitantes por vivienda.
-
-</br></br>
-
-## **Población** 
-
-Es el conjunto de todos los elementos de interés en un estudio, sobre los cuales se desea información y hacia los cuales se extenderán las conclusiones.
-
-</br></br>
-
-**Ejemplo** :  El total de estudiantes matriculados en la universidad o el total de la población en la ciudad de Cali.
-
-
-</br></br></br>
-
-## **Muestra** 
-
-Es cualquier subconjunto representativo de la población, sobre el que se realizan los estudios para obtener conclusiones acerca de las características de la población.
-
-**Ejemplo** :  100 estudiantes seleccionados del total de matriculados en la universidad o 500 personas seleccionadas de la población de Cali.
-
-
-</br></br></br>
-
-## **Parámetro**
-
-Indicador estadístico calculado teniendo en cuenta los elementos de la población.
-
-**Ejemplo**:  Edad promedio de todos los estudiantes matriculados en la universidad o los ingresos promedio de toda la población de la ciudad de Cali.
-
-</br></br></br>
-
-## **Estimador** 
-
-Indicador estadístico calculado teniendo en cuenta los elementos de la muestra.
-
-**Ejemplo** :  Edad promedio de una muestra de 100 estudiantes matriculados en la universidad o los ingresos promedio de una muestra de 500 personas de la ciudad de Cali.
-
-
-</br></br></br>
 
 ## **Variable**
 
 Corresponde a caracteristicas tomadas de la unidad de análisis.  Las variables se pueden clasificar segun su origen, naturaleza o relación con otras variables :
 
+<br/>
 
-
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/variable1.png")
 ```
 
@@ -203,13 +173,13 @@ knitr::include_graphics("img/variable1.png")
 
 Inicialmente nos concentraremos en la clasificación de las variables debido a su naturaleza :
 
-</br></br></br>
+</br></br>
 
 ### **Variables cualitativas** 
 
 Sus valores (categorías o modalidades) no se pueden asociar naturalmente a un número, ni se pueden hacer operaciones matemáticas con ellos. 
 
-</br></br></br>
+</br></br>
 
 ### **Variables cuantitativas** 
 
@@ -222,24 +192,24 @@ Toman valores numéricos y se pueden hacer operaciones matemáticas con ellos. E
 
 Las variables continuas pueden tomar cualquier valor real dentro de un intervalo, en general proceden de la medición de caracteristicas.
 
-</br></br>
+</br>
 
-**Ejemplos**: 
+<span style="color:#FF7F00">**Ejemplos**</span>
 
 * Estatura de los estudiantes de este curso, 
 * Temperaturas registradas al medio día durante el mes pasado, 
 * Peso de los profesores de estadística
 
 
-</br></br></br>
+</br></br>
 
 #### **Variables discretas**
 
 Las variables discretas sólo toman valores enteros, por lo general proceden el conteo y empiezan por número de ...
 
-</br></br>
+</br>
 
-**Ejemplos** : 
+<span style="color:#FF7F00">**Ejemplos**</span>
 
 * Número de hijos, 
 * Número de carros, 
@@ -247,57 +217,133 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 
 
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/escalas.png")
-```
-
-</br></br></br>
+</br></br>
 
 ### **Escalas de medición**
 
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/escalas.png")
+```
 </br></br>
 
 **Nominal** : En las variables con escala de medición nominal, sus valores no se pueden ordenar, es decir que no existe una forma particular para ordenar sus valores. | Religión (católico, cristiano, evangélico, anóstico), 
 
-</br></br>
+</br>
 
-**Ejemplo** :
+<span style="color:#FF7F00">**Ejemplos**</span>
 
 * Género (masculino,  femenino),  
 * Nacionalidad (colombiano, venezolano, ecuatoriano, ...) 
 
-</br></br></br>
+</br></br>
 
 **Ordinal** : En las variables con escala de medición ordinal, sus valores tienen un orden natural o se puede identificar un orden jerárquico entre sus valores o categorías. 
 
-</br></br>
+</br>
 
-**Ejemplo** :
+<span style="color:#FF7F00">**Ejemplos**</span>
 
 * Nivel educativo (primaria, secundaria, universitario, especialización, maestría, doctorado, postdoctorado), 
 * Estrato socioeconómico (1, 2, 3, 4, 5, 6) 
 * Nivel de estrés ( bajo, medio, alto)
 
-</br></br></br>
+</br></br>
 
 **De intervalo** : En estas variables el cero (0) es un valor arbitrario, no implica la ausencia de una
 característica.
 
-</br></br>
+</br>
 
-**Ejemplo** : 
+<span style="color:#FF7F00">**Ejemplo**</span>
 
 Temperatura de cero grados no indica que no hay temperatura, sólo es un valor que toma la variable para esa escala.
 
-</br></br></br>
+</br></br>
 
 **De razón** : El cero (0) refleja ausencia de la característica, implica la ausencia de una característica.
 
-</br></br>
+</br>
 
-**Ejemplo** : 
+<span style="color:#FF7F00">**Ejemplos**</span>
 
 * Número de hijos 
 * Salario 
 * Ventas mesuales
+
+<br/><br/>
+
+## **Población** 
+
+Es el conjunto de todos los elementos de interés en un estudio, sobre los cuales se desea información y hacia los cuales se extenderán las conclusiones.
+
+</br>
+
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+El total de estudiantes matriculados en la universidad o el total de la población en la ciudad de Cali.
+
+
+</br></br>
+
+## **Muestra** 
+
+Es cualquier subconjunto representativo de la población, sobre el que se realizan los estudios para obtener conclusiones acerca de las características de la población.
+
+<br/>
+
+<span style="color:#FF7F00">**Ejemplo**</span>
+
+100 estudiantes seleccionados del total de matriculados en la universidad o 500 personas seleccionadas de la población de Cali.
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/poblacion.png")
+```
+
+</br></br>
+
+## **Parámetro**
+
+Indicador estadístico calculado teniendo en cuenta los elementos de la población se denominan parámetros y son denotados de manera general como $\theta$.
+
+<br/>
+
+<span style="color:#FF7F00">**Ejemplos**</span>
+
+* Edad promedio de todos los estudiantes matriculados en la universidad ($\mu$) 
+* La proporción de personas con empleo formal en la ciudad de Cali ($p$).
+
+Para el cálculo de ambos parámetros se debe contar con la información del ceso corespondiente
+
+</br></br>
+
+## **Estimador   $\widehat{\theta}$** 
+
+Indicador estadístico calculado teniendo en cuenta los elementos de la muestra.
+
+
+<br/>
+
+<span style="color:#FF7F00">**Ejemplos**</span>
+
+* Edad promedio de una muestra de 100 estudiantes matriculados en la universidad ($\bar{x}$). 
+* Proporción muestral de personas con empleo de una muestra de 500 personas de la ciudad de Cali ($\widehat{p}$.
+
+En este caso los valores corresponden a  valores obtenidos de una muestra. 
+
+
+</br></br>
+
+## **Tipos de muestreo**
+
+Para seleccionar los datos podemos utilziar muestreos probabilisticos o no probabilisticos que se dividen en diferentes tipos como se indica en el siguiente diagrama
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/muestreos.png")
+```
+
+
+FALTAN MUESTREOS POR INTERNET
 

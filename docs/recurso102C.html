@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Visualización de datos</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Met y Sim Est.
+  </a>
+</li>
+<li>
+  <a href="recurso101.html">Conceptos básicos</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Software R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Visualización de datos</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<p><br/><br/><br/></p>
+<!-- ======================================================================= -->
+<blockquote>
+<p>Se denomina gráfico a una representación visual de una serie de
+datos, prepresentación que tiene como finalidad dar una rápida noción
+acerca de volúmenes, cantidades y porcentajes, estableciendo
+comparaciones</p>
+</blockquote>
+<p>Fuente : enciclopedia.net</p>
+<p><br/><br/></p>
+<p>Elegir el gráfico adecuado es muy importante, pues existen diferentes
+alternativas y se debe escoger el apropiado para representar los datos.
+El tipo de dato determina el tipo de gráfico así:</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="21%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Tipo de variable</th>
+<th align="left">Escala</th>
+<th align="left">Gráfico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cualitativas</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Nominal</td>
+<td align="left">Torta</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Ordinal</td>
+<td align="left">Barras</td>
+</tr>
+<tr class="even">
+<td align="left">Cuantitativas</td>
+<td align="left">Intervalo-razón</td>
+<td align="left">Diagrama de tallos y hojas</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Histograma</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Diagrama de cajas</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Diagrama de densidad</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Diagrama de puntos</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Diagrama de lineas</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Diagrama de radar</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Gráfico likert</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mapa de calor</td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<div id="gráficos-variables-cualitativas" class="section level2">
+<h2><strong>Gráficos variables cualitativas</strong></h2>
+<p><br/></p>
+<div id="gráfico-de-tortas" class="section level3">
+<h3><strong>Gráfico de tortas</strong></h3>
+<p>Este tipo de gráficos se utiliza para variables cualitativas medidas
+en escala nominal.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-barras" class="section level3">
+<h3><strong>Diagrama de barras</strong></h3>
+<p>El diagrama de barras se utiliza para representar variables
+cualitativas en escala ordinal. Es necesario que los valores
+representados sigan el orden de la escala.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-barras-con-dos-variables" class="section level3">
+<h3><strong>Diagrama de barras con dos variables</strong></h3>
+<p>Este diagrama se emplea para representar dos variables cualitativas
+que pueden ser de escala nominal u ordinal.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="gráficas-variables-cualitativas" class="section level2">
+<h2><strong>Gráficas variables cualitativas</strong></h2>
+<p><br/></p>
+<div id="diagrama-de-árbol" class="section level3">
+<h3><span style="color:#FF7F00"><strong>Diagrama de
+árbol</strong></span></h3>
+<pre><code>## 
+##   The decimal point is at the |
+## 
+##   1 | 67
+##   2 | 00012244444
+##   2 | 555677777778
+##   3 | 0000000000000011111111222222223344
+##   3 | 555555566677777777888999
+##   4 | 0111123</code></pre>
+<p>Este diagrama ordena los datos de manera que se puede determinar
+tanto el mínimo (1.6) como el máximo (4.3) , además de visualizar donde
+están la mayor concentración de ellos.</p>
+<p><br/><br/></p>
+</div>
+<div id="histograma" class="section level3">
+<h3><strong>Histograma</strong></h3>
+<p>El histograma es uno de los gráficos más utilizados para representar
+variables cuantitativas y permite resumir por rangos los diferentes
+datos. Es una buena forma de visualizar la distribución de los datos y
+su forma.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-densidad" class="section level3">
+<h3><strong>Diagrama de densidad</strong></h3>
+<p>Este diagrama corresponde a un contorno suavizado del histograma que
+permite visualizar claramente la forma de los datos.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-cajas" class="section level3">
+<h3><strong>Diagrama de cajas</strong></h3>
+<p>Es uno de las representaciones gráficas más utilizadas, pues además
+de los elementos y características que permite visualizar de las
+variables, permite comparar los resultados de dos o más grupos.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-dispersión" class="section level3">
+<h3><strong>Diagrama de dispersión</strong></h3>
+<p>Este diagrma de puntos permite visualizar la relación lineal que
+puede existir entre dos variables cualitativas.</p>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="gráfica-de-series-de-tiempo" class="section level3">
+<h3><strong>GRÁFICA DE SERIES DE TIEMPO</strong></h3>
+<p><img src="recurso102C_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="código-r" class="section level3">
+<h3><strong>Código R</strong></h3>
+<pre>
+# sumulación de datos
+x=rnorm(100,100,20)   
+y=rnorm(100,100,25)   
+z=rbinom(100,4,0.30)
+t=1:100
+
+pie(table(z))        # gráfico de torta
+barplot(table(z))    # diagrama de barras
+stem(x)              # diagrama de tallos y hojas
+hist(x)              # histograma
+boxplot(x)           # diagrama de cajas
+plot(x,y)            # diagrama de dispersión 
+plot(t,y, type="l")  # linea de tiempo
+plot(density(x))     # diagrama de densidad
+</pre>
+<p><br/><br/></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

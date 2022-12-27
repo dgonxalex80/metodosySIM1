@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -36,6 +36,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -316,18 +318,63 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Análisis de exploratorio de datos</a>
+      <a class="navbar-brand" href="index.html"> </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Met y Sim Est.
+  </a>
+</li>
+<li>
   <a href="recurso101.html">Conceptos básicos</a>
 </li>
-<li>
-  <a href="recurso102.html">Análisis de datos</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="recurso103.html">Software R</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Software R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -348,9 +395,11 @@ div.tocify {
 </div>
 
 
+<p></br></br><br/></p>
 <div id="estadística" class="section level1">
 <h1><strong>Estadística</strong></h1>
-<p></br></br></br></p>
+<p><img src="img/statistics1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
 <div id="qué-es" class="section level2">
 <h2><strong>¿Qué es?</strong></h2>
 <p></br></p>
@@ -381,14 +430,15 @@ transformación de datos en información. Teniendo en cuenta que los datos
 son sólo la representación numérica o categórica de una medición y la
 información es la integración de esos datos y factores del contexto para
 generar un criterio suficiente en la toma de decisiones.</p>
-<p>&lt;&lt; Llegará el día en el que el pensamiento estadístico será una
+<blockquote>
+<p>Llegará el día en el que el pensamiento estadístico será una
 condición tan necesaria para la convivencia eficiente como la capacidad
-de leer y escribir &gt;&gt;</p>
-<p>— H.G. Wells —</p>
-<p></br></br></br></p>
+de leer y escribir –H.G. Wells –</p>
+</blockquote>
+<p></br></br></p>
 </div>
-<div id="en-qué-se-utiliza" class="section level2">
-<h2><strong>¿En qué se utiliza?</strong></h2>
+<div id="donde-aplicarla" class="section level2">
+<h2><strong>¿Donde aplicarla?</strong></h2>
 <p>La estadística es una ciencia transversal a las diversas disciplinas
 del conocimiento, como, por ejemplo: finanzas, ingeniería, salud,
 economía, contabilidad, mercadeo, sociología y ciencias, entre muchas
@@ -431,12 +481,12 @@ de regularidades interesantes. Las conclusiones solo se aplican a los
 individuos y a las circunstancias para los cuales se obtuvieron los
 datos, además son informales y se basan en lo que se observa en los
 datos.</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Descripción de la producción mensual de café durante el año 2016
+través de una tabla o gráfico lineal o de barras, además se puede
+comparar las variaciones porcentuales del año 2016 respecto al 2015.</p>
 <p></br></br></p>
-<p><strong>Ejemplo</strong> : Descripción de la producción mensual de
-café durante el año 2016 través de una tabla o gráfico lineal o de
-barras, además se puede comparar las variaciones porcentuales del año
-2016 respecto al 2015.</p>
-<p></br></br></br></p>
 </div>
 <div id="inferencia-estadística" class="section level2">
 <h2><strong>Inferencia estadística</strong></h2>
@@ -447,12 +497,13 @@ observadas en una muestra.</p>
 antes de la obtención de los datos. Las conclusiones se aplican a un
 grupo más amplio de individuos o situaciones, son formales y se hace
 explicito el grado de confianza que se tienen sobre ellas.</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>A partir de una muestra aleatoria regional en el Valle del Cauca de
+550 estudiantes se encuentra que el 45% de ellos están cursando
+primaria, esta proporción se generaliza a toda la población del
+departamento.</p>
 <p></br></br></p>
-<p><strong>Ejemplo</strong> : A partir de una muestra aleatoria regional
-en el Valle del Cauca de 550 estudiantes se encuentra que el 45% de
-ellos están cursando primaria, esta proporción se generaliza a toda la
-población del departamento.</p>
-<p></br></br></br></p>
 </div>
 <div id="validez" class="section level2">
 <h2><strong>Validez</strong></h2>
@@ -471,17 +522,18 @@ instrumento, esta no varié, de una a otra medición.</p>
 <p>Es el grado en que la medición puede generalizarse a otras
 situaciones no medidas, depende en gran proporción de la conformación
 adecuada de la muestra a través de métodos estadísticos.</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> : Un estudio desea concluir sobre el ingreso
-promedio por vivienda de las familias de la ciudad Cali. Si en el
-estudio solo se encuestan familias que pertenecen al estrato 1 ¿Se
-podría concluir que el ingreso promedio calculado sobre ese grupo
-representa el promedio de ingresos para toda la ciudad?</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Un estudio desea concluir sobre el ingreso promedio por vivienda de
+las familias de la ciudad Cali. Si en el estudio solo se encuestan
+familias que pertenecen al estrato 1 ¿Se podría concluir que el ingreso
+promedio calculado sobre ese grupo representa el promedio de ingresos
+para toda la ciudad?</p>
 <p>La respuesta es <strong>NO</strong>, la información obtenida a partir
 de ese estudio no podrá ser generalizada a toda la población dado que
 sólo se tuvo en cuenta cierto sector de la ciudad y se ignoraron las
 familias del estrato 2 al 6.</p>
-<p><br/><br/></br></p>
+<p><br/></br></p>
 </div>
 <div id="unidad-de-análisis" class="section level2">
 <h2><strong>Unidad de análisis</strong></h2>
@@ -489,63 +541,19 @@ familias del estrato 2 al 6.</p>
 que se estudia, es decir aquellos objetos descritos por un conjunto de
 datos. Los individuos pueden ser personas, pero también pueden ser
 animales o cosas.</p>
-<p><strong>Ejemplo</strong> : Si se estudia el peso promedio de los
-estudiantes en una carrera de la universidad, cada uno de los
-estudiantes son los individuos.</p>
-<p></br></br></p>
-<div id="variable" class="section level3">
-<h3><strong>Variable</strong></h3>
-<p>Es cualquier característica de interés de un individuo. Una variable
-puede tomar distintos valores para distintos individuos.</p>
-<p><strong>Ejemplo</strong> : La edad de los estudiantes de primer
-semestre o el número de habitantes por vivienda.</p>
+<p><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Si se estudia el peso promedio de los estudiantes en una carrera de
+la universidad, cada uno de los estudiantes son los individuos.</p>
 <p></br></br></p>
 </div>
-</div>
-<div id="población" class="section level2">
-<h2><strong>Población</strong></h2>
-<p>Es el conjunto de todos los elementos de interés en un estudio, sobre
-los cuales se desea información y hacia los cuales se extenderán las
-conclusiones.</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> : El total de estudiantes matriculados en la
-universidad o el total de la población en la ciudad de Cali.</p>
-<p></br></br></br></p>
-</div>
-<div id="muestra" class="section level2">
-<h2><strong>Muestra</strong></h2>
-<p>Es cualquier subconjunto representativo de la población, sobre el que
-se realizan los estudios para obtener conclusiones acerca de las
-características de la población.</p>
-<p><strong>Ejemplo</strong> : 100 estudiantes seleccionados del total de
-matriculados en la universidad o 500 personas seleccionadas de la
-población de Cali.</p>
-<p></br></br></br></p>
-</div>
-<div id="parámetro" class="section level2">
-<h2><strong>Parámetro</strong></h2>
-<p>Indicador estadístico calculado teniendo en cuenta los elementos de
-la población.</p>
-<p><strong>Ejemplo</strong>: Edad promedio de todos los estudiantes
-matriculados en la universidad o los ingresos promedio de toda la
-población de la ciudad de Cali.</p>
-<p></br></br></br></p>
-</div>
-<div id="estimador" class="section level2">
-<h2><strong>Estimador</strong></h2>
-<p>Indicador estadístico calculado teniendo en cuenta los elementos de
-la muestra.</p>
-<p><strong>Ejemplo</strong> : Edad promedio de una muestra de 100
-estudiantes matriculados en la universidad o los ingresos promedio de
-una muestra de 500 personas de la ciudad de Cali.</p>
-<p></br></br></br></p>
-</div>
-<div id="variable-1" class="section level2">
+<div id="variable" class="section level2">
 <h2><strong>Variable</strong></h2>
 <p>Corresponde a caracteristicas tomadas de la unidad de análisis. Las
 variables se pueden clasificar segun su origen, naturaleza o relación
 con otras variables :</p>
-<p><img src="img/variable1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
+<p><img src="img/variable1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p></br></br></p>
 <p><strong>Por su origen</strong> : Una variable es aleatoria cuando los
 valores resultantes de una medición no se pueden predecir de antemano.
@@ -561,13 +569,13 @@ comportamiento está relacionado o depende de otra variable se califica
 como dependiente en caso contrario se clasifica como independiente</p>
 <p>Inicialmente nos concentraremos en la clasificación de las variables
 debido a su naturaleza :</p>
-<p></br></br></br></p>
+<p></br></br></p>
 <div id="variables-cualitativas" class="section level3">
 <h3><strong>Variables cualitativas</strong></h3>
 <p>Sus valores (categorías o modalidades) no se pueden asociar
 naturalmente a un número, ni se pueden hacer operaciones matemáticas con
 ellos.</p>
-<p></br></br></br></p>
+<p></br></br></p>
 </div>
 <div id="variables-cuantitativas" class="section level3">
 <h3><strong>Variables cuantitativas</strong></h3>
@@ -578,74 +586,141 @@ ellos. Estas se clasifican en dos grupos: continuas y discretas.</p>
 <h4><strong>Variables continuas</strong></h4>
 <p>Las variables continuas pueden tomar cualquier valor real dentro de
 un intervalo, en general proceden de la medición de caracteristicas.</p>
-<p></br></br></p>
-<p><strong>Ejemplos</strong>:</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
 <li>Estatura de los estudiantes de este curso,</li>
 <li>Temperaturas registradas al medio día durante el mes pasado,</li>
 <li>Peso de los profesores de estadística</li>
 </ul>
-<p></br></br></br></p>
+<p></br></br></p>
 </div>
 <div id="variables-discretas" class="section level4">
 <h4><strong>Variables discretas</strong></h4>
 <p>Las variables discretas sólo toman valores enteros, por lo general
 proceden el conteo y empiezan por número de …</p>
-<p></br></br></p>
-<p><strong>Ejemplos</strong> :</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
 <li>Número de hijos,</li>
 <li>Número de carros,</li>
 <li>Número de materias matriculas este semestre</li>
 </ul>
-<p><img src="img/escalas.png" width="70%" style="display: block; margin: auto;" /></p>
-<p></br></br></br></p>
+<p></br></br></p>
 </div>
 </div>
 <div id="escalas-de-medición" class="section level3">
 <h3><strong>Escalas de medición</strong></h3>
-<p></br></br></p>
+<p><img src="img/escalas.png" width="100%" style="display: block; margin: auto;" />
+</br></br></p>
 <p><strong>Nominal</strong> : En las variables con escala de medición
 nominal, sus valores no se pueden ordenar, es decir que no existe una
 forma particular para ordenar sus valores. | Religión (católico,
 cristiano, evangélico, anóstico),</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> :</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
 <li>Género (masculino, femenino),<br />
 </li>
 <li>Nacionalidad (colombiano, venezolano, ecuatoriano, …)</li>
 </ul>
-<p></br></br></br></p>
+<p></br></br></p>
 <p><strong>Ordinal</strong> : En las variables con escala de medición
 ordinal, sus valores tienen un orden natural o se puede identificar un
 orden jerárquico entre sus valores o categorías.</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> :</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
 <li>Nivel educativo (primaria, secundaria, universitario,
 especialización, maestría, doctorado, postdoctorado),</li>
 <li>Estrato socioeconómico (1, 2, 3, 4, 5, 6)</li>
 <li>Nivel de estrés ( bajo, medio, alto)</li>
 </ul>
-<p></br></br></br></p>
+<p></br></br></p>
 <p><strong>De intervalo</strong> : En estas variables el cero (0) es un
 valor arbitrario, no implica la ausencia de una característica.</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> :</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <p>Temperatura de cero grados no indica que no hay temperatura, sólo es
 un valor que toma la variable para esa escala.</p>
-<p></br></br></br></p>
+<p></br></br></p>
 <p><strong>De razón</strong> : El cero (0) refleja ausencia de la
 característica, implica la ausencia de una característica.</p>
-<p></br></br></p>
-<p><strong>Ejemplo</strong> :</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
 <li>Número de hijos</li>
 <li>Salario</li>
 <li>Ventas mesuales</li>
 </ul>
+<p><br/><br/></p>
 </div>
+</div>
+<div id="población" class="section level2">
+<h2><strong>Población</strong></h2>
+<p>Es el conjunto de todos los elementos de interés en un estudio, sobre
+los cuales se desea información y hacia los cuales se extenderán las
+conclusiones.</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>El total de estudiantes matriculados en la universidad o el total de
+la población en la ciudad de Cali.</p>
+<p></br></br></p>
+</div>
+<div id="muestra" class="section level2">
+<h2><strong>Muestra</strong></h2>
+<p>Es cualquier subconjunto representativo de la población, sobre el que
+se realizan los estudios para obtener conclusiones acerca de las
+características de la población.</p>
+<p><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>100 estudiantes seleccionados del total de matriculados en la
+universidad o 500 personas seleccionadas de la población de Cali.</p>
+<p><img src="img/poblacion.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+</div>
+<div id="parámetro" class="section level2">
+<h2><strong>Parámetro</strong></h2>
+<p>Indicador estadístico calculado teniendo en cuenta los elementos de
+la población se denominan parámetros y son denotados de manera general
+como <span class="math inline">\(\theta\)</span>.</p>
+<p><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
+<ul>
+<li>Edad promedio de todos los estudiantes matriculados en la
+universidad (<span class="math inline">\(\mu\)</span>)</li>
+<li>La proporción de personas con empleo formal en la ciudad de Cali
+(<span class="math inline">\(p\)</span>).</li>
+</ul>
+<p>Para el cálculo de ambos parámetros se debe contar con la información
+del ceso corespondiente</p>
+<p></br></br></p>
+</div>
+<div id="estimador-widehattheta" class="section level2">
+<h2><strong>Estimador <span
+class="math inline">\(\widehat{\theta}\)</span></strong></h2>
+<p>Indicador estadístico calculado teniendo en cuenta los elementos de
+la muestra.</p>
+<p><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
+<ul>
+<li>Edad promedio de una muestra de 100 estudiantes matriculados en la
+universidad (<span class="math inline">\(\bar{x}\)</span>).</li>
+<li>Proporción muestral de personas con empleo de una muestra de 500
+personas de la ciudad de Cali (<span
+class="math inline">\(\widehat{p}\)</span>.</li>
+</ul>
+<p>En este caso los valores corresponden a valores obtenidos de una
+muestra.</p>
+<p></br></br></p>
+</div>
+<div id="tipos-de-muestreo" class="section level2">
+<h2><strong>Tipos de muestreo</strong></h2>
+<p>Para seleccionar los datos podemos utilziar muestreos probabilisticos
+o no probabilisticos que se dividen en diferentes tipos como se indica
+en el siguiente diagrama</p>
+<p><img src="img/muestreos.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>FALTAN MUESTREOS POR INTERNET</p>
 </div>
 </div>
 

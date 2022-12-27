@@ -1,11 +1,11 @@
 ---
-title : <span style="color:#034A94"> **Análisis exploratorio de datos**</span>
+title : <span style="color:#000000"> **Contexto**</span>
 author: "  " 
 html_document:
     toc: yes
     toc_depth: 2
     toc_float: yes
-    theme: default
+    theme: cerulean
 css: style.css
 ---
 
@@ -30,29 +30,29 @@ knitr::include_graphics("img/banner_presentacion.png")
 
 </br></br>
 
-En esta unidad se abordaran las principales herramientas estadísticas para el análisis de datos, a traves de los conceptos principales y  las herramientas estadísticas para  resumir y analizar datos, además de los códigos en R que nos permiten hacerlos
 
+En esta unidad nos ocuparemos de construir conocimiento en torno a tres conceptos. Conceptos básicos de estadística , análisis exploratorio de datos y  manejo del software R. 
 
 Utilizaremos los pasos de la Metodología Estadística como estrategia para ubicar los métodos estadísticos empleados en este curso :
 
 
 <br/>
 
-##### 1. **Definición del problema**
-##### 2. **Definición de los objetivos**
-##### 3. **Definición de las variables de interés**
-##### 4. **Diseño del experimento**
-##### 5. **Recolección de la información**
-##### 6. **Procesamiento de los datos**
-##### 7. <span style="color:#FF7F00">**Análisis descriptivo o exploratorio de datos**</span>
-#####    <span style="color:#C9C9C9">**Probabilidad**</span>
-#####    <span style="color:#C9C9C9">**Variable aleatoria**</span>
-##### 8. <span style="color:#FF7F00">**Inferencia estadística**</span>
-##### 9. **Conclusiones y recomendaciones**
+### 1. **Definición del problema**
+### 2. **Definición de los objetivos**
+### 3. **Definición de las variables de interés**
+### 4. **Diseño del experimento**
+### 5. **Recolección de la información**
+### 6. **Procesamiento de los datos**
+### 7. <span style="color:#FF7F00">**Análisis descriptivo o exploratorio de datos**</span>
+<!-- #####    <span style="color:#C9C9C9">**Probabilidad**</span> -->
+<!-- #####    <span style="color:#C9C9C9">**Variable aleatoria**</span> -->
+### 8. <span style="color:#FF7F00">**Inferencia estadística**</span>
+### 9. **Conclusiones y recomendaciones**
 
 <br/><br/>
 
-**Nota** : 
+<span style="color:#FF7F00">**Nota**</span>: 
 
 La Métodologa Estadística está basada en el método científico que corresponde a un procedimiento iterativo de aprendizaje, el cual está compuesto por las siguientes etapas: 
 
@@ -62,13 +62,8 @@ La Métodologa Estadística está basada en el método científico que correspon
 
 <br/><br/>
 
-Es necesario tener en cuenta al realizar un análisis exploratorio de datos (paso 7 de la Metodología Estadística) los pasos previos a este, como son la definición del problema objeto de estudio, cual será nuestra meta (objetivos) o finalidad del estudio. Que variables debemos recoger para poder cumplir con el objetivo propuesto, además del diseño del experimento, es decir como se requiere recolectar la infomación, cuanta información, las fuentes y los medios para su procesamiento.
+Es necesario tener en cuenta al realizar un análisis exploratorio de datos los pasos previos a este, como son la definición del problema objeto de estudio, cual será nuestra meta (objetivos) o finalidad del estudio. Que variables debemos recoger para poder cumplir con el objetivo propuesto, además del diseño del experimento, es decir como se requiere recolectar la infomación, cuanta información, las fuentes y los medios para su procesamiento.
 
-Despues de tener claridad sobre los pasos anteriores (1 a 6) se empieza el análisis expleratorio de datos. Con él realizamos una primera aproximación a los objetivos planteados. 
-
-
+Despues de tener claridad sobre los pasos anteriores (1 a 6 de la metodología estadística) se empieza el análisis expleratorio de datos. Con él realizamos una primera aproximación a los objetivos planteados. 
 
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-# knitr::include_graphics("img/metodologia1.png")
-```

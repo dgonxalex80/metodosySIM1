@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -36,6 +36,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -316,18 +318,63 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Análisis de exploratorio de datos</a>
+      <a class="navbar-brand" href="index.html"> </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Met y Sim Est.
+  </a>
+</li>
+<li>
   <a href="recurso101.html">Conceptos básicos</a>
 </li>
-<li>
-  <a href="recurso102.html">Análisis de datos</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
-<li>
-  <a href="recurso103.html">Software R</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Software R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -348,69 +395,27 @@ div.tocify {
 </div>
 
 
+<p></br></br></br></p>
+<div id="representación-de-datos" class="section level1">
+<h1><strong>Representación de datos</strong></h1>
+<p></br></p>
+<p>Una de las formas para organizar y resumir conjuntos grandes de datos
+es por medio de tablas y gráficas de frecuencias, dado que permiten
+condensar la información y facilitan la apreciación de su contenido.
+Pese a que ambas formas proporcionan información similar, cuando se
+desea transmitir una idea rápida y sencilla es preferible utilizar una
+gráfica de frecuencias; mientras que cuando se desea analizar los datos
+con mayor detenimiento o precisión, las tablas de frecuencias son más
+útiles.</p>
 <p></br></br></p>
-<div id="tablas-de-frecuencia" class="section level1">
-<h1><strong>Tablas de frecuencia</strong></h1>
-</div>
-<div id="indicadores" class="section level1">
-<h1><strong>Indicadores</strong></h1>
-<div id="indicadores-de-posición" class="section level2">
-<h2><strong>Indicadores de posición</strong></h2>
-<div id="percentiles" class="section level3">
-<h3><strong>Percentiles</strong></h3>
-</div>
-</div>
-<div id="deciles" class="section level2">
-<h2><strong>Deciles</strong></h2>
-</div>
-<div id="cuartiles" class="section level2">
-<h2><strong>Cuartiles</strong></h2>
-</div>
-<div id="indicadores-de-centro" class="section level2">
-<h2><strong>Indicadores de centro</strong></h2>
-<div id="media-aritmética" class="section level3">
-<h3><strong>Media aritmética</strong></h3>
-</div>
-<div id="mediana" class="section level3">
-<h3><strong>Mediana</strong></h3>
-</div>
-<div id="moda" class="section level3">
-<h3><strong>Moda</strong></h3>
-</div>
-<div id="media-truncada" class="section level3">
-<h3><strong>Media truncada</strong></h3>
-</div>
-<div id="rango-medio" class="section level3">
-<h3><strong>Rango medio</strong></h3>
-</div>
-</div>
-<div id="indicadores-de-dispersión" class="section level2">
-<h2><strong>Indicadores de dispersión</strong></h2>
-<div id="rango" class="section level3">
-<h3><strong>Rango</strong></h3>
-</div>
-<div id="varianza" class="section level3">
-<h3><strong>Varianza</strong></h3>
-</div>
-<div id="desviación-estandar" class="section level3">
-<h3><strong>Desviación estandar</strong></h3>
-</div>
-<div id="coeficiente-de-variación" class="section level3">
-<h3><strong>Coeficiente de variación</strong></h3>
-</div>
-</div>
-<div id="indicadores-de-forma" class="section level2">
-<h2><strong>Indicadores de forma</strong></h2>
-<div id="coeficiente-de-curtosis" class="section level3">
-<h3><strong>Coeficiente de curtosis</strong></h3>
-</div>
-</div>
-<div id="coeficiente-de-asimetría" class="section level2">
-<h2><strong>Coeficiente de asimetría</strong></h2>
-</div>
-<div id="codigormd" class="section level2">
-<h2>Inclusión de código R</h2>
-</div>
+<p>Es posible construir una gran variedad de tablas y gráficas, sin
+embargo, en este momento solo se presentarán tablas y gráficas de
+frecuencia de una sola variable (una sola entrada) y sólo tres casos o
+tipos de tablas (datos categóricos, datos puntuales y datos agrupados),
+que pueden construirse a partir de un determinado conjunto de datos ya
+sea para una muestra o una población.</p>
+<p></br></br></p>
+<p>TABLERO??</p>
 </div>
 
 

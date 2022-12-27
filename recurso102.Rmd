@@ -6,72 +6,35 @@ output:
     toc: yes
     toc_depth: 2
     toc_float: yes
-    theme: default
+    theme: cerulean
 css: style.css
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
-
+library(readr)
+library(tidyverse)
+library(DT)
+readRDS("/home/deg/Documentos/Javeriana/Ms en Ciencia de Datos/data/RioCali.RSD")
 
 ```
+
+</br></br></br>
+
+# **Representación de datos**
+
+</br>
+
+Una de las formas para organizar y resumir conjuntos grandes de datos es por medio de tablas y gráficas de frecuencias, dado que permiten condensar la información y facilitan la apreciación de su contenido. Pese a que ambas formas proporcionan información similar, cuando se desea transmitir una idea rápida y sencilla es preferible utilizar una gráfica de frecuencias; mientras que cuando se desea analizar los datos con mayor detenimiento o precisión, las tablas de frecuencias son más útiles.
+
+</br></br>
+
+Es posible construir una gran variedad de tablas y gráficas, sin embargo, en este momento solo se presentarán tablas y gráficas de frecuencia de una sola variable (una sola entrada) y sólo tres casos o tipos de tablas (datos categóricos, datos puntuales y datos agrupados), que pueden construirse a partir de un determinado conjunto de datos ya sea para una muestra o una población.
 
 
 
 </br></br>
 
-
-# **Tablas de frecuencia**
-
-
-# **Indicadores**
-
-## **Indicadores de posición**
-
-### **Percentiles**
-
-## **Deciles**
-
-## **Cuartiles**
-
-
-
-## **Indicadores de centro**
-
-### **Media aritmética**
-
-### **Mediana**
-
-### **Moda**
-
-### **Media truncada**
-
-### **Rango medio**
-
-
-
-## **Indicadores de dispersión**
-
-### **Rango**
-
-### **Varianza**
-
-### **Desviación estandar**
-
-### **Coeficiente de variación**
-
-
-
-## **Indicadores de forma**
-
-
-### **Coeficiente de curtosis**
-
-## **Coeficiente de asimetría**
-
-
-
-
-## Inclusión de código R {#codigormd}
+TABLERO??
 
 

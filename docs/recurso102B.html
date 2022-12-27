@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Indicadores</title>
+
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Met y Sim Est.
+  </a>
+</li>
+<li>
+  <a href="recurso101.html">Conceptos básicos</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Software R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Indicadores</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<p></br></br><br/></p>
+<p>Cuando nos subimos a un auto observamos un tablero con muchos
+indicadores que permiten al conductor validar el estado del vehículo.
+Todos los podemos visualizar al tiempo con el fin de darnos una idea del
+nivel de combustible, la temperatura, el estado de la batería, si alguna
+puerta esta abierta, la velocidad a la que se viaja, entre otros.</p>
+<p></br></p>
+<p>Figura 1: Tablero vehículo
+<img src="img/indicadores.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Imagen tomada de : <a
+href="https://www.freepik.com/free-vector/dashboard-background-with-color-signals_1048637.htm#query=tablero%20de%20auto&amp;position=0&amp;from_view=search&amp;track=ais">freepik</a></p>
+<p><br/></p>
+<p>Al igual que la situación anterior cuando nos enfrentamos a una
+análisis de datos, requerimos resumirlos en indicadores, tablas y
+gráficos que nos permitan un fácil análisis de ellos.</p>
+<p></br></p>
+<p>Para los datos cuantitativos se pueden utilizar tablas de frecuencia
+para identificando el valor más repitido, indicador que se denomina
+<strong>MODA</strong>.</p>
+<p></br></p>
+<p>Para las variable cuantitativas existen una serie de indicadores que
+caracterizan y facilitan su análisis como son :</p>
+<ul>
+<li>Indicadores de posición</li>
+<li>Indicadores de centro</li>
+<li>Indicadores de dispersión o variabilidad</li>
+<li>Indicadores de forma</li>
+</ul>
+<p></br></p>
+<p>Iniciaremos con los indicadores de posición</p>
+<p></br></br></p>
+<!-- ======================================================================= -->
+<div id="de-posición" class="section level1">
+<h1><strong>De posición</strong></h1>
+<p></br></br></p>
+<p>Figura 2 : Carrera
+<img src="img/carrera.jpg" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+<p>En octubre de 2022 se corrió la carrera de la Luz, contando con 1922
+participantes en 10 categorías por edad y sexo. ( Juvenil, Abierta,
+Veteranos A, Veteranos B y Veteranos C para hombre y mujeres).</p>
+<p>El siguiente gráfico de puntos representa los tiempos alcanzados por
+los participantes por categoría y sexo empleados para recorrer los 10
+kilómetros de la competecia.</p>
+<p></br></br></p>
+<p>Gráfico 1 : Tiempos por categoría y sexo - Carrera La Luz 2022
+<img src="img/RplotRioCaliMH.png" width="100%" style="display: block; margin: auto;" />
+Fuente :<a
+href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a></p>
+<p></br></br></p>
+<p>Para un participante que llega a la meta es interesante poder
+comparar el resultado obtenido con respecto al grupo. La respuesta está
+en los indicadores de posición.</p>
+<p></br></br></p>
+<div id="percentiles" class="section level2">
+<h2><strong>Percentiles</strong></h2>
+<p>Los percentiles corresponden a 99 valores que dividen los datos en
+cien partes de igual porcentaje (<span
+class="math inline">\(P_1\)</span>, <span
+class="math inline">\(P_2\)</span>, <span
+class="math inline">\(P_3\)</span>, <span
+class="math inline">\(P_4\)</span>, <span
+class="math inline">\(\dots\)</span>, <span
+class="math inline">\(P_{99}\)</span>).</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Para ilustrar el concepto, pensemos en que participamos de una
+carrera. El percentil dará cuenta de mi posición dentro del grupo.</p>
+<p>Ahora supongamos que dos corredores que se llamarán
+<code>María</code> y <code>Carlos</code> participaron en la carrera.
+<code>María</code> ocupó un lugar correspondiente al percentil 40 (<span
+class="math inline">\(P_{40}\)</span>) y <code>Carlos</code> ocupó el
+puesto que corresponde al percentil 30 (<span
+class="math inline">\(P_{30}\)</span>). Podríamos afirmar que a Carlos
+obtuvo un mejor resultado que María ?. La respuesta es que se debe tener
+más información para poderlo afirmar</p>
+<p>El resultado depende del grupo en que participó cada uno de los
+corredores. Por ejemplo supongamos que :</p>
+<p><code>Carlos</code> tiene 55 años y pertenece por tanto a la
+categoría <em>Veteranos B</em> (corredores con edad entre los 50 y 60
+años), mientras que <code>María</code> tiene 25 años y por tanto
+pertenece a la categoría <em>Abierta</em> (18 a 39 años).</p>
+<p>Veamos en cada caso que tiempo marcaron los corredores con un punto
+en su respectivas categorías:</p>
+<p>Gráfica 2 : Tiempos y posiciones de Carlos y María
+<img src="img/Rplotcarrera.png" width="100%" style="display: block; margin: auto;" />
+Fuente : <a
+href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a></p>
+<p></br></br></p>
+</div>
+<div id="deciles" class="section level2">
+<h2><strong>Deciles</strong></h2>
+<p>Los deciles por su parte corresponden a 9 número que dividen la
+muestra en 10 partes, cada una con un 10% de la muestra (<span
+class="math inline">\(D_{1}\)</span>, <span
+class="math inline">\(D_{2}\)</span>, <span
+class="math inline">\(D_{3}\)</span>, <span
+class="math inline">\(D_{4}\)</span>, <span
+class="math inline">\(\cdots\)</span> , <span
+class="math inline">\(D_{9}\)</span>)</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Los deciles correspondeines a los tiempos registrados en la categoría
+Abierta para hombres se ilustran en la siguiente gráfica con los puntos
+naranjas.</p>
+<p></br></br></p>
+<p>Gráfica 3 : Tiempos hombres categoría Abierta
+<img src="img/RplotDeciles.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+<pre>
+D1       D2       D3       D4       D5       D6       D7       D8       D9    
+10%      20%      30%      40%      50%      60%      70%      80%      90% 
+48.08    51.82    54.98    57.58    59.60    62.75    67.71    71.04    78.80 
+</pre>
+<p></br></br></p>
+</div>
+<div id="cuartiles" class="section level2">
+<h2><strong>Cuartiles</strong></h2>
+<p>Los cuartiles son 3 números que dividen la muestra en cuatro partes,
+cada una con un 25% de los datos. Con estos indicadores se contruye el
+diagrma de cajas que además de permitir comparar grupos, ayudan en la
+identificación de datos atípicos</p>
+<p></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Gráfica 4 : Tiempos hombres categoría Abierta
+<img src="img/RplotBoxplot.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+<pre>
+Alambre inferior        Q1          Q2           Q3          Alambre superior
+Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
+30.175                  25%         50%          75%   
+                        53.50       59.60        69.05       92.375
+</pre>
+<p></br></br></p>
+<p>Los valores que queden por fuera de los alambres, se consideran como
+datos atípicos, que son objeto de estudio por separado para averiguar
+sus causas</p>
+<!-- ======================================================================= -->
+<p></br></br></br></p>
+</div>
+</div>
+<div id="de-centro" class="section level1">
+<h1><strong>De centro</strong></h1>
+<p></br></p>
+<p>Una vez que se han organizado los datos y se ha observado su
+distribución a través de tablas o gráficos de frecuencias, en ocasiones
+se requiere de indicadores que resuman los datos, es decir que en forma
+muy directa puedan indicar rasgos importantes de las observaciones,como
+su magnitud, su homogeneidad y su simetría. Estas medidas a través de un
+único valor representan todo el conjunto de observaciones. Entre los
+principales indicadores de tendencia central se encuentran: La media
+aritmética o promedio aritmético (o simplemente media o promedio), la
+mediana y la moda.</p>
+<p></br></br></p>
+<div id="media-aritmética" class="section level2">
+<h2><strong>Media aritmética</strong></h2>
+<p>Es el indicador de tendencia central más conocido y utilizado por su
+fácil interpretación y calculo. Consiste en sumar todos los valores de
+un conjunto de datos y dividirlos por el número de datos.</p>
+<p><br/></p>
+<p><span class="math display">\[\bar{x}= \frac{1}{n} \sum_{i=1}^{n}
+x_{i}\]</span></p>
+<p></br></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>La siguiente es la informaciçon de los tiempos correspondientes a la
+categoría juvenil femenina:</p>
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+n    = 12
+suma = 717.20
+promedio = 59.77
+</pre>
+<p><br/></p>
+<p>En promedio las mujeres de la categoría juveniles presentan el
+promedio más bajo (59.77 min).</p>
+<p></br></br></p>
+<div id="caracteristicas" class="section level3">
+<h3><strong>Caracteristicas</strong></h3>
+<ul>
+<li><p>La suma de las desviaciones de los datos con respecto a la media
+es cero. <span class="math inline">\(\sum
+(x_{i}-\bar{x})=0\)</span>.</p></li>
+<li><p>La suma de los cuadrados de las desviaciones de los datos con
+respecto a un valor <span class="math inline">\(a\)</span> es mínimo
+cuando <span class="math inline">\(a=\bar{x}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x_{i}=k\)</span> para todo <span
+class="math inline">\(i\)</span>, entonces, <span
+class="math inline">\(\bar{x}=k\)</span>.</p></li>
+<li><p>Si todos los datos de una variable se multiplican por una
+constante <span class="math inline">\(k\)</span>, es decir <span
+class="math inline">\(y_{i}=kx_{i}\)</span>, entonces <span
+class="math inline">\(\bar{y}=k\bar{x}\)</span></p></li>
+<li><p>Si <span class="math inline">\(z_{i}=a x_{i}+b y_{i}\)</span>,
+donde: <strong>a</strong>, <strong>b</strong> constantes y <span
+class="math inline">\(x_{i}\)</span>, <span
+class="math inline">\(y_{i}\)</span> variables, entonces: <span
+class="math inline">\(\bar{z}=a\bar{x}+b\bar{y}\)</span>.</p></li>
+</ul>
+<p><br/> <br/></p>
+</div>
+</div>
+<div id="mediana" class="section level2">
+<h2><strong>Mediana</strong></h2>
+<p>La <strong>mediana</strong> es el número que divide la muestra en dos
+partes de igual proporción (50% : 50%). Es decir que corresponde al
+percentil 50 + <span class="math inline">\(D_{5}\)</span> : decil 5 +
+<span class="math inline">\(Q_{2}\)</span> : segundo cuartil</p>
+<p>La mediana presenta caracteristicas más robustas frente a cambios de
+los datos extremos que las que pueda presentar la media.</p>
+<p>Las medianas se pueden visualizar en el gráfico de cajas</p>
+<p></br></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>Para el caso del grupo juvenil femenino participante en la carrera de
+La Luz obteniene una mediana de</p>
+<pre>
+1      2      3      4      5      6      7      8      9      10     11     12        
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+n    = 12
+(n+1)/2  = 6.5   : posición de la mediana 
+Mediana (57.03+ 61.13)/2 = 59.08
+</pre>
+<p></br></br></p>
+<p>Gráfica 5 : Tiempos hombres categoría juvenil<br />
+<img src="img/RplotBoxplot3.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>La línea central de las cajas representan las medianas. En ellas se
+puede evidenciar el valor mayor del grupo juvenil femenino</p>
+<p></br></br></p>
+</div>
+<div id="moda" class="section level2">
+<h2><strong>Moda</strong></h2>
+<p>La <strong>moda</strong> corresponde al dato o valor que más se
+repite. Es utilizada como medida de tendencia central en variables
+cualitativas o en cuantitativas discretas con pocos valores.</p>
+<p><br/> <br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<pre>
+1. Juvenil     2. Abierta    3. Veteranos A    4. Veteranos B   5. Veteranos C 
+   19             1179          389               214              74 
+</pre>
+<p></br></p>
+<p>Los datos de la carrera indican que la categoría Abierta representa
+la categoría con mayor participación</p>
+<pre>
+Moda : categoría Abierta
+</pre>
+<p></br></br></p>
+</div>
+<div id="media-truncada" class="section level2">
+<h2><strong>Media truncada</strong></h2>
+<p>Con el fin de evitar que los datos atípicos generen sesgos en el
+indicador de la media, es posible separar el 90% de los datos, quitando
+un 5% de los datos más pequeños y un 5% de los datos mayores. A este
+indicador se le llama <strong>media truncada</strong> al 10% (<span
+class="math inline">\(\bar{x}_{_{0.10}}\)</span>)</p>
+<p><br/> <br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p><br/></p>
+<pre>
+1      2      3      4      5      6      7      8      9      10     11     12        
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+     (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
+
+media truncada al 10% : 59.748
+</pre>
+<p></br></br></p>
+</div>
+<div id="rango-medio" class="section level2">
+<h2><strong>Rango medio</strong></h2>
+<p>El rango medio se obtiene al sumar los valores extremos ( mínimo y
+máximo) y dividir el resultado por dos. Este indicador es de fácil
+cálculo y útil cuando se desea una estimación empírica y alta precisión
+en datos simétricos.</p>
+<p><span
+class="math display">\[\frac{1}{2}\Big(\max(x)+\min(x)\Big)\]</span></p>
+<p><br/><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p><br/></p>
+<pre>
+ 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+ 
+ rango medio = (41.67 + 78.05) /2 = 59.86
+ 
+ </pre>
+<p><br/> <br/></br>
+<!-- ======================================================================= --></p>
+</div>
+</div>
+<div id="de-dispersión" class="section level1">
+<h1><strong>De dispersión</strong></h1>
+<p>Supongamos que tenemos dos grupos de participantes que son
+patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en
+promedio de edad. Lo que primero se puede piensar es que los dos grupos
+tienen una composición igual o muy parecida dado que coinciden en el
+promedio. Pero no es así, los datos que se presentan a continuación
+tienen medias de 28, pero corresponden a grupos diferentes.</p>
+<p><br/></p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="95%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">G1</td>
+<td align="left">27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27,
+34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23</td>
+</tr>
+<tr class="even">
+<td align="left">G2</td>
+<td align="left">35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19,
+20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18</td>
+</tr>
+</tbody>
+</table>
+<p></br></br></p>
+<p>Hace falta otro indicador que nos oriente sobre, qué tan dispersos
+son los datos con el fin de saber si se trata de grupos parecidos tanto
+en centro como en variabilidad. Esta necesidad la suplen los
+<code>indicadores de dispersión</code>.</p>
+<p><br/></p>
+<p>Gráfica 5 : Edades por grupo
+<img src="img/RplotGrupos.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+<div id="rango" class="section level2">
+<h2><strong>Rango</strong></h2>
+<p>El rango es el indicador de dispersión más facil de calcular, pues se
+obtiene restando los valores extremos de los datos:</p>
+<p><span class="math inline">\(r = \max(x) - \min(x)\)</span></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p>En el caso de los dos grupos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><strong>Grupo 1</strong></th>
+<th align="left"><strong>Grupo 1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(r = 16\)</span> años</td>
+<td align="left"><span class="math inline">\(r = 38\)</span> años</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>Este complemento al indicador de centro permite distinguir que se
+trata de dos grupos diferentes</p>
+<p></br></br></br></p>
+</div>
+<div id="varianza" class="section level2">
+<h2><strong>Varianza</strong></h2>
+<p></br></p>
+<p>Es la medida de dispersión más utilizada en estadística y está
+definida por :</p>
+<p><span class="math display">\[s^{2}=\frac{1}{n-1} \sum_{i=1}^{n}
+(x_{i}-\bar{x})^{2}\]</span></p>
+<p>Se podría afirmar que la varianza es un promedio de los cuadrados de
+las diferencias entre los datos y su media.</p>
+<p><br/> <br/></p>
+<div id="propiedades-de-la-varianza" class="section level3">
+<h3><strong>Propiedades de la varianza</strong></h3>
+<ul>
+<li><p><span class="math inline">\(s^{2} = \frac{1}{n} \sum x_{i}^{2}-
+(\bar{x})^{2}\)</span></p></li>
+<li><p>La varianza es siempre no negativa <span
+class="math inline">\(s^{2} &gt;=0\)</span></p></li>
+<li><p>La varianza de una constante es cero <span
+class="math inline">\(s_{k}^{2}=0\)</span></p></li>
+<li><p>Si <span class="math inline">\(y_{i}=k x_{i}\)</span>, entonces
+<span class="math inline">\(s_{y}^{2}= k^{2} s_{x}^{2}\)</span></p></li>
+<li><p>Si <span class="math inline">\(y_{i}=x_{i} + k\)</span> ,
+entonces <span class="math inline">\(s_{y}^{2} =
+s_{x}^{2}\)</span></p></li>
+<li><p>Si <span class="math inline">\(z_{i} = a x_{i} + b
+y_{i}\)</span>, entonces <span class="math inline">\(s_{z}^{2}\)</span>
+= <span class="math inline">\(a^{2}s_{x}^{2}\)</span> + <span
+class="math inline">\(b^{2}s_{y}^{2}\)</span> + <span
+class="math inline">\(2ab\)</span> <span
+class="math inline">\(cov(xy)\)</span></p></li>
+</ul>
+<p></br></br></p>
+<p>El problema de la varianza es su <strong>interpretación</strong>,
+pues sus unidades quedan al cuadrado y en la mayoría de los casos no es
+posible interpretar los resultados. Por esta razón se optó por utilizar
+otra medidada de dispersión calculada a partir de la raíz cuadrada de la
+varianza.</p>
+<p><br/> <br/></p>
+</div>
+</div>
+<div id="desviación-estandar" class="section level2">
+<h2><strong>Desviación estandar</strong></h2>
+<p></br></p>
+<p>Es la raíz cuadrada de la varianza</p>
+<p><span class="math display">\[s=\sqrt{s^{2}}\]</span></p>
+<p><strong>Nota</strong> : no aplican todas las propiedades de la
+varianza</p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<p></br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><strong>Grupo 1</strong></th>
+<th align="left"><strong>Grupo 1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(s^{2} = 16.62\)</span>
+años<span class="math inline">\(^2\)</span></td>
+<td align="left"><span class="math inline">\(s^{2} = 116.89\)</span>
+años<span class="math inline">\(^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(s = 4.16\)</span> años</td>
+<td align="left"><span class="math inline">\(s = 10.81\)</span>
+años</td>
+</tr>
+</tbody>
+</table>
+<p></br></p>
+<p>Aunque la desviación estándar reduce el problema mencionado
+anteriormente debido a tener las mismas unidades de la variable, es útil
+para comparación de dos grupos con igual media. En caso de que las
+medias sean diferentes es difícil poder realizar las comparaciones.</p>
+<p><br/> <br/></p>
+</div>
+<div id="coeficiente-de-variación" class="section level2">
+<h2><strong>Coeficiente de variación</strong></h2>
+<p></br></p>
+<p>Por último, el coeficiente de variación es un indicador adimensional
+que indica que tan grande o que tan pequeña es la desviación estándar
+con respecto a su media en porcentaje y de esta manera podemos resolver
+el problema de la dispersión para cualquier grupo de datos.</p>
+<p><span class="math display">\[CV= \dfrac{s}{\bar{x}} \times 100 \%
+\]</span></p>
+<p>Existen diferentes reglas empíricas para la interpretación del
+coeficiente de variación. Una de ellas establece como límite el 20% para
+separar los grupos homogéneos de los heterogéneos, por lo general se
+utiliza un valor hasta el 20% para determinar que un grupo de datos son
+homogéneos, de lo contrario se calificará como heterogéneo.</p>
+<p></br></br></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><strong>Grupo 1</strong></th>
+<th align="left"><strong>Grupo 1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+<td align="left"><span class="math inline">\(\bar{x} = 28\)</span>
+años</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(CV = 14.56\)</span> %</td>
+<td align="left"><span class="math inline">\(CV = 38.61\)</span> %</td>
+</tr>
+</tbody>
+</table>
+<p></br></p>
+<p>En este caso se obtienen valores diferentes para los dos grupos. El
+grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo
+2 con un valor superior que indica heterogeneidad</p>
+<p></br></br></br>
+<!-- ======================================================================= --></p>
+</div>
+</div>
+<div id="de-forma" class="section level1">
+<h1><strong>De forma</strong></h1>
+<p>Los indicadores de forma permiten adicionar elementos a la
+interpretación de los datos.</p>
+<p><br/><br/></p>
+<div id="curtosis" class="section level2">
+<h2><strong>Curtosis</strong></h2>
+<p>Se mide a través del coeficiente de curtosis que mide cuan
+<strong>puntiaguda</strong> es una distribución respecto a un patrón
+estándar que es la curva de la distribución normal. Esta característica
+está relacionada directamente con la dispersión.</p>
+<p>De acuerdo con su valor, la puntudez de los datos puede clasificarse
+en tres grupos:</p>
+<ul>
+<li><p><strong>Leptocúrtica</strong>, con valores grandes para el
+coeficiente (CA&gt;0)</p></li>
+<li><p><strong>Mesocúrtica</strong>, con valores medianos para el
+coeficiente (CA=0)</p></li>
+<li><p><strong>Platicútrica</strong>, con valores pequeños para el
+coeficiente (CA&lt;0)</p></li>
+</ul>
+<p></br></p>
+<p>Gráfica 6 : Formas de curtosis<br />
+<img src="recurso102B_files/figure-html/unnamed-chunk-9-1.png" width="864" /></p>
+<p><br/> <br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+coeficiente de curtosis = -1.674344
+</pre>
+<p>El valor indica que los datos presentan una forma platicurtica o
+aplanada</p>
+<p><br/><br/></p>
+</div>
+<div id="asimetría-o-sesgo" class="section level2">
+<h2><strong>Asimetría o sesgo</strong></h2>
+<p><br/></p>
+<p>Mide que tanto la forma de la distribución de frecuencias de los
+datos es simétrica o no con respecto a la media. Esta característica de
+los datos se mide a través del coeficiente de asimetría o sesgo.</p>
+<ul>
+<li><p>Es <strong>simétrica</strong> si el valor del indicador es 0
+(<span class="math inline">\(\bar{x}=Me\)</span>)</p></li>
+<li><p>Es <strong>asimétrica a la izquierda</strong>&gt; si el valor del
+indicador es negativo (<span
+class="math inline">\(\bar{x}&lt;Me\)</span>)</p></li>
+<li><p>Es <strong>asimétrica a la derecha</strong> si el valor del
+indicador es positivo (<span
+class="math inline">\(\bar{x}&gt;Me\)</span>)</p></li>
+</ul>
+<p><br/></p>
+<p>Gráfica 7 : Formas de asimétrica<br />
+<img src="img/RplotAsimetria.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
+<div id="interpretación" class="section level3">
+<h3><strong>Interpretación</strong></h3>
+<p><br/></p>
+<ul>
+<li><p><strong>Asimetría negativa </strong> : poco con poco y mucho con
+mucho. Una prueba con resultados asimétricos a la izquierda o negativa,
+indica que pocos obtuvieron resultados bajos y que muchos alcanzaron
+resultados altos, pudiendo indicar que la prueba era relativamente
+fácil</p></li>
+<li><p><strong>Simétrica</strong> : poco con poco, poco con mucho, mucho
+al rededor de un centro. En este caso una prueba con resultados
+simétricos indica que los puntajes se ubicaron al rededor de la media y
+que unos pocos sacaron puntaje bajo y que los que presentaron resultados
+altos corresponden a un pequeño grupo. Por lo regular estos son los
+resultados de pruebas estandarizada como pueden ser las pruebas de
+estado.</p></li>
+<li><p><strong>Asimetría positiva</strong> : mucho con poco y poco con
+mucho. Los resultados a pruebas con asimetría a la derecha o positiva,
+presentan resultados acumulados a la izquierda, es decir que muchos
+obtuvieron resultados bajos y unos pocos resultados altos. Esto haría
+pensar que la prueba fue exigente.</p></li>
+</ul>
+<p><br/><br/></p>
+<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+coeficiente de asimetría = 0.07062934
+</pre>
+<p>Este valor indica que los datos presenta una forma simetría</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
