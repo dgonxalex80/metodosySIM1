@@ -33,5 +33,5 @@ navbar:
 output:
   html_document:
       css: style.css
-      theme: cerulean
+      theme: paper
       

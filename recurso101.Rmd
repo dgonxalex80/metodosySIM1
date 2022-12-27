@@ -6,7 +6,7 @@ output:
     toc: yes
     toc_depth: 2
     toc_float: yes
-    theme: cerulean
+    theme: paper
 css: style.css
 ---
 
@@ -222,7 +222,7 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 ### **Escalas de medición**
 
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/escalas.png")
 ```
 </br></br>
@@ -297,7 +297,7 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 100 estudiantes seleccionados del total de matriculados en la universidad o 500 personas seleccionadas de la población de Cali.
 
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/poblacion.png")
 ```
 
@@ -318,9 +318,9 @@ Para el cálculo de ambos parámetros se debe contar con la información del ces
 
 </br></br>
 
-## **Estimador   $\widehat{\theta}$** 
+## **Estimador** 
 
-Indicador estadístico calculado teniendo en cuenta los elementos de la muestra.
+Indicador estadístico calculado teniendo en cuenta los elementos de la muestra, de manera general se representan por $\widehat{\theta}$.
 
 
 <br/>
@@ -328,7 +328,7 @@ Indicador estadístico calculado teniendo en cuenta los elementos de la muestra.
 <span style="color:#FF7F00">**Ejemplos**</span>
 
 * Edad promedio de una muestra de 100 estudiantes matriculados en la universidad ($\bar{x}$). 
-* Proporción muestral de personas con empleo de una muestra de 500 personas de la ciudad de Cali ($\widehat{p}$.
+* Proporción muestral de personas con empleo de una muestra de 500 personas de la ciudad de Cali ($\widehat{p}$).
 
 En este caso los valores corresponden a  valores obtenidos de una muestra. 
 
@@ -340,7 +340,7 @@ En este caso los valores corresponden a  valores obtenidos de una muestra.
 Para seleccionar los datos podemos utilziar muestreos probabilisticos o no probabilisticos que se dividen en diferentes tipos como se indica en el siguiente diagrama
 
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/muestreos.png")
 ```
 
