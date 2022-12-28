@@ -18,181 +18,184 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <!-- ======================================================================= -->
 
->Se denomina gráfico a una representación visual de una serie de datos, prepresentación que tiene como finalidad dar una rápida noción acerca de volúmenes, cantidades y porcentajes, estableciendo comparaciones 
-
-Fuente : enciclopedia.net
+> "Se denomina gráfico a una representación visual de una serie de datos, prepresentación que tiene como finalidad dar una rápida noción acerca de volúmenes, cantidades y porcentajes, estableciendo comparaciones". 
+>
+> enciclopedia.net
 
 <br/><br/>
 
 Elegir el gráfico adecuado es muy importante, pues existen diferentes alternativas  y se debe escoger el apropiado para representar los datos. El tipo de dato determina el tipo de gráfico así:
 
-|Tipo de variable  | Escala          | Gráfico                                   |
-|:-----------------|:----------------|:------------------------------------------|
-|Cualitativas      |                 |                                           |
-|                  |Nominal          | Torta                                     |
-|                  |Ordinal          | Barras                                    |
-|Cuantitativas     |Intervalo-razón  | Diagrama de tallos y hojas                |
-|                  |                 | Histograma                                |
-|                  |                 | Diagrama de cajas                         |
-|                  |                 | Diagrama de densidad                      |
-|                  |                 | Diagrama de puntos                        |
-|                  |                 | Diagrama de lineas                        |
-|                  |                 | Diagrama de radar                         |
-|                  |                 | Gráfico likert                            |
-|                  |                 | Mapa de calor                             |
+
+Tabla  1 : Gráficas por tipo de variable
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+knitr::include_graphics("img/tabla5.png")
+```
 
 <br/><br/>
 
-## **Gráficos variables cualitativas**
+# **Variables cualitativas**
 
 <br/>
 
-### **Gráfico de tortas**
+## **Tortas**
 
 Este tipo de gráficos se utiliza para variables cualitativas medidas en escala nominal.
 
-```{r, fig.height=5, echo=FALSE}
-a=rep("Cultutal", 360145)
-b=rep("Pastoral", 61496)
-c=rep("Bienestar",49912)
-d=rep("Deportivo",11777)
-data=c(a,b,c,d)
-t=table(data)
-lbs=c("Cultural", "Pastoral", "Bienestar", "Deportivo")
-pct=round(t/sum(t)*100)
-labs=paste(lbs, pct)
-labs=paste(labs, "%", sep = " ") 
-pie(t, labels=labs, main=" Participación eventos Medio Universitario",
-#col = paleta4
-)
+Gráfica  1 : Distribución demanda actividades del Medio Universitario 
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+knitr::include_graphics("img/RplotPie.png")
 ```
+Fuente : Unicifras Pontificia Universidad Javeriana Cali
+
+El gráfico permite resaltar la gran participación de los estudiantes en el sector Cultural con un 74.5%
 
 <br/><br/>
 
-### **Diagrama de barras**
+## **Barras**
 
 El diagrama de barras se utiliza para representar variables cualitativas en escala ordinal.  Es necesario que los valores representados sigan el orden de la escala.
 
-```{r, fig.height=5, echo=FALSE}
-ev=c(4,  8, 12, 43, 32)
-names(ev)=c("Muy regular", "Regular", "Bueno", "Muy bueno","Excelente")
-barplot(ev, col=c("#ff5b00","#dcf600","#7dbd00","#659cef","#2956b2"), main = "Evaluación proceso de inducción", las=1, ylim = c(0,50))
+
+Gráfica  2 : Evaluación pasajeros areopuerto 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotCalifica.png")
 ```
+Fuente: kaggle - Satisfacion_Airline
 
 <br/><br/>
 
-### **Diagrama de barras con dos variables**
+## **Barras dos variables**
 
 Este diagrama se emplea para representar dos variables cualitativas que pueden ser de escala nominal u ordinal.
 
 
-```{r, fig.height=5.5, echo=FALSE}
-counts <- table(mtcars$vs, mtcars$gear); rownames(counts)=c("Montor en linea", "Motor en V")
-barplot(counts, main="Numero de cambios adelante por Tipo de motor",  xlab="Número de cambios adelante ",col=c("#FFBF69","#034A94"),
-legend = rownames(counts))
+Gráfica  3 : Distribución de la categoría por sexo carrer La Luz 2022 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotBarplot2.png")
 ```
+
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 <br/><br/><br/>
 
-## **Gráficas variables cualitativas**
+
+# **Variables cualitativas**
 
 <br/>
 
-### <span style="color:#FF7F00">**Diagrama de árbol**</span>
+## **Diagrama de árbol**
+
+Gráfica  4 : Diagrama de tallos y hojas tiempos mujeres categoría Veteranas A 
+
+<pre>
+  The decimal point is 1 digit(s) to the right of the |
+
+   4 | 89
+   5 | 02234
+   5 | 555566666788899
+   6 | 00000011111122222333344444
+   6 | 5555666677888899
+   7 | 0000011122233333333344
+   7 | 555666678888999
+   8 | 011123334
+   8 | 5556778899
+   9 | 02334
+   9 | 67
+  10 | 1
+  10 | 
+  11 | 1
+</pre>
+
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 
-```{r, echo=FALSE}
-nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
-stem(nf)
-```
+Este diagrama ordena los datos de manera que se puede determinar tanto el mínimo (48 min) como el máximo (111 min) , además de visualizar donde están la mayor concentración de ellos. 
 
-Este diagrama ordena los datos de manera que se puede determinar tanto el mínimo (1.6) como el máximo (4.3) , además de visualizar donde están la mayor concentración de ellos.
+El diagrama divide los datos en dos partes : 
+
+* tallo : digitos delanteros 
+* hoja  : últimos dígitos 
+
+4 | 89   : representa 48 minutos que corresponde al mínimo seguido de 49
+5 | 0    : 50 minutos 
+
 
 <br/><br/>
 
-### **Histograma**
+## **Histograma**
 
 El histograma es uno de los gráficos más utilizados para representar variables cuantitativas y permite resumir por rangos los diferentes datos. Es una buena forma de visualizar la distribución de los datos y su forma.
 
+Cada barra representa la cantidad de observaciones que se encuentra en cada uno de los intervalos establecidos, permitiendo visualizar el intervalo con mayor concentración de datos, además de la forma que tiene su distribución.
 
-```{r, fig.height=5, echo=FALSE}
-h1=hist(nf, main = "Nota final Estadística", xlab = "nota", ylab="frecuencias absolutas", labels=TRUE, col="#034A94", ylim = c(0,30), las=1)
-abline(v=3,col="#f6b915", lwd=2)
+
+Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrer La Luz 2022 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotHistogramas.png")
 ```
-
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 <br/><br/>
 
-### **Diagrama de densidad**
+## **De densidad**
 
-Este diagrama corresponde a un contorno suavizado del histograma que permite visualizar claramente la forma de los datos.
+Este diagrama corresponde a un contorno suavizado del histograma que permite visualizar claramente la forma de los datos. 
 
-
-```{r, fig.height=5, echo=FALSE}
-nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
-plot(density(nf), main="Distribucion de las notas de Estadística", col="#034A94", lwd=4, las=1,
-xlab="nota", ylab="densidad")
+Gráfica  6 : Distribución del tiempo carrer La Luz 2022 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotDensidad.png")
 ```
+
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 <br/><br/>
 
-### **Diagrama de cajas**
+## **De cajas**
 
 Es uno de las representaciones gráficas más utilizadas, pues además de los elementos y características que permite visualizar de las variables, permite comparar los resultados de dos o más grupos.
 
 
-```{r, fig.height=4.5, echo=FALSE}
-nf=c(4.1, 2.7, 3.1, 3.2, 3.0, 3.2, 2.0, 2.4, 1.6, 3.2, 3.1, 2.6, 2.0, 2.4, 2.8, 3.3, 4.0, 3.4, 3.0, 3.1, 2.7, 2.7, 3.0, 3.8, 3.2, 2.2, 3.5, 3.5, 3.8, 3.5, 3.9, 4.2, 4.3, 3.9, 3.2, 3.5, 3.5, 3.7, 4.1, 3.7, 3.5, 3.6, 3.2, 3.1, 3.4, 3.0, 3.0, 3.0, 2.7, 1.7, 3.6, 2.1, 2.4, 3.0, 3.1, 2.5, 2.5, 3.6, 2.2, 2.4, 3.1, 3.3, 2.7, 3.7, 3.0, 2.7, 3.0, 3.2, 3.1, 2.4, 3.0, 2.7, 2.5, 3.0, 3.0, 3.0, 3.2, 3.1, 3.8, 4.1, 3.7, 3.5, 3.0, 3.7, 3.7, 4.1, 3.7, 3.9, 3.7, 2.0)
-cc=c(20, 10, 20, 20, 20, 20, 20, 20, 20, 30, 20, 20, 20, 10, 30, 20, 20, 30, 20, 30, 30, 20, 10, 30, 20, 20, 30, 30, 10, 20, 10, 20, 20, 20, 10, 20, 10, 20, 20, 30, 30, 30, 10, 30, 20, 20, 20, 20, 20, 20, 10, 20, 30, 30, 10, 10, 10, 20, 10, 20, 10, 30, 20, 10, 20, 30, 10, 30, 30, 30, 20, 30, 30, 30, 30, 30, 30, 20, 10, 30, 10, 20, 20, 10, 20, 20, 20, 20, 10, 20)
-labs=c("Grupo 1","Grupo 2","Grupo 3")
-boxplot((nf~cc),main="Nota final Estadística", 
-col=c("#2C5990","#5B84C4","#F98125"), names=labs, xlab = "grupo", ylab = "nota", 
-las=1)
-abline(h=3, col="#960200", lwd=1)
-abline(h=4, col="#447270", lwd=1)
+Gráfica  7 : Comparación distribuciones del tiempo hombres carrer La Luz 2022 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotBoxplot2.png")
 ```
+
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 <br/><br/>
 
-### **Diagrama de dispersión**
+## **De dispersión**
 
 Este diagrma de puntos permite visualizar la relación lineal que puede existir entre dos variables cualitativas.
 
-```{r, fig.height=5, echo=FALSE}
-ed=round(rnorm(90,28,1),1)
-plot(ed,nf, main="Edad vs Nota final Estadística", ylim = c(0,5), xlab = "Edad (años)", ylab = "Nota final",col="#447270",pch=19,las=1)
-grid()
+
+Gráfica  8 : Distribución de los tiempos por categoría carrer La Luz 2022 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotDispersion.png")
 ```
 
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+
+La gráfica permite visulizar que no existe relación entre las variables tiempo de carrera y edad, es decir que en todas las categorias se presentaron corredores con tiempos bajos y tiempos altos.  Tambien permite detectar que un corredor de la categoria Abierta fue el primero en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el último (166.03 min). 
 
 <br/><br/>
 
-### **GRÁFICA DE SERIES DE TIEMPO**
+## **De líneas**
 
-```{r, fig.height=5, echo=FALSE}
-plot(AirPassengers, main="Numero de pasajeros por mes", col="#034A94", lwd = 4, las=1, 
-ylab="número de pasajeros", xlab="año")
+Este tipo de gráficas se utiliza principalmente para representar series de tiempo y poder de esta manera observar si presentan tendencias o comportamientos estacionales
+
+
+Gráfica  9 : Inflación Colombia 1993-01 a 2022-11 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotInflacion.png")
 ```
+Fuente : Banco de la República
 
-<br/><br/><br/>
+En la gráfica se puede observar una tendencia creciente duranto los últimos meses
 
-### **Código R**
 
-<pre>
-# sumulación de datos
-x=rnorm(100,100,20)   
-y=rnorm(100,100,25)   
-z=rbinom(100,4,0.30)
-t=1:100
 
-pie(table(z))        # gráfico de torta
-barplot(table(z))    # diagrama de barras
-stem(x)              # diagrama de tallos y hojas
-hist(x)              # histograma
-boxplot(x)           # diagrama de cajas
-plot(x,y)            # diagrama de dispersión 
-plot(t,y, type="l")  # linea de tiempo
-plot(density(x))     # diagrama de densidad
-</pre>
+
 
 <br/><br/>

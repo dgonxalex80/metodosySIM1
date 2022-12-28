@@ -148,6 +148,8 @@ Gráfica  4 : Tiempos hombres categoría Abierta
 knitr::include_graphics("img/RplotBoxplot.png")
 ```
 
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+
 </br></br>
 
 <pre>
@@ -251,6 +253,7 @@ Gráfica  5 : Tiempos hombres categoría juvenil
 knitr::include_graphics("img/RplotBoxplot3.png")
 ```
 
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 
 La línea central de las cajas representan las medianas. En ellas se puede evidenciar el valor mayor del grupo juvenil femenino
 
@@ -344,6 +347,7 @@ Gráfica  5 : Edades por grupo
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotGrupos.png")
 ```
+Fuente : datos simulados
 
 </br></br>
 

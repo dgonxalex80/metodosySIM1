@@ -32,9 +32,8 @@ Una de las formas para organizar y resumir conjuntos grandes de datos es por med
 Es posible construir una gran variedad de tablas y gráficas, sin embargo, en este momento solo se presentarán tablas y gráficas de frecuencia de una sola variable (una sola entrada) y sólo tres casos o tipos de tablas (datos categóricos, datos puntuales y datos agrupados), que pueden construirse a partir de un determinado conjunto de datos ya sea para una muestra o una población.
 
 
-
 </br></br>
 
-TABLERO??
+
 
 

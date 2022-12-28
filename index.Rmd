@@ -52,7 +52,7 @@ Utilizaremos los pasos de la Metodología Estadística como estrategia para ubic
 
 <br/><br/>
 
-<span style="color:#FF7F00">**Nota**</span>: 
+<span style="color:#FF7F00">**Nota**</span>
 
 La Métodologa Estadística está basada en el método científico que corresponde a un procedimiento iterativo de aprendizaje, el cual está compuesto por las siguientes etapas: 
 

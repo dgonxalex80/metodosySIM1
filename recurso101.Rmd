@@ -12,12 +12,24 @@ css: style.css
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+c1 ="#FF7F00"  # naranja - color primario 
+c2 ="#034A94"  # azul oscuro - color secundario
+c3 ="#0EB0C6"  # azul claro - color terciario
+c4 ="#686868"  # gris - color texto
+
+# <span style="color:#FF7F00"> **naranja**</span> 
+# <span style="color:#034A94"> **azul oscuro**</span>
+# <span style="color:#0EB0C6"> **azul claro**</span>  
+
 ```
+
+
+
 
 </br></br><br/>
 
-# **Estadística**
-
+# <span style="color:#034A94"> **Estadística**</span>
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/statistics1.png")
@@ -25,7 +37,9 @@ knitr::include_graphics("img/statistics1.png")
 
 </br></br>
 
-## **¿Qué es?**
+
+
+## (PARTE) **¿Qué es?**  
   
 </br>
 
@@ -49,12 +63,15 @@ En su desarrollo histórico la estadística ha superado las siguientes etapas:
 
 El objetivo de la Estadística se centra en brindar apoyo en la transformación de datos en información. Teniendo en cuenta que los datos son sólo la representación numérica o categórica de una medición y la información es la integración de esos datos y factores del contexto para generar un criterio suficiente en la toma de decisiones.
 
->Llegará el día en el que el pensamiento estadístico será una condición tan necesaria para la convivencia eficiente como la capacidad de leer y escribir --H.G. Wells --
+> "Llegará el día en el que el pensamiento estadístico será una condición tan necesaria para la convivencia eficiente como la capacidad de leer y escribir". 
+>
+> --H.G. Wells --
 
 </br></br>
 
 
-## **¿Donde aplicarla?**
+
+## **¿Donde aplicarla?**  
 
 La estadística es una ciencia transversal a las diversas disciplinas del conocimiento, como, por ejemplo: finanzas, ingeniería, salud, economía, contabilidad, mercadeo, sociología y ciencias, entre muchas otras.  Algunos ejemplos de su aplicación son:
 
@@ -73,7 +90,7 @@ Así mismo, si nos detuviéramos a analizar cada una de las disciplinas en las q
 
 ### **Actividad**
 
-De acuerdo con tu área de profesión, identifica alguna situación o actividad donde sea necesaria la estadística.
+De acuerdo con tu área de profesión, identifica alguna situación o actividad donde sea necesaria la Estadística.
 
 
 </br></br></br>
@@ -83,7 +100,7 @@ De acuerdo con tu área de profesión, identifica alguna situación o actividad 
 
 </br></br>
 
-##  **Análisis descritivo**  
+##  **Análisis descritivo**    
 
 La estadística descriptiva comprende los métodos para organizar, resumir y presentar datos de manera informativa. Su fin es únicamente exploratorio y se limita a describir lo observado en una población o muestra.
 
@@ -97,7 +114,7 @@ Descripción de la producción mensual de café durante el año 2016 través de 
 
 </br></br>
 
-## **Inferencia estadística**
+## **Inferencia estadística**  
 
 La estadística inferencial consiste en el proceso inductivo que permite inferir o generalizar a toda la población características observadas en una muestra. 
 
@@ -111,7 +128,7 @@ A partir de una muestra aleatoria regional en el Valle del Cauca de 550 estudian
 
 </br></br>
 
-## **Validez**
+## **Validez**  
 
 Es posible hacer uso de los pasos de una parsona para medir la distancia entre dos puntos. ¿Este sería confiable? 
 
@@ -136,7 +153,7 @@ La respuesta es **NO**, la información obtenida a partir de ese estudio no podr
 
 <br/></br>
 
-## **Unidad de análisis** 
+## **Unidad de análisis**  
 
 Son los elementos u objetos que tiene información sobre el fenómeno que se estudia, es decir aquellos objetos descritos por un conjunto de datos. Los individuos pueden ser personas, pero también pueden ser animales o cosas.
 
@@ -148,7 +165,7 @@ Si se estudia el peso promedio de los estudiantes en una carrera de la universid
 
 </br></br>
 
-## **Variable**
+## **Variable**  
 
 Corresponde a caracteristicas tomadas de la unidad de análisis.  Las variables se pueden clasificar segun su origen, naturaleza o relación con otras variables :
 
@@ -188,7 +205,7 @@ Toman valores numéricos y se pueden hacer operaciones matemáticas con ellos. E
 
 </br></br></br>
 
-#### **Variables continuas** 
+### **Variables continuas** 
 
 Las variables continuas pueden tomar cualquier valor real dentro de un intervalo, en general proceden de la medición de caracteristicas.
 
@@ -203,7 +220,7 @@ Las variables continuas pueden tomar cualquier valor real dentro de un intervalo
 
 </br></br>
 
-#### **Variables discretas**
+### **Variables discretas**
 
 Las variables discretas sólo toman valores enteros, por lo general proceden el conteo y empiezan por número de ...
 
@@ -273,7 +290,7 @@ Temperatura de cero grados no indica que no hay temperatura, sólo es un valor q
 
 <br/><br/>
 
-## **Población** 
+## **Población**  
 
 Es el conjunto de todos los elementos de interés en un estudio, sobre los cuales se desea información y hacia los cuales se extenderán las conclusiones.
 
@@ -286,7 +303,7 @@ El total de estudiantes matriculados en la universidad o el total de la poblaci�
 
 </br></br>
 
-## **Muestra** 
+## **Muestra**  
 
 Es cualquier subconjunto representativo de la población, sobre el que se realizan los estudios para obtener conclusiones acerca de las características de la población.
 
@@ -303,7 +320,7 @@ knitr::include_graphics("img/poblacion.png")
 
 </br></br>
 
-## **Parámetro**
+## **Parámetro**  
 
 Indicador estadístico calculado teniendo en cuenta los elementos de la población se denominan parámetros y son denotados de manera general como $\theta$.
 
@@ -318,7 +335,7 @@ Para el cálculo de ambos parámetros se debe contar con la información del ces
 
 </br></br>
 
-## **Estimador** 
+## **Estimador**  
 
 Indicador estadístico calculado teniendo en cuenta los elementos de la muestra, de manera general se representan por $\widehat{\theta}$.
 
@@ -335,15 +352,31 @@ En este caso los valores corresponden a  valores obtenidos de una muestra.
 
 </br></br>
 
-## **Tipos de muestreo**
+## **Tipos de muestreo**  
 
 Para seleccionar los datos podemos utilziar muestreos probabilisticos o no probabilisticos que se dividen en diferentes tipos como se indica en el siguiente diagrama
+
+<br/><br/>
+
+## **Muestreos probabilísticos**
+
+El muestreo probabilistico es un método de selección de la muestra en el que métodos que grantizan una selección aleatoria de los elementos de la muestra, es decir que cada elemento de la población tienen igual probabilidad de ser elegido dentro de una muestra. Esto garantiza además de representatividad de los elementos selecionados con respecto a las caracteristicas de la población, independencia entre los valores selecionados, los cuales permiten caracteristicas deseables al momento de realizar inferencias sobre los resultados obtenidos
+
+<br/><br/>
+
+## **Muestreos no probabilisticos**
+
+El muestreo no probabilístico (o muestreo no aleatorio) es la técnica de muestreo donde los elementos son elegidos a juicio del investigador. No se conoce la probabilidad con la que se puede seleccionar a cada individuo.
+
 
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/muestreos.png")
 ```
 
+<br/><br/>
 
-FALTAN MUESTREOS POR INTERNET
+**Nota** 
+
+Los muestreos por internet utilizando redes sociales se clasifica dentro de los muestreos no probabilisticos descritos
 
