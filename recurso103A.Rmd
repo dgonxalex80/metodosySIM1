@@ -1,35 +1,172 @@
 ---
-title: "tablas de frecuencia"
+title: "Tablas de frecuencia en R"
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+output: html_document
 css: style.css
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+library(tidyverse)
+
+# cargar paqueteMET
+# devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+library(paqueteMET)   # activar paqueteMET
+data = paqueteMET::CarreraLuz22    # cargar la dataset
+
 ```
 
-## R Markdown
+<br/><br/>
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## **Examinar la base de datos**
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos incialmente la estructura de la data, lu cual nos perite un diagnóstico incial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
 
-```{r cars}
-summary(cars)
+<br/>
+
+```{r, eval=FALSE}
+install.packages("devtools")    # paquete necesario para descargar paqueteMET
+devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+library(paqueteMET)   # activar paqueteMET
+data = paqueteMET::CarreraLuz22    # cargar la dataset
 ```
 
-## Including Plots
+<br/><br/>
 
-You can also embed plots, for example:
+### **glimpse()**
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Se puede examinar el contenido de la base de datos utilizando la función `glimpse()` del paquete `dplyr`, permitiendo identificar el tipo de variables y los primeros valores : 
+
+```{r}
+library(dplyr)
+glimpse(data)
+```
+<br/><br/>
+
+Tambien se puede visualizar la data con la fución `View(data)`  y `knitr::kable(data)`
+
+<br/><br/>
+
+### **summary()**
+
+Otra alternativa es la función  `summary()`  :
+
+```{r}
+summary(data)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<br/><br/>
+
+### **head()**
+
+La función `head()` permite visualizar los primeros 6 registros :
+
+```{r}
+head(data) 
+```
+
+<br/><br/>
+
+### **tail()**
+
+Y la función `tail()` visualiza los últimos 6 registros
+
+```{r}
+tail(data)
+```
+
+<br/><br/>
+
+## Tablas de frecuencia  variables cualitativas
+
+
+### **table()**
+
+La función table() permite la construcción de tablas de frecuencias absolutas
+
+```{r}
+table(data$categoria)
+```
+
+### **prop.table()**
+
+Si adicionamos la función prop.table() a un objeto table da como resultado las frecuencias relativas que se pueden multiplicar por 100 para visualizarlas como porcentajes.
+
+```{r}
+library(tidyverse)
+table(data$categoria) %>%   # se introduce el operador %>%
+          prop.table()*100 
+```
+<br/><br/>
+
+## Tablas de frecuencia para dos variables cualitativas
+
+La función `table()` permite la construcción de tablas para dos variables o tablas cruzadas para frecuencias absolutas o tambien para frecuencias relativas (si se multiplican por 100) 
+
+```{r}
+table(data$categoria, data$sex)
+```
+
+<br/><br/>
+
+```{r}
+table(data$categoria, data$sex) %>% 
+               prop.table()
+```
+
+<br/><br/>
+
+
+### **freq()**
+
+La función `freq()` del paquete `summarytools` permite una construcción más elaborada de la tabla que incluye ademas de las frecuencias simples tambien las acumuladas
+
+
+```{r}
+summarytools::freq(data$categoria, cumul = T)
+```
+
+<br/><br/><br/>
+
+## **Variables cuantitativas**
+
+
+En este caso se utilizan las función  `cut()` para generar los intervalos previamente a la construcción de la tabla con la función `freq()`  
+
+```{r}
+breaks=c(10,18,40,50,60,80)    # limites de intervalos
+Edad.corredores=cut(data$edad, breaks)
+summarytools::freq(Edad.corredores)
+```
+
+
+Nota
+
+Si queremos una tabla mas terminada podemos utilizar 
+
+
+
+```{r}
+# install.packages("flextable")
+library(flextable)
+ft1=table(data$categoria)%>% 
+        as.data.frame()
+colnames(ft1)=c("Categoría", "Frecuencia absoluta")
+ft1=flextable(ft1)
+
+set_flextable_defaults(
+  font.size = 10, font.family = "Helvetica",
+  font.color = "#333333",
+  table.layout = "fixed",
+  border.color = "gray",
+  padding.top = 3, padding.bottom = 3,
+  padding.left = 4, padding.right = 4)
+
+ft1 <- ft1 %>%
+    width(j = 1,  width = 2) %>%
+    width(j = 2, width = 1)
+ft1
+```
+
+

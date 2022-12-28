@@ -14,7 +14,7 @@
 
 <title> Conceptos básicos</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -226,69 +223,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +230,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +286,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -397,14 +321,13 @@ div.tocify {
 
 <p></br></br><br/></p>
 <div id="estadística" class="section level1">
-<h1><span style="color:#034A94">
-<strong>Estadística</strong></span></h1>
+<h1><span style="color:#034A94"><strong>Estadística</strong></span></h1>
 <p><img src="img/statistics1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p></br></br></p>
-<div id="parte-qué-es" class="section level2">
-<h2>(PARTE) <strong>¿Qué es?</strong></h2>
+<div id="qué-es" class="section level2">
+<h2><strong>¿Qué es?</strong></h2>
 <p></br></p>
-<p><strong>ESTADISTICA</strong> es una ciencia, la cual se encarga de
+<p><strong>ESTADÍSTICA</strong> es una ciencia, la cual se encarga de
 suministrar diferentes métodos y procedimientos para recoger,
 clasificar, resumir, hallar regularidades y analizar los datos; así como
 de realizar inferencias a partir de ellos, con la finalidad de ayudar a
@@ -472,8 +395,8 @@ actividad donde sea necesaria la Estadística.</p>
 <div id="conceptos" class="section level1">
 <h1><strong>Conceptos</strong></h1>
 <p></br></br></p>
-<div id="análisis-descritivo" class="section level2">
-<h2><strong>Análisis descritivo</strong></h2>
+<div id="análisis-descriptivo" class="section level2">
+<h2><strong>Análisis descriptivo</strong></h2>
 <p>La estadística descriptiva comprende los métodos para organizar,
 resumir y presentar datos de manera informativa. Su fin es únicamente
 exploratorio y se limita a describir lo observado en una población o
@@ -509,17 +432,18 @@ departamento.</p>
 </div>
 <div id="validez" class="section level2">
 <h2><strong>Validez</strong></h2>
-<p>Es posible hacer uso de los pasos de una parsona para medir la
+<p>Es posible hacer uso de los pasos de una persona para medir la
 distancia entre dos puntos. ¿Este sería confiable?</p>
 <p>La respuesta a esta pregunta es <strong>NO</strong>. Dado que los
 pasos de una persona pueden ser diferentes a los de otra persona debido
 a la diferencia en sus tallas. Las mediciones realizadas por diferentes
-pesonas genera una variabilidad extra inherente al sujeto que realiza la
-medición, afectando así los datos que se obtienen a partir de este.</p>
+personas genera una variabilidad extra inherente al sujeto que realiza
+la medición, afectando así los datos que se obtienen a partir de
+este.</p>
 <p>La mejor alternativa en este caso es hacer uso de instrumentos
-calibrados, estandarizados o validados, como metros, tallímetros, etc.
-De tal manera que, si la medición se toma varias veces con el mismo
-instrumento, esta no varié, de una a otra medición.</p>
+calibrados, estandarizados o validados, como un flexómetro, rueda
+métrica, etc. De tal manera que, si la medición se toma varias veces con
+el mismo instrumento, esta no varié, de una a otra medición.</p>
 <p></br></p>
 <p>Es el grado en que la medición puede generalizarse a otras
 situaciones no medidas, depende en gran proporción de la conformación
@@ -551,8 +475,8 @@ la universidad, cada uno de los estudiantes son los individuos.</p>
 </div>
 <div id="variable" class="section level2">
 <h2><strong>Variable</strong></h2>
-<p>Corresponde a caracteristicas tomadas de la unidad de análisis. Las
-variables se pueden clasificar segun su origen, naturaleza o relación
+<p>Corresponde a características tomadas de la unidad de análisis. Las
+variables se pueden clasificar según su origen, naturaleza o relación
 con otras variables :</p>
 <p><br/></p>
 <p><img src="img/variable1.png" width="100%" style="display: block; margin: auto;" /></p>
@@ -563,7 +487,7 @@ Podría decirse que ese valor se desconoce por completo. Si antes de
 medir, puede predecirse el valor que tendrá la variable, entonces se
 dice que ésta tiene carácter determinístico.</p>
 <p></br></br></p>
-<p><strong>Por su maturaleza</strong> : Si procede de un conteo
+<p><strong>Por su naturaleza</strong> : Si procede de un conteo
 (discreta) y si procede de una medición (continua).</p>
 <p></br></br></p>
 <p><strong>Por su relación con otras variables</strong> : Si su
@@ -588,7 +512,7 @@ ellos. Estas se clasifican en dos grupos: continuas y discretas.</p>
 <div id="variables-continuas" class="section level3">
 <h3><strong>Variables continuas</strong></h3>
 <p>Las variables continuas pueden tomar cualquier valor real dentro de
-un intervalo, en general proceden de la medición de caracteristicas.</p>
+un intervalo, en general proceden de la medición de características.</p>
 <p></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
@@ -618,7 +542,7 @@ proceden el conteo y empiezan por número de …</p>
 <p><strong>Nominal</strong> : En las variables con escala de medición
 nominal, sus valores no se pueden ordenar, es decir que no existe una
 forma particular para ordenar sus valores. | Religión (católico,
-cristiano, evangélico, anóstico),</p>
+cristiano, evangélico, agnóstico),</p>
 <p></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplos</strong></span></p>
 <ul>
@@ -695,7 +619,7 @@ universidad (<span class="math inline">\(\mu\)</span>)</li>
 (<span class="math inline">\(p\)</span>).</li>
 </ul>
 <p>Para el cálculo de ambos parámetros se debe contar con la información
-del ceso corespondiente</p>
+del ceso correspondiente</p>
 <p></br></br></p>
 </div>
 <div id="estimador" class="section level2">
@@ -718,25 +642,25 @@ muestra.</p>
 </div>
 <div id="tipos-de-muestreo" class="section level2">
 <h2><strong>Tipos de muestreo</strong></h2>
-<p>Para seleccionar los datos podemos utilziar muestreos probabilisticos
-o no probabilisticos que se dividen en diferentes tipos como se indica
+<p>Para seleccionar los datos podemos utilizar muestreos probabilísticos
+o no probabilísticos que se dividen en diferentes tipos como se indica
 en el siguiente diagrama</p>
 <p><br/><br/></p>
 </div>
 <div id="muestreos-probabilísticos" class="section level2">
 <h2><strong>Muestreos probabilísticos</strong></h2>
-<p>El muestreo probabilistico es un método de selección de la muestra en
-el que métodos que grantizan una selección aleatoria de los elementos de
-la muestra, es decir que cada elemento de la población tienen igual
+<p>El muestreo probabilístico es un método de selección de la muestra en
+el que métodos que garantizan una selección aleatoria de los elementos
+de la muestra, es decir que cada elemento de la población tienen igual
 probabilidad de ser elegido dentro de una muestra. Esto garantiza además
-de representatividad de los elementos selecionados con respecto a las
-caracteristicas de la población, independencia entre los valores
-selecionados, los cuales permiten caracteristicas deseables al momento
+de representatividad de los elementos seleccionados con respecto a las
+características de la población, independencia entre los valores
+seleccionados, los cuales permiten características deseables al momento
 de realizar inferencias sobre los resultados obtenidos</p>
 <p><br/><br/></p>
 </div>
-<div id="muestreos-no-probabilisticos" class="section level2">
-<h2><strong>Muestreos no probabilisticos</strong></h2>
+<div id="muestreos-no-probabilísticos" class="section level2">
+<h2><strong>Muestreos no probabilísticos</strong></h2>
 <p>El muestreo no probabilístico (o muestreo no aleatorio) es la técnica
 de muestreo donde los elementos son elegidos a juicio del investigador.
 No se conoce la probabilidad con la que se puede seleccionar a cada
@@ -745,14 +669,12 @@ individuo.</p>
 <p><br/><br/></p>
 <p><strong>Nota</strong></p>
 <p>Los muestreos por internet utilizando redes sociales se clasifica
-dentro de los muestreos no probabilisticos descritos</p>
+dentro de los muestreos no probabilísticos descritos</p>
 </div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -785,35 +707,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -1,12 +1,7 @@
 ---
-title: "tablas de frecuencia"
+title: "Indicadores en R"
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+output: html_document
 css: style.css
 ---
 

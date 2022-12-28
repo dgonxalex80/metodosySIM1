@@ -14,7 +14,7 @@
 
 <title> Visualización de datos</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -226,69 +223,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +230,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +286,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -399,7 +323,7 @@ div.tocify {
 <!-- ======================================================================= -->
 <blockquote>
 <p>“Se denomina gráfico a una representación visual de una serie de
-datos, prepresentación que tiene como finalidad dar una rápida noción
+datos, representación que tiene como finalidad dar una rápida noción
 acerca de volúmenes, cantidades y porcentajes, estableciendo
 comparaciones”.</p>
 <p>enciclopedia.net</p>
@@ -454,22 +378,22 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 <p>Gráfica 4 : Diagrama de tallos y hojas tiempos mujeres categoría
 Veteranas A</p>
 <pre>
-  The decimal point is 1 digit(s) to the right of the |
+The decimal point is 1 digit(s) to the right of the |
 
-   4 | 89
-   5 | 02234
-   5 | 555566666788899
-   6 | 00000011111122222333344444
-   6 | 5555666677888899
-   7 | 0000011122233333333344
-   7 | 555666678888999
-   8 | 011123334
-   8 | 5556778899
-   9 | 02334
-   9 | 67
-  10 | 1
-  10 | 
-  11 | 1
+4 | 89
+5 | 02234
+5 | 555566666788899
+6 | 00000011111122222333344444
+6 | 5555666677888899
+7 | 0000011122233333333344
+7 | 555666678888999
+8 | 011123334
+8 | 5556778899
+9 | 02334
+9 | 67
+10 | 1
+10 | 
+11 | 1
 </pre>
 <p>Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a></p>
@@ -478,7 +402,7 @@ tanto el mínimo (48 min) como el máximo (111 min) , además de visualizar
 donde están la mayor concentración de ellos.</p>
 <p>El diagrama divide los datos en dos partes :</p>
 <ul>
-<li>tallo : digitos delanteros</li>
+<li>tallo : dígitos delanteros</li>
 <li>hoja : últimos dígitos</li>
 </ul>
 <p>4 | 89 : representa 48 minutos que corresponde al mínimo seguido de
@@ -517,7 +441,7 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 <p>Es uno de las representaciones gráficas más utilizadas, pues además
 de los elementos y características que permite visualizar de las
 variables, permite comparar los resultados de dos o más grupos.</p>
-<p>Gráfica 7 : Comparación distribuciones del tiempo hombres carrer La
+<p>Gráfica 7 : Comparación distribuciones del tiempo hombres carrera La
 Luz 2022
 <img src="img/RplotBoxplot2.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Fuente :<a
@@ -528,15 +452,15 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 <h2><strong>De dispersión</strong></h2>
 <p>Este diagrma de puntos permite visualizar la relación lineal que
 puede existir entre dos variables cualitativas.</p>
-<p>Gráfica 8 : Distribución de los tiempos por categoría carrer La Luz
+<p>Gráfica 8 : Distribución de los tiempos por categoría carrera La Luz
 2022
 <img src="img/RplotDispersion.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a></p>
-<p>La gráfica permite visulizar que no existe relación entre las
-variables tiempo de carrera y edad, es decir que en todas las categorias
-se presentaron corredores con tiempos bajos y tiempos altos. Tambien
-permite detectar que un corredor de la categoria Abierta fue el primero
+<p>La gráfica permite visualizar que no existe relación entre las
+variables tiempo de carrera y edad, es decir que en todas las categorías
+se presentaron corredores con tiempos bajos y tiempos altos. También
+permite detectar que un corredor de la categoría Abierta fue el primero
 en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el
 último (166.03 min).</p>
 <p><br/><br/></p>
@@ -549,7 +473,7 @@ o comportamientos estacionales</p>
 <p>Gráfica 9 : Inflación Colombia 1993-01 a 2022-11
 <img src="img/RplotInflacion.png" width="100%" style="display: block; margin: auto;" />
 Fuente : Banco de la República</p>
-<p>En la gráfica se puede observar una tendencia creciente duranto los
+<p>En la gráfica se puede observar una tendencia creciente durante los
 últimos meses</p>
 <p><br/><br/></p>
 </div>
@@ -557,8 +481,6 @@ Fuente : Banco de la República</p>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -591,35 +513,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

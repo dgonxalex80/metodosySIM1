@@ -12,9 +12,9 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Software R</title>
+<title> Introducción a R</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -226,69 +223,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +230,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +286,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -389,7 +313,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
-<strong>Software R</strong></span></h1>
+<strong>Introducción a R</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
@@ -399,7 +323,7 @@ div.tocify {
 <p><img src="img/logoR.png" width="10%" style="display: block; margin: auto auto auto 0;" /></p>
 <p><br/><br/></p>
 <div id="que-es-r" class="section level1">
-<h1><span style="color:#FF7F00"><strong>Que es R</strong></span></h1>
+<h1><strong>Que es R</strong></h1>
 <p><br/></p>
 <p>Es un lenguaje para la computación estadística, utilizado para el
 procesamiento de información y generación de modelos estadísticos.</p>
@@ -428,8 +352,7 @@ ajustes</p></li>
 <p><br/><br/><br/></p>
 </div>
 <div id="qué-es-rstudio" class="section level1">
-<h1><span style="color:#FF7F00"><strong>¿Qué es
-RStudio?</strong></span></h1>
+<h1><strong>¿Qué es RStudio?</strong></h1>
 <p><img src="img/logoRStudio.png" width="20%" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Esta interfaz o IDE que integra un conjunto de herramientas y
 ventanas que facilitan el trabajo con R a sus usuarios</p>
@@ -488,9 +411,8 @@ help("lm")
 <p>A manera de introducción a continuación se relacionan algunas ayudas
 para la iniciación del lenguaje :</p>
 <p><br/><br/><br/></p>
-<div id="tipos-de-objetos-en-r" class="section level2">
-<h2><span style="color:#FF7F00"><strong>Tipos de objetos en
-R</strong></span></h2>
+<div id="tipos-de-objetos" class="section level2">
+<h2><strong>Tipos de objetos</strong></h2>
 <p><br/><br/></p>
 <table>
 <colgroup>
@@ -550,7 +472,7 @@ principiantes</a></p>
 <p>A continuación se presentan algunos ejemplos de objetos</p>
 </div>
 <div id="vector" class="section level2">
-<h2><span style="color:#FF7F00"><strong>vector</strong></span></h2>
+<h2><strong>vector</strong></h2>
 <p>Arreglo unidimensional de valores, caracteres o cadenas</p>
 <pre>
 x=c(1,2,3,4,5)    
@@ -561,7 +483,7 @@ y=c("Muy regular", "Regular", "Bueno", "Muy bueno", "Excelente")     <i class="f
 <p><br/><br/></p>
 </div>
 <div id="matriz" class="section level2">
-<h2><span style="color:#FF7F00"><strong>matriz</strong></span></h2>
+<h2><strong>matriz</strong></h2>
 <p>Arreglo bidimensional de valores</p>
 <pre>
 x=1:9                # vector de 9 valores
@@ -570,8 +492,8 @@ m=matrix(x,nrow=3)   # matriz con 3 filas y 3 columnas
 <p><br/><br/></p>
 </div>
 <div id="arrays" class="section level2">
-<h2><span style="color:#FF7F00"><strong>arrays</strong></span></h2>
-<p>Arreglos multimensionales de valores. En el siguiente ejemplo se
+<h2><strong>arrays</strong></h2>
+<p>Arreglos multidimensionales de valores. En el siguiente ejemplo se
 representa un arreglo de 3 matrices 3x3 que conformarían en 3D un cubo
 de datos</p>
 <pre>
@@ -584,7 +506,7 @@ mn=array(c(x,y),dim=c(3,3,3)) # <<-
 <p><br/><br/></p>
 </div>
 <div id="factores" class="section level2">
-<h2><span style="color:#FF7F00"><strong>factores</strong></span></h2>
+<h2><strong>factores</strong></h2>
 <p>Vector de variables categóricas, por lo general se utilizan para
 dividir una base en subgrupos</p>
 <pre>
@@ -595,7 +517,7 @@ y=as.factor(y)               # <<-
 <p><br/><br/></p>
 </div>
 <div id="listas" class="section level2">
-<h2><span style="color:#FF7F00"><strong>listas</strong></span></h2>
+<h2><strong>listas</strong></h2>
 <p>Colección de objetos cada uno de tipos diferentes. El objeto de esta
 clase guarda valores en diferentes formatos.</p>
 <p>En el siguiente ejemplo se construye un objeto <strong>h</strong> que
@@ -608,18 +530,18 @@ h=hist(rnorm(100,25,10))
 <p><br/><br/></p>
 </div>
 <div id="data.frames" class="section level2">
-<h2><span style="color:#FF7F00"><strong>data.frames</strong></span></h2>
+<h2><strong>data.frames</strong></h2>
 <p>Estructura de datos de dos dimensiones - filas y columnas - base de
 datos. con la función <code>data()</code> se pueden cargar bases de
 datos contenidas en R. <code>data(iris)</code> carga la base iris que
-contiene 150 registros (colomnas) y 5 variables (filas).</p>
+contiene 150 registros (columnas) y 5 variables (filas).</p>
 <pre>
 data(iris)
 </pre>
 <p><br/><br/></p>
 </div>
 <div id="funciones" class="section level2">
-<h2><span style="color:#FF7F00"><strong>funciones</strong></span></h2>
+<h2><strong>funciones</strong></h2>
 <p>Para construir una función utilizamos la palabra
 <code>function</code>, entre paréntesis los valores de entrada y entre
 corchetes la formula que conforma la función. Por ejemplo:</p>
@@ -633,7 +555,7 @@ fx(100)                   # función evaluada en x=100
 <p>En este caso la función es evaluada dentro de un otra función en la
 construcción de un gráfico</p>
 <pre>
-x=seq(from=2,to=10, by=0.01)  # genera secuencia de numeros entre 2 y 10 con paso 0.01
+x=seq(from=2,to=10, by=0.01)  # genera secuencia de números entre 2 y 10 con paso 0.01
 plot(x, fx(x), type="l", col="#FF7F00", lwd = 5, las=1) # genera grafica
 </pre>
 <p><img src="recurso103_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
@@ -660,7 +582,7 @@ grafica(w,"#0EB0C6")          # evalúa la función con w y color azul
 <p><br/><br/></p>
 </div>
 <div id="ts" class="section level2">
-<h2><span style="color:#FF7F00"><strong>ts</strong></span></h2>
+<h2><strong>ts</strong></h2>
 <p>Los objetos <code>ts</code> corresponde a series temporales que están
 compuestos por un inicio, un final y una periodicidad temporal
 regular</p>
@@ -672,8 +594,7 @@ temperatura=ts(x,freq=12,start=c(1981,1))   # <<-
 </div>
 </div>
 <div id="operadores-en-r" class="section level1">
-<h1><span style="color:#FF7F00"><strong>Operadores en
-R</strong></span></h1>
+<h1><strong>Operadores en R</strong></h1>
 <table>
 <colgroup>
 <col width="8%" />
@@ -757,17 +678,16 @@ href="https://bookdown.org/jboscomendoza/r-principiantes4/">R para
 principiantes</a></p>
 <p><br/><br/><br/></p>
 </div>
-<div id="algunas-funciones-útilies" class="section level1">
-<h1><span style="color:#FF7F00"><strong>Algunas funciones
-útilies</strong></span></h1>
+<div id="funciones-útilies" class="section level1">
+<h1><strong>Funciones útilies</strong></h1>
 <p><br/></p>
 <div id="rep" class="section level3">
 <h3><span style="color:#FF7F00"><strong>rep()</strong></span></h3>
 <pre>
 rep(x,                # objeto a replicar 
-    times = 1,        # número de veces que ser replica objeto
-    length.out = NA,  # repetir el objeto las veces necesarias para crear vector de esta longitud
-    each = 1)         # número de veces que se replica elementos individiales del objeto
+times = 1,        # número de veces que ser replica objeto
+length.out = NA,  # repetir el objeto las veces necesarias para crear vector de esta longitud
+each = 1)         # número de veces que se replica elementos individuales del objeto
 
 </pre>
 <p><br/></p>
@@ -797,10 +717,10 @@ rep(vector, times=4,  length.out=7)</code></pre>
 <h3><span style="color:#FF7F00"><strong>seq()</strong></span></h3>
 <pre>
 seq(from=1,             # valor inicial  
-    to=1,               # valor final
-    by=1,               # valor incremento
-    length.out=NULL,    # longitud del secuencia   
-    along.with=NULL)    # longitd del vector
+to=1,               # valor final
+by=1,               # valor incremento
+length.out=NULL,    # longitud del secuencia   
+along.with=NULL)    # longitud del vector
 </pre>
 <p><strong>Ejemplo</strong></p>
 <p>Secuencia de números enteros del 1 al 20</p>
@@ -828,7 +748,7 @@ seq(from=1,             # valor inicial
 <h3><span style="color:#FF7F00"><strong>round()</strong></span></h3>
 <pre>
 round(x,             # valor  
-      digits = 0)    # nmero de digitos
+digits = 0)    # número de dígitos
 </pre>
 <p><strong>Ejemplo</strong></p>
 <p>Aprimar el valor de <span class="math inline">\(\pi\)</span> a 3
@@ -857,8 +777,6 @@ decimales</p>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -891,35 +809,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

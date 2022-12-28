@@ -14,7 +14,7 @@
 
 <title> Tablas de frecuencia</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -226,69 +223,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +230,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +286,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -404,7 +328,7 @@ de frecuencia</strong></span></h1>
 <p></br></p>
 <p>Las distribuciones de frecuencia o también llamadas tablas de
 frecuencia nos sirven para agrupar los datos y tener una idea mas clara
-de sus características. Estan conformadas por una primera columna donde
+de sus características. Están conformadas por una primera columna donde
 se presentan las clases (filas de la tabla) que corresponden con las
 categorías observadas de una variable cualitativa. En caso de tener la
 variable una escala de medición nominal, es decisión del investigador la
@@ -441,14 +365,14 @@ los valores</td>
 <p></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <p></br></br></p>
-<p>Tabla 1. Distribución del número de equipos participantes en Quatar
+<p>Tabla 1. Distribución del número de equipos participantes en Qatar
 2022 por confederaciones
 <img src="img/tabla1.png" width="70%" style="display: block; margin: auto;" />
 Fuente : <a
 href="https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F%C3%BAtbol_de_2022">wikipedia</a></p>
 <p></br></br></p>
 <p>La información resumida nos muestra de manera clara la participación
-de cada confederación en el torneo, destacandose la UEFA con un 41.96%
+de cada confederación en el torneo, destacándose la UEFA con un 41.96%
 de participación.</p>
 <p></br></br></p>
 </div>
@@ -456,7 +380,7 @@ de participación.</p>
 <h2><strong>Escala ordinal</strong></h2>
 <p></br></p>
 <p>Otro caso correspondiente a las variables cualitativas en escala
-ordinal, para lo cual se agregan dos nuevas columas además de las
+ordinal, para lo cual se agregan dos nuevas columnas además de las
 descritas en el ejemplo anterior.</p>
 <table>
 <colgroup>
@@ -486,9 +410,9 @@ alimentación/bebidas a bordo
 Fuente : <a
 href="https://www.kaggle.com/datasets/alfredoblancas/airline-passenger-satisfaction-spanish?resource=download">kaggle</a></p>
 <p></br></p>
-<p>En ella se destaca que un 33.5% de los clientes tienen una perseción
+<p>En ella se destaca que un 33.5% de los clientes tienen una percepción
 negativa sobre el servicio de alimentación abordo de las naves de la
-aerolinea, mientras que un 66.5% tiene una persecicón de bueno a
+aerolínea, mientras que un 66.5% tiene una percepción de bueno a
 excelente.</p>
 <p></br></br></br></p>
 </div>
@@ -502,13 +426,13 @@ valores en intervalos siguiendo los siguientes criterios :</p>
 en tablas de frecuencia, debemos realizar las mismas divisiones</li>
 <li>Si la variable tiene criterios de división previamente establecidos
 se realizan las mismas divisiones. Este es el caso de variables como el
-salario (divisiones en funcion de los salarios mínimos vigentes). La
-variable edad tiene rangos estableciodos por ciclos de vida.</li>
+salario (divisiones en función de los salarios mínimos vigentes). La
+variable edad tiene rangos establecidos por ciclos de vida.</li>
 <li>En caso de no aplicar alguno de los criterios anteriores se pueden
 construir intervalos de igual tamaño (por defecto los programas
 estadísticos siguen este criterio)</li>
 </ul>
-<p>Tambien es importante determinar el número de intervalos a constuir
+<p>También es importante determinar el número de intervalos a construir
 (<span class="math inline">\(k\)</span>), para los cuales nos podemos
 basar en el criterio de Sturges : <span class="math inline">\(k=1+3.3
 log(n)\)</span>.</p>
@@ -518,7 +442,7 @@ log(n)\)</span>.</p>
 categoría abieta muestra una mayor concentración en el intervalo 2,
 comprendido entre 45 y 60 minutos, las cuales representan un 45.6% del
 grupo</p>
-<p>Además de las colunmas descritas anteriormente se adicionan :</p>
+<p>Además de las columnas descritas anteriormente se adicionan :</p>
 <ul>
 <li>El número del intervalo</li>
 <li>Los límites inferior y superior de los intervalos</li>
@@ -526,7 +450,7 @@ grupo</p>
 representará los números contenidos en el intervalo</li>
 </ul>
 <p></br></br></p>
-<p>Tabla 3 : Tiempo de carrera categoria juvenil mujeres, carera La Luz
+<p>Tabla 3 : Tiempo de carrera categoría juvenil mujeres, carera La Luz
 2022
 <img src="img/tabla4.png" width="80%" style="display: block; margin: auto;" />
 Fuente :<a
@@ -536,8 +460,6 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -570,35 +492,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

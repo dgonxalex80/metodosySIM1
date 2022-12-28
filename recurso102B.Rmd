@@ -1,12 +1,7 @@
 ---
 title: <span style="color:#034a94"> **Indicadores**</span>
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+output: html_document
 css: style.css
 ---
 ```{r setup, include=FALSE}
@@ -33,7 +28,7 @@ Al igual que la situación anterior cuando nos enfrentamos a una análisis de da
 
 </br>
 
-Para los datos cuantitativos se pueden utilizar tablas de frecuencia para identificando el valor más repitido, indicador que se denomina **MODA**.
+Para los datos cuantitativos se pueden utilizar tablas de frecuencia para identificando el valor más repetido, indicador que se denomina **MODA**.
 
 </br>
 
@@ -65,7 +60,7 @@ knitr::include_graphics("img/carrera.jpg")
 
 En octubre de 2022 se corrió la carrera de la Luz, contando con 1922 participantes en 10 categorías por edad y sexo. ( Juvenil, Abierta, Veteranos A, Veteranos B y Veteranos C para hombre y mujeres). 
 
-El siguiente gráfico de puntos representa los tiempos alcanzados por los participantes por categoría y sexo empleados para recorrer los 10 kilómetros de la competecia.
+El siguiente gráfico de puntos representa los tiempos alcanzados por los participantes por categoría y sexo empleados para recorrer los 10 kilómetros de la competencia.
 
 </br></br>
 
@@ -116,7 +111,7 @@ Los deciles por su parte corresponden a 9 número que dividen la muestra en 10 p
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
-Los deciles correspondeines a los tiempos registrados en la categoría Abierta para hombres se ilustran en la siguiente gráfica con los puntos naranjas. 
+Los deciles correspondientes a los tiempos registrados en la categoría Abierta para hombres se ilustran en la siguiente gráfica con los puntos naranjas. 
 
 </br></br>
 
@@ -137,7 +132,7 @@ D1       D2       D3       D4       D5       D6       D7       D8       D9
 
 ## **Cuartiles**
 
-Los cuartiles son 3 números que dividen la muestra en cuatro partes, cada una con un 25% de los datos. Con estos indicadores se contruye el diagrma de cajas que además de permitir comparar grupos, ayudan en la identificación de datos atípicos
+Los cuartiles son 3 números que dividen la muestra en cuatro partes, cada una con un 25% de los datos. Con estos indicadores se construye el diagrama de cajas que además de permitir comparar grupos, ayudan en la identificación de datos atípicos
 
 </br>
 
@@ -156,7 +151,7 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 Alambre inferior        Q1          Q2           Q3          Alambre superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 30.175                  25%         50%          75%   
-                        53.50       59.60        69.05       92.375
+53.50       59.60        69.05       92.375
 </pre>
 
 </br></br>
@@ -188,7 +183,7 @@ $$\bar{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
-La siguiente es la informaciçon de los tiempos correspondientes a la categoría juvenil femenina:
+La siguiente es la información de los tiempos correspondientes a la categoría juvenil femenina:
 
 <pre>
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
@@ -204,7 +199,7 @@ En promedio las mujeres de la categoría juveniles presentan el promedio más ba
 
 </br></br>
 
-### **Caracteristicas** 
+### **Características** 
 
 + La suma de las desviaciones de los datos con respecto a la media es cero. $\sum (x_{i}-\bar{x})=0$.
 
@@ -226,7 +221,7 @@ La **mediana** es el número que divide la muestra en dos partes de igual propor
 + $D_{5}$ : decil 5
 + $Q_{2}$ : segundo cuartil
 
-La mediana presenta caracteristicas más robustas frente a cambios de los datos extremos que las que pueda presentar la media.
+La mediana presenta características más robustas frente a cambios de los datos extremos que las que pueda presentar la media.
 
 Las medianas se pueden visualizar en el gráfico de cajas 
 
@@ -235,7 +230,7 @@ Las medianas se pueden visualizar en el gráfico de cajas
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
-Para el caso del grupo juvenil femenino participante en la carrera de La Luz obteniene una mediana de 
+Para el caso del grupo juvenil femenino participante en la carrera de La Luz obtiene una mediana de 
 
 <pre>
 1      2      3      4      5      6      7      8      9      10     11     12        
@@ -269,7 +264,7 @@ La **moda**  corresponde al dato o valor que más se repite. Es utilizada como m
 
 <pre>
 1. Juvenil     2. Abierta    3. Veteranos A    4. Veteranos B   5. Veteranos C 
-   19             1179          389               214              74 
+19             1179          389               214              74 
 </pre>
 
 </br>
@@ -296,7 +291,7 @@ Con el fin de evitar que los datos atípicos generen sesgos en el indicador de l
 1      2      3      4      5      6      7      8      9      10     11     12        
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
-     (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
+(42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
 
 media truncada al 10% : 59.748
 </pre>
@@ -307,28 +302,28 @@ media truncada al 10% : 59.748
 
 El rango medio se obtiene al sumar los valores extremos ( mínimo y máximo) y dividir el resultado por dos. Este indicador es de fácil cálculo y útil cuando se desea una estimación empírica y alta precisión en datos simétricos. 
 
- $$\frac{1}{2}\Big(\max(x)+\min(x)\Big)$$
- 
- <br/><br/>
- 
+$$\frac{1}{2}\Big(\max(x)+\min(x)\Big)$$
+
+<br/><br/>
+
 <span style="color:#FF7F00">**Ejemplo**</span>
- 
- <br/>
- 
- <pre>
- 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
- 
- rango medio = (41.67 + 78.05) /2 = 59.86
- 
- </pre>
- 
+
+<br/>
+
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+rango medio = (41.67 + 78.05) /2 = 59.86
+
+</pre>
+
 
 <br/> <br/></br>
 <!-- ======================================================================= -->
 
 # **De dispersión**
 
-Supongamos que tenemos dos grupos de participantes que son patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en promedio de edad. Lo que primero se puede piensar es que los dos grupos tienen una composición igual o muy parecida dado que coinciden en el promedio.  Pero no es así, los datos que se presentan a continuación tienen medias de 28,  pero corresponden a grupos diferentes.
+Supongamos que tenemos dos grupos de participantes que son patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en promedio de edad. Lo que primero se puede pensar es que los dos grupos tienen una composición igual o muy parecida dado que coinciden en el promedio.  Pero no es así, los datos que se presentan a continuación tienen medias de 28,  pero corresponden a grupos diferentes.
 
 <br/>
 
@@ -354,7 +349,7 @@ Fuente : datos simulados
 
 ## **Rango**
 
-El rango es el indicador de dispersión más facil de calcular, pues se obtiene restando los valores extremos de los datos: 
+El rango es el indicador de dispersión más fácil de calcular, pues se obtiene restando los valores extremos de los datos: 
 
 $r = \max(x) - \min(x)$
 
@@ -402,11 +397,11 @@ Se podría afirmar que la varianza es un promedio de los cuadrados de las difere
 
 </br></br>
 
-El problema de la varianza es su **interpretación**, pues sus unidades quedan al cuadrado y en la mayoría de los casos no es posible interpretar los resultados. Por esta razón se optó por utilizar otra medidada de dispersión calculada a partir de la raíz cuadrada de la varianza.
+El problema de la varianza es su **interpretación**, pues sus unidades quedan al cuadrado y en la mayoría de los casos no es posible interpretar los resultados. Por esta razón se optó por utilizar otra medida de dispersión calculada a partir de la raíz cuadrada de la varianza.
 
 <br/> <br/>
 
-## **Desviación estandar**
+## **Desviación estándar**
 
 </br>
 

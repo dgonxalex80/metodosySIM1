@@ -1,12 +1,7 @@
 ---
 title: <span style="color:#034a94"> **Conceptos básicos**</span> 
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+output: html_document
 css: style.css
 ---
 
@@ -29,7 +24,7 @@ c4 ="#686868"  # gris - color texto
 
 </br></br><br/>
 
-# <span style="color:#034A94"> **Estadística**</span>
+# <span style="color:#034A94">**Estadística**</span>
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/statistics1.png")
@@ -39,11 +34,11 @@ knitr::include_graphics("img/statistics1.png")
 
 
 
-## (PARTE) **¿Qué es?**  
-  
+## **¿Qué es?**  
+
 </br>
 
-**ESTADISTICA** es una ciencia, la cual se encarga de suministrar diferentes métodos y procedimientos para recoger, clasificar, resumir, hallar regularidades y analizar los datos; así como de realizar inferencias a partir de ellos, con la finalidad de ayudar a la toma de decisiones y en su caso, formular predicciones.
+**ESTADÍSTICA** es una ciencia, la cual se encarga de suministrar diferentes métodos y procedimientos para recoger, clasificar, resumir, hallar regularidades y analizar los datos; así como de realizar inferencias a partir de ellos, con la finalidad de ayudar a la toma de decisiones y en su caso, formular predicciones.
 
 </br>
 
@@ -100,7 +95,7 @@ De acuerdo con tu área de profesión, identifica alguna situación o actividad 
 
 </br></br>
 
-##  **Análisis descritivo**    
+##  **Análisis descriptivo**    
 
 La estadística descriptiva comprende los métodos para organizar, resumir y presentar datos de manera informativa. Su fin es únicamente exploratorio y se limita a describir lo observado en una población o muestra.
 
@@ -130,11 +125,11 @@ A partir de una muestra aleatoria regional en el Valle del Cauca de 550 estudian
 
 ## **Validez**  
 
-Es posible hacer uso de los pasos de una parsona para medir la distancia entre dos puntos. ¿Este sería confiable? 
+Es posible hacer uso de los pasos de una persona para medir la distancia entre dos puntos. ¿Este sería confiable? 
 
-La respuesta a esta pregunta es **NO**. Dado que los pasos de una persona pueden ser diferentes a los de otra persona debido a la diferencia en sus tallas. Las mediciones realizadas por diferentes pesonas genera una variabilidad extra inherente al sujeto que realiza la medición, afectando así los datos que se obtienen a partir de este.
+La respuesta a esta pregunta es **NO**. Dado que los pasos de una persona pueden ser diferentes a los de otra persona debido a la diferencia en sus tallas. Las mediciones realizadas por diferentes personas genera una variabilidad extra inherente al sujeto que realiza la medición, afectando así los datos que se obtienen a partir de este.
 
-La mejor alternativa en este caso es hacer uso de instrumentos calibrados, estandarizados o validados, como metros, tallímetros, etc. De tal manera que, si la medición se toma varias veces con el mismo instrumento, esta no varié, de una a
+La mejor alternativa en este caso es hacer uso de instrumentos calibrados, estandarizados o validados, como un flexómetro, rueda métrica, etc. De tal manera que, si la medición se toma varias veces con el mismo instrumento, esta no varié, de una a
 otra medición.
 
 
@@ -167,7 +162,7 @@ Si se estudia el peso promedio de los estudiantes en una carrera de la universid
 
 ## **Variable**  
 
-Corresponde a caracteristicas tomadas de la unidad de análisis.  Las variables se pueden clasificar segun su origen, naturaleza o relación con otras variables :
+Corresponde a características tomadas de la unidad de análisis.  Las variables se pueden clasificar según su origen, naturaleza o relación con otras variables :
 
 <br/>
 
@@ -181,7 +176,7 @@ knitr::include_graphics("img/variable1.png")
 
 </br></br>
 
-**Por su maturaleza** : Si procede de un conteo (discreta) y si procede de una medición  (continua).
+**Por su naturaleza** : Si procede de un conteo (discreta) y si procede de una medición  (continua).
 
 </br></br>
 
@@ -207,7 +202,7 @@ Toman valores numéricos y se pueden hacer operaciones matemáticas con ellos. E
 
 ### **Variables continuas** 
 
-Las variables continuas pueden tomar cualquier valor real dentro de un intervalo, en general proceden de la medición de caracteristicas.
+Las variables continuas pueden tomar cualquier valor real dentro de un intervalo, en general proceden de la medición de características.
 
 </br>
 
@@ -244,7 +239,7 @@ knitr::include_graphics("img/escalas.png")
 ```
 </br></br>
 
-**Nominal** : En las variables con escala de medición nominal, sus valores no se pueden ordenar, es decir que no existe una forma particular para ordenar sus valores. | Religión (católico, cristiano, evangélico, anóstico), 
+**Nominal** : En las variables con escala de medición nominal, sus valores no se pueden ordenar, es decir que no existe una forma particular para ordenar sus valores. | Religión (católico, cristiano, evangélico, agnóstico), 
 
 </br>
 
@@ -331,7 +326,7 @@ Indicador estadístico calculado teniendo en cuenta los elementos de la poblaci�
 * Edad promedio de todos los estudiantes matriculados en la universidad ($\mu$) 
 * La proporción de personas con empleo formal en la ciudad de Cali ($p$).
 
-Para el cálculo de ambos parámetros se debe contar con la información del ceso corespondiente
+Para el cálculo de ambos parámetros se debe contar con la información del ceso correspondiente
 
 </br></br>
 
@@ -354,17 +349,17 @@ En este caso los valores corresponden a  valores obtenidos de una muestra.
 
 ## **Tipos de muestreo**  
 
-Para seleccionar los datos podemos utilziar muestreos probabilisticos o no probabilisticos que se dividen en diferentes tipos como se indica en el siguiente diagrama
+Para seleccionar los datos podemos utilizar muestreos probabilísticos o no probabilísticos que se dividen en diferentes tipos como se indica en el siguiente diagrama
 
 <br/><br/>
 
 ## **Muestreos probabilísticos**
 
-El muestreo probabilistico es un método de selección de la muestra en el que métodos que grantizan una selección aleatoria de los elementos de la muestra, es decir que cada elemento de la población tienen igual probabilidad de ser elegido dentro de una muestra. Esto garantiza además de representatividad de los elementos selecionados con respecto a las caracteristicas de la población, independencia entre los valores selecionados, los cuales permiten caracteristicas deseables al momento de realizar inferencias sobre los resultados obtenidos
+El muestreo probabilístico es un método de selección de la muestra en el que métodos que garantizan una selección aleatoria de los elementos de la muestra, es decir que cada elemento de la población tienen igual probabilidad de ser elegido dentro de una muestra. Esto garantiza además de representatividad de los elementos seleccionados con respecto a las características de la población, independencia entre los valores seleccionados, los cuales permiten características deseables al momento de realizar inferencias sobre los resultados obtenidos
 
 <br/><br/>
 
-## **Muestreos no probabilisticos**
+## **Muestreos no probabilísticos**
 
 El muestreo no probabilístico (o muestreo no aleatorio) es la técnica de muestreo donde los elementos son elegidos a juicio del investigador. No se conoce la probabilidad con la que se puede seleccionar a cada individuo.
 
@@ -378,5 +373,5 @@ knitr::include_graphics("img/muestreos.png")
 
 **Nota** 
 
-Los muestreos por internet utilizando redes sociales se clasifica dentro de los muestreos no probabilisticos descritos
+Los muestreos por internet utilizando redes sociales se clasifica dentro de los muestreos no probabilísticos descritos
 

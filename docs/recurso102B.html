@@ -14,7 +14,7 @@
 
 <title> Indicadores</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,9 +30,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -226,69 +223,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +230,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +286,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -412,7 +336,7 @@ análisis de datos, requerimos resumirlos en indicadores, tablas y
 gráficos que nos permitan un fácil análisis de ellos.</p>
 <p></br></p>
 <p>Para los datos cuantitativos se pueden utilizar tablas de frecuencia
-para identificando el valor más repitido, indicador que se denomina
+para identificando el valor más repetido, indicador que se denomina
 <strong>MODA</strong>.</p>
 <p></br></p>
 <p>Para las variable cuantitativas existen una serie de indicadores que
@@ -438,7 +362,7 @@ participantes en 10 categorías por edad y sexo. ( Juvenil, Abierta,
 Veteranos A, Veteranos B y Veteranos C para hombre y mujeres).</p>
 <p>El siguiente gráfico de puntos representa los tiempos alcanzados por
 los participantes por categoría y sexo empleados para recorrer los 10
-kilómetros de la competecia.</p>
+kilómetros de la competencia.</p>
 <p></br></br></p>
 <p>Gráfico 1 : Tiempos por categoría y sexo - Carrera La Luz 2022
 <img src="img/RplotRioCaliMH.png" width="100%" style="display: block; margin: auto;" />
@@ -497,9 +421,9 @@ class="math inline">\(\cdots\)</span> , <span
 class="math inline">\(D_{9}\)</span>)</p>
 <p></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
-<p>Los deciles correspondeines a los tiempos registrados en la categoría
-Abierta para hombres se ilustran en la siguiente gráfica con los puntos
-naranjas.</p>
+<p>Los deciles correspondientes a los tiempos registrados en la
+categoría Abierta para hombres se ilustran en la siguiente gráfica con
+los puntos naranjas.</p>
 <p></br></br></p>
 <p>Gráfica 3 : Tiempos hombres categoría Abierta
 <img src="img/RplotDeciles.png" width="100%" style="display: block; margin: auto;" /></p>
@@ -514,8 +438,8 @@ D1       D2       D3       D4       D5       D6       D7       D8       D9
 <div id="cuartiles" class="section level2">
 <h2><strong>Cuartiles</strong></h2>
 <p>Los cuartiles son 3 números que dividen la muestra en cuatro partes,
-cada una con un 25% de los datos. Con estos indicadores se contruye el
-diagrma de cajas que además de permitir comparar grupos, ayudan en la
+cada una con un 25% de los datos. Con estos indicadores se construye el
+diagrama de cajas que además de permitir comparar grupos, ayudan en la
 identificación de datos atípicos</p>
 <p></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
@@ -528,7 +452,7 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 Alambre inferior        Q1          Q2           Q3          Alambre superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 30.175                  25%         50%          75%   
-                        53.50       59.60        69.05       92.375
+53.50       59.60        69.05       92.375
 </pre>
 <p></br></br></p>
 <p>Los valores que queden por fuera de los alambres, se consideran como
@@ -561,7 +485,7 @@ un conjunto de datos y dividirlos por el número de datos.</p>
 x_{i}\]</span></p>
 <p></br></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
-<p>La siguiente es la informaciçon de los tiempos correspondientes a la
+<p>La siguiente es la información de los tiempos correspondientes a la
 categoría juvenil femenina:</p>
 <pre>
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
@@ -574,8 +498,8 @@ promedio = 59.77
 <p>En promedio las mujeres de la categoría juveniles presentan el
 promedio más bajo (59.77 min).</p>
 <p></br></br></p>
-<div id="caracteristicas" class="section level3">
-<h3><strong>Caracteristicas</strong></h3>
+<div id="características" class="section level3">
+<h3><strong>Características</strong></h3>
 <ul>
 <li><p>La suma de las desviaciones de los datos con respecto a la media
 es cero. <span class="math inline">\(\sum
@@ -605,13 +529,13 @@ class="math inline">\(\bar{z}=a\bar{x}+b\bar{y}\)</span>.</p></li>
 partes de igual proporción (50% : 50%). Es decir que corresponde al
 percentil 50 + <span class="math inline">\(D_{5}\)</span> : decil 5 +
 <span class="math inline">\(Q_{2}\)</span> : segundo cuartil</p>
-<p>La mediana presenta caracteristicas más robustas frente a cambios de
+<p>La mediana presenta características más robustas frente a cambios de
 los datos extremos que las que pueda presentar la media.</p>
 <p>Las medianas se pueden visualizar en el gráfico de cajas</p>
 <p></br></br></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <p>Para el caso del grupo juvenil femenino participante en la carrera de
-La Luz obteniene una mediana de</p>
+La Luz obtiene una mediana de</p>
 <pre>
 1      2      3      4      5      6      7      8      9      10     11     12        
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
@@ -638,7 +562,7 @@ cualitativas o en cuantitativas discretas con pocos valores.</p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <pre>
 1. Juvenil     2. Abierta    3. Veteranos A    4. Veteranos B   5. Veteranos C 
-   19             1179          389               214              74 
+19             1179          389               214              74 
 </pre>
 <p></br></p>
 <p>Los datos de la carrera indican que la categoría Abierta representa
@@ -662,7 +586,7 @@ class="math inline">\(\bar{x}_{_{0.10}}\)</span>)</p>
 1      2      3      4      5      6      7      8      9      10     11     12        
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
-     (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
+(42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
 
 media truncada al 10% : 59.748
 </pre>
@@ -680,11 +604,11 @@ class="math display">\[\frac{1}{2}\Big(\max(x)+\min(x)\Big)\]</span></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <p><br/></p>
 <pre>
- 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
- 
- rango medio = (41.67 + 78.05) /2 = 59.86
- 
- </pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+rango medio = (41.67 + 78.05) /2 = 59.86
+
+</pre>
 <p><br/> <br/></br>
 <!-- ======================================================================= --></p>
 </div>
@@ -693,7 +617,7 @@ class="math display">\[\frac{1}{2}\Big(\max(x)+\min(x)\Big)\]</span></p>
 <h1><strong>De dispersión</strong></h1>
 <p>Supongamos que tenemos dos grupos de participantes que son
 patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en
-promedio de edad. Lo que primero se puede piensar es que los dos grupos
+promedio de edad. Lo que primero se puede pensar es que los dos grupos
 tienen una composición igual o muy parecida dado que coinciden en el
 promedio. Pero no es así, los datos que se presentan a continuación
 tienen medias de 28, pero corresponden a grupos diferentes.</p>
@@ -728,7 +652,7 @@ Fuente : datos simulados</p>
 <p></br></br></p>
 <div id="rango" class="section level2">
 <h2><strong>Rango</strong></h2>
-<p>El rango es el indicador de dispersión más facil de calcular, pues se
+<p>El rango es el indicador de dispersión más fácil de calcular, pues se
 obtiene restando los valores extremos de los datos:</p>
 <p><span class="math inline">\(r = \max(x) - \min(x)\)</span></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
@@ -796,13 +720,13 @@ class="math inline">\(cov(xy)\)</span></p></li>
 <p>El problema de la varianza es su <strong>interpretación</strong>,
 pues sus unidades quedan al cuadrado y en la mayoría de los casos no es
 posible interpretar los resultados. Por esta razón se optó por utilizar
-otra medidada de dispersión calculada a partir de la raíz cuadrada de la
+otra medida de dispersión calculada a partir de la raíz cuadrada de la
 varianza.</p>
 <p><br/> <br/></p>
 </div>
 </div>
-<div id="desviación-estandar" class="section level2">
-<h2><strong>Desviación estandar</strong></h2>
+<div id="desviación-estándar" class="section level2">
+<h2><strong>Desviación estándar</strong></h2>
 <p></br></p>
 <p>Es la raíz cuadrada de la varianza</p>
 <p><span class="math display">\[s=\sqrt{s^{2}}\]</span></p>
@@ -979,8 +903,6 @@ coeficiente de asimetría = 0.07062934
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -1013,35 +935,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

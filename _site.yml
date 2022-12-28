@@ -21,7 +21,7 @@ navbar:
           href: recurso102C.html 
     - text: "Software R"
       menu:
-        - text: "Software R"
+        - text: "Introducción a R"
           href: recurso103.html   
         - text: "---------"    
         - text: "Tablas"

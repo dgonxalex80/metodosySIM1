@@ -1,12 +1,7 @@
 ---
 title: <span style="color:#034a94"> **Tablas de frecuencia**</span>
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+output: html_document
 css: style.css
 ---
 
@@ -23,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 </br>
 
-Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos sirven para agrupar los datos y tener una idea mas clara de sus características. Estan conformadas por una primera columna donde se presentan  las clases (filas de la tabla) que corresponden con las categorías observadas de una variable cualitativa. En caso de tener la variable una escala de medición nominal, es decisión del investigador la ubicación u ordenamiento de las categorías dentro de la tabla de frecuencias. Por el contrario para las variables en escala ordinal se realiza el ordenamiento siguiendo la jerarquía de las categorías 
+Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos sirven para agrupar los datos y tener una idea mas clara de sus características. Están conformadas por una primera columna donde se presentan  las clases (filas de la tabla) que corresponden con las categorías observadas de una variable cualitativa. En caso de tener la variable una escala de medición nominal, es decisión del investigador la ubicación u ordenamiento de las categorías dentro de la tabla de frecuencias. Por el contrario para las variables en escala ordinal se realiza el ordenamiento siguiendo la jerarquía de las categorías 
 
 
 </br></br>
@@ -43,7 +38,7 @@ Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
 
 </br></br>
 
-Tabla 1. Distribución del número de equipos participantes en Quatar 2022 por confederaciones
+Tabla 1. Distribución del número de equipos participantes en Qatar 2022 por confederaciones
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/tabla1.png")
 ```
@@ -51,7 +46,7 @@ Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Co
 
 </br></br>
 
-La información resumida nos muestra de manera clara la participación de cada confederación en el torneo, destacandose la UEFA con un 41.96% de participación.
+La información resumida nos muestra de manera clara la participación de cada confederación en el torneo, destacándose la UEFA con un 41.96% de participación.
 
 </br></br>
 
@@ -59,7 +54,7 @@ La información resumida nos muestra de manera clara la participación de cada c
 
 </br>
 
-Otro caso correspondiente a las variables cualitativas en escala ordinal, para lo cual  se agregan dos nuevas columas además de las descritas en el ejemplo anterior.
+Otro caso correspondiente a las variables cualitativas en escala ordinal, para lo cual  se agregan dos nuevas columnas además de las descritas en el ejemplo anterior.
 
 |      |                                                                                                                  |
 |:-----|:-----------------------------------------------------------------------------------------------------------------|
@@ -78,7 +73,8 @@ Fuente : [kaggle](https://www.kaggle.com/datasets/alfredoblancas/airline-passeng
 
 </br>
 
-En ella se destaca que un 33.5% de los clientes tienen una perseción negativa sobre el servicio de alimentación abordo de las naves de la aerolinea, mientras que un 66.5% tiene una persecicón de bueno a excelente.
+En ella se destaca que un 33.5% 
+de los clientes tienen una percepción negativa sobre el servicio de alimentación abordo de las naves de la aerolínea, mientras que un 66.5% tiene una percepción de bueno a excelente.
 
 </br></br></br>
 
@@ -88,11 +84,11 @@ En ella se destaca que un 33.5% de los clientes tienen una perseción negativa s
 Para el caso de las variables cualitativas es necesario agrupar los valores en intervalos siguiendo los siguientes criterios :
 
 * Si se desea realizar comparaciones con otra información clasificada en tablas de frecuencia, debemos realizar las mismas divisiones
-* Si la variable tiene criterios de división previamente establecidos se realizan las mismas divisiones. Este es el caso de variables como el salario (divisiones en funcion de los salarios mínimos vigentes). La variable edad tiene rangos estableciodos por ciclos de vida. 
+* Si la variable tiene criterios de división previamente establecidos se realizan las mismas divisiones. Este es el caso de variables como el salario (divisiones en función de los salarios mínimos vigentes). La variable edad tiene rangos establecidos por ciclos de vida. 
 * En caso de no aplicar alguno de los criterios anteriores se pueden construir intervalos de igual tamaño (por defecto los programas estadísticos siguen este criterio)
 
 
-Tambien es importante determinar el número de intervalos a constuir ($k$), para los cuales nos podemos basar en el criterio de Sturges : $k=1+3.3 log(n)$.  
+También es importante determinar el número de intervalos a construir ($k$), para los cuales nos podemos basar en el criterio de Sturges : $k=1+3.3 log(n)$.  
 
 
 </br></br>
@@ -102,7 +98,7 @@ Tambien es importante determinar el número de intervalos a constuir ($k$), para
 La tabla para los tiempos empleados por las corredoras de la categoría abieta muestra una mayor concentración en el intervalo 2, comprendido entre 45 y 60 minutos, las cuales representan un 45.6% del grupo
 
 
-Además de las colunmas descritas anteriormente se adicionan :
+Además de las columnas descritas anteriormente se adicionan :
 
 * El número del intervalo
 * Los límites inferior y superior de los intervalos
@@ -110,7 +106,7 @@ Además de las colunmas descritas anteriormente se adicionan :
 
 </br></br>
 
-Tabla 3 : Tiempo de carrera categoria juvenil mujeres, carera La Luz 2022
+Tabla 3 : Tiempo de carrera categoría juvenil mujeres, carera La Luz 2022
 ```{r, echo=FALSE, out.width="80%", fig.align = "center"}
 knitr::include_graphics("img/tabla4.png")
 ```
@@ -118,3 +114,4 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 
 
 <br/><br/>
+

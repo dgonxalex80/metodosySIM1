@@ -2,10 +2,10 @@
 title : <span style="color:#000000"> **Contexto**</span>
 author: "  " 
 html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: paper
+toc: yes
+toc_depth: 2
+toc_float: yes
+theme: paper
 css: style.css
 ---
 
@@ -54,7 +54,7 @@ Utilizaremos los pasos de la Metodología Estadística como estrategia para ubic
 
 <span style="color:#FF7F00">**Nota**</span>
 
-La Métodologa Estadística está basada en el método científico que corresponde a un procedimiento iterativo de aprendizaje, el cual está compuesto por las siguientes etapas: 
+La Metodología Estadística está basada en el método científico que corresponde a un procedimiento iterativo de aprendizaje, el cual está compuesto por las siguientes etapas: 
 
 1. Formulación de una hipótesis, 
 2. Observación, 
@@ -62,8 +62,6 @@ La Métodologa Estadística está basada en el método científico que correspon
 
 <br/><br/>
 
-Es necesario tener en cuenta al realizar un análisis exploratorio de datos los pasos previos a este, como son la definición del problema objeto de estudio, cual será nuestra meta (objetivos) o finalidad del estudio. Que variables debemos recoger para poder cumplir con el objetivo propuesto, además del diseño del experimento, es decir como se requiere recolectar la infomación, cuanta información, las fuentes y los medios para su procesamiento.
+Es necesario tener en cuenta al realizar un análisis exploratorio de datos los pasos previos a este, como son la definición del problema objeto de estudio, cual será nuestra meta (objetivos) o finalidad del estudio. Que variables debemos recoger para poder cumplir con el objetivo propuesto, además del diseño del experimento, es decir como se requiere recolectar la información, cuanta información, las fuentes y los medios para su procesamiento.
 
-Despues de tener claridad sobre los pasos anteriores (1 a 6 de la metodología estadística) se empieza el análisis expleratorio de datos. Con él realizamos una primera aproximación a los objetivos planteados. 
-
-
+Después de tener claridad sobre los pasos anteriores (1 a 6 de la metodología estadística) se empieza el análisis exploratorio de datos. Con él realizamos una primera aproximación a los objetivos planteados. 

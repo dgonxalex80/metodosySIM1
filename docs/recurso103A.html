@@ -12,9 +12,9 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title>tablas de frecuencia</title>
+<title>Tablas de frecuencia en R</title>
 
-<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -30,12 +30,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -226,69 +224,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -296,16 +231,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -362,7 +287,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="recurso103.html">Software R</a>
+      <a href="recurso103.html">Introducción a R</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -388,44 +313,265 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">tablas de frecuencia</h1>
+<h1 class="title toc-ignore">Tablas de frecuencia en R</h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com"
-class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<p><br/><br/></p>
+<div id="examinar-la-base-de-datos" class="section level2">
+<h2><strong>Examinar la base de datos</strong></h2>
+<p>Antes de resumir la información contenida en una data en tablas de
+frecuencia dependiendo el tipo de variable revisamos incialmente la
+estructura de la data, lu cual nos perite un diagnóstico incial para
+ello utilizaremos una de las bases contenidas en el paquete
+<code>paqueteMET</code> para lo cual debemos instalarlo de la siguiente
+manera :</p>
+<p><br/></p>
+<pre class="r"><code>install.packages(&quot;devtools&quot;)    # paquete necesario para descargar paqueteMET
+devtools::install_github(&quot;dgonxalex80/paqueteMET&quot;) # descarga de paqueteMET
+library(paqueteMET)   # activar paqueteMET
+data = paqueteMET::CarreraLuz22    # cargar la dataset</code></pre>
+<p><br/><br/></p>
+<div id="glimpse" class="section level3">
+<h3><strong>glimpse()</strong></h3>
+<p>Se puede examinar el contenido de la base de datos utilizando la
+función <code>glimpse()</code> del paquete <code>dplyr</code>,
+permitiendo identificar el tipo de variables y los primeros valores
+:</p>
+<pre class="r"><code>library(dplyr)
+glimpse(data)</code></pre>
+<pre><code>Rows: 1,922
+Columns: 7
+$ id           &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
+$ sex          &lt;chr&gt; &quot;Hombre&quot;, &quot;Hombre&quot;, &quot;Hombre&quot;, &quot;Hombre&quot;, &quot;Hombre&quot;, &quot;Hombre…
+$ edad         &lt;int&gt; 22, 31, 31, 36, 32, 48, 31, 19, 51, 24, 23, 25, 46, 25, 4…
+$ origen       &lt;chr&gt; &quot;Sevilla&quot;, &quot;Sevilla&quot;, &quot;Yumbo&quot;, &quot;Cali&quot;, &quot;Cali&quot;, &quot;Palmira&quot;,…
+$ timerun      &lt;dbl&gt; 1988, 2041, 2083, 2112, 2213, 2238, 2244, 2247, 2266, 230…
+$ categoria    &lt;chr&gt; &quot;2. Abierta&quot;, &quot;2. Abierta&quot;, &quot;2. Abierta&quot;, &quot;2. Abierta&quot;, &quot;…
+$ nacionalidad &lt;chr&gt; &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &quot;…</code></pre>
+<p><br/><br/></p>
+<p>Tambien se puede visualizar la data con la fución
+<code>View(data)</code> y <code>knitr::kable(data)</code></p>
+<p><br/><br/></p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="recurso103A_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the
-code chunk to prevent printing of the R code that generated the
-plot.</p>
+<div id="summary" class="section level3">
+<h3><strong>summary()</strong></h3>
+<p>Otra alternativa es la función <code>summary()</code> :</p>
+<pre class="r"><code>summary(data)</code></pre>
+<pre><code>       id             sex                 edad          origen         
+ Min.   :   1.0   Length:1922        Min.   :15.00   Length:1922       
+ 1st Qu.: 481.2   Class :character   1st Qu.:30.00   Class :character  
+ Median : 961.5   Mode  :character   Median :36.00   Mode  :character  
+ Mean   : 961.5                      Mean   :37.45                     
+ 3rd Qu.:1441.8                      3rd Qu.:44.00                     
+ Max.   :1922.0                      Max.   :76.00                     
+    timerun      categoria         nacionalidad      
+ Min.   :1988   Length:1922        Length:1922       
+ 1st Qu.:3381   Class :character   Class :character  
+ Median :3810   Mode  :character   Mode  :character  
+ Mean   :3916                                        
+ 3rd Qu.:4396                                        
+ Max.   :9962                                        </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="head" class="section level3">
+<h3><strong>head()</strong></h3>
+<p>La función <code>head()</code> permite visualizar los primeros 6
+registros :</p>
+<pre class="r"><code>head(data) </code></pre>
+<pre><code># A tibble: 6 × 7
+     id sex     edad origen  timerun categoria      nacionalidad
+  &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;       
+1     1 Hombre    22 Sevilla    1988 2. Abierta     COL         
+2     2 Hombre    31 Sevilla    2041 2. Abierta     COL         
+3     3 Hombre    31 Yumbo      2083 2. Abierta     COL         
+4     4 Hombre    36 Cali       2112 2. Abierta     COL         
+5     5 Hombre    32 Cali       2213 2. Abierta     COL         
+6     6 Hombre    48 Palmira    2238 3. Veteranos A COL         </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="tail" class="section level3">
+<h3><strong>tail()</strong></h3>
+<p>Y la función <code>tail()</code> visualiza los últimos 6
+registros</p>
+<pre class="r"><code>tail(data)</code></pre>
+<pre><code># A tibble: 6 × 7
+     id sex     edad origen timerun categoria      nacionalidad
+  &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;       
+1  1917 Hombre    52 Cali      6311 4. Veteranos B 0           
+2  1918 Hombre    37 Cali      6353 2. Abierta     COL         
+3  1919 Mujer     28 Cali      6354 2. Abierta     COL         
+4  1920 Mujer     40 Cali      6682 3. Veteranos A COL         
+5  1921 Hombre    26 Cali      6868 2. Abierta     COL         
+6  1922 Hombre    76 Cali      9962 5. Veteranos C COL         </code></pre>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="tablas-de-frecuencia-variables-cualitativas"
+class="section level2">
+<h2>Tablas de frecuencia variables cualitativas</h2>
+<div id="table" class="section level3">
+<h3><strong>table()</strong></h3>
+<p>La función table() permite la construcción de tablas de frecuencias
+absolutas</p>
+<pre class="r"><code>table(data$categoria)</code></pre>
+<pre><code>
+    1. Juvenil     2. Abierta 3. Veteranos A 4. Veteranos B 5. Veteranos C 
+            19           1179            423            227             74 </code></pre>
+</div>
+<div id="prop.table" class="section level3">
+<h3><strong>prop.table()</strong></h3>
+<p>Si adicionamos la función prop.table() a un objeto table da como
+resultado las frecuencias relativas que se pueden multiplicar por 100
+para visualizarlas como porcentajes.</p>
+<pre class="r"><code>library(tidyverse)
+table(data$categoria) %&gt;%   # se introduce el operador %&gt;%
+          prop.table()*100 </code></pre>
+<pre><code>
+    1. Juvenil     2. Abierta 3. Veteranos A 4. Veteranos B 5. Veteranos C 
+     0.9885536     61.3423517     22.0083247     11.8106139      3.8501561 </code></pre>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="tablas-de-frecuencia-para-dos-variables-cualitativas"
+class="section level2">
+<h2>Tablas de frecuencia para dos variables cualitativas</h2>
+<p>La función <code>table()</code> permite la construcción de tablas
+para dos variables o tablas cruzadas para frecuencias absolutas o
+tambien para frecuencias relativas (si se multiplican por 100)</p>
+<pre class="r"><code>table(data$categoria, data$sex)</code></pre>
+<pre><code>                
+                 Hombre Mujer
+  1. Juvenil         12     7
+  2. Abierta        677   502
+  3. Veteranos A    276   147
+  4. Veteranos B    155    72
+  5. Veteranos C     58    16</code></pre>
+<p><br/><br/></p>
+<pre class="r"><code>table(data$categoria, data$sex) %&gt;% 
+               prop.table()</code></pre>
+<pre><code>                
+                      Hombre       Mujer
+  1. Juvenil     0.006243496 0.003642040
+  2. Abierta     0.352237253 0.261186264
+  3. Veteranos A 0.143600416 0.076482830
+  4. Veteranos B 0.080645161 0.037460978
+  5. Veteranos C 0.030176899 0.008324662</code></pre>
+<p><br/><br/></p>
+<div id="freq" class="section level3">
+<h3><strong>freq()</strong></h3>
+<p>La función <code>freq()</code> del paquete <code>summarytools</code>
+permite una construcción más elaborada de la tabla que incluye ademas de
+las frecuencias simples tambien las acumuladas</p>
+<pre class="r"><code>summarytools::freq(data$categoria, cumul = T)</code></pre>
+<pre><code>Frequencies  
+
+                       Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+-------------------- ------ --------- -------------- --------- --------------
+          1. Juvenil     19      0.99           0.99      0.99           0.99
+          2. Abierta   1179     61.34          62.33     61.34          62.33
+      3. Veteranos A    423     22.01          84.34     22.01          84.34
+      4. Veteranos B    227     11.81          96.15     11.81          96.15
+      5. Veteranos C     74      3.85         100.00      3.85         100.00
+                &lt;NA&gt;      0                               0.00         100.00
+               Total   1922    100.00         100.00    100.00         100.00</code></pre>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="variables-cuantitativas" class="section level2">
+<h2><strong>Variables cuantitativas</strong></h2>
+<p>En este caso se utilizan las función <code>cut()</code> para generar
+los intervalos previamente a la construcción de la tabla con la función
+<code>freq()</code></p>
+<pre class="r"><code>breaks=c(10,18,40,50,60,80)    # limites de intervalos
+Edad.corredores=cut(data$edad, breaks)
+summarytools::freq(Edad.corredores)</code></pre>
+<pre><code>Frequencies  
+
+                Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+------------- ------ --------- -------------- --------- --------------
+      (10,18]     27      1.40           1.40      1.40           1.40
+      (18,40]   1237     64.36          65.76     64.36          65.76
+      (40,50]    397     20.66          86.42     20.66          86.42
+      (50,60]    194     10.09          96.51     10.09          96.51
+      (60,80]     67      3.49         100.00      3.49         100.00
+         &lt;NA&gt;      0                               0.00         100.00
+        Total   1922    100.00         100.00    100.00         100.00</code></pre>
+<p>Nota</p>
+<p>Si queremos una tabla mas terminada podemos utilizar</p>
+<pre class="r"><code># install.packages(&quot;flextable&quot;)
+library(flextable)
+ft1=table(data$categoria)%&gt;% 
+        as.data.frame()
+colnames(ft1)=c(&quot;Categoría&quot;, &quot;Frecuencia absoluta&quot;)
+ft1=flextable(ft1)
+
+set_flextable_defaults(
+  font.size = 10, font.family = &quot;Helvetica&quot;,
+  font.color = &quot;#333333&quot;,
+  table.layout = &quot;fixed&quot;,
+  border.color = &quot;gray&quot;,
+  padding.top = 3, padding.bottom = 3,
+  padding.left = 4, padding.right = 4)
+
+ft1 &lt;- ft1 %&gt;%
+    width(j = 1,  width = 2) %&gt;%
+    width(j = 2, width = 1)
+ft1</code></pre>
+<template id="3e67065b-05c1-4075-9590-c652a62a7bb2"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td, .tabwid th {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+    margin: 0 0 !important;
+}
+</style><div class="tabwid"><style>.cl-65d13ca4{}.cl-65cb2850{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-65ce665a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-65ce6664{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-65ce75be{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-65ce75c8{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-65ce75c9{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-65ce75d2{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-65ce75d3{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-65ce75d4{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-65d13ca4'><thead><tr style="overflow-wrap:break-word;"><th class="cl-65ce75be"><p class="cl-65ce665a"><span class="cl-65cb2850">Categoría</span></p></th><th class="cl-65ce75c8"><p class="cl-65ce6664"><span class="cl-65cb2850">Frecuencia absoluta</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-65ce75c9"><p class="cl-65ce665a"><span class="cl-65cb2850">1. Juvenil</span></p></td><td class="cl-65ce75d2"><p class="cl-65ce6664"><span class="cl-65cb2850">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-65ce75c9"><p class="cl-65ce665a"><span class="cl-65cb2850">2. Abierta</span></p></td><td class="cl-65ce75d2"><p class="cl-65ce6664"><span class="cl-65cb2850">1,179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-65ce75c9"><p class="cl-65ce665a"><span class="cl-65cb2850">3. Veteranos A</span></p></td><td class="cl-65ce75d2"><p class="cl-65ce6664"><span class="cl-65cb2850">423</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-65ce75c9"><p class="cl-65ce665a"><span class="cl-65cb2850">4. Veteranos B</span></p></td><td class="cl-65ce75d2"><p class="cl-65ce6664"><span class="cl-65cb2850">227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-65ce75d3"><p class="cl-65ce665a"><span class="cl-65cb2850">5. Veteranos C</span></p></td><td class="cl-65ce75d4"><p class="cl-65ce6664"><span class="cl-65cb2850">74</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="94c63cd4-11e9-4b5b-9bed-02794c3da0a7"></div>
+<script>
+var dest = document.getElementById("94c63cd4-11e9-4b5b-9bed-02794c3da0a7");
+var template = document.getElementById("3e67065b-05c1-4075-9590-c652a62a7bb2");
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -458,35 +604,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
