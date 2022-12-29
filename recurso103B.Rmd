@@ -1,30 +1,121 @@
 ---
-title: "Indicadores en R"
+title: "**Indicadores en R**"
 author: "Métodos y Simulación Estadística"
 output: html_document
 css: style.css
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+library(tidyverse)
+
+# cargar paqueteMET
+# devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+library(paqueteMET)   # activar paqueteMET
+data = paqueteMET::CarreraLuz22    # cargar la dataset
+
 ```
 
-## R Markdown
+<br/><br/>
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Un indicador es un numero que resumen o representa un grupo de valores. El poder resumir una gran cantidad de valores en unos pocos, facilita el realizar un análisis de ellos
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+En el caso de las variables cualitativas en escala nominal, se pueden representar por el valor mas frecuente. A este valor se le conoce como Moda y lo podemos ver claramente en una tabla de frecuencias
 
-```{r cars}
-summary(cars)
+En el caso de las variables cuantitativas tenemos varias alternativas para construirlos
+
+<br/><br/>
+
+### **summatory()**
+
+Utilizando la función `summary` :
+
+```{r}
+summary(data$edad)
+```
+<br/><br/>
+
+### **describe()**
+
+```{r}
+# install.packages("psych")
+psych::describe(data$edad)
 ```
 
-## Including Plots
+<br/><br/>
 
-You can also embed plots, for example:
+### **descr()**
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Utilizando la función `descr()` del paquete `summaytools` :
+
+```{r}
+summarytools::descr(data$edad)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<br/><br/>
+
+## **Indicadores por grupos**
+
+<br/>
+
+En ocaciones se requiere calcular indiadores para una variable por grupos conformados por una variable categórica. El siguiente caso corresponde a las medias por categoría.
+
+<br/><br/>
+
+### **aggregate()**
+
+La función aggregate() permite obtener resumen de estadísticas por subgrupo
+
+
+```{r}
+t1 = aggregate(data$timerun/60, list(data$categoria), FUN=mean) 
+colnames(t1)=c("Categoría", "media")
+t1
+```
+
+<br/><br/>
+
+Podemos tambien conocer las medias por categoria y sexo
+
+```{r}
+t2 = aggregate(data$timerun/60, by=list(data$categoria,data$sex), FUN=mean)
+colnames(t2)=c("Categoría", "sexo","media")
+t2
+
+```
+
+<br/><br/>
+
+## **Indicadores de manera individial**
+
+<pre>
+
+x=CarreraLuz22$edad
+
+mean(x)                                                         #   Mean         37.45
+sd(x)                                                           #   Std.Dev      10.90
+min(x)                                                          #   Min          15.00
+quantile(x,0.25)                                                #   Q1           30.00
+median(x)                                                       #   Median       36.00
+quantile(x,0.75)                                                #   Q3           44.00
+max(x)                                                          #   Max          76.00
+mad(x,center=median(x), constant = 1.4826, na.rm = FALSE)       #   MAD          10.38
+fmsb::SIQR(x)                                                   #   IQR          14.00
+sd(x)/mean(x)*100                                               #   CV            0.29
+rapportools::skewness(x)                                        #   Skewness      0.64
+rapportools::kurtosis(x)                                        #   Kurtosis      0.11
+sum(!is.na(x))                                                  #   N.Valid    1922.00
+sum(!is.na(x))/length(x)*100                                    #   Pct.Valid   100.00
+
+</pre>
+  
+ 
+
+
+
+
+
+
+
+

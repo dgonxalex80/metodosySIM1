@@ -32,48 +32,49 @@ Theme2 = theme(
 library(readr)
 library(tidyverse)
 library(lubridate)
-RioCali10<- read_csv("~/Documentos/Javeriana/Ms en Ciencia de Datos/data/RioCali10k.csv", col_types = cols(edad = col_integer()))
 
-RioCali10$min= RioCali10$timerun/60
+data("CarreraLuz22")
+
+CarreraLuz22$min= CarreraLuz22$timerun/60
 
 # Categorias -------------------------------------------------------------------
-RioCali10$categoria=NA
-RioCali10$categoria[RioCali10$edad<18]="1. Juvenil"
-RioCali10$categoria[RioCali10$edad >= 18 & RioCali10$edad < 40]="2. Abierta"
-RioCali10$categoria[RioCali10$edad >= 40 & RioCali10$edad < 49]="3. Veteranos A"
-RioCali10$categoria[RioCali10$edad >= 50 & RioCali10$edad < 59]="4. Veteranos B"
-RioCali10$categoria[RioCali10$edad >= 60]="5. Veteranos C"
+CarreraLuz22$categoria=NA
+CarreraLuz22$categoria[CarreraLuz22$edad<18]="1. Juvenil"
+CarreraLuz22$categoria[CarreraLuz22$edad >= 18 & CarreraLuz22$edad < 40]="2. Abierta"
+CarreraLuz22$categoria[CarreraLuz22$edad >= 40 & CarreraLuz22$edad < 49]="3. Veteranos A"
+CarreraLuz22$categoria[CarreraLuz22$edad >= 50 & CarreraLuz22$edad < 59]="4. Veteranos B"
+CarreraLuz22$categoria[CarreraLuz22$edad >= 60]="5. Veteranos C"
 
 
-RioCali10$sex[RioCali10$sex == "M"]="Hombre"
-RioCali10$sex[RioCali10$sex == "F"]="Mujer"
+CarreraLuz22$sex[CarreraLuz22$sex == "M"]="Hombre"
+CarreraLuz22$sex[CarreraLuz22$sex == "F"]="Mujer"
 #-------------------------------------------------------------------------------
-RioCali10M = subset(RioCali10, RioCali10$sex=="Hombre")
-RioCali10F = subset(RioCali10, RioCali10$sex=="Mujer")
+CarreraLuz22M = subset(CarreraLuz22, CarreraLuz22$sex=="Hombre")
+CarreraLuz22F = subset(CarreraLuz22, CarreraLuz22$sex=="Mujer")
 
 #-------------------------------------------------------------------------------
-RioCali10_c1M = subset(RioCali10M, RioCali10M$categoria=="1. Juvenil")
-RioCali10_c2M = subset(RioCali10M, RioCali10M$categoria=="2. Abierta")
-RioCali10_c3M = subset(RioCali10M, RioCali10M$categoria=="3. Veteranos A")
-RioCali10_c4M = subset(RioCali10M, RioCali10M$categoria=="4. Veteranos B")
-RioCali10_c5M = subset(RioCali10M, RioCali10M$categoria=="5. Veteranos C")
+CarreraLuz22_c1M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="1. Juvenil")
+CarreraLuz22_c2M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="2. Abierta")
+CarreraLuz22_c3M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="3. Veteranos A")
+CarreraLuz22_c4M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="4. Veteranos B")
+CarreraLuz22_c5M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="5. Veteranos C")
 
 
-RioCali10_c1F = subset(RioCali10F, RioCali10F$categoria=="1. Juvenil")
-RioCali10_c2F = subset(RioCali10F, RioCali10F$categoria=="2. Abierta")
-RioCali10_c3F = subset(RioCali10F, RioCali10F$categoria=="3. Veteranos A")
-RioCali10_c4F = subset(RioCali10F, RioCali10F$categoria=="4. Veteranos B")
-RioCali10_c5F = subset(RioCali10F, RioCali10F$categoria=="5. Veteranos C")
+CarreraLuz22_c1F = subset(CarreraLuz22F, CarreraLuz22F$categoria=="1. Juvenil")
+CarreraLuz22_c2F = subset(CarreraLuz22F, CarreraLuz22F$categoria=="2. Abierta")
+CarreraLuz22_c3F = subset(CarreraLuz22F, CarreraLuz22F$categoria=="3. Veteranos A")
+CarreraLuz22_c4F = subset(CarreraLuz22F, CarreraLuz22F$categoria=="4. Veteranos B")
+CarreraLuz22_c5F = subset(CarreraLuz22F, CarreraLuz22F$categoria=="5. Veteranos C")
 
 
 
-saveRDS(object=RioCali10, file="RioCali.RSD")
+saveRDS(object=CarreraLuz22, file="RioCali.RSD")
 
 #---------------------------------------------------------------------------
 n=200
 #------------------------------------------------------------------------------
 paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
-p1=ggplot(RioCali10F, aes(y=timerun/60, x=categoria))+
+p1=ggplot(CarreraLuz22, aes(y=timerun/60, x=categoria))+
   geom_jitter(color="#034A94", size=3, alpha=0.9) +
   aes(color=paleta6)+
   labs(title = "Mujeres",
@@ -88,7 +89,7 @@ p1
 
 #------------------------------------------------------------------------------
 paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
-p2=ggplot(RioCali10M, aes(y=timerun/60, x=categoria))+
+p2=ggplot(CarreraLuz22M, aes(y=timerun/60, x=categoria))+
   geom_jitter(color="#034A94", size=3, alpha=0.9) +
   aes(color=paleta6)+
   labs(title = "Hombres",
@@ -103,8 +104,8 @@ p2
 
 
 #-----------------------------------------------------------------------------
-data1=data.frame(carlos=sample(RioCali10_c4M$timerun, 100), 
-                 maria=sample(RioCali10_c2F$timerun, 100))
+data1=data.frame(carlos=sample(CarreraLuz22_c4M$timerun, 100), 
+                 maria=sample(CarreraLuz22_c2F$timerun, 100))
 
 p2=ggplot(data1, aes(x=carlos/60, y=" "))+
   geom_jitter(color="#034A94", size=2, alpha=0.9) 
@@ -127,9 +128,9 @@ quantile(data1$maria, 0.30)/60
 #-------------------------------------------------------------------------------
 deciles1=data.frame(
 prob=c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9),
-valor=quantile(RioCali10_c2M$timerun, deciles, na.rm = TRUE)/60 )
+valor=quantile(CarreraLuz22_c2M$timerun, deciles, na.rm = TRUE)/60 )
 
-p4=ggplot(RioCali10_c2M, aes(x=timerun/60, y=" ")) +
+p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=" ")) +
   geom_jitter(color="#034A94", size=2, alpha=0.9)+ 
   scale_color_manual(values="#034A94") +
   geom_vline(xintercept = deciles1$valor, colour= "#686868")+
@@ -144,9 +145,9 @@ p4
 
 cuartiles1=data.frame(
   prob=c(0.25,0.5,0.75),
-  valor=quantile(RioCali10_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
+  valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
 q=cuartiles1$valor
-p4=ggplot(RioCali10_c2M, aes(x=timerun/60, y=" ")) +
+p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=" ")) +
   geom_jitter(color="#034A94", size=2, alpha=0.9)+ 
   scale_color_manual(values="#034A94") +
   #geom_vline(xintercept = cuartiles1$valor, colour= "#686868")+
@@ -164,13 +165,13 @@ p4
 
 #------------------------------------------------------------
 
-aggregate(RioCali10F$timerun/60, list(RioCali10F$categoria), FUN=mean)
-aggregate(RioCali10M$timerun/60, list(RioCali10M$categoria), FUN=mean)
+aggregate(CarreraLuz22F$timerun/60, list(CarreraLuz22F$categoria), FUN=mean)
+aggregate(CarreraLuz22M$timerun/60, list(CarreraLuz22M$categoria), FUN=mean)
 
 
 etiquetas = c("Mujer", "Hombre")  # Change levels of group
 
-ggplot(RioCali10, aes(x = categoria, y = timerun )) +
+ggplot(CarreraLuz22, aes(x = categoria, y = timerun )) +
   geom_boxplot(aes(fill = categoria)) + 
   facet_wrap(~sex, ncol=1, 
              labeller = labeller(dose = etiquetas))+
@@ -182,7 +183,7 @@ ggplot(RioCali10, aes(x = categoria, y = timerun )) +
 
 #-----------------------------------------------------------------------------
 
-ggplot(RioCali10F, aes(x = categoria, y = timerun/60 )) +
+ggplot(CarreraLuz22F, aes(x = categoria, y = timerun/60 )) +
   geom_boxplot(aes(fill = categoria)) + 
   # facet_wrap(~sex, ncol=1, 
   #           labeller = labeller(dose = etiquetas))+
@@ -191,10 +192,10 @@ ggplot(RioCali10F, aes(x = categoria, y = timerun/60 )) +
        x= "categorías")+ Theme2
   #scale_fill_manual(values = c("#00070D", "#012447", "#034A94", "#0570E1", "#3998FB","#37B6FC"))
 
-table(RioCali10$categoria)
+table(CarreraLuz22$categoria)
 
 #-----------------------------------------------------------------------------
-ggplot(RioCali10_c1M, aes(y = " ", x = timerun/60 )) +
+ggplot(CarreraLuz22_c1M, aes(y = " ", x = timerun/60 )) +
   geom_boxplot(fill = 4,           # Color caja
                alpha = 0.5,        # Transparencia
                color = 1,          # Color del borde

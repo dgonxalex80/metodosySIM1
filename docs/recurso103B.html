@@ -312,38 +312,127 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Indicadores en R</h1>
+<h1 class="title toc-ignore"><strong>Indicadores en R</strong></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com"
-class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<p><br/><br/></p>
+<p>Un indicador es un numero que resumen o representa un grupo de
+valores. El poder resumir una gran cantidad de valores en unos pocos,
+facilita el realizar un análisis de ellos</p>
+<p>En el caso de las variables cualitativas en escala nominal, se pueden
+representar por el valor mas frecuente. A este valor se le conoce como
+Moda y lo podemos ver claramente en una tabla de frecuencias</p>
+<p>En el caso de las variables cuantitativas tenemos varias alternativas
+para construirlos</p>
+<p><br/><br/></p>
+<div id="summatory" class="section level3">
+<h3><strong>summatory()</strong></h3>
+<p>Utilizando la función <code>summary</code> :</p>
+<pre class="r"><code>summary(data$edad)</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  15.00   30.00   36.00   37.45   44.00   76.00 </code></pre>
+<p><br/><br/></p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="recurso103B_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the
-code chunk to prevent printing of the R code that generated the
-plot.</p>
+<div id="describe" class="section level3">
+<h3><strong>describe()</strong></h3>
+<pre class="r"><code># install.packages(&quot;psych&quot;)
+psych::describe(data$edad)</code></pre>
+<pre><code>   vars    n  mean   sd median trimmed   mad min max range skew kurtosis   se
+X1    1 1922 37.45 10.9     36    36.7 10.38  15  76    61 0.64     0.11 0.25</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="descr" class="section level3">
+<h3><strong>descr()</strong></h3>
+<p>Utilizando la función <code>descr()</code> del paquete
+<code>summaytools</code> :</p>
+<pre class="r"><code>summarytools::descr(data$edad)</code></pre>
+<pre><code>Descriptive Statistics  
+value  
+N: 1922  
+
+                      value
+----------------- ---------
+             Mean     37.45
+          Std.Dev     10.90
+              Min     15.00
+               Q1     30.00
+           Median     36.00
+               Q3     44.00
+              Max     76.00
+              MAD     10.38
+              IQR     14.00
+               CV      0.29
+         Skewness      0.64
+      SE.Skewness      0.06
+         Kurtosis      0.11
+          N.Valid   1922.00
+        Pct.Valid    100.00</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="indicadores-por-grupos" class="section level2">
+<h2><strong>Indicadores por grupos</strong></h2>
+<p><br/></p>
+<p>En ocaciones se requiere calcular indiadores para una variable por
+grupos conformados por una variable categórica. El siguiente caso
+corresponde a las medias por categoría.</p>
+<p><br/><br/></p>
+<div id="aggregate" class="section level3">
+<h3><strong>aggregate()</strong></h3>
+<p>La función aggregate() permite obtener resumen de estadísticas por
+subgrupo</p>
+<pre class="r"><code>t1 = aggregate(data$timerun/60, list(data$categoria), FUN=mean) 
+colnames(t1)=c(&quot;Categoría&quot;, &quot;media&quot;)
+t1</code></pre>
+<pre><code>       Categoría    media
+1     1. Juvenil 64.96316
+2     2. Abierta 65.46945
+3 3. Veteranos A 64.66994
+4 4. Veteranos B 64.54222
+5 5. Veteranos C 67.64505</code></pre>
+<p><br/><br/></p>
+<p>Podemos tambien conocer las medias por categoria y sexo</p>
+<pre class="r"><code>t2 = aggregate(data$timerun/60, by=list(data$categoria,data$sex), FUN=mean)
+colnames(t2)=c(&quot;Categoría&quot;, &quot;sexo&quot;,&quot;media&quot;)
+t2</code></pre>
+<pre><code>        Categoría   sexo    media
+1      1. Juvenil Hombre 59.76806
+2      2. Abierta Hombre 61.96645
+3  3. Veteranos A Hombre 61.52446
+4  4. Veteranos B Hombre 61.83710
+5  5. Veteranos C Hombre 66.38017
+6      1. Juvenil  Mujer 73.86905
+7      2. Abierta  Mujer 70.19363
+8  3. Veteranos A  Mujer 70.57574
+9  4. Veteranos B  Mujer 70.36574
+10 5. Veteranos C  Mujer 72.23021</code></pre>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="indicadores-de-manera-individial" class="section level2">
+<h2><strong>Indicadores de manera individial</strong></h2>
+<pre>
+
+x=CarreraLuz22$edad
+
+mean(x)                                                         #   Mean         37.45
+sd(x)                                                           #   Std.Dev      10.90
+min(x)                                                          #   Min          15.00
+quantile(x,0.25)                                                #   Q1           30.00
+median(x)                                                       #   Median       36.00
+quantile(x,0.75)                                                #   Q3           44.00
+max(x)                                                          #   Max          76.00
+mad(x,center=median(x), constant = 1.4826, na.rm = FALSE)       #   MAD          10.38
+fmsb::SIQR(x)                                                   #   IQR          14.00
+sd(x)/mean(x)*100                                               #   CV            0.29
+rapportools::skewness(x)                                        #   Skewness      0.64
+rapportools::kurtosis(x)                                        #   Kurtosis      0.11
+sum(!is.na(x))                                                  #   N.Valid    1922.00
+sum(!is.na(x))/length(x)*100                                    #   Pct.Valid   100.00
+
+</pre>
 </div>
 
 

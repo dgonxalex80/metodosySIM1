@@ -1,5 +1,5 @@
 ---
-title: "Tablas de frecuencia en R"
+title: "**Tablas de frecuencia en R**"
 author: "Métodos y Simulación Estadística"
 output: html_document
 css: style.css
@@ -13,7 +13,7 @@ library(tidyverse)
 # cargar paqueteMET
 # devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
 library(paqueteMET)   # activar paqueteMET
-data = paqueteMET::CarreraLuz22    # cargar la dataset
+data("CarreraLuz22")    # cargar la dataset
 
 ```
 
@@ -29,7 +29,8 @@ Antes de resumir la información contenida en una data en tablas de frecuencia d
 install.packages("devtools")    # paquete necesario para descargar paqueteMET
 devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
 library(paqueteMET)   # activar paqueteMET
-data = paqueteMET::CarreraLuz22    # cargar la dataset
+data("CarreraLuz22")  # cargar la dataset
+
 ```
 
 <br/><br/>
@@ -39,6 +40,7 @@ data = paqueteMET::CarreraLuz22    # cargar la dataset
 Se puede examinar el contenido de la base de datos utilizando la función `glimpse()` del paquete `dplyr`, permitiendo identificar el tipo de variables y los primeros valores : 
 
 ```{r}
+data=CarreraLuz22
 library(dplyr)
 glimpse(data)
 ```
@@ -78,8 +80,37 @@ tail(data)
 
 <br/><br/>
 
-## Tablas de frecuencia  variables cualitativas
 
+## **Selección de parte de la base de datos**
+
+<br/><br/>
+
+### **subset()**
+
+En ocaciones es necesario seleccionar una parte de la base de datos para estos casos podemos utilizar la función 
+
+```{r}
+# seleccion de bases
+dataF=subset(data, data$sex=="Mujer") # dataset de mujeres
+head(dataF)
+```
+
+<br/><br/>
+
+Se pueden emplear carias cociones
+
+```{r}
+# seleccion de bases
+dataFc1=subset(data, (data$sex=="Mujer" & data$categoria=="1. Juvenil")) # dataset de mujeres
+head(dataFc1)
+```
+
+<br/><br/>
+
+
+## **Tablas de frecuencia  variables cualitativas**
+
+<br/>
 
 ### **table()**
 
@@ -88,6 +119,7 @@ La función table() permite la construcción de tablas de frecuencias absolutas
 ```{r}
 table(data$categoria)
 ```
+<br/><br/>
 
 ### **prop.table()**
 
@@ -100,7 +132,9 @@ table(data$categoria) %>%   # se introduce el operador %>%
 ```
 <br/><br/>
 
-## Tablas de frecuencia para dos variables cualitativas
+## **Tablas de frecuencia para dos variables cualitativas**
+
+<br/>
 
 La función `table()` permite la construcción de tablas para dos variables o tablas cruzadas para frecuencias absolutas o tambien para frecuencias relativas (si se multiplican por 100) 
 
@@ -131,6 +165,7 @@ summarytools::freq(data$categoria, cumul = T)
 
 ## **Variables cuantitativas**
 
+<br/>
 
 En este caso se utilizan las función  `cut()` para generar los intervalos previamente a la construcción de la tabla con la función `freq()`  
 
@@ -140,12 +175,13 @@ Edad.corredores=cut(data$edad, breaks)
 summarytools::freq(Edad.corredores)
 ```
 
+<br/><br/><br/>
 
-Nota
+### **Nota**
 
 Si queremos una tabla mas terminada podemos utilizar 
 
-
+<br/>
 
 ```{r}
 # install.packages("flextable")
@@ -156,7 +192,7 @@ colnames(ft1)=c("Categoría", "Frecuencia absoluta")
 ft1=flextable(ft1)
 
 set_flextable_defaults(
-  font.size = 10, font.family = "Helvetica",
+  font.size = 12, font.family = "Helvetica",
   font.color = "#333333",
   table.layout = "fixed",
   border.color = "gray",

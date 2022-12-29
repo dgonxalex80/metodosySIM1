@@ -319,7 +319,381 @@ R</strong></h1>
 </div>
 
 
+<p>La visualización de datos es una de las partes más importantes del
+análisis de datos, que permite de manera gráfica representar la
+información con el fin de poder resumirlos e interpretarlos</p>
+<p>Algunas consideraciones</p>
+<p><br/><br/></p>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="20%" />
+<col width="33%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Tipo de variable</th>
+<th align="left">Tipos de escala</th>
+<th align="left">Tipo de gráfico</th>
+<th align="left">Sintaxis R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cualitativa</td>
+<td align="left">Nominal</td>
+<td align="left">diagrama de torta</td>
+<td align="left">pie(table(x))</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Ordinal</td>
+<td align="left">diagrama de barras</td>
+<td align="left">barplot(table(x))</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">diag.barras dobles</td>
+<td align="left">barplot(table(x,y))</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">diag. mosaico</td>
+<td align="left">plot(x,y)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Cuantitativa</td>
+<td align="left">De intervalo</td>
+<td align="left">diagrama de tallos y hojas</td>
+<td align="left">stem(x)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">histograma</td>
+<td align="left">hist(x)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">De razón</td>
+<td align="left">diagrama de puntos</td>
+<td align="left">plot(x,y)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">diagrama de densidad</td>
+<td align="left">density(x)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">diagrama de cajas</td>
+<td align="left">boxplot(x)</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">diagrama de linea</td>
+<td align="left">plot(x, type=“l”)</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota</strong>: Además de estas formas de representación
+gráfica existen otras formas que combinan variables como:</p>
+<ul>
+<li>Mapas</li>
+<li>Diagrama de Mosaico</li>
+<li>Diagramas de radar</li>
+<li>Diagrama likert</li>
+</ul>
+<p><br/><br/><br/></p>
+<div id="variable-cualitativa-nominal" class="section level1">
+<h1><strong>Variable cualitativa-nominal</strong></h1>
+<div id="gráfico-de-tortas" class="section level2">
+<h2><strong>Gráfico de tortas</strong></h2>
+<pre class="r"><code>data=CarreraLuz22
+t1=table(data$categoria)
+pie(t1)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="variable-cualitativa-ordinal" class="section level1">
+<h1><strong>Variable cualitativa-ordinal</strong></h1>
+<div id="gráfico-de-barras" class="section level2">
+<h2><strong>Gráfico de barras</strong></h2>
+<pre class="r"><code>ev=c(5,13,30,52,35)
+ev=as.table(ev)
+names(ev)=c(&quot;MR&quot;,&quot;R&quot;,&quot;B&quot;,&quot;MB&quot;,&quot;E&quot;)
+barplot(ev,  col=c(&quot;#f95738&quot;,&quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;), 
+        main = &quot;Evaluación proceso de inducción&quot;,
+        las=1 )</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<br/><br/><br/></p>
+</div>
+<div id="gráfico-de-barras-2" class="section level2">
+<h2><strong>Gráfico de barras 2 </strong></h2>
+<pre class="r"><code>conteo &lt;- table(data$sex,data$categoria)
 
+barplot(conteo, main=&quot;Número de atletas por categoria y sexo&quot;,  
+        xlab=&quot;Categorías&quot;,
+        col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
+        legend = rownames(conteo),
+        las=1, ylim = c(0,1200), 
+        names.arg=c(&quot;Juvenil&quot;,&quot;Abierta&quot;,&quot;Veteranos A&quot;,&quot;Veteranos B&quot;,&quot;Veteranos C&quot;))</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="diagrama-de-mosaico" class="section level2">
+<h2><strong>Diagrama de mosaico</strong></h2>
+<pre class="r"><code>mosaicplot(~gear + vs, 
+           data = mtcars, 
+          col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
+           las = 1) </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="variables-cuantitativas" class="section level1">
+<h1><strong>Variables cuantitativas</strong></h1>
+<div id="diagrama-de-tallos-y-hojas" class="section level2">
+<h2><strong>Diagrama de tallos y hojas</strong></h2>
+<p>Diagrama de tallos y hojas para el tiempo empleado por las atletas de
+la categoria Veteranas B</p>
+<pre class="r"><code># seleccion de bases
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
+x=dataFc4$timerun/60
+stem(x) # Diagrama de tallos y hojas</code></pre>
+<pre><code>
+  The decimal point is 1 digit(s) to the right of the |
+
+  4 | 68
+  5 | 2234
+  5 | 6888899
+  6 | 01233334
+  6 | 5555566666778899
+  7 | 00111334
+  7 | 5667788
+  8 | 0001112333334
+  8 | 57899
+  9 | 04</code></pre>
+<p><br/><br/><br/></p>
+</div>
+<div id="histograma" class="section level2">
+<h2><strong>Histograma</strong></h2>
+<pre class="r"><code># seleccion de bases
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
+x=dataFc4$timerun/60
+hist(x, xlim=c(40,100), las=1,
+     main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+     xlab=&quot;tiempo (min)&quot;,
+     ylab = &quot;frecuencia&quot;,
+     col =&quot;#ee964b&quot;)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="diagrama-de-densidad" class="section level2">
+<h2><strong>Diagrama de densidad</strong></h2>
+<pre class="r"><code>par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
+plot(density(x), lwd=3, col=&quot;#0d3b66&quot;,
+     main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
+     xlab=&quot;tiempo (min)&quot;,
+     ylab = &quot;densidad&quot;, las=1,
+     cex.lab=1,  # tamaño de etiqueta ejes
+     cex.axis=.8, # tamaño escalas de los ejes 
+     cex.main=1, # tamaño del titulo
+     cex.sub=1)    # tamaño del subtitulo)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="diagrama-de-cajas" class="section level2">
+<h2><strong>Diagrama de cajas</strong></h2>
+<pre class="r"><code>boxplot(data$timerun/60~data$sex,
+        main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
+     ylab=&quot;tiempo (min)&quot;,
+     xlab = &quot;sexo&quot;, las=1,
+     col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="gráfico-de-series-de-tiempo" class="section level2">
+<h2><strong>Gráfico de series de tiempo</strong></h2>
+<pre class="r"><code>y=ts(inflacionov22$inflacion, star=c(1993,1), end=c(2022,11), frequency=12)
+plot(y, type=&quot;l&quot;,
+     main=&quot;Inflación Colombia  ene-1993 a nov-2022&quot;,
+     ylab=&quot;inflación acumulada anual (%)&quot;,
+     xlab = &quot;meses&quot;, las=1,
+     col=&quot;#ee964b&quot;, 
+     lwd = 4)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="resumen" class="section level2">
+<h2><strong>Resumen</strong></h2>
+<pre class="r"><code>x=rnorm(100,100,20)
+y=rnorm(100,100,25)
+z=rbinom(100,4,0.30)
+t=1:100
+pie(table(z))         # diagrama de torta
+barplot(table(z))     # diagrama de barras
+stem(x)               # diagrama de tallos y hojas
+hist(x)               # histograma
+boxplot(x)            # diagrama de cajas
+plot(x,y)             # diagrama de dispersión
+plot(t,y, type=&quot;l&quot;)   # diagrama de lineas
+plot(density(x))      # diagrama de densidad</code></pre>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="ggplot2" class="section level1">
+<h1><strong>ggplot2</strong></h1>
+<p><img src="img/ggplot2.png" width="10%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="gráficos-con-ggplot2" class="section level1">
+<h1><strong>Gráficos con ggplot2</strong></h1>
+<p><img src="img/ge_themes.png" width="50%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/><br/></p>
+<ul>
+<li><p><strong>Data</strong>: capa de los datos</p></li>
+<li><p><strong>Aesthetics</strong>: capa estética
+(<strong>aes</strong>), definimos las variables a utilizar en el
+gráfico</p></li>
+<li><p><strong>Geometries</strong>: capa de geometrías, se define el
+tipo de gráfica a realizar</p></li>
+<li><p><strong>Facets</strong>: capa de facetas, permite detallar la
+gráfica por categorías</p></li>
+<li><p><strong>Statistics</strong>: capa de estadística, permite agregar
+modelos</p></li>
+<li><p><strong>Coordinates</strong>: capa de coordenadas, permite
+ajustar las escalas de los ejes</p></li>
+<li><p><strong>Theme</strong>: capas de características del gráfico que
+no dependen de los datos</p></li>
+</ul>
+<p><br/><br/></p>
+<p><a
+href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Visualizacion
+de datos con ggplot2</a></p>
+<pre class="r"><code>library(readr)
+library(ggplot2)
+ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+         geom_point()     # grafico de puntos</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="24%" />
+<col width="25%" />
+<col width="26%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">geo_point()</td>
+<td align="left">geom_bar()</td>
+<td align="left">geom_col()</td>
+<td align="left">stat_count()</td>
+</tr>
+<tr class="even">
+<td align="left">geom_boxplot()</td>
+<td align="left">stat_boxplot()</td>
+<td align="left">geom_density()</td>
+<td align="left">stat_density()</td>
+</tr>
+<tr class="odd">
+<td align="left">geom_histogram()</td>
+<td align="left">geom_violin()</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+  geom_point()+
+  facet_wrap(~ sex)   # separacion por sexo</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+  facet_wrap(~ categoria)+ 
+  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+  facet_wrap(~ categoria)+ 
+  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+        
+    coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+  facet_wrap(~ categoria)+ 
+  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
+    coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
+labs(title = &quot;Tiempos Carrera La Luz  2022&quot;,  y= &quot;Edad&quot;, x= &quot;Tiempo (min)&quot;)  # titulo y etiquetas </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><br/><br/></p>
+<div id="otros-gráficos-con-ggplot2" class="section level2">
+<h2><strong>Otros gráficos con ggplot2</strong></h2>
+<pre class="r"><code># Selección del grupo - Hombres categoría Abierta
+data(&quot;CarreraLuz22&quot;)
+CarreraLuz22M = subset(CarreraLuz22, CarreraLuz22$sex==&quot;Hombre&quot;)
+CarreraLuz22_c2M = subset(CarreraLuz22M, CarreraLuz22M$categoria==&quot;2. Abierta&quot;)
+
+# Definición tamaño de letras
+Theme1 = theme(axis.title.x = element_text(size = 16),   
+               axis.text.x = element_text(size = 10),
+               axis.title.y = element_text(size = 16),
+             # axis.text.y = element_blank(),
+               axis.text = element_text( size = 10),
+               legend.title = element_text(size = 10),
+               legend.text = element_text(size = 10),  
+               strip.text = element_text(size=10),
+               title =element_text(size=10, face=&#39;bold&#39;) )# tamaño letra por grupos
+
+# Cálculo de los cuartiles
+cuartiles1=data.frame(prob=c(0.25,0.5,0.75),
+                      valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
+q=cuartiles1$valor
+
+# Construcción de la gráfica
+p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=&quot; &quot;)) +
+          geom_jitter(color=&quot;#034A94&quot;, size=2, alpha=0.9)+ 
+          scale_color_manual(values=&quot;#034A94&quot;) +
+          geom_point(data=cuartiles1, aes(x=valor), color=&quot;#FF7F00&quot;,size=3)+
+          geom_boxplot(alpha = 0.4)+
+          labs(title = &quot; &quot;, y= &quot;&quot;,  x= &quot;tiempo (min)&quot;)+ 
+          geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = &quot;Q1&quot;,col=&quot;#FF7F00&quot;)+
+          geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = &quot;Q2&quot;,col=&quot;#FF7F00&quot;) +
+          geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = &quot;Q3&quot;,col=&quot;#FF7F00&quot;) +
+          geom_text(size=6,data = NULL, x = 96, y = 0.5, label = &quot;atípicos&quot;,col=&quot;#FF7F00&quot;) +  
+          Theme1
+p4 </code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-19-1.png" width="1152" /></p>
+</div>
+</div>
 
 
 

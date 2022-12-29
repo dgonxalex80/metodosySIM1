@@ -10,8 +10,11 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 library(readr)
 library(tidyverse)
 library(DT)
-readRDS("/home/deg/Documentos/Javeriana/Ms en Ciencia de Datos/data/RioCali.RSD")
+library(paqueteMET)
 
+data("CarreraLuz22")
+data("evaluacion")
+data("inflacionov22")
 ```
 
 </br></br></br>
