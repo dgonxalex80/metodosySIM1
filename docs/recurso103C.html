@@ -448,8 +448,8 @@ pie(t1)</code></pre>
 ev=as.table(ev)
 names(ev)=c(&quot;MR&quot;,&quot;R&quot;,&quot;B&quot;,&quot;MB&quot;,&quot;E&quot;)
 barplot(ev,  col=c(&quot;#f95738&quot;,&quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;), 
-        main = &quot;Evaluación proceso de inducción&quot;,
-        las=1 )</code></pre>
+main = &quot;Evaluación proceso de inducción&quot;,
+las=1 )</code></pre>
 <p><img src="recurso103C_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <br/><br/><br/></p>
 </div>
@@ -458,20 +458,12 @@ barplot(ev,  col=c(&quot;#f95738&quot;,&quot;#ee964b&quot;, &quot;#f4d35e&quot;,
 <pre class="r"><code>conteo &lt;- table(data$sex,data$categoria)
 
 barplot(conteo, main=&quot;Número de atletas por categoria y sexo&quot;,  
-        xlab=&quot;Categorías&quot;,
-        col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
-        legend = rownames(conteo),
-        las=1, ylim = c(0,1200), 
-        names.arg=c(&quot;Juvenil&quot;,&quot;Abierta&quot;,&quot;Veteranos A&quot;,&quot;Veteranos B&quot;,&quot;Veteranos C&quot;))</code></pre>
+xlab=&quot;Categorías&quot;,
+col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
+legend = rownames(conteo),
+las=1, ylim = c(0,1200), 
+names.arg=c(&quot;Juvenil&quot;,&quot;Abierta&quot;,&quot;Veteranos A&quot;,&quot;Veteranos B&quot;,&quot;Veteranos C&quot;))</code></pre>
 <p><img src="recurso103C_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-</div>
-<div id="diagrama-de-mosaico" class="section level2">
-<h2><strong>Diagrama de mosaico</strong></h2>
-<pre class="r"><code>mosaicplot(~gear + vs, 
-           data = mtcars, 
-          col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
-           las = 1) </code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p><br/><br/><br/></p>
 </div>
 </div>
@@ -506,47 +498,47 @@ stem(x) # Diagrama de tallos y hojas</code></pre>
 dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
 x=dataFc4$timerun/60
 hist(x, xlim=c(40,100), las=1,
-     main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
-     xlab=&quot;tiempo (min)&quot;,
-     ylab = &quot;frecuencia&quot;,
-     col =&quot;#ee964b&quot;)</code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+xlab=&quot;tiempo (min)&quot;,
+ylab = &quot;frecuencia&quot;,
+col =&quot;#ee964b&quot;)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><br/><br/><br/></p>
 </div>
 <div id="diagrama-de-densidad" class="section level2">
 <h2><strong>Diagrama de densidad</strong></h2>
 <pre class="r"><code>par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
 plot(density(x), lwd=3, col=&quot;#0d3b66&quot;,
-     main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
-     xlab=&quot;tiempo (min)&quot;,
-     ylab = &quot;densidad&quot;, las=1,
-     cex.lab=1,  # tamaño de etiqueta ejes
-     cex.axis=.8, # tamaño escalas de los ejes 
-     cex.main=1, # tamaño del titulo
-     cex.sub=1)    # tamaño del subtitulo)</code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
+xlab=&quot;tiempo (min)&quot;,
+ylab = &quot;densidad&quot;, las=1,
+cex.lab=1,  # tamaño de etiqueta ejes
+cex.axis=.8, # tamaño escalas de los ejes 
+cex.main=1, # tamaño del titulo
+cex.sub=1)    # tamaño del subtitulo)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><br/><br/><br/></p>
 </div>
 <div id="diagrama-de-cajas" class="section level2">
 <h2><strong>Diagrama de cajas</strong></h2>
 <pre class="r"><code>boxplot(data$timerun/60~data$sex,
-        main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
-     ylab=&quot;tiempo (min)&quot;,
-     xlab = &quot;sexo&quot;, las=1,
-     col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
+ylab=&quot;tiempo (min)&quot;,
+xlab = &quot;sexo&quot;, las=1,
+col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><br/><br/><br/></p>
 </div>
 <div id="gráfico-de-series-de-tiempo" class="section level2">
 <h2><strong>Gráfico de series de tiempo</strong></h2>
 <pre class="r"><code>y=ts(inflacionov22$inflacion, star=c(1993,1), end=c(2022,11), frequency=12)
 plot(y, type=&quot;l&quot;,
-     main=&quot;Inflación Colombia  ene-1993 a nov-2022&quot;,
-     ylab=&quot;inflación acumulada anual (%)&quot;,
-     xlab = &quot;meses&quot;, las=1,
-     col=&quot;#ee964b&quot;, 
-     lwd = 4)</code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+main=&quot;Inflación Colombia  ene-1993 a nov-2022&quot;,
+ylab=&quot;inflación acumulada anual (%)&quot;,
+xlab = &quot;meses&quot;, las=1,
+col=&quot;#ee964b&quot;, 
+lwd = 4)</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><br/><br/><br/></p>
 </div>
 <div id="resumen" class="section level2">
@@ -598,11 +590,11 @@ de datos con ggplot2</a></p>
 <pre class="r"><code>library(readr)
 library(ggplot2)
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-         geom_point()     # grafico de puntos</code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+geom_point()     # grafico de puntos</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <table>
 <colgroup>
 <col width="23%" />
@@ -633,27 +625,27 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code><
 </table>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  geom_point()+
-  facet_wrap(~ sex)   # separacion por sexo</code></pre>
+geom_point()+
+facet_wrap(~ sex)   # separacion por sexo</code></pre>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
 <p><img src="recurso103C_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+        
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
 <p><img src="recurso103C_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+        
-    coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p><br/><br/></p>
-<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
-    coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
 labs(title = &quot;Tiempos Carrera La Luz  2022&quot;,  y= &quot;Edad&quot;, x= &quot;Tiempo (min)&quot;)  # titulo y etiquetas </code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p><br/><br/></p>
 <div id="otros-gráficos-con-ggplot2" class="section level2">
 <h2><strong>Otros gráficos con ggplot2</strong></h2>
@@ -664,34 +656,34 @@ CarreraLuz22_c2M = subset(CarreraLuz22M, CarreraLuz22M$categoria==&quot;2. Abier
 
 # Definición tamaño de letras
 Theme1 = theme(axis.title.x = element_text(size = 16),   
-               axis.text.x = element_text(size = 10),
-               axis.title.y = element_text(size = 16),
-             # axis.text.y = element_blank(),
-               axis.text = element_text( size = 10),
-               legend.title = element_text(size = 10),
-               legend.text = element_text(size = 10),  
-               strip.text = element_text(size=10),
-               title =element_text(size=10, face=&#39;bold&#39;) )# tamaño letra por grupos
+axis.text.x = element_text(size = 10),
+axis.title.y = element_text(size = 16),
+# axis.text.y = element_blank(),
+axis.text = element_text( size = 10),
+legend.title = element_text(size = 10),
+legend.text = element_text(size = 10),  
+strip.text = element_text(size=10),
+title =element_text(size=10, face=&#39;bold&#39;) )# tamaño letra por grupos
 
 # Cálculo de los cuartiles
 cuartiles1=data.frame(prob=c(0.25,0.5,0.75),
-                      valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
+valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
 q=cuartiles1$valor
 
 # Construcción de la gráfica
 p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=&quot; &quot;)) +
-          geom_jitter(color=&quot;#034A94&quot;, size=2, alpha=0.9)+ 
-          scale_color_manual(values=&quot;#034A94&quot;) +
-          geom_point(data=cuartiles1, aes(x=valor), color=&quot;#FF7F00&quot;,size=3)+
-          geom_boxplot(alpha = 0.4)+
-          labs(title = &quot; &quot;, y= &quot;&quot;,  x= &quot;tiempo (min)&quot;)+ 
-          geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = &quot;Q1&quot;,col=&quot;#FF7F00&quot;)+
-          geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = &quot;Q2&quot;,col=&quot;#FF7F00&quot;) +
-          geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = &quot;Q3&quot;,col=&quot;#FF7F00&quot;) +
-          geom_text(size=6,data = NULL, x = 96, y = 0.5, label = &quot;atípicos&quot;,col=&quot;#FF7F00&quot;) +  
-          Theme1
+geom_jitter(color=&quot;#034A94&quot;, size=2, alpha=0.9)+ 
+scale_color_manual(values=&quot;#034A94&quot;) +
+geom_point(data=cuartiles1, aes(x=valor), color=&quot;#FF7F00&quot;,size=3)+
+geom_boxplot(alpha = 0.4)+
+labs(title = &quot; &quot;, y= &quot;&quot;,  x= &quot;tiempo (min)&quot;)+ 
+geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = &quot;Q1&quot;,col=&quot;#FF7F00&quot;)+
+geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = &quot;Q2&quot;,col=&quot;#FF7F00&quot;) +
+geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = &quot;Q3&quot;,col=&quot;#FF7F00&quot;) +
+geom_text(size=6,data = NULL, x = 96, y = 0.5, label = &quot;atípicos&quot;,col=&quot;#FF7F00&quot;) +  
+Theme1
 p4 </code></pre>
-<p><img src="recurso103C_files/figure-html/unnamed-chunk-19-1.png" width="1152" /></p>
+<p><img src="recurso103C_files/figure-html/unnamed-chunk-18-1.png" width="1152" /></p>
 </div>
 </div>
 

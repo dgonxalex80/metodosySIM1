@@ -43,15 +43,15 @@ Algunas consideraciones
 |                 |                  |  diagrama de cajas          | boxplot(x)           |
 |                 |                  |  diagrama de linea          | plot(x, type="l")    |
 |                 |                  |                             |                      |
- 
- **Nota**: Además de estas formas de representación gráfica existen otras formas que combinan variables como:
- 
- + Mapas
- + Diagrama de Mosaico
- + Diagramas de radar
- + Diagrama likert
- 
- 
+
+**Nota**: Además de estas formas de representación gráfica existen otras formas que combinan variables como:
+
++ Mapas
++ Diagrama de Mosaico
++ Diagramas de radar
++ Diagrama likert
+
+
 <br/><br/><br/>
 
 # **Variable cualitativa-nominal**
@@ -77,8 +77,8 @@ ev=c(5,13,30,52,35)
 ev=as.table(ev)
 names(ev)=c("MR","R","B","MB","E")
 barplot(ev,  col=c("#f95738","#ee964b", "#f4d35e", "#faf0ca", "#0d3b66"), 
-        main = "Evaluación proceso de inducción",
-        las=1 )
+main = "Evaluación proceso de inducción",
+las=1 )
 ```
 <br/><br/><br/>
 
@@ -89,24 +89,14 @@ barplot(ev,  col=c("#f95738","#ee964b", "#f4d35e", "#faf0ca", "#0d3b66"),
 conteo <- table(data$sex,data$categoria)
 
 barplot(conteo, main="Número de atletas por categoria y sexo",  
-        xlab="Categorías",
-        col=c("#0d3b66","#f4d35e"),
-        legend = rownames(conteo),
-        las=1, ylim = c(0,1200), 
-        names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
+xlab="Categorías",
+col=c("#0d3b66","#f4d35e"),
+legend = rownames(conteo),
+las=1, ylim = c(0,1200), 
+names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
 
 ```
 
-
-## **Diagrama de mosaico**
-
-
-```{r}
-mosaicplot(~gear + vs, 
-           data = mtcars, 
-          col=c("#0d3b66","#f4d35e"),
-           las = 1) 
-```
 
 <br/><br/><br/>
 
@@ -132,10 +122,10 @@ stem(x) # Diagrama de tallos y hojas
 dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="4. Veteranos B")) # dataset de mujeres
 x=dataFc4$timerun/60
 hist(x, xlim=c(40,100), las=1,
-     main = "Distribución de los tiempos mujeres Veteranas B",
-     xlab="tiempo (min)",
-     ylab = "frecuencia",
-     col ="#ee964b")
+main = "Distribución de los tiempos mujeres Veteranas B",
+xlab="tiempo (min)",
+ylab = "frecuencia",
+col ="#ee964b")
 ```
 
 
@@ -147,13 +137,13 @@ hist(x, xlim=c(40,100), las=1,
 ```{r}
 par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
 plot(density(x), lwd=3, col="#0d3b66",
-     main = "Distribución del tiempo - mujeres categoría Veteranas B",
-     xlab="tiempo (min)",
-     ylab = "densidad", las=1,
-     cex.lab=1,  # tamaño de etiqueta ejes
-     cex.axis=.8, # tamaño escalas de los ejes 
-     cex.main=1, # tamaño del titulo
-     cex.sub=1)    # tamaño del subtitulo)
+main = "Distribución del tiempo - mujeres categoría Veteranas B",
+xlab="tiempo (min)",
+ylab = "densidad", las=1,
+cex.lab=1,  # tamaño de etiqueta ejes
+cex.axis=.8, # tamaño escalas de los ejes 
+cex.main=1, # tamaño del titulo
+cex.sub=1)    # tamaño del subtitulo)
 ```
 
 
@@ -164,10 +154,10 @@ plot(density(x), lwd=3, col="#0d3b66",
 
 ```{r}
 boxplot(data$timerun/60~data$sex,
-        main = "Distribución del tiempo carrera La Luz 2022",
-     ylab="tiempo (min)",
-     xlab = "sexo", las=1,
-     col=c("#f4d35e","#ee964b"))
+main = "Distribución del tiempo carrera La Luz 2022",
+ylab="tiempo (min)",
+xlab = "sexo", las=1,
+col=c("#f4d35e","#ee964b"))
 ```
 
 
@@ -179,11 +169,11 @@ boxplot(data$timerun/60~data$sex,
 ```{r}
 y=ts(inflacionov22$inflacion, star=c(1993,1), end=c(2022,11), frequency=12)
 plot(y, type="l",
-     main="Inflación Colombia  ene-1993 a nov-2022",
-     ylab="inflación acumulada anual (%)",
-     xlab = "meses", las=1,
-     col="#ee964b", 
-     lwd = 4)
+main="Inflación Colombia  ene-1993 a nov-2022",
+ylab="inflación acumulada anual (%)",
+xlab = "meses", las=1,
+col="#ee964b", 
+lwd = 4)
 ```
 
 
@@ -256,7 +246,7 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas
 
 ```{r,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-         geom_point()     # grafico de puntos
+geom_point()     # grafico de puntos
 
 ```
 
@@ -272,8 +262,8 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 
 ```{r,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  geom_point()+
-  facet_wrap(~ sex)   # separacion por sexo
+geom_point()+
+facet_wrap(~ sex)   # separacion por sexo
 
 ```
 
@@ -283,8 +273,8 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 
 ```{r, message=FALSE, warning=FALSE,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = "loess" , formula =y ~ x)  # ajuste de modelo 
+facet_wrap(~ categoria)+ 
+stat_smooth(method = "loess" , formula =y ~ x)  # ajuste de modelo 
 ```
 
 
@@ -294,9 +284,9 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 ```{r, message=FALSE, warning=FALSE,fig.height=5}
 
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = "loess" , formula =y ~ x)+        
-  	coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes 
+facet_wrap(~ categoria)+ 
+stat_smooth(method = "loess" , formula =y ~ x)+        
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes 
 ```
 
 
@@ -305,9 +295,9 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 
 ```{r, fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-  facet_wrap(~ categoria)+ 
-  stat_smooth(method = "loess" , formula =y ~ x)+
-  	coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = "loess" , formula =y ~ x)+
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
 labs(title = "Tiempos Carrera La Luz  2022",  y= "Edad", x= "Tiempo (min)")  # titulo y etiquetas 
 ```
 
@@ -323,32 +313,32 @@ CarreraLuz22_c2M = subset(CarreraLuz22M, CarreraLuz22M$categoria=="2. Abierta")
 
 # Definición tamaño de letras
 Theme1 = theme(axis.title.x = element_text(size = 16),   
-               axis.text.x = element_text(size = 10),
-               axis.title.y = element_text(size = 16),
-             # axis.text.y = element_blank(),
-               axis.text = element_text( size = 10),
-               legend.title = element_text(size = 10),
-               legend.text = element_text(size = 10),  
-               strip.text = element_text(size=10),
-               title =element_text(size=10, face='bold') )# tamaño letra por grupos
+axis.text.x = element_text(size = 10),
+axis.title.y = element_text(size = 16),
+# axis.text.y = element_blank(),
+axis.text = element_text( size = 10),
+legend.title = element_text(size = 10),
+legend.text = element_text(size = 10),  
+strip.text = element_text(size=10),
+title =element_text(size=10, face='bold') )# tamaño letra por grupos
 
 # Cálculo de los cuartiles
 cuartiles1=data.frame(prob=c(0.25,0.5,0.75),
-                      valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
+valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
 q=cuartiles1$valor
 
 # Construcción de la gráfica
 p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=" ")) +
-          geom_jitter(color="#034A94", size=2, alpha=0.9)+ 
-          scale_color_manual(values="#034A94") +
-          geom_point(data=cuartiles1, aes(x=valor), color="#FF7F00",size=3)+
-          geom_boxplot(alpha = 0.4)+
-          labs(title = " ", y= "",  x= "tiempo (min)")+ 
-          geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = "Q1",col="#FF7F00")+
-          geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = "Q2",col="#FF7F00") +
-          geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = "Q3",col="#FF7F00") +
-          geom_text(size=6,data = NULL, x = 96, y = 0.5, label = "atípicos",col="#FF7F00") +  
-          Theme1
+geom_jitter(color="#034A94", size=2, alpha=0.9)+ 
+scale_color_manual(values="#034A94") +
+geom_point(data=cuartiles1, aes(x=valor), color="#FF7F00",size=3)+
+geom_boxplot(alpha = 0.4)+
+labs(title = " ", y= "",  x= "tiempo (min)")+ 
+geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = "Q1",col="#FF7F00")+
+geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = "Q2",col="#FF7F00") +
+geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = "Q3",col="#FF7F00") +
+geom_text(size=6,data = NULL, x = 96, y = 0.5, label = "atípicos",col="#FF7F00") +  
+Theme1
 p4 
 ```
 

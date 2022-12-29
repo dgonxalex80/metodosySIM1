@@ -324,7 +324,7 @@ R</strong></h1>
 <div id="examinar-la-base-de-datos" class="section level2">
 <h2><strong>Examinar la base de datos</strong></h2>
 <p>Antes de resumir la información contenida en una data en tablas de
-frecuencia dependiendo el tipo de variable revisamos incialmente la
+frecuencia dependiendo el tipo de variable revisamos inicialmente la
 estructura de la data, lu cual nos perite un diagnóstico incial para
 ello utilizaremos una de las bases contenidas en el paquete
 <code>paqueteMET</code> para lo cual debemos instalarlo de la siguiente
@@ -416,7 +416,7 @@ registros</p>
 <p><br/><br/></p>
 <div id="subset" class="section level3">
 <h3><strong>subset()</strong></h3>
-<p>En ocaciones es necesario seleccionar una parte de la base de datos
+<p>En ocasiones es necesario seleccionar una parte de la base de datos
 para estos casos podemos utilizar la función</p>
 <pre class="r"><code># seleccion de bases
 dataF=subset(data, data$sex==&quot;Mujer&quot;) # dataset de mujeres
@@ -431,8 +431,8 @@ head(dataF)</code></pre>
 5    75 Mujer    59 Cali       2748 4. Veteranos B COL         
 6    94 Mujer    35 Cali       2808 2. Abierta     COL         </code></pre>
 <p><br/><br/></p>
-<p>Se pueden emplear carias cociones</p>
-<pre class="r"><code># seleccion de bases
+<p>Se pueden emplear varias opciones</p>
+<pre class="r"><code># selección de bases
 dataFc1=subset(data, (data$sex==&quot;Mujer&quot; &amp; data$categoria==&quot;1. Juvenil&quot;)) # dataset de mujeres
 head(dataFc1)</code></pre>
 <pre><code># A tibble: 6 × 7
@@ -468,7 +468,7 @@ resultado las frecuencias relativas que se pueden multiplicar por 100
 para visualizarlas como porcentajes.</p>
 <pre class="r"><code>library(tidyverse)
 table(data$categoria) %&gt;%   # se introduce el operador %&gt;%
-          prop.table()*100 </code></pre>
+prop.table()*100 </code></pre>
 <pre><code>
     1. Juvenil     2. Abierta 3. Veteranos A 4. Veteranos B 5. Veteranos C 
      0.9885536     61.3423517     22.0083247     11.8106139      3.8501561 </code></pre>
@@ -482,7 +482,7 @@ cualitativas</strong></h2>
 <p><br/></p>
 <p>La función <code>table()</code> permite la construcción de tablas
 para dos variables o tablas cruzadas para frecuencias absolutas o
-tambien para frecuencias relativas (si se multiplican por 100)</p>
+también para frecuencias relativas (si se multiplican por 100)</p>
 <pre class="r"><code>table(data$categoria, data$sex)</code></pre>
 <pre><code>                
                  Hombre Mujer
@@ -493,7 +493,7 @@ tambien para frecuencias relativas (si se multiplican por 100)</p>
   5. Veteranos C     58    16</code></pre>
 <p><br/><br/></p>
 <pre class="r"><code>table(data$categoria, data$sex) %&gt;% 
-               prop.table()</code></pre>
+prop.table()</code></pre>
 <pre><code>                
                       Hombre       Mujer
   1. Juvenil     0.006243496 0.003642040
@@ -506,7 +506,7 @@ tambien para frecuencias relativas (si se multiplican por 100)</p>
 <h3><strong>freq()</strong></h3>
 <p>La función <code>freq()</code> del paquete <code>summarytools</code>
 permite una construcción más elaborada de la tabla que incluye ademas de
-las frecuencias simples tambien las acumuladas</p>
+las frecuencias simples también las acumuladas</p>
 <pre class="r"><code>summarytools::freq(data$categoria, cumul = T)</code></pre>
 <pre><code>Frequencies  
 
@@ -550,23 +550,23 @@ summarytools::freq(Edad.corredores)</code></pre>
 <pre class="r"><code># install.packages(&quot;flextable&quot;)
 library(flextable)
 ft1=table(data$categoria)%&gt;% 
-        as.data.frame()
+as.data.frame()
 colnames(ft1)=c(&quot;Categoría&quot;, &quot;Frecuencia absoluta&quot;)
 ft1=flextable(ft1)
 
 set_flextable_defaults(
-  font.size = 12, font.family = &quot;Helvetica&quot;,
-  font.color = &quot;#333333&quot;,
-  table.layout = &quot;fixed&quot;,
-  border.color = &quot;gray&quot;,
-  padding.top = 3, padding.bottom = 3,
-  padding.left = 4, padding.right = 4)
+font.size = 12, font.family = &quot;Helvetica&quot;,
+font.color = &quot;#333333&quot;,
+table.layout = &quot;fixed&quot;,
+border.color = &quot;gray&quot;,
+padding.top = 3, padding.bottom = 3,
+padding.left = 4, padding.right = 4)
 
 ft1 &lt;- ft1 %&gt;%
-    width(j = 1,  width = 2) %&gt;%
-    width(j = 2, width = 1)
+width(j = 1,  width = 2) %&gt;%
+width(j = 2, width = 1)
 ft1</code></pre>
-<template id="1067935c-46dc-45a9-a590-ffbab40e3df8"><style>
+<template id="4ae3918e-e16b-453b-aa82-dd32c09c568a"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -604,11 +604,11 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-2982774c{}.cl-297c1140{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-297e7656{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-297e7660{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-297e8376{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-297e8380{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-297e8381{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-297e838a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-297e838b{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-297e8394{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-2982774c'><thead><tr style="overflow-wrap:break-word;"><th class="cl-297e8376"><p class="cl-297e7656"><span class="cl-297c1140">Categoría</span></p></th><th class="cl-297e8380"><p class="cl-297e7660"><span class="cl-297c1140">Frecuencia absoluta</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-297e8381"><p class="cl-297e7656"><span class="cl-297c1140">1. Juvenil</span></p></td><td class="cl-297e838a"><p class="cl-297e7660"><span class="cl-297c1140">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-297e8381"><p class="cl-297e7656"><span class="cl-297c1140">2. Abierta</span></p></td><td class="cl-297e838a"><p class="cl-297e7660"><span class="cl-297c1140">1,179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-297e8381"><p class="cl-297e7656"><span class="cl-297c1140">3. Veteranos A</span></p></td><td class="cl-297e838a"><p class="cl-297e7660"><span class="cl-297c1140">423</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-297e8381"><p class="cl-297e7656"><span class="cl-297c1140">4. Veteranos B</span></p></td><td class="cl-297e838a"><p class="cl-297e7660"><span class="cl-297c1140">227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-297e838b"><p class="cl-297e7656"><span class="cl-297c1140">5. Veteranos C</span></p></td><td class="cl-297e8394"><p class="cl-297e7660"><span class="cl-297c1140">74</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="394a43bc-eccb-43a7-9473-34c2abfaf7ee"></div>
+</style><div class="tabwid"><style>.cl-1e07a11a{}.cl-1e00c1b0{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1e0359de{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e0359df{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e036870{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e03687a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e036884{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e036885{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e03688e{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1e03688f{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-1e07a11a'><thead><tr style="overflow-wrap:break-word;"><th class="cl-1e036870"><p class="cl-1e0359de"><span class="cl-1e00c1b0">Categoría</span></p></th><th class="cl-1e03687a"><p class="cl-1e0359df"><span class="cl-1e00c1b0">Frecuencia absoluta</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1e036884"><p class="cl-1e0359de"><span class="cl-1e00c1b0">1. Juvenil</span></p></td><td class="cl-1e036885"><p class="cl-1e0359df"><span class="cl-1e00c1b0">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e036884"><p class="cl-1e0359de"><span class="cl-1e00c1b0">2. Abierta</span></p></td><td class="cl-1e036885"><p class="cl-1e0359df"><span class="cl-1e00c1b0">1,179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e036884"><p class="cl-1e0359de"><span class="cl-1e00c1b0">3. Veteranos A</span></p></td><td class="cl-1e036885"><p class="cl-1e0359df"><span class="cl-1e00c1b0">423</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e036884"><p class="cl-1e0359de"><span class="cl-1e00c1b0">4. Veteranos B</span></p></td><td class="cl-1e036885"><p class="cl-1e0359df"><span class="cl-1e00c1b0">227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1e03688e"><p class="cl-1e0359de"><span class="cl-1e00c1b0">5. Veteranos C</span></p></td><td class="cl-1e03688f"><p class="cl-1e0359df"><span class="cl-1e00c1b0">74</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="489980d0-fcce-401f-bfc5-0e4a62afde19"></div>
 <script>
-var dest = document.getElementById("394a43bc-eccb-43a7-9473-34c2abfaf7ee");
-var template = document.getElementById("1067935c-46dc-45a9-a590-ffbab40e3df8");
+var dest = document.getElementById("489980d0-fcce-401f-bfc5-0e4a62afde19");
+var template = document.getElementById("4ae3918e-e16b-453b-aa82-dd32c09c568a");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);

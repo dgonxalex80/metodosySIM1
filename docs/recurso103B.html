@@ -375,14 +375,14 @@ N: 1922
 <div id="indicadores-por-grupos" class="section level2">
 <h2><strong>Indicadores por grupos</strong></h2>
 <p><br/></p>
-<p>En ocaciones se requiere calcular indiadores para una variable por
+<p>En ocasiones se requiere calcular indicadores para una variable por
 grupos conformados por una variable categórica. El siguiente caso
 corresponde a las medias por categoría.</p>
 <p><br/><br/></p>
 <div id="aggregate" class="section level3">
 <h3><strong>aggregate()</strong></h3>
-<p>La función aggregate() permite obtener resumen de estadísticas por
-subgrupo</p>
+<p>La función <code>aggregate()</code> permite obtener resumen de
+estadísticas por subgrupo</p>
 <pre class="r"><code>t1 = aggregate(data$timerun/60, list(data$categoria), FUN=mean) 
 colnames(t1)=c(&quot;Categoría&quot;, &quot;media&quot;)
 t1</code></pre>
@@ -393,7 +393,7 @@ t1</code></pre>
 4 4. Veteranos B 64.54222
 5 5. Veteranos C 67.64505</code></pre>
 <p><br/><br/></p>
-<p>Podemos tambien conocer las medias por categoria y sexo</p>
+<p>Podemos también conocer las medias por categoría y sexo</p>
 <pre class="r"><code>t2 = aggregate(data$timerun/60, by=list(data$categoria,data$sex), FUN=mean)
 colnames(t2)=c(&quot;Categoría&quot;, &quot;sexo&quot;,&quot;media&quot;)
 t2</code></pre>

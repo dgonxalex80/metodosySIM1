@@ -59,13 +59,13 @@ summarytools::descr(data$edad)
 
 <br/>
 
-En ocaciones se requiere calcular indiadores para una variable por grupos conformados por una variable categórica. El siguiente caso corresponde a las medias por categoría.
+En ocasiones se requiere calcular indicadores para una variable por grupos conformados por una variable categórica. El siguiente caso corresponde a las medias por categoría.
 
 <br/><br/>
 
 ### **aggregate()**
 
-La función aggregate() permite obtener resumen de estadísticas por subgrupo
+La función `aggregate()` permite obtener resumen de estadísticas por subgrupo
 
 
 ```{r}
@@ -76,7 +76,7 @@ t1
 
 <br/><br/>
 
-Podemos tambien conocer las medias por categoria y sexo
+Podemos también conocer las medias por categoría y sexo
 
 ```{r}
 t2 = aggregate(data$timerun/60, by=list(data$categoria,data$sex), FUN=mean)
@@ -109,13 +109,6 @@ sum(!is.na(x))                                                  #   N.Valid    1
 sum(!is.na(x))/length(x)*100                                    #   Pct.Valid   100.00
 
 </pre>
-  
- 
-
-
-
-
-
 
 
 

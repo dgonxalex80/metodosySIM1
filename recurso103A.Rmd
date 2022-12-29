@@ -21,7 +21,7 @@ data("CarreraLuz22")    # cargar la dataset
 
 ## **Examinar la base de datos**
 
-Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos incialmente la estructura de la data, lu cual nos perite un diagnóstico incial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
+Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos inicialmente la estructura de la data, lu cual nos perite un diagnóstico incial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
 
 <br/>
 
@@ -87,7 +87,7 @@ tail(data)
 
 ### **subset()**
 
-En ocaciones es necesario seleccionar una parte de la base de datos para estos casos podemos utilizar la función 
+En ocasiones es necesario seleccionar una parte de la base de datos para estos casos podemos utilizar la función 
 
 ```{r}
 # seleccion de bases
@@ -97,10 +97,10 @@ head(dataF)
 
 <br/><br/>
 
-Se pueden emplear carias cociones
+Se pueden emplear varias opciones
 
 ```{r}
-# seleccion de bases
+# selección de bases
 dataFc1=subset(data, (data$sex=="Mujer" & data$categoria=="1. Juvenil")) # dataset de mujeres
 head(dataFc1)
 ```
@@ -128,7 +128,7 @@ Si adicionamos la función prop.table() a un objeto table da como resultado las 
 ```{r}
 library(tidyverse)
 table(data$categoria) %>%   # se introduce el operador %>%
-          prop.table()*100 
+prop.table()*100 
 ```
 <br/><br/>
 
@@ -136,7 +136,7 @@ table(data$categoria) %>%   # se introduce el operador %>%
 
 <br/>
 
-La función `table()` permite la construcción de tablas para dos variables o tablas cruzadas para frecuencias absolutas o tambien para frecuencias relativas (si se multiplican por 100) 
+La función `table()` permite la construcción de tablas para dos variables o tablas cruzadas para frecuencias absolutas o también para frecuencias relativas (si se multiplican por 100) 
 
 ```{r}
 table(data$categoria, data$sex)
@@ -146,7 +146,7 @@ table(data$categoria, data$sex)
 
 ```{r}
 table(data$categoria, data$sex) %>% 
-               prop.table()
+prop.table()
 ```
 
 <br/><br/>
@@ -154,7 +154,7 @@ table(data$categoria, data$sex) %>%
 
 ### **freq()**
 
-La función `freq()` del paquete `summarytools` permite una construcción más elaborada de la tabla que incluye ademas de las frecuencias simples tambien las acumuladas
+La función `freq()` del paquete `summarytools` permite una construcción más elaborada de la tabla que incluye ademas de las frecuencias simples también las acumuladas
 
 
 ```{r}
@@ -187,21 +187,21 @@ Si queremos una tabla mas terminada podemos utilizar
 # install.packages("flextable")
 library(flextable)
 ft1=table(data$categoria)%>% 
-        as.data.frame()
+as.data.frame()
 colnames(ft1)=c("Categoría", "Frecuencia absoluta")
 ft1=flextable(ft1)
 
 set_flextable_defaults(
-  font.size = 12, font.family = "Helvetica",
-  font.color = "#333333",
-  table.layout = "fixed",
-  border.color = "gray",
-  padding.top = 3, padding.bottom = 3,
-  padding.left = 4, padding.right = 4)
+font.size = 12, font.family = "Helvetica",
+font.color = "#333333",
+table.layout = "fixed",
+border.color = "gray",
+padding.top = 3, padding.bottom = 3,
+padding.left = 4, padding.right = 4)
 
 ft1 <- ft1 %>%
-    width(j = 1,  width = 2) %>%
-    width(j = 2, width = 1)
+width(j = 1,  width = 2) %>%
+width(j = 2, width = 1)
 ft1
 ```
 
