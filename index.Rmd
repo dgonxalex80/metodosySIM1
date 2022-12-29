@@ -1,11 +1,7 @@
 ---
 title : <span style="color:#000000"> **Contexto**</span>
 author: "  " 
-html_document:
-toc: yes
-toc_depth: 2
-toc_float: yes
-theme: paper
+output: html_document
 css: style.css
 ---
 
