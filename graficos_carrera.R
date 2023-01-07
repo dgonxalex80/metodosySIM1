@@ -256,6 +256,41 @@ ggplot(data6, aes(x=x)) +
       geom_line(aes(y=y1), color = "orange", size = 1.5) +
       labs(x=" ", y=" ")
 
+#-------------------------------------------------------------------------
+library(ggplot2)
+x=0:20
+fx=dbinom(x,20,0.30)
+dat=data.frame(x,fx)
+
+ggplot(dat) + geom_point(aes(x, fx),colour = "orange", size = 4) +
+  scale_x_continuous(limits = c(0, 20),
+                     breaks = 0:20, 
+                     labels = c('0','1','2','3','4','5','6','7','8','9','10','11','12','13','14', '15','16','17','18','19','20')
+
+
+                     
+w=sample(CarreraLuz22F3$timerun/60, 100) # simulación de los datos
+shapiro.test(w)  # verificación de normalidad
+
+
+
+
+xM1=sample(CarreraLuz22M$timerun/60, 100); shapiro.test(xM1)
+xF1=sample(CarreraLuz22F$timerun/60, 100); shapiro.test(xF1)
+var.test(xM1,xF1)
+t.test(xM1, xF1)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

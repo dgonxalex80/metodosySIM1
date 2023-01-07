@@ -3,7 +3,7 @@ output_dir: "docs"
 navbar:
   title: " "
   left:
-    - text: "Unidad 1"
+    - text: " "
       icon: fa-home
       href: index.html  
     - text: "Conceptos básicos"
