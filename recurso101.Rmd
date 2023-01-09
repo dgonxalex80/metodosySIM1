@@ -29,6 +29,7 @@ c4 ="#686868"  # gris - color texto
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/statistics1.png")
 ```
+Tomada de : pixabay.com
 
 </br></br>
 
@@ -169,6 +170,7 @@ Corresponde a características tomadas de la unidad de análisis.  Las variables
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/variable1.png")
 ```
+Fuente: construcción propia
 
 </br></br>
 
@@ -237,6 +239,8 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/escalas.png")
 ```
+Fuente: construcción propia
+
 </br></br>
 
 **Nominal** : En las variables con escala de medición nominal, sus valores no se pueden ordenar, es decir que no existe una forma particular para ordenar sus valores. | Religión (católico, cristiano, evangélico, agnóstico), 
@@ -312,6 +316,7 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/poblacion.png")
 ```
+Fuente: construcción propia
 
 </br></br>
 
@@ -369,6 +374,7 @@ El muestreo no probabilístico (o muestreo no aleatorio) es la técnica de muest
 knitr::include_graphics("img/muestreos.png")
 ```
 
+Fuente: construcción propia
 <br/><br/>
 
 **Nota** 

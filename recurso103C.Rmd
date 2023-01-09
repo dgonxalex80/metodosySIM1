@@ -11,10 +11,12 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(tidyverse)
 
 # cargar paqueteMET
-# devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
 library(paqueteMET)     # activar paqueteMET
 data("CarreraLuz22")    # cargar la dataset
 data("evaluacion")      # cargar la dataset
+data("inflacion2022")   # carga la dataset
+inflacion2022[360,]=c(0,"2022-12",13.12, 2022,NA,12)
 
 #CarreraLuz22_c2M = subset(CarreraLuz22, CarreraLuz22M$categoria=="2. Abierta")
 ```
@@ -153,7 +155,7 @@ cex.sub=1)    # tamaño del subtitulo)
 ## **Diagrama de cajas** 
 
 ```{r}
-boxplot(data$timerun/60~data$sex,
+boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
 main = "Distribución del tiempo carrera La Luz 2022",
 ylab="tiempo (min)",
 xlab = "sexo", las=1,
@@ -167,9 +169,9 @@ col=c("#f4d35e","#ee964b"))
 ## **Gráfico de series de tiempo**
 
 ```{r}
-y=ts(inflacionov22$inflacion, star=c(1993,1), end=c(2022,11), frequency=12)
+y=ts(inflacion2022$inflacion, star=c(1993,1), end=c(2022,12), frequency=12)
 plot(y, type="l",
-main="Inflación Colombia  ene-1993 a nov-2022",
+main="Inflación Colombia  ene-1993 a dic-2022",
 ylab="inflación acumulada anual (%)",
 xlab = "meses", las=1,
 col="#ee964b", 

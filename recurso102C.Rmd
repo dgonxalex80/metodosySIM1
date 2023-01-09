@@ -43,7 +43,7 @@ Tabla  1 : Gráficas por tipo de variable
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/tabla5.png")
 ```
-
+<center>Fuente: construcción propia</center>
 <br/><br/>
 
 # **Variables cualitativas**
@@ -58,7 +58,7 @@ Gráfica  1 : Distribución demanda actividades del Medio Universitario
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/RplotPie.png")
 ```
-Fuente : Unicifras Pontificia Universidad Javeriana Cali
+<center>Fuente : Unicifras Pontificia Universidad Javeriana Cali</center>
 
 El gráfico permite resaltar la gran participación de los estudiantes en el sector Cultural con un 74.5%
 
@@ -73,7 +73,7 @@ Gráfica  2 : Evaluación pasajeros areopuerto
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotCalifica.png")
 ```
-Fuente: kaggle - Satisfacion_Airline
+<center>Fuente: kaggle - Satisfacion_Airline</center>
 
 <br/><br/>
 
@@ -87,7 +87,7 @@ Gráfica  3 : Distribución de la categoría por sexo carrer La Luz 2022
 knitr::include_graphics("img/RplotBarplot2.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 <br/><br/><br/>
 
@@ -146,7 +146,7 @@ Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrer La Luz
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotHistogramas.png")
 ```
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 <br/><br/>
 
@@ -159,7 +159,7 @@ Gráfica  6 : Distribución del tiempo carrer La Luz 2022
 knitr::include_graphics("img/RplotDensidad.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 <br/><br/>
 
@@ -173,7 +173,7 @@ Gráfica  7 : Comparación distribuciones del tiempo hombres carrera La Luz 2022
 knitr::include_graphics("img/RplotBoxplot2.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>uente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 <br/><br/>
 
@@ -187,7 +187,7 @@ Gráfica  8 : Distribución de los tiempos por categoría carrera La Luz 2022
 knitr::include_graphics("img/RplotDispersion.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 La gráfica permite visualizar que no existe relación entre las variables tiempo de carrera y edad, es decir que en todas las categorías se presentaron corredores con tiempos bajos y tiempos altos.  También permite detectar que un corredor de la categoría Abierta fue el primero en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el último (166.03 min). 
 
@@ -202,7 +202,7 @@ Gráfica  9 : Inflación Colombia 1993-01 a 2022-11
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotInflacion.png")
 ```
-Fuente : Banco de la República
+<center>Fuente : Banco de la República</center>
 
 En la gráfica se puede observar una tendencia creciente durante los últimos meses
 

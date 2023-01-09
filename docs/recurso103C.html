@@ -521,7 +521,7 @@ cex.sub=1)    # tamaño del subtitulo)</code></pre>
 </div>
 <div id="diagrama-de-cajas" class="section level2">
 <h2><strong>Diagrama de cajas</strong></h2>
-<pre class="r"><code>boxplot(data$timerun/60~data$sex,
+<pre class="r"><code>boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
 main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
 ylab=&quot;tiempo (min)&quot;,
 xlab = &quot;sexo&quot;, las=1,
@@ -531,9 +531,9 @@ col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
 </div>
 <div id="gráfico-de-series-de-tiempo" class="section level2">
 <h2><strong>Gráfico de series de tiempo</strong></h2>
-<pre class="r"><code>y=ts(inflacionov22$inflacion, star=c(1993,1), end=c(2022,11), frequency=12)
+<pre class="r"><code>y=ts(inflacion2022$inflacion, star=c(1993,1), end=c(2022,12), frequency=12)
 plot(y, type=&quot;l&quot;,
-main=&quot;Inflación Colombia  ene-1993 a nov-2022&quot;,
+main=&quot;Inflación Colombia  ene-1993 a dic-2022&quot;,
 ylab=&quot;inflación acumulada anual (%)&quot;,
 xlab = &quot;meses&quot;, las=1,
 col=&quot;#ee964b&quot;, 

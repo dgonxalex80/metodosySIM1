@@ -42,7 +42,7 @@ Tabla 1. Distribución del número de equipos participantes en Qatar 2022 por co
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/tabla1.png")
 ```
-Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F%C3%BAtbol_de_2022)
+<center>Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F%C3%BAtbol_de_2022)</center>
 
 </br></br>
 
@@ -69,7 +69,7 @@ Tabla 2 : Nivel de satisfación usarios aereolinea, servicio de alimentación/be
 ```{r, echo=FALSE, out.width="80%", fig.align = "center"}
 knitr::include_graphics("img/tabla2.png")
 ```
-Fuente : [kaggle](https://www.kaggle.com/datasets/alfredoblancas/airline-passenger-satisfaction-spanish?resource=download)
+<center>Fuente : [kaggle](https://www.kaggle.com/datasets/alfredoblancas/airline-passenger-satisfaction-spanish?resource=download)</center>
 
 </br>
 
@@ -110,7 +110,7 @@ Tabla 3 : Tiempo de carrera categoría juvenil mujeres, carera La Luz 2022
 ```{r, echo=FALSE, out.width="80%", fig.align = "center"}
 knitr::include_graphics("img/tabla4.png")
 ```
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 
 <br/><br/>

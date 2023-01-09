@@ -19,8 +19,7 @@ Figura 1: Tablero vehículo
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/indicadores.png")
 ```
-
-Imagen tomada de  : [freepik](https://www.freepik.com/free-vector/dashboard-background-with-color-signals_1048637.htm#query=tablero%20de%20auto&position=0&from_view=search&track=ais)
+<center>Tomada de  : [freepik](https://www.freepik.com/free-vector/dashboard-background-with-color-signals_1048637.htm#query=tablero%20de%20auto&position=0&from_view=search&track=ais)</center>
 
 <br/>
 
@@ -55,6 +54,7 @@ Figura 2 : Carrera
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/carrera.jpg")
 ```
+<center>Tomada de : pixabay.com</center>
 
 </br></br>
 
@@ -68,7 +68,7 @@ Gráfico 1 : Tiempos por categoría y sexo  - Carrera La Luz 2022
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotRioCaliMH.png")
 ```
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 </br></br>
 
@@ -98,7 +98,7 @@ Gráfica  2 : Tiempos y posiciones de Carlos y María
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/Rplotcarrera.png")
 ```
-Fuente : [juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente : [juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 
 </br></br>
@@ -119,6 +119,7 @@ Gráfica 3 : Tiempos hombres categoría Abierta
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotDeciles.png")
 ```
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 </br></br>
 
@@ -143,7 +144,7 @@ Gráfica  4 : Tiempos hombres categoría Abierta
 knitr::include_graphics("img/RplotBoxplot.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 </br></br>
 
@@ -248,7 +249,7 @@ Gráfica  5 : Tiempos hombres categoría juvenil
 knitr::include_graphics("img/RplotBoxplot3.png")
 ```
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
 La línea central de las cajas representan las medianas. En ellas se puede evidenciar el valor mayor del grupo juvenil femenino
 
@@ -342,7 +343,7 @@ Gráfica  5 : Edades por grupo
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotGrupos.png")
 ```
-Fuente : datos simulados
+<center>Fuente : datos simulados</center>
 
 </br></br>
 
@@ -525,7 +526,7 @@ Gráfica  7 :  Formas de asimétrica
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotAsimetria.png")
 ```
-
+<center>Fuente: construcción propia</center>
 
 <br/>
 
