@@ -29,7 +29,7 @@ c4 ="#686868"  # gris - color texto
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/statistics1.png")
 ```
-Tomada de : pixabay.com
+<center>Tomada de : pixabay.com</center>
 
 </br></br>
 
@@ -170,7 +170,7 @@ Corresponde a características tomadas de la unidad de análisis.  Las variables
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/variable1.png")
 ```
-Fuente: construcción propia
+<center>Fuente: construcción propia</center>
 
 </br></br>
 
@@ -239,7 +239,7 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/escalas.png")
 ```
-Fuente: construcción propia
+<ceenter>Fuente: construcción propia</center>
 
 </br></br>
 
@@ -316,7 +316,7 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/poblacion.png")
 ```
-Fuente: construcción propia
+<center>Fuente: construcción propia</center>
 
 </br></br>
 
@@ -374,7 +374,7 @@ El muestreo no probabilístico (o muestreo no aleatorio) es la técnica de muest
 knitr::include_graphics("img/muestreos.png")
 ```
 
-Fuente: construcción propia
+<center>Fuente: construcción propia</center>
 <br/><br/>
 
 **Nota** 

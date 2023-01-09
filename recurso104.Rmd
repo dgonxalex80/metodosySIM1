@@ -1,12 +1,7 @@
 ---
 title: <span style="color:#034a94"> **Otros **</span>
 author: "Métodos y Simulación Estadística"
-output:
-  html_document:
-    toc: yes
-    toc_depth: 2
-    toc_float: yes
-    theme: cerulean
+output: html_document
 css: style.css
 ---
 
@@ -18,10 +13,3 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 
 
-
-
-</br></br>
-
-# Punto 1
-
-## **Problema reconocimiento de grupo**
