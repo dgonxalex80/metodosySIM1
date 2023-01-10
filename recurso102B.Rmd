@@ -15,14 +15,6 @@ Cuando nos subimos a un auto observamos un tablero con muchos indicadores que pe
 
 </br>
 
-Figura 1: Tablero vehículo
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("img/indicadores.png")
-```
-<center>Tomada de  : [freepik](https://www.freepik.com/free-vector/dashboard-background-with-color-signals_1048637.htm#query=tablero%20de%20auto&position=0&from_view=search&track=ais)</center>
-
-<br/>
-
 Al igual que la situación anterior cuando nos enfrentamos a una análisis de datos, requerimos resumirlos en indicadores, tablas y gráficos que nos permitan un fácil análisis de ellos.
 
 </br>
@@ -50,7 +42,7 @@ Iniciaremos con los indicadores de posición
 
 </br></br>
 
-Figura 2 : Carrera 
+Figura 1 : Carrera 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/carrera.jpg")
 ```
@@ -352,7 +344,7 @@ knitr::include_graphics("img/RplotGrupos.png")
 
 El rango es el indicador de dispersión más fácil de calcular, pues se obtiene restando los valores extremos de los datos: 
 
-$r = \max(x) - \min(x)$
+$$r = \max(x) - \min(x)$$
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
@@ -467,6 +459,9 @@ Los indicadores de forma permiten adicionar elementos a la interpretación de lo
 
 Se mide a través del coeficiente de curtosis que mide cuan **puntiaguda** es una distribución respecto a un patrón estándar que es la curva de la distribución normal. Esta característica está relacionada directamente con la dispersión.
 
+$$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
+
+
 De acuerdo con su valor, la puntudez de los datos puede clasificarse en tres grupos:
 
 + **Leptocúrtica**, con valores grandes para el coeficiente (CA>0)
@@ -510,6 +505,9 @@ El valor indica que los datos presentan una  forma platicurtica o aplanada
 <br/>
 
 Mide que tanto la forma de la distribución de frecuencias de los datos es simétrica o no con respecto a la media. Esta característica de los datos se mide a través del coeficiente de asimetría o sesgo.
+
+$$CA = \dfrac{1}{s^{3}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{3} \Bigg) $$
+
 
 + Es **simétrica** si el  valor del indicador es 0  ($\bar{x}=Me$)
 

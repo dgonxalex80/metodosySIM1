@@ -326,13 +326,6 @@ Todos los podemos visualizar al tiempo con el fin de darnos una idea del
 nivel de combustible, la temperatura, el estado de la batería, si alguna
 puerta esta abierta, la velocidad a la que se viaja, entre otros.</p>
 <p></br></p>
-Figura 1: Tablero vehículo
-<img src="img/indicadores.png" width="100%" style="display: block; margin: auto;" />
-<center>
-Tomada de : <a
-href="https://www.freepik.com/free-vector/dashboard-background-with-color-signals_1048637.htm#query=tablero%20de%20auto&amp;position=0&amp;from_view=search&amp;track=ais">freepik</a>
-</center>
-<p><br/></p>
 <p>Al igual que la situación anterior cuando nos enfrentamos a una
 análisis de datos, requerimos resumirlos en indicadores, tablas y
 gráficos que nos permitan un fácil análisis de ellos.</p>
@@ -356,7 +349,7 @@ caracterizan y facilitan su análisis como son :</p>
 <div id="de-posición" class="section level1">
 <h1><strong>De posición</strong></h1>
 <p></br></br></p>
-Figura 2 : Carrera
+Figura 1 : Carrera
 <img src="img/carrera.jpg" width="100%" style="display: block; margin: auto;" />
 <center>
 Tomada de : pixabay.com
@@ -673,7 +666,7 @@ Fuente : datos simulados
 <h2><strong>Rango</strong></h2>
 <p>El rango es el indicador de dispersión más fácil de calcular, pues se
 obtiene restando los valores extremos de los datos:</p>
-<p><span class="math inline">\(r = \max(x) - \min(x)\)</span></p>
+<p><span class="math display">\[r = \max(x) - \min(x)\]</span></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <p>En el caso de los dos grupos:</p>
 <table>
@@ -842,6 +835,8 @@ interpretación de los datos.</p>
 <strong>puntiaguda</strong> es una distribución respecto a un patrón
 estándar que es la curva de la distribución normal. Esta característica
 está relacionada directamente con la dispersión.</p>
+<p><span class="math display">\[CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n}
+\sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3\]</span></p>
 <p>De acuerdo con su valor, la puntudez de los datos puede clasificarse
 en tres grupos:</p>
 <ul>
@@ -854,7 +849,7 @@ coeficiente (CA&lt;0)</p></li>
 </ul>
 <p></br></p>
 <p>Gráfica 6 : Formas de curtosis<br />
-<img src="recurso102B_files/figure-html/unnamed-chunk-9-1.png" width="864" /></p>
+<img src="recurso102B_files/figure-html/unnamed-chunk-8-1.png" width="864" /></p>
 <p><br/> <br/></p>
 <p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
 <pre>
@@ -872,6 +867,8 @@ aplanada</p>
 <p>Mide que tanto la forma de la distribución de frecuencias de los
 datos es simétrica o no con respecto a la media. Esta característica de
 los datos se mide a través del coeficiente de asimetría o sesgo.</p>
+<p><span class="math display">\[CA = \dfrac{1}{s^{3}}\Bigg(\dfrac{1}{n}
+\sum_{i=1}^{n} (x-\bar{x})^{3} \Bigg) \]</span></p>
 <ul>
 <li><p>Es <strong>simétrica</strong> si el valor del indicador es 0
 (<span class="math inline">\(\bar{x}=Me\)</span>)</p></li>
