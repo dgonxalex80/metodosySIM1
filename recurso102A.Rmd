@@ -8,7 +8,8 @@ css: style.css
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-<br/><br/><br/>
+
+<br/><br/>
 
 # **Variables cualitativas**
 
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos sirven para agrupar los datos y tener una idea mas clara de sus características. Están conformadas por una primera columna donde se presentan  las clases (filas de la tabla) que corresponden con las categorías observadas de una variable cualitativa. En caso de tener la variable una escala de medición nominal, es decisión del investigador la ubicación u ordenamiento de las categorías dentro de la tabla de frecuencias. Por el contrario para las variables en escala ordinal se realiza el ordenamiento siguiendo la jerarquía de las categorías 
 
 
-</br></br>
+</br>
 
 
 Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
@@ -36,7 +37,7 @@ Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
-</br></br>
+</br>
 
 Tabla 1. Distribución del número de equipos participantes en Qatar 2022 por confederaciones
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
@@ -80,6 +81,7 @@ de los clientes tienen una percepción negativa sobre el servicio de alimentaci�
 
 # **Variables cuantitativas**
 
+</br>
 
 Para el caso de las variables cualitativas es necesario agrupar los valores en intervalos siguiendo los siguientes criterios :
 

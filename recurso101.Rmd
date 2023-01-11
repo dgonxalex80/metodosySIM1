@@ -20,9 +20,7 @@ c4 ="#686868"  # gris - color texto
 ```
 
 
-
-
-</br></br><br/>
+<br/>
 
 # <span style="color:#034A94">**Estadística**</span>
 
@@ -31,7 +29,7 @@ knitr::include_graphics("img/statistics1.png")
 ```
 <center>Tomada de : pixabay.com</center>
 
-</br></br>
+</br>
 
 
 
@@ -82,19 +80,19 @@ La estadística es una ciencia transversal a las diversas disciplinas del conoci
 Así mismo, si nos detuviéramos a analizar cada una de las disciplinas en las que se desenvuelve nuestras actividades diarias, encontraríamos ejemplos donde se tiene la necesidad de contar con información que nos permita tomar decisiones confiables.
 
 
-</br></br>
+</br>
 
 ### **Actividad**
 
 De acuerdo con tu área de profesión, identifica alguna situación o actividad donde sea necesaria la Estadística.
 
 
-</br></br></br>
+</br></br>
 
 
 # **Conceptos**
 
-</br></br>
+</br>
 
 ##  **Análisis descriptivo**    
 
@@ -167,7 +165,7 @@ Corresponde a características tomadas de la unidad de análisis.  Las variables
 
 <br/>
 
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="800%", fig.align = "center"}
 knitr::include_graphics("img/variable1.png")
 ```
 <center>Fuente: construcción propia</center>

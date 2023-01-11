@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-</br></br><br/>
+</br></br>
 
 Cuando nos subimos a un auto observamos un tablero con muchos indicadores que permiten al conductor validar el estado del vehículo. Todos los podemos visualizar al tiempo con el fin de darnos una idea del nivel de combustible, la temperatura, el estado de la batería, si alguna puerta esta abierta, la velocidad a la que se viaja, entre otros.
 
@@ -39,6 +39,9 @@ Iniciaremos con los indicadores de posición
 <!-- ======================================================================= -->
 
 # **De posición**
+
+Los indicadores de posición permiten identificar la posición relativa de un valor con respecto al grupo. Para entender el concepto se utiliza información correspondiente a una carrera de 10 kilómetros.
+
 
 </br></br>
 

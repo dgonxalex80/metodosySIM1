@@ -17,7 +17,7 @@ data("evaluacion")
 data("inflacionov22")
 ```
 
-</br></br></br>
+</br>
 
 # **Representación de datos** 
 
@@ -25,12 +25,12 @@ data("inflacionov22")
 
 Una de las formas para organizar y resumir conjuntos grandes de datos es por medio de tablas y gráficas de frecuencias, dado que permiten condensar la información y facilitan la apreciación de su contenido. Pese a que ambas formas proporcionan información similar, cuando se desea transmitir una idea rápida y sencilla es preferible utilizar una gráfica de frecuencias; mientras que cuando se desea analizar los datos con mayor detenimiento o precisión, las tablas de frecuencias son más útiles.
 
-</br></br>
+</br>
 
 Es posible construir una gran variedad de tablas y gráficas, sin embargo, en este momento solo se presentarán tablas y gráficas de frecuencia de una sola variable (una sola entrada) y sólo tres casos o tipos de tablas (datos categóricos, datos puntuales y datos agrupados), que pueden construirse a partir de un determinado conjunto de datos ya sea para una muestra o una población.
 
 
-</br></br>
+
 
 
 

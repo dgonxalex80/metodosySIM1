@@ -21,7 +21,7 @@ inflacion2022[360,]=c(0,"2022-12",13.12, 2022,NA,12)
 #CarreraLuz22_c2M = subset(CarreraLuz22, CarreraLuz22M$categoria=="2. Abierta")
 ```
 
-
+<br/><br/>
 
 La visualización de datos es una de las partes más importantes del análisis de datos, que permite de manera gráfica representar la información con el fin de poder resumirlos e interpretarlos 
 
@@ -30,21 +30,25 @@ Algunas consideraciones
 
 <br/><br/>
 
-|Tipo de variable | Tipos de escala  |  Tipo de gráfico            |  Sintaxis R          | 
-|:----------------|:-----------------|:----------------------------|:---------------------|
-| Cualitativa     | Nominal          |  diagrama de torta          |  pie(table(x))       |
-|                 |                  |                             |                      |
-|                 | Ordinal          |  diagrama de barras         |  barplot(table(x))   |
-|                 |                  |  diag.barras dobles         |  barplot(table(x,y)) |
-|                 |                  |  diag. mosaico              |  plot(x,y)           |
-|                 |                  |                             |                      |
-|Cuantitativa     | De intervalo     |  diagrama de tallos y hojas | stem(x)              |
-|                 |                  |  histograma                 | hist(x)              | 
-|                 | De razón         |  diagrama de puntos         | plot(x,y)            |
-|                 |                  |  diagrama de densidad       | density(x)           |
-|                 |                  |  diagrama de cajas          | boxplot(x)           |
-|                 |                  |  diagrama de linea          | plot(x, type="l")    |
-|                 |                  |                             |                      |
+|Tipo de variable | Tipos de escala  |  Tipo de gráfico            |  Sintaxis R            | 
+|:----------------|:-----------------|:----------------------------|:-----------------------|
+| Cualitativa     | Nominal          |  diagrama de torta          |  `pie(table(x))`       |
+|                 | Ordinal          |  diagrama de barras         |  `barplot(table(x))`   |
+|                 |                  |  diag.barras dobles         |  `barplot(table(x,y))` |
+|                 |                  |  diag. mosaico              |  `plot(x,y)`           |
+|                 |                  |                             |                        |
+
+<br/>
+
+|                 |                  |                             |                        |
+|:----------------|:-----------------|:----------------------------|:-----------------------|
+|Cuantitativa     | De intervalo     |  diagrama de tallos y hojas | `stem(x)`              |
+|                 |                  |  histograma                 | `hist(x)`              | 
+|                 | De razón         |  diagrama de puntos         | `plot(x,y)`            |
+|                 |                  |  diagrama de densidad       | `density(x)`           |
+|                 |                  |  diagrama de cajas          | `boxplot(x)`           |
+|                 |                  |  diagrama de linea          | `plot(x, type="l")`    |
+|                 |                  |                             |                        |
 
 **Nota**: Además de estas formas de representación gráfica existen otras formas que combinan variables como:
 
@@ -54,7 +58,7 @@ Algunas consideraciones
 + Diagrama likert
 
 
-<br/><br/><br/>
+<br/><br/>
 
 # **Variable cualitativa-nominal**
 
@@ -67,7 +71,7 @@ pie(t1)
 ```
 
 
-<br/><br/><br/>
+<br/><br/>
 
 # **Variable cualitativa-ordinal**
 
@@ -82,11 +86,12 @@ barplot(ev,  col=c("#f95738","#ee964b", "#f4d35e", "#faf0ca", "#0d3b66"),
 main = "Evaluación proceso de inducción",
 las=1 )
 ```
-<br/><br/><br/>
+
+<br/><br/>
 
 ## **Gráfico de barras 2 **
 
-
+<br/>
 ```{r}
 conteo <- table(data$sex,data$categoria)
 
@@ -100,12 +105,13 @@ names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
 ```
 
 
-<br/><br/><br/>
+<br/><br/>
 
 # **Variables cuantitativas**
 
 ## **Diagrama de tallos y hojas**
 
+<br/>
 
 Diagrama de tallos y hojas para el tiempo empleado por las atletas de la categoria Veteranas B 
 ```{r}
@@ -115,9 +121,11 @@ x=dataFc4$timerun/60
 stem(x) # Diagrama de tallos y hojas
 ```
 
-<br/><br/><br/>
+<br/><br/>
 
 ## **Histograma**
+
+<br/>
 
 ```{r}
 # seleccion de bases
@@ -132,9 +140,11 @@ col ="#ee964b")
 
 
 
-<br/><br/><br/>
+<br/><br/>
 
 ## **Diagrama de densidad**
+
+<br/>
 
 ```{r}
 par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
@@ -150,9 +160,11 @@ cex.sub=1)    # tamaño del subtitulo)
 
 
 
-<br/><br/><br/>
+<br/><br/>
 
 ## **Diagrama de cajas** 
+
+<br/>
 
 ```{r}
 boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
@@ -164,9 +176,11 @@ col=c("#f4d35e","#ee964b"))
 
 
 
-<br/><br/><br/>
+<br/><br/>
 
 ## **Gráfico de series de tiempo**
+
+<br/>
 
 ```{r}
 y=ts(inflacion2022$inflacion, star=c(1993,1), end=c(2022,12), frequency=12)
@@ -203,6 +217,7 @@ plot(density(x))      # diagrama de densidad
 
 # **ggplot2**
 
+
 ```{r, echo=FALSE, out.width="10%", fig.align = "left"}
 knitr::include_graphics("img/ggplot2.png")
 ```
@@ -210,6 +225,8 @@ knitr::include_graphics("img/ggplot2.png")
 <br/><br/>
 
 # **Gráficos con ggplot2**
+
+<br/>
 
 ```{r, echo=FALSE, out.width="50%", fig.align = "left"}
 knitr::include_graphics("img/ge_themes.png")
@@ -252,7 +269,7 @@ geom_point()     # grafico de puntos
 
 ```
 
-
+<br/>
 
 |                   |                    |                     |                      |
 |:------------------|:-------------------|:--------------------|:---------------------|
@@ -343,5 +360,7 @@ geom_text(size=6,data = NULL, x = 96, y = 0.5, label = "atípicos",col="#FF7F00"
 Theme1
 p4 
 ```
+
+
 
 
