@@ -19,7 +19,7 @@ Al igual que la situación anterior cuando nos enfrentamos a una análisis de da
 
 </br>
 
-Para los datos cuantitativos se pueden utilizar tablas de frecuencia para identificando el valor más repetido, indicador que se denomina **MODA**.
+Para los datos cuantitativos se pueden utilizar tablas de frecuencia para identificando el valor con mayor frecuencia (más repetido), indicador que se denomina **MODA**.
 
 </br>
 
@@ -144,7 +144,7 @@ knitr::include_graphics("img/RplotBoxplot.png")
 </br></br>
 
 <pre>
-Alambre inferior        Q1          Q2           Q3          Alambre superior
+Límite inferior        Q1          Q2           Q3          Límite superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 30.175                  25%         50%          75%   
 53.50       59.60        69.05       92.375
@@ -152,7 +152,7 @@ Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 
 </br></br>
 
-Los valores que queden por fuera de los alambres, se consideran como datos atípicos, que son objeto de estudio por separado para averiguar sus causas 
+Los valores que queden por fuera de los límites inferior y superior, se consideran como datos atípicos, que son objeto de estudio por separado para averiguar sus causas 
 
 
 <!-- ======================================================================= -->
@@ -353,10 +353,10 @@ $$r = \max(x) - \min(x)$$
 
 En el caso de los dos grupos:
 
-|**Grupo 1**                  | **Grupo 1**                        |
+|**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
-|$\bar{x} = 28$ años          |$\bar{x} = 28$ años                 |
-|$r = 16$ años                 |$r = 38$ años                      |  
+|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
+|$r_{1} = 16$ años                 |$r_{2} = 38$ años                      |  
 |                             |                                    |
 
 Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes
@@ -412,11 +412,11 @@ $$s=\sqrt{s^{2}}$$
 
 </br>
 
-|**Grupo 1**                  | **Grupo 1**                        |
+|**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
-|$\bar{x} = 28$ años          |$\bar{x} = 28$ años                 |
-|$s^{2} = 16.62$ años$^2$     |$s^{2} = 116.89$ años$^2$           |  
-|$s  = 4.16$ años             |$s = 10.81$ años                    | 
+|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
+|$s^{2}_{1} = 16.62$ años$^2$     |$s^{2}_{2} = 116.89$ años$^2$           |  
+|$s_{1}  = 4.16$ años             |$s_{2} = 10.81$ años                    | 
 
 </br>
 
@@ -431,7 +431,7 @@ Aunque la desviación estándar reduce el problema mencionado anteriormente debi
 
 Por último, el coeficiente de variación es un indicador adimensional que indica que tan grande o que tan pequeña es la desviación estándar con respecto a su media en porcentaje y de esta manera podemos resolver el problema de la dispersión para cualquier grupo de datos.
 
-$$CV= \dfrac{s}{\bar{x}} \times 100 \% $$
+$$CV= \dfrac{s}{\vert\bar{x}\vert} \times 100 \% $$
 
 Existen diferentes reglas empíricas para la interpretación del coeficiente de variación. Una de ellas establece como límite el 20% para separar los grupos homogéneos de los heterogéneos, por lo general se utiliza un valor hasta el 20% para determinar que un grupo de datos son homogéneos, de lo contrario se calificará como heterogéneo.
 
@@ -439,10 +439,10 @@ Existen diferentes reglas empíricas para la interpretación del coeficiente de 
 
 <span style="color:#FF7F00">**Ejemplo**</span>
 
-|**Grupo 1**                  | **Grupo 1**                        |
+|**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
-|$\bar{x} = 28$ años          |$\bar{x} = 28$ años                 |
-|$CV  = 14.56$ %              |$CV = 38.61$ %                      |  
+|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
+|$CV_{1}  = 14.56$ %              |$CV_{2} = 38.61$ %                      |  
 
 </br>
 
@@ -476,7 +476,7 @@ De acuerdo con su valor, la puntudez de los datos puede clasificarse en tres gru
 </br>
 
 Gráfica 6 : Formas de curtosis  
-```{r, echo=FALSE, fig.height=3, fig.width=9}
+```{r, echo=FALSE, fig.height=3, fig.width=9, message=FALSE, warning=FALSE}
 # Distribucion normal
 library(ggfortify)
 p=ggdistribution(dnorm, seq(-5, 5, 0.01), mean = 0, sd = 1,colour = 'blue')
@@ -524,7 +524,7 @@ $$CA = \dfrac{1}{s^{3}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{3} \Bigg) 
 
 
 Gráfica  7 :  Formas de asimétrica  
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+```{r, echo=FALSE, out.width="100%", fig.align = "center", message=FALSE, warning=FALSE}
 knitr::include_graphics("img/RplotAsimetria.png")
 ```
 <center>Fuente: construcción propia</center>
@@ -535,11 +535,11 @@ knitr::include_graphics("img/RplotAsimetria.png")
 
 <br/>
 
-+ **Asimetría negativa ** : poco con poco y mucho con mucho.  Una prueba con resultados asimétricos a la izquierda o negativa, indica que pocos obtuvieron resultados bajos y que muchos alcanzaron resultados altos, pudiendo indicar que la prueba era relativamente fácil
++ **Asimetría negativa ** : Una prueba con resultados asimétricos a la izquierda o negativa, indica que pocos obtuvieron resultados bajos y que muchos alcanzaron resultados altos, pudiendo indicar que la prueba era relativamente fácil (poco con poco y mucho con mucho).
 
-+ **Simétrica**           : poco con poco, poco con mucho, mucho al rededor de un centro. En este caso una prueba con resultados simétricos indica que los puntajes se ubicaron al rededor de la media y que unos pocos sacaron puntaje bajo y que los que presentaron resultados altos corresponden a un pequeño grupo. Por lo regular estos son los resultados de pruebas estandarizada como pueden ser las pruebas de estado.
++ **Simétrica** : En este caso una prueba con resultados simétricos indica que los puntajes se ubicaron al rededor de la media y que unos pocos sacaron puntaje bajo y que los que presentaron resultados altos corresponden a un pequeño grupo. Por lo regular estos son los resultados de pruebas estandarizada como pueden ser las pruebas de estado (poco con poco y poco con mucho).
 
-+ **Asimetría positiva**  : mucho con poco y poco con mucho. Los resultados a pruebas con asimetría a la derecha o positiva, presentan resultados acumulados a la izquierda, es decir que muchos obtuvieron resultados bajos y unos pocos resultados altos. Esto haría pensar que la prueba fue exigente.
++ **Asimetría positiva**  :  Los resultados a pruebas con asimetría a la derecha o positiva, presentan resultados acumulados a la izquierda, es decir que muchos obtuvieron resultados bajos y unos pocos resultados altos. Esto haría pensar que la prueba fue exigente (mucho con poco y poco con mucho).
 
 <br/><br/>
 

@@ -50,7 +50,7 @@ knitr::include_graphics("img/tabla5.png")
 
 <br/>
 
-## **Tortas**
+## **Diagráma circular (Tortas)**
 
 Este tipo de gráficos se utiliza para variables cualitativas medidas en escala nominal.
 
@@ -64,7 +64,7 @@ El gráfico permite resaltar la gran participación de los estudiantes en el sec
 
 <br/><br/>
 
-## **Barras**
+## **Diagrama de barras**
 
 El diagrama de barras se utiliza para representar variables cualitativas en escala ordinal.  Es necesario que los valores representados sigan el orden de la escala.
 
@@ -77,12 +77,12 @@ knitr::include_graphics("img/RplotCalifica.png")
 
 <br/><br/>
 
-## **Barras dos variables**
+## **Barras con dos variables**
 
 Este diagrama se emplea para representar dos variables cualitativas que pueden ser de escala nominal u ordinal.
 
 
-Gráfica  3 : Distribución de la categoría por sexo carrer La Luz 2022 
+Gráfica  3 : Distribución de la categoría por sexo carrera La Luz 2022 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBarplot2.png")
 ```
@@ -139,10 +139,10 @@ El diagrama divide los datos en dos partes :
 
 El histograma es uno de los gráficos más utilizados para representar variables cuantitativas y permite resumir por rangos los diferentes datos. Es una buena forma de visualizar la distribución de los datos y su forma.
 
-Cada barra representa la cantidad de observaciones que se encuentra en cada uno de los intervalos establecidos, permitiendo visualizar el intervalo con mayor concentración de datos, además de la forma que tiene su distribución.
+Cada barra representa la cantidad de observaciones que se encuentra en cada uno de los intervalos establecidos, permitiendo visualizar el intervalo con mayor concentración de datos, además de la forma que tiene su distribución. 
 
 
-Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrer La Luz 2022 
+Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrera La Luz 2022 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotHistogramas.png")
 ```
@@ -189,7 +189,7 @@ knitr::include_graphics("img/RplotDispersion.png")
 
 <center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
 
-La gráfica permite visualizar que no existe relación entre las variables tiempo de carrera y edad, es decir que en todas las categorías se presentaron corredores con tiempos bajos y tiempos altos.  También permite detectar que un corredor de la categoría Abierta fue el primero en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el último (166.03 min). 
+La gráfica permite visualizar que no existe relación líneal entre las variables tiempo de carrera y edad, es decir que en todas las categorías se presentaron corredores con tiempos bajos y tiempos altos.  También permite detectar que un corredor de la categoría Abierta fue el primero en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el último (166.03 min). 
 
 <br/><br/>
 

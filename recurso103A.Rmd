@@ -21,7 +21,7 @@ data("CarreraLuz22")    # cargar la dataset
 
 ## **Examinar la base de datos**
 
-Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos inicialmente la estructura de la data, lu cual nos perite un diagnóstico incial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
+Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos inicialmente la estructura de la data, lo cual nos permite un diagnóstico inicial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
 
 <br/>
 
