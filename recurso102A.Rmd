@@ -27,11 +27,15 @@ Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos si
 
 Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
 
-|      |                                                                                                                     |
-|:-----|:--------------------------------------------------------------------------------------------------------------------|
-|c1    | los diferentes valores que toma la variable.                                                                        |
-|c2    | $n_{i}$ : frecuencia absoluta que consiste en el conteo para cada uno de los valores distintos que toma la variable.|
-|c3    | $f_{i}$ : frecuencia relativa que corresponde al porcentaje la cantidad de datos para cada los valores              |
+<div class="content-box-blue">
+
+|      |           |                                                                                                           |
+|:-----|:----------|:----------------------------------------------------------------------------------------------------------|
+|c1    |           | los diferentes valores que toma la variable.                                                              |
+|c2    | $n_{i}$   | frecuencia absoluta que consiste en el conteo para cada uno de los valores distintos que toma la variable.|
+|c3    | $f_{i}$   | frecuencia relativa que corresponde al porcentaje la cantidad de datos para cada los valores              |
+
+</div>
 
 </br>
 
@@ -57,10 +61,14 @@ La información resumida nos muestra de manera clara la participación de cada c
 
 Otro caso correspondiente a las variables cualitativas en escala ordinal, para lo cual  se agregan dos nuevas columnas además de las descritas en el ejemplo anterior.
 
-|      |                                                                                                                  |
-|:-----|:-----------------------------------------------------------------------------------------------------------------|
-|c4    | $N_{i}$ : frecuencia absoluta acumulada que consiste en el conteo de los casos menores o iguales al nivel correspondiente.|
-|c5    | $F_{i}$ : frecuencia relativa acumulada que corresponde al porcentaje acumulado hasta el nivel correspondiente.|
+<div class="content-box-blue">
+
+|      |          |                                                                                                          |
+|:-----|:---------|:-------------------------------------------------------------------------------------------------------|
+|c4    | $N_{i}$  | frecuencia absoluta acumulada que consiste en el conteo de los casos menores o iguales al nivel correspondiente.|
+|c5    | $F_{i}$  | frecuencia relativa acumulada que corresponde al porcentaje acumulado hasta el nivel correspondiente.|
+
+</div>
 
 </br>
 

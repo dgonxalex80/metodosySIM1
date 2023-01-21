@@ -195,6 +195,7 @@ En promedio las mujeres de la categoría juveniles presentan el promedio más ba
 
 </br></br>
 
+<div class="content-box-blue">
 ### **Características** 
 
 + La suma de las desviaciones de los datos con respecto a la media es cero. $\sum (x_{i}-\bar{x})=0$.
@@ -206,6 +207,7 @@ En promedio las mujeres de la categoría juveniles presentan el promedio más ba
 + Si todos los datos de una variable se multiplican por una constante $k$, es decir $y_{i}=kx_{i}$, entonces $\bar{y}=k\bar{x}$
 
 + Si $z_{i}=a x_{i}+b y_{i}$, donde: **a**, **b** constantes y $x_{i}$, $y_{i}$ variables, entonces: $\bar{z}=a\bar{x}+b\bar{y}$. 
+</div>
 
 <br/> <br/>
 
@@ -376,6 +378,7 @@ $$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$
 Se podría afirmar que la varianza es un promedio de los cuadrados de las diferencias entre los datos  y su media.
 
 <br/> <br/>
+<div class="content-box-blue">
 
 ### **Propiedades de la varianza**
 
@@ -390,6 +393,8 @@ Se podría afirmar que la varianza es un promedio de los cuadrados de las difere
 + Si $y_{i}=x_{i} + k$ , entonces  $s_{y}^{2} = s_{x}^{2}$
 
 + Si $z_{i} = a x_{i} + b y_{i}$, entonces $s_{z}^{2}$ = $a^{2}s_{x}^{2}$ + $b^{2}s_{y}^{2}$ + $2ab$ $cov(xy)$
+
+</div>
 
 </br></br>
 

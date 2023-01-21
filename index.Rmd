@@ -32,6 +32,7 @@ Utilizaremos los pasos de la **Metodología Estadística** como estrategia para 
 
 <br/>
 
+<div class="content-box-blue">
 1. **Definición del problema**
 2. **Definición de los objetivos**
 3. **Definición de las variables de interés**
@@ -43,6 +44,7 @@ Utilizaremos los pasos de la **Metodología Estadística** como estrategia para 
 <!-- #####    <span style="color:#C9C9C9">**Variable aleatoria**</span> -->
 8. <span style="color:#FF7F00">**Inferencia estadística**</span>
 9. **Conclusiones y recomendaciones**
+</div>
 
 <br/>
 
