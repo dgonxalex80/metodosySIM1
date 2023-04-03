@@ -14,7 +14,7 @@
 
 <title>Indicadores en R</title>
 
-<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -33,8 +33,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -312,7 +312,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><strong>Indicadores en R</strong></h1>
+<h1 class="title toc-ignore"><span
+style="color:#034a94"><strong>Indicadores en R</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
@@ -329,7 +330,7 @@ Moda y lo podemos ver claramente en una tabla de frecuencias</p>
 para construirlos</p>
 <p><br/><br/></p>
 <div id="summatory" class="section level3">
-<h3><strong>summatory()</strong></h3>
+<h3><span style="color:#034a94"><strong>summatory()</strong></span></h3>
 <p>Utilizando la función <code>summary</code> :</p>
 <pre class="r"><code>summary(data$edad)</code></pre>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -337,7 +338,7 @@ para construirlos</p>
 <p><br/><br/></p>
 </div>
 <div id="describe" class="section level3">
-<h3><strong>describe()</strong></h3>
+<h3><span style="color:#034a94"><strong>describe()</strong></span></h3>
 <pre class="r"><code># install.packages(&quot;psych&quot;)
 psych::describe(data$edad)</code></pre>
 <pre><code>   vars    n  mean   sd median trimmed   mad min max range skew kurtosis   se
@@ -345,7 +346,7 @@ X1    1 1922 37.45 10.9     36    36.7 10.38  15  76    61 0.64     0.11 0.25</c
 <p><br/><br/></p>
 </div>
 <div id="descr" class="section level3">
-<h3><strong>descr()</strong></h3>
+<h3><span style="color:#034a94"><strong>descr()</strong></span></h3>
 <p>Utilizando la función <code>descr()</code> del paquete
 <code>summaytools</code> :</p>
 <pre class="r"><code>summarytools::descr(data$edad)</code></pre>
@@ -373,14 +374,15 @@ N: 1922
 <p><br/><br/></p>
 </div>
 <div id="indicadores-por-grupos" class="section level2">
-<h2><strong>Indicadores por grupos</strong></h2>
+<h2><span style="color:#034a94"><strong>Indicadores por
+grupos</strong></span></h2>
 <p><br/></p>
 <p>En ocasiones se requiere calcular indicadores para una variable por
 grupos conformados por una variable categórica. El siguiente caso
 corresponde a las medias por categoría.</p>
 <p><br/><br/></p>
 <div id="aggregate" class="section level3">
-<h3><strong>aggregate()</strong></h3>
+<h3><span style="color:#034a94"><strong>aggregate()</strong></span></h3>
 <p>La función <code>aggregate()</code> permite obtener resumen de
 estadísticas por subgrupo</p>
 <pre class="r"><code>t1 = aggregate(data$timerun/60, list(data$categoria), FUN=mean) 
@@ -412,7 +414,8 @@ t2</code></pre>
 </div>
 </div>
 <div id="indicadores-de-manera-individial" class="section level2">
-<h2><strong>Indicadores de manera individial</strong></h2>
+<h2><span style="color:#034a94"><strong>Indicadores de manera
+individial</strong></span></h2>
 <pre>
 
 x=CarreraLuz22$edad

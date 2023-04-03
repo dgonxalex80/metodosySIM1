@@ -38,7 +38,7 @@ Iniciaremos con los indicadores de posición
 
 <!-- ======================================================================= -->
 
-# **De posición**
+# <span style="color:#034a94">**De posición**</span>
 
 Los indicadores de posición permiten identificar la posición relativa de un valor con respecto al grupo. Para entender el concepto se utiliza información correspondiente a una carrera de 10 kilómetros.
 
@@ -49,7 +49,11 @@ Figura 1 : Carrera
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/carrera.jpg")
 ```
-<center>Tomada de : pixabay.com</center>
+<center>
+<sub>
+Tomada de : pixabay.com
+</sub>
+</center>
 
 </br></br>
 
@@ -63,7 +67,11 @@ Gráfico 1 : Tiempos por categoría y sexo  - Carrera La Luz 2022
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotRioCaliMH.png")
 ```
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 </br></br>
 
@@ -71,13 +79,13 @@ Para un participante que llega a la meta es interesante poder comparar el result
 
 </br></br>
 
-## **Percentiles**
+## <span style="color:#034a94">**Percentiles**</span>
 
 Los percentiles corresponden a 99 valores que dividen los datos en cien partes de igual porcentaje ($P_1$, $P_2$, $P_3$, $P_4$, $\dots$, $P_{99}$).
 
 </br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 Para ilustrar el concepto, pensemos en que participamos de una carrera. El percentil dará cuenta de mi posición dentro del grupo. 
 
@@ -93,18 +101,22 @@ Gráfica  2 : Tiempos y posiciones de Carlos y María
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/Rplotcarrera.png")
 ```
-<center>Fuente : [juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente : [juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 
 </br></br>
 
-## **Deciles**
+## <span style="color:#034a94">**Deciles**</span>
 
 Los deciles por su parte corresponden a 9 número que dividen la muestra en 10 partes, cada una con un 10% de la muestra ($D_{1}$, $D_{2}$, $D_{3}$, $D_{4}$, $\cdots$ , $D_{9}$)
 
 </br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 Los deciles correspondientes a los tiempos registrados en la categoría Abierta para hombres se ilustran en la siguiente gráfica con los puntos naranjas. 
 
@@ -114,7 +126,11 @@ Gráfica 3 : Tiempos hombres categoría Abierta
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotDeciles.png")
 ```
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 </br></br>
 
@@ -126,20 +142,24 @@ D1       D2       D3       D4       D5       D6       D7       D8       D9
 
 </br></br>
 
-## **Cuartiles**
+## <span style="color:#034a94">**Cuartiles**</span>
 
 Los cuartiles son 3 números que dividen la muestra en cuatro partes, cada una con un 25% de los datos. Con estos indicadores se construye el diagrama de cajas que además de permitir comparar grupos, ayudan en la identificación de datos atípicos
 
 </br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 Gráfica  4 : Tiempos hombres categoría Abierta 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBoxplot.png")
 ```
 
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 </br></br>
 
@@ -159,7 +179,7 @@ Los valores que queden por fuera de los límites inferior y superior, se conside
 
 </br></br></br>
 
-# **De centro**
+# <span style="color:#034a94">**De centro**</span>
 
 </br>
 
@@ -167,17 +187,19 @@ Una vez que se han organizado los datos y se ha observado su distribución a tra
 
 </br></br>
 
-## **Media aritmética**
+## <span style="color:#034a94">**Media aritmética**</span>
 
 Es el indicador de tendencia central más conocido y utilizado por su fácil interpretación y calculo. Consiste en sumar todos los valores de un conjunto de datos y dividirlos por el número de datos.
 
 <br/>
 
+<div class="content-box-blue">
 $$\bar{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
+</div>
 
 </br></br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 La siguiente es la información de los tiempos correspondientes a la categoría juvenil femenina:
 
@@ -196,7 +218,8 @@ En promedio las mujeres de la categoría juveniles presentan el promedio más ba
 </br></br>
 
 <div class="content-box-blue">
-### **Características** 
+
+### <span style="color:#034a94">**Características**</span> 
 
 + La suma de las desviaciones de los datos con respecto a la media es cero. $\sum (x_{i}-\bar{x})=0$.
 
@@ -212,12 +235,16 @@ En promedio las mujeres de la categoría juveniles presentan el promedio más ba
 <br/> <br/>
 
 
-## **Mediana**
+## <span style="color:#034a94">**Mediana**</span>
 
 
 La **mediana** es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde al percentil 50
-+ $D_{5}$ : decil 5
-+ $Q_{2}$ : segundo cuartil
+
+
+<div class="content-box-blue">
+$$Me = P_{50} = D_{5} = Q_{2} $$
+</div>
+
 
 La mediana presenta características más robustas frente a cambios de los datos extremos que las que pueda presentar la media.
 
@@ -226,7 +253,7 @@ Las medianas se pueden visualizar en el gráfico de cajas
 
 </br></br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 Para el caso del grupo juvenil femenino participante en la carrera de La Luz obtiene una mediana de 
 
@@ -246,19 +273,23 @@ Gráfica  5 : Tiempos hombres categoría juvenil
 knitr::include_graphics("img/RplotBoxplot3.png")
 ```
 
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 La línea central de las cajas representan las medianas. En ellas se puede evidenciar el valor mayor del grupo juvenil femenino
 
 </br></br>
 
-## **Moda**
+## <span style="color:#034a94">**Moda**</span>
 
 La **moda**  corresponde al dato o valor que más se repite. Es utilizada como medida de tendencia central en variables cualitativas o en cuantitativas discretas con pocos valores. 
 
 <br/> <br/>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <pre>
 1. Juvenil     2. Abierta    3. Veteranos A    4. Veteranos B   5. Veteranos C 
@@ -275,15 +306,13 @@ Moda : categoría Abierta
 
 </br></br>
 
-## **Media truncada**
+## <span style="color:#034a94">**Media truncada**</span>
 
 Con el fin de evitar que los datos atípicos generen sesgos en el indicador de la media, es posible separar el 90% de los datos, quitando un 5% de los datos más pequeños y un  5% de los datos mayores. A este indicador se le llama **media truncada** al 10%  ($\bar{x}_{_{0.10}}$)
 
 <br/> <br/>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
-
-<br/>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <pre>
 1      2      3      4      5      6      7      8      9      10     11     12        
@@ -296,17 +325,17 @@ media truncada al 10% : 59.748
 
 </br></br>
 
-## **Rango medio**
+## <span style="color:#034a94">**Rango medio**</span>
 
 El rango medio se obtiene al sumar los valores extremos ( mínimo y máximo) y dividir el resultado por dos. Este indicador es de fácil cálculo y útil cuando se desea una estimación empírica y alta precisión en datos simétricos. 
 
-$$\frac{1}{2}\Big(\max(x)+\min(x)\Big)$$
+<div class="content-box-blue">
+$$r = \frac{1}{2}\Big(\max(x)+\min(x)\Big)$$
+</div>
 
 <br/><br/>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
-
-<br/>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <pre>
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
@@ -319,7 +348,7 @@ rango medio = (41.67 + 78.05) /2 = 59.86
 <br/> <br/></br>
 <!-- ======================================================================= -->
 
-# **De dispersión**
+# <span style="color:#034a94">**De dispersión**</span>
 
 Supongamos que tenemos dos grupos de participantes que son patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en promedio de edad. Lo que primero se puede pensar es que los dos grupos tienen una composición igual o muy parecida dado que coinciden en el promedio.  Pero no es así, los datos que se presentan a continuación tienen medias de 28,  pero corresponden a grupos diferentes.
 
@@ -340,18 +369,22 @@ Gráfica  5 : Edades por grupo
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotGrupos.png")
 ```
-<center>Fuente : datos simulados</center>
+<center>
+<sub>
+Fuente : datos simulados
+</sub>
+</center>
 
 </br></br>
 
 
-## **Rango**
+## <span style="color:#034a94">**Rango**</span>
 
 El rango es el indicador de dispersión más fácil de calcular, pues se obtiene restando los valores extremos de los datos: 
 
 $$r = \max(x) - \min(x)$$
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 En el caso de los dos grupos:
 
@@ -366,21 +399,22 @@ Este complemento al indicador de centro permite distinguir que se trata de dos g
 
 </br></br></br>
 
-## **Varianza**
+## <span style="color:#034a94">**Varianza**</span>
 
 </br>
 
 Es la medida de dispersión más utilizada en estadística y está definida por :
 
+<div class="content-box-blue">
 $$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$
-
+</div>
 
 Se podría afirmar que la varianza es un promedio de los cuadrados de las diferencias entre los datos  y su media.
 
 <br/> <br/>
 <div class="content-box-blue">
 
-### **Propiedades de la varianza**
+### <span style="color:#034a94">**Propiedades de la varianza**</span>
 
 + $s^{2} = \frac{1}{n} \sum x_{i}^{2}- (\bar{x})^{2}$ 
 
@@ -402,20 +436,20 @@ El problema de la varianza es su **interpretación**, pues sus unidades quedan a
 
 <br/> <br/>
 
-## **Desviación estándar**
+## <span style="color:#034a94">**Desviación estándar**</span>
 
 </br>
 
 Es la raíz cuadrada de la varianza
 
-$$s=\sqrt{s^{2}}$$
-
-**Nota** : no aplican todas las propiedades de la varianza
-
-<span style="color:#FF7F00">**Ejemplo**</span>
+<div class="content-box-blue">
+$$s = \sqrt{s^{2}}$$
+</div>
 
 
 </br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 |**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
@@ -427,22 +461,32 @@ $$s=\sqrt{s^{2}}$$
 
 Aunque la desviación estándar reduce el problema mencionado anteriormente debido a tener las mismas unidades de la variable, es útil para comparación de dos grupos con igual media.  En caso de que las medias sean diferentes es difícil poder realizar las comparaciones.
 
+</br>
+
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span> 
+
+Las propiedades definidas para la varianza no aplican para la desviación estándar dado que la raíz cuadrada no es una función lineal
+</div>
+
 <br/> <br/>
 
 
-## **Coeficiente de variación**
+## <span style="color:#034a94">**Coeficiente de variación**</span>
 
 </br>
 
 Por último, el coeficiente de variación es un indicador adimensional que indica que tan grande o que tan pequeña es la desviación estándar con respecto a su media en porcentaje y de esta manera podemos resolver el problema de la dispersión para cualquier grupo de datos.
 
-$$CV= \dfrac{s}{\vert\bar{x}\vert} \times 100 \% $$
+<div class="content-box-blue">
+$$CV = \dfrac{s}{\vert\bar{x}\vert} \times 100 \% $$
+</div>
 
 Existen diferentes reglas empíricas para la interpretación del coeficiente de variación. Una de ellas establece como límite el 20% para separar los grupos homogéneos de los heterogéneos, por lo general se utiliza un valor hasta el 20% para determinar que un grupo de datos son homogéneos, de lo contrario se calificará como heterogéneo.
 
 </br></br>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 |**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
@@ -457,17 +501,23 @@ En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con 
 </br></br></br>
 <!-- ======================================================================= -->
 
-# **De forma**
+# <span style="color:#034a94">**De forma**</span>
 
 Los indicadores de forma permiten adicionar elementos a la interpretación de los datos.
 
 <br/><br/>
 
-## **Curtosis**
+## <span style="color:#034a94">**Curtosis**</span>
 
 Se mide a través del coeficiente de curtosis que mide cuan **puntiaguda** es una distribución respecto a un patrón estándar que es la curva de la distribución normal. Esta característica está relacionada directamente con la dispersión.
 
+<br/><br/>
+
+<div class="content-box-blue">
 $$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
+</div>
+
+<br/><br/>
 
 
 De acuerdo con su valor, la puntudez de los datos puede clasificarse en tres grupos:
@@ -493,7 +543,7 @@ p
 <br/> <br/>
 
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <pre>
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
@@ -508,14 +558,15 @@ El valor indica que los datos presentan una  forma platicurtica o aplanada
 
 <br/><br/> 
 
-## **Asimetría o sesgo**
+## <span style="color:#034a94">**Asimetría o sesgo**</span>
 
 <br/>
 
 Mide que tanto la forma de la distribución de frecuencias de los datos es simétrica o no con respecto a la media. Esta característica de los datos se mide a través del coeficiente de asimetría o sesgo.
 
-$$CA = \dfrac{1}{s^{3}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{3} \Bigg) $$
-
+<div class="content-box-blue">
+$$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) - 3$$
+</div>
 
 + Es **simétrica** si el  valor del indicador es 0  ($\bar{x}=Me$)
 
@@ -532,11 +583,15 @@ Gráfica  7 :  Formas de asimétrica
 ```{r, echo=FALSE, out.width="100%", fig.align = "center", message=FALSE, warning=FALSE}
 knitr::include_graphics("img/RplotAsimetria.png")
 ```
-<center>Fuente: construcción propia</center>
+<center>
+<sub>
+Fuente: construcción propia
+</sub>
+</center>
 
 <br/>
 
-### **Interpretación**
+### <span style="color:#034a94">**Interpretación**</span>
 
 <br/>
 
@@ -548,7 +603,7 @@ knitr::include_graphics("img/RplotAsimetria.png")
 
 <br/><br/>
 
-<span style="color:#FF7F00">**Ejemplo**</span>
+### <span style="color:#FF7F00">**Ejemplo**</span>
 
 
 <pre>

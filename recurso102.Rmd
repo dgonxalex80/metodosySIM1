@@ -19,7 +19,7 @@ data("inflacionov22")
 
 </br>
 
-# **Representación de datos** 
+# <span style="color:#034a94">**Representación de datos**</span> 
 
 </br>
 

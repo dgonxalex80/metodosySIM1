@@ -14,7 +14,7 @@
 
 <title> Visualización de datos</title>
 
-<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -33,8 +33,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -319,8 +319,9 @@ $(document).ready(function () {
 </div>
 
 
-<p><br/><br/><br/></p>
+<p></br></br></p>
 <!-- ======================================================================= -->
+<div class="content-box-gray">
 <blockquote>
 <p>“Se denomina gráfico a una representación visual de una serie de
 datos, representación que tiene como finalidad dar una rápida noción
@@ -328,6 +329,7 @@ acerca de volúmenes, cantidades y porcentajes, estableciendo
 comparaciones”.</p>
 <p>enciclopedia.net</p>
 </blockquote>
+</div>
 <p><br/><br/></p>
 <p>Elegir el gráfico adecuado es muy importante, pues existen diferentes
 alternativas y se debe escoger el apropiado para representar los datos.
@@ -335,14 +337,16 @@ El tipo de dato determina el tipo de gráfico así:</p>
 Tabla 1 : Gráficas por tipo de variable
 <img src="img/tabla5.png" width="70%" style="display: block; margin: auto;" />
 <center>
-Fuente: construcción propia
+<sub> Fuente: construcción propia </sub>
 </center>
 <p><br/><br/></p>
 <div id="variables-cualitativas" class="section level1">
-<h1><strong>Variables cualitativas</strong></h1>
+<h1><span style="color:#034a94"><strong>Variables
+cualitativas</strong></span></h1>
 <p><br/></p>
 <div id="diagráma-circular-tortas" class="section level2">
-<h2><strong>Diagráma circular (Tortas)</strong></h2>
+<h2><span style="color:#034a94"><strong>Diagráma circular
+(Tortas)</strong></span></h2>
 <p>Este tipo de gráficos se utiliza para variables cualitativas medidas
 en escala nominal.</p>
 Gráfica 1 : Distribución demanda actividades del Medio Universitario
@@ -355,35 +359,40 @@ en el sector Cultural con un 74.5%</p>
 <p><br/><br/></p>
 </div>
 <div id="diagrama-de-barras" class="section level2">
-<h2><strong>Diagrama de barras</strong></h2>
+<h2><span style="color:#034a94"><strong>Diagrama de
+barras</strong></span></h2>
 <p>El diagrama de barras se utiliza para representar variables
 cualitativas en escala ordinal. Es necesario que los valores
 representados sigan el orden de la escala.</p>
 Gráfica 2 : Evaluación pasajeros areopuerto
 <img src="img/RplotCalifica.png" width="100%" style="display: block; margin: auto;" />
 <center>
-Fuente: kaggle - Satisfacion_Airline
+<sub> Fuente: kaggle - Satisfacion_Airline </sub>
 </center>
 <p><br/><br/></p>
 </div>
 <div id="barras-con-dos-variables" class="section level2">
-<h2><strong>Barras con dos variables</strong></h2>
+<h2><span style="color:#034a94"><strong>Barras con dos
+variables</strong></span></h2>
 <p>Este diagrama se emplea para representar dos variables cualitativas
 que pueden ser de escala nominal u ordinal.</p>
 <p>Gráfica 3 : Distribución de la categoría por sexo carrera La Luz 2022
 <img src="img/RplotBarplot2.png" width="100%" style="display: block; margin: auto;" /></p>
 <center>
-Fuente :<a
+<sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
 </center>
 <p><br/><br/><br/></p>
 </div>
 </div>
 <div id="variables-cualitativas-1" class="section level1">
-<h1><strong>Variables cualitativas</strong></h1>
+<h1><span style="color:#034a94"><strong>Variables
+cualitativas</strong></span></h1>
 <p><br/></p>
 <div id="diagrama-de-árbol" class="section level2">
-<h2><strong>Diagrama de árbol</strong></h2>
+<h2><span style="color:#034a94"><strong>Diagrama de
+árbol</strong></span></h2>
 <p>Gráfica 4 : Diagrama de tallos y hojas tiempos mujeres categoría
 Veteranas A</p>
 <pre>
@@ -404,8 +413,11 @@ The decimal point is 1 digit(s) to the right of the |
 10 | 
 11 | 1
 </pre>
-<p>Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a></p>
+<center>
+<sub> Fuente:<a
+href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
+</center>
 <p>Este diagrama ordena los datos de manera que se puede determinar
 tanto el mínimo (48 min) como el máximo (111 min) , además de visualizar
 donde están la mayor concentración de ellos.</p>
@@ -419,7 +431,7 @@ donde están la mayor concentración de ellos.</p>
 <p><br/><br/></p>
 </div>
 <div id="histograma" class="section level2">
-<h2><strong>Histograma</strong></h2>
+<h2><span style="color:#034a94"><strong>Histograma</strong></span></h2>
 <p>El histograma es uno de los gráficos más utilizados para representar
 variables cuantitativas y permite resumir por rangos los diferentes
 datos. Es una buena forma de visualizar la distribución de los datos y
@@ -432,25 +444,27 @@ Gráfica 5 : Distribución del tiempo por sexo categoría abierta carrera
 La Luz 2022
 <img src="img/RplotHistogramas.png" width="100%" style="display: block; margin: auto;" />
 <center>
-Fuente :<a
+<sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
 </center>
 <p><br/><br/></p>
 </div>
 <div id="de-densidad" class="section level2">
-<h2><strong>De densidad</strong></h2>
+<h2><span style="color:#034a94"><strong>De densidad</strong></sub></h2>
 <p>Este diagrama corresponde a un contorno suavizado del histograma que
 permite visualizar claramente la forma de los datos.</p>
 <p>Gráfica 6 : Distribución del tiempo carrer La Luz 2022
 <img src="img/RplotDensidad.png" width="100%" style="display: block; margin: auto;" /></p>
 <center>
-Fuente :<a
+<sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
 </center>
 <p><br/><br/></p>
 </div>
 <div id="de-cajas" class="section level2">
-<h2><strong>De cajas</strong></h2>
+<h2><span style="color:#034a94"><strong>De cajas</strong></span></h2>
 <p>Es uno de las representaciones gráficas más utilizadas, pues además
 de los elementos y características que permite visualizar de las
 variables, permite comparar los resultados de dos o más grupos.</p>
@@ -458,21 +472,24 @@ variables, permite comparar los resultados de dos o más grupos.</p>
 Luz 2022
 <img src="img/RplotBoxplot2.png" width="100%" style="display: block; margin: auto;" /></p>
 <center>
-uente :<a
+<sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
 </center>
 <p><br/><br/></p>
 </div>
 <div id="de-dispersión" class="section level2">
-<h2><strong>De dispersión</strong></h2>
+<h2><span style="color:#034a94"><strong>De
+dispersión</strong></span></h2>
 <p>Este diagrma de puntos permite visualizar la relación lineal que
 puede existir entre dos variables cualitativas.</p>
 <p>Gráfica 8 : Distribución de los tiempos por categoría carrera La Luz
 2022
 <img src="img/RplotDispersion.png" width="100%" style="display: block; margin: auto;" /></p>
 <center>
-Fuente :<a
+<sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
+</sub>
 </center>
 <p>La gráfica permite visualizar que no existe relación líneal entre las
 variables tiempo de carrera y edad, es decir que en todas las categorías
@@ -483,14 +500,14 @@ en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el
 <p><br/><br/></p>
 </div>
 <div id="de-líneas" class="section level2">
-<h2><strong>De líneas</strong></h2>
+<h2><span style="color:#034a94"><strong>De líneas</strong></span></h2>
 <p>Este tipo de gráficas se utiliza principalmente para representar
 series de tiempo y poder de esta manera observar si presentan tendencias
 o comportamientos estacionales</p>
 Gráfica 9 : Inflación Colombia 1993-01 a 2022-11
 <img src="img/RplotInflacion.png" width="100%" style="display: block; margin: auto;" />
 <center>
-Fuente : Banco de la República
+<sub> Fuente : Banco de la República </sub>
 </center>
 <p>En la gráfica se puede observar una tendencia creciente durante los
 últimos meses</p>

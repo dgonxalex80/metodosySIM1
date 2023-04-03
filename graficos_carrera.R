@@ -284,8 +284,8 @@ t.test(xM1, xF1)
 
 
 
-
-
+library(paqueteMOD)
+data(arboles)
 
 
 

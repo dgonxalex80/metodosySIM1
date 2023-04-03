@@ -1,5 +1,5 @@
 ---
-title: "**Visualización de datos en R**"
+title: <span style="color:#034a94">**Visualización de datos en R**</span>
 author: "Métodos y Simulación Estadística"
 output: html_document
 css: style.css
@@ -50,21 +50,27 @@ Algunas consideraciones
 |                 |                  |  diagrama de linea          | `plot(x, type="l")`    |
 |                 |                  |                             |                        |
 
-**Nota**: Además de estas formas de representación gráfica existen otras formas que combinan variables como:
+
+
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span> 
+
+Además de estas formas de representación gráfica existen otras formas que combinan variables como:
 
 + Mapas
 + Diagrama de Mosaico
 + Diagramas de radar
 + Diagrama likert
+</div>
 
 
 <br/><br/>
 
-# **Variable cualitativa-nominal**
+# <span style="color:#034a94">**Variable cualitativa-nominal**</span>
 
 <br/>
 
-## **Diagrama circular**
+## <span style="color:#034a94">**Diagrama circular**</span>
 
 ```{r}
 data=CarreraLuz22
@@ -75,9 +81,9 @@ pie(t1)
 
 <br/><br/>
 
-# **Variable cualitativa-ordinal**
+# <span style="color:#034a94">**Variable cualitativa-ordinal**</span>
 
-## **Diagrama de barras**
+## <span style="color:#034a94">**Diagrama de barras**</span>
 
 
 ```{r}
@@ -91,7 +97,7 @@ las=1 )
 
 <br/><br/>
 
-## **Gráfico de barras 2 **
+## <span style="color:#034a94">**Gráfico de barras 2 **</span>
 
 <br/>
 ```{r}
@@ -109,9 +115,9 @@ names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
 
 <br/><br/>
 
-# **Variables cuantitativas**
+# <span style="color:#034a94">**Variables cuantitativas**</span>
 
-## **Diagrama de tallos y hojas**
+## <span style="color:#034a94">**Diagrama de tallos y hojas**</span>
 
 <br/>
 
@@ -125,7 +131,7 @@ stem(x) # Diagrama de tallos y hojas
 
 <br/><br/>
 
-## **Histograma**
+## <span style="color:#034a94">**Histograma**</span>
 
 <br/>
 
@@ -144,7 +150,7 @@ col ="#ee964b")
 
 <br/><br/>
 
-## **Diagrama de densidad**
+## <span style="color:#034a94">**Diagrama de densidad**</span>
 
 <br/>
 
@@ -164,7 +170,7 @@ cex.sub=1)    # tamaño del subtitulo)
 
 <br/><br/>
 
-## **Diagrama de cajas** 
+## <span style="color:#034a94">**Diagrama de cajas** </span>
 
 <br/>
 
@@ -180,7 +186,7 @@ col=c("#f4d35e","#ee964b"))
 
 <br/><br/>
 
-## **Gráfico de series de tiempo**
+## <span style="color:#034a94">**Gráfico de series de tiempo**</span>
 
 <br/>
 
@@ -217,7 +223,7 @@ plot(density(x))      # diagrama de densidad
 
 <br/><br/><br/>
 
-# **ggplot2**
+# <span style="color:#034a94">**ggplot2**</span>
 
 
 ```{r, echo=FALSE, out.width="10%", fig.align = "left"}
@@ -226,7 +232,7 @@ knitr::include_graphics("img/ggplot2.png")
 
 <br/><br/>
 
-# **Gráficos con ggplot2**
+# <span style="color:#034a94">**Gráficos con ggplot2**</span>
 
 <br/>
 
@@ -324,7 +330,7 @@ labs(title = "Tiempos Carrera La Luz  2022",  y= "Edad", x= "Tiempo (min)")  # t
 
 <br/><br/>
 
-## **Otros gráficos con ggplot2**
+## <span style="color:#034a94">**Otros gráficos con ggplot2**</span>
 
 ```{r, fig.height=5, fig.width=12}
 # Selección del grupo - Hombres categoría Abierta

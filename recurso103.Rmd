@@ -22,7 +22,7 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
-# **¿Qué es R?** 
+# <span style="color:#034a94">**¿Qué es R?**</span> 
 
 <br/>
 
@@ -56,7 +56,7 @@ knitr::include_graphics("img/Rt.png")
 
 <br/><br/><br/>
 
-# **¿Qué es RStudio?**
+# <span style="color:#034a94">**¿Qué es RStudio?**</span>
 
 ```{r, echo=FALSE, out.width="20%", fig.align = "left"}
 knitr::include_graphics("img/logoRStudio.png")
@@ -91,7 +91,10 @@ En los siguientes enlaces se pueden descargar los programas para su instalación
 
 + [RStudio download](https://rstudio.com/products/rstudio/download/)
 
-**Nota**: Antes de instalar RStudio se recomienda instalar los siguientes programas 
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span>  
+
+Antes de instalar RStudio se recomienda instalar los siguientes programas 
 
 + git
 + Miktex (Win) o Texlife (Linux), dependiendo el sistema operativo 
@@ -99,6 +102,8 @@ En los siguientes enlaces se pueden descargar los programas para su instalación
 + Python
 
 Estos programas se insertan dentro de la configuración inicial al instalar posteriormente RStudio y serán de gran utilidad al procesar informes mediante archivos Rmd
+
+</div>
 
 <br/>
 
@@ -121,11 +126,11 @@ A manera de introducción a  continuación se relacionan algunas ayudas para la 
 
 <br/><br/><br/>
 
-## **Tipos de objetos**
+## <span style="color:#034a94">**Tipos de objetos**</span>
 
 <br/><br/>
 
-| Objeto      | tipos                                          | ¿Permite varios tipos en el mismo objeto? |
+| Objeto      | tipos                                          | varios tipos objeto                       |
 |:------------|:-----------------------------------------------|:------------------------------------------|
 |  vector     | numéricos, caracter, complejo, lógico          | No                                        |
 |  factor     | numérico, caracter                             | No                                        |
@@ -135,11 +140,17 @@ A manera de introducción a  continuación se relacionan algunas ayudas para la 
 |  ts         | numéricos, caracter, complejo, lógico          | Si                                        |
 |  lista      | numéricos, caracter, complejo, lógico, función, expresión  | Si                            |
 
+<center>
+<sub>
 Tomado de: [R para principiantes](https://bookdown.org/jboscomendoza/r-principiantes4/)
+</sub>
+</center>
 
 A continuación se presentan algunos ejemplos de objetos
 
-## **vector**  
+<br/><br/>
+
+## <span style="color:#034a94">**vector**</span>  
 
 Arreglo unidimensional de valores, caracteres o cadenas
 
@@ -156,7 +167,7 @@ y=c("Muy regular", "Regular", "Bueno", "Muy bueno", "Excelente")
 
 <br/><br/>
 
-## **matriz** 
+## <span style="color:#034a94">**matriz**</span> 
 
 Arreglo bidimensional de valores
 
@@ -175,7 +186,7 @@ m=matrix(x,nrow=3)   # <<-
 
 <br/><br/>
 
-## **arrays**  
+## <span style="color:#034a94">**arrays**</span>  
 
 Arreglos multidimensionales de valores. 
 En el siguiente ejemplo se representa un arreglo de 3 matrices 3x3 que conformarían en 3D un cubo de datos
@@ -199,7 +210,7 @@ mn=array(c(x,y),dim=c(3,3,3)) # <<-
 
 <br/><br/>
 
-## **factores** 
+## <span style="color:#034a94">**factores**</span> 
 
 Vector de variables categóricas, por lo general se utilizan para dividir una base en subgrupos  
 
@@ -219,7 +230,7 @@ y=as.factor(y)               # <<-
 
 <br/><br/>
 
-## **listas** 
+## <span style="color:#034a94">**listas**</span> 
 
 Colección de objetos cada uno de tipos diferentes. El objeto de esta clase guarda valores en diferentes formatos. 
 
@@ -231,13 +242,13 @@ h=hist(rnorm(100,25,10))
 
 
 ```{r, echo=FALSE}
-h=hist(rnorm(100,45,5), col = "#FF7F00", main = "Distribución del tiempo de carrera K10", las=1, xlab = "tiempo en min", ylab ="frecuencia") 
+h=hist(rnorm(100,45,5), col = "#F7C490", main = "Distribución del tiempo de carrera K10", las=1, xlab = "tiempo en min", ylab ="frecuencia") 
 ```
 
 
 <br/><br/>
 
-## **data.frames**
+## <span style="color:#034a94">**data.frames**</span>
 
 Estructura de datos de dos dimensiones - filas y columnas - base de datos. con la función `data.frame()` se puede generar un objeto.  
 
@@ -259,7 +270,7 @@ class(iris)
 
 <br/><br/>
 
-## **funciones**
+## <span style="color:#034a94">**funciones**</span>
 
 Para construir una función utilizamos la palabra `function`, entre paréntesis los valores de entrada y entre corchetes la formula que conforma la función. Por ejemplo:
 
@@ -326,7 +337,7 @@ grafica(w,"#0EB0C6")  # evaluá la función con w y color azul
 
 <br/><br/>
 
-## **ts**
+## <span style="color:#034a94">**ts**</span>
 
 Los objetos `ts` corresponde a series temporales que están compuestos por un inicio, un final y una periodicidad temporal regular
 
@@ -343,7 +354,7 @@ temperatura=ts(x,freq=12,start=c(1981,1))  # <<-
 
 <br/><br/><br/>
 
-# **Operadores en R**
+# <span style="color:#034a94">**Operadores en R**</span>
 
 |      |Aritméticos         |      | Comparativos       |        | Lógicos     |
 |:----:|:-------------------|:----:|:-------------------|:------:|:------------|
@@ -355,15 +366,19 @@ temperatura=ts(x,freq=12,start=c(1981,1))  # <<-
 |  %%  | módulo             | !=   | diferente de       |        |             |
 |  %/% | división enteros   |      |                    |        |             |
 
+<center>
+<sub>
 Tomado de : [R para principiantes](https://bookdown.org/jboscomendoza/r-principiantes4/)
+</sub>
+</center>
 
 <br/><br/><br/>
 
-#  **Funciones útilies**
+#  <span style="color:#034a94">**Funciones útilies**</span>
 
 <br/>
 
-###  <span style="color:#FF7F00">**rep()**</span>
+###  <span style="color:#034a94">**rep()**</span>
 
 <pre>
 rep(x,                # objeto a replicar 
@@ -375,7 +390,7 @@ each = 1)         # número de veces que se replica elementos individuales del o
 
 <br/>
 
-**Ejemplo 1**
+<span style="color:#034a94">
 
 ```{r, eval=FALSE}
 vector= c("uno", "dos", "tres")
@@ -388,7 +403,7 @@ rep(vector, times=4)
 
 <br/>
 
-**Ejemplo 2**
+<span style="color:#034a94">
 
 ```{r, eval=FALSE}
 vector= c("uno", "dos", "tres")
@@ -401,7 +416,7 @@ rep(vector, each=4)
 
 <br/>
 
-**Ejemplo 3**
+<span style="color:#034a94">
 
 ```{r, eval=FALSE}
 vector= c("uno", "dos", "tres")
@@ -414,7 +429,7 @@ rep(vector, times=4,  length.out=7)
 
 <br/><br/><br/>
 
-###  <span style="color:#FF7F00">**seq()**</span>
+###  <span style="color:#034a94">**seq()**</span>
 
 <pre>
 seq(from=1,             # valor inicial  
@@ -425,7 +440,7 @@ along.with=NULL)    # longitud del vector
 </pre>
 
 
-**Ejemplo**
+<span style="color:#034a94">
 
 Secuencia de números enteros del 1 al 20
 
@@ -438,7 +453,7 @@ seq(20)    # equivalente a 1:20
 
 <br/>
 
-**Ejemplo**
+<span style="color:#034a94">
 
 Secuencia de números pares entre el 1 y el 20
 
@@ -451,7 +466,7 @@ seq(2,20,2)
 
 <br/>
 
-**Ejemplo**
+<span style="color:#034a94">
 
 Secuencia de números del 0 al 1 con incrementos de 0.1
 ```{r, eval=FALSE}
@@ -463,14 +478,14 @@ seq(0, 1, 0.1)
 
 <br/><br/><br/>
 
-###  <span style="color:#FF7F00">**round()**</span>
+###  <span style="color:#034A94">**round()**</span>
 
 <pre>
 round(x,             # valor  
 digits = 0)    # número de dígitos
 </pre>
 
-**Ejemplo**
+<span style="color:#034a94">
 
 Aprimar el valor de $\pi$ a 3 decimales
 
@@ -487,11 +502,11 @@ round(pi,3)    # aproxima a 3 decimales
 
 <br/><br/><br/>
 
-###  <span style="color:#FF7F00">**trunc()**</span>
+###  <span style="color:#034a94">**trunc()**</span>
 
 Entrega la parte entera de un número
 
-**Ejemplo**
+<span style="color:#034a94">
 
 Sacar la parte entera de $\pi$
 

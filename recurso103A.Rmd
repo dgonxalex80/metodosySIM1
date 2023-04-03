@@ -1,5 +1,5 @@
 ---
-title: "**Tablas de frecuencia en R**"
+title: <span style="color:#034a94">**Tablas de frecuencia en R**</span>
 author: "Métodos y Simulación Estadística"
 output: html_document
 css: style.css
@@ -19,7 +19,7 @@ data("CarreraLuz22")    # cargar la dataset
 
 <br/><br/>
 
-## **Examinar la base de datos**
+## <span style="color:#034a94">**Examinar la base de datos**</span>
 
 Antes de resumir la información contenida en una data en tablas de frecuencia dependiendo el tipo de variable revisamos inicialmente la estructura de la data, lo cual nos permite un diagnóstico inicial para ello utilizaremos una de las bases contenidas en el paquete `paqueteMET` para lo cual debemos instalarlo de la siguiente manera :
 
@@ -35,7 +35,7 @@ data("CarreraLuz22")  # cargar la dataset
 
 <br/><br/>
 
-### **glimpse()**
+### <span style="color:#034a94">**glimpse()**</span>
 
 Se puede examinar el contenido de la base de datos utilizando la función `glimpse()` del paquete `dplyr`, permitiendo identificar el tipo de variables y los primeros valores : 
 
@@ -50,7 +50,7 @@ Tambien se puede visualizar la data con la fución `View(data)`  y `knitr::kable
 
 <br/><br/>
 
-### **summary()**
+### <span style="color:#034a94">**summary()**</span>
 
 Otra alternativa es la función  `summary()`  :
 
@@ -60,7 +60,7 @@ summary(data)
 
 <br/><br/>
 
-### **head()**
+### <span style="color:#034a94">**head()**</span>
 
 La función `head()` permite visualizar los primeros 6 registros :
 
@@ -70,7 +70,7 @@ head(data)
 
 <br/><br/>
 
-### **tail()**
+### <span style="color:#034a94">**tail()**</span>
 
 Y la función `tail()` visualiza los últimos 6 registros
 
@@ -81,11 +81,11 @@ tail(data)
 <br/><br/>
 
 
-## **Selección de parte de la base de datos**
+## <span style="color:#034a94">**Selección de parte de la base de datos**</span>
 
 <br/><br/>
 
-### **subset()**
+### <span style="color:#034a94">**subset()**</span>
 
 En ocasiones es necesario seleccionar una parte de la base de datos para estos casos podemos utilizar la función 
 
@@ -108,11 +108,11 @@ head(dataFc1)
 <br/><br/>
 
 
-## **Tablas de frecuencia  variables cualitativas**
+## <span style="color:#034a94">**Tablas de frecuencia  variables cualitativas**</span>
 
 <br/>
 
-### **table()**
+### <span style="color:#034a94">**table()**</span>
 
 La función table() permite la construcción de tablas de frecuencias absolutas
 
@@ -121,7 +121,7 @@ table(data$categoria)
 ```
 <br/><br/>
 
-### **prop.table()**
+### <span style="color:#034a94">**prop.table()**</span>
 
 Si adicionamos la función prop.table() a un objeto table da como resultado las frecuencias relativas que se pueden multiplicar por 100 para visualizarlas como porcentajes.
 
@@ -132,7 +132,7 @@ prop.table()*100
 ```
 <br/><br/>
 
-## **Tablas de frecuencia para dos variables cualitativas**
+## <span style="color:#034a94">**Tablas de frecuencia para dos variables cualitativas**</span>
 
 <br/>
 
@@ -152,7 +152,7 @@ prop.table()
 <br/><br/>
 
 
-### **freq()**
+### <span style="color:#034a94">**freq()**</span>
 
 La función `freq()` del paquete `summarytools` permite una construcción más elaborada de la tabla que incluye ademas de las frecuencias simples también las acumuladas
 
@@ -163,7 +163,7 @@ summarytools::freq(data$categoria, cumul = T)
 
 <br/><br/><br/>
 
-## **Variables cuantitativas**
+## <span style="color:#034a94">**Variables cuantitativas**</span>
 
 <br/>
 
@@ -177,9 +177,10 @@ summarytools::freq(Edad.corredores)
 
 <br/><br/><br/>
 
-### **Nota**
-
-Si queremos una tabla mas terminada podemos utilizar 
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span> 
+Si queremos una tabla mas terminada podemos utilizar la librería flexable
+</div>
 
 <br/>
 

@@ -1,5 +1,5 @@
 ---
-title: "**Indicadores en R**"
+title: <span style="color:#034a94">**Indicadores en R**</span>
 author: "Métodos y Simulación Estadística"
 output: html_document
 css: style.css
@@ -27,7 +27,7 @@ En el caso de las variables cuantitativas tenemos varias alternativas para const
 
 <br/><br/>
 
-### **summatory()**
+### <span style="color:#034a94">**summatory()**</span>
 
 Utilizando la función `summary` :
 
@@ -36,7 +36,7 @@ summary(data$edad)
 ```
 <br/><br/>
 
-### **describe()**
+### <span style="color:#034a94">**describe()**</span>
 
 ```{r}
 # install.packages("psych")
@@ -45,7 +45,7 @@ psych::describe(data$edad)
 
 <br/><br/>
 
-### **descr()**
+### <span style="color:#034a94">**descr()**</span>
 
 Utilizando la función `descr()` del paquete `summaytools` :
 
@@ -55,7 +55,7 @@ summarytools::descr(data$edad)
 
 <br/><br/>
 
-## **Indicadores por grupos**
+## <span style="color:#034a94">**Indicadores por grupos**</span>
 
 <br/>
 
@@ -63,7 +63,7 @@ En ocasiones se requiere calcular indicadores para una variable por grupos confo
 
 <br/><br/>
 
-### **aggregate()**
+### <span style="color:#034a94">**aggregate()**</span>
 
 La función `aggregate()` permite obtener resumen de estadísticas por subgrupo
 
@@ -87,7 +87,7 @@ t2
 
 <br/><br/>
 
-## **Indicadores de manera individial**
+## <span style="color:#034a94">**Indicadores de manera individial**</span>
 
 <pre>
 

@@ -26,13 +26,17 @@ c4="#686868"
 
 ```
 
-<br/><br/><br/>
+</br></br>
 
 <!-- ======================================================================= -->
+
+<div class="content-box-gray">
 
 > "Se denomina gráfico a una representación visual de una serie de datos, representación que tiene como finalidad dar una rápida noción acerca de volúmenes, cantidades y porcentajes, estableciendo comparaciones". 
 >
 > enciclopedia.net
+
+</div>
 
 <br/><br/>
 
@@ -43,14 +47,18 @@ Tabla  1 : Gráficas por tipo de variable
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/tabla5.png")
 ```
-<center>Fuente: construcción propia</center>
+<center>
+<sub>
+Fuente: construcción propia
+</sub>
+</center>
 <br/><br/>
 
-# **Variables cualitativas**
+# <span style="color:#034a94">**Variables cualitativas**</span>
 
 <br/>
 
-## **Diagráma circular (Tortas)**
+## <span style="color:#034a94">**Diagráma circular (Tortas)**</span>
 
 Este tipo de gráficos se utiliza para variables cualitativas medidas en escala nominal.
 
@@ -64,7 +72,7 @@ El gráfico permite resaltar la gran participación de los estudiantes en el sec
 
 <br/><br/>
 
-## **Diagrama de barras**
+## <span style="color:#034a94">**Diagrama de barras**</span>
 
 El diagrama de barras se utiliza para representar variables cualitativas en escala ordinal.  Es necesario que los valores representados sigan el orden de la escala.
 
@@ -73,11 +81,15 @@ Gráfica  2 : Evaluación pasajeros areopuerto
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotCalifica.png")
 ```
-<center>Fuente: kaggle - Satisfacion_Airline</center>
+<center>
+<sub>
+Fuente: kaggle - Satisfacion_Airline
+</sub>
+</center>
 
 <br/><br/>
 
-## **Barras con dos variables**
+## <span style="color:#034a94">**Barras con dos variables**</span>
 
 Este diagrama se emplea para representar dos variables cualitativas que pueden ser de escala nominal u ordinal.
 
@@ -87,16 +99,20 @@ Gráfica  3 : Distribución de la categoría por sexo carrera La Luz 2022
 knitr::include_graphics("img/RplotBarplot2.png")
 ```
 
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 <br/><br/><br/>
 
 
-# **Variables cualitativas**
+# <span style="color:#034a94">**Variables cualitativas**</span>
 
 <br/>
 
-## **Diagrama de árbol**
+## <span style="color:#034a94">**Diagrama de árbol**</span>
 
 Gráfica  4 : Diagrama de tallos y hojas tiempos mujeres categoría Veteranas A 
 
@@ -119,8 +135,11 @@ The decimal point is 1 digit(s) to the right of the |
 11 | 1
 </pre>
 
-Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
-
+<center>
+<sub>
+Fuente:[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 Este diagrama ordena los datos de manera que se puede determinar tanto el mínimo (48 min) como el máximo (111 min) , además de visualizar donde están la mayor concentración de ellos. 
 
@@ -135,7 +154,7 @@ El diagrama divide los datos en dos partes :
 
 <br/><br/>
 
-## **Histograma**
+## <span style="color:#034a94">**Histograma**</span>
 
 El histograma es uno de los gráficos más utilizados para representar variables cuantitativas y permite resumir por rangos los diferentes datos. Es una buena forma de visualizar la distribución de los datos y su forma.
 
@@ -146,11 +165,15 @@ Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrera La Lu
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotHistogramas.png")
 ```
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 <br/><br/>
 
-## **De densidad**
+## <span style="color:#034a94">**De densidad**</sub>
 
 Este diagrama corresponde a un contorno suavizado del histograma que permite visualizar claramente la forma de los datos. 
 
@@ -159,11 +182,15 @@ Gráfica  6 : Distribución del tiempo carrer La Luz 2022
 knitr::include_graphics("img/RplotDensidad.png")
 ```
 
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 <br/><br/>
 
-## **De cajas**
+## <span style="color:#034a94">**De cajas**</span>
 
 Es uno de las representaciones gráficas más utilizadas, pues además de los elementos y características que permite visualizar de las variables, permite comparar los resultados de dos o más grupos.
 
@@ -173,11 +200,15 @@ Gráfica  7 : Comparación distribuciones del tiempo hombres carrera La Luz 2022
 knitr::include_graphics("img/RplotBoxplot2.png")
 ```
 
-<center>uente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 <br/><br/>
 
-## **De dispersión**
+## <span style="color:#034a94">**De dispersión**</span>
 
 Este diagrma de puntos permite visualizar la relación lineal que puede existir entre dos variables cualitativas.
 
@@ -187,13 +218,17 @@ Gráfica  8 : Distribución de los tiempos por categoría carrera La Luz 2022
 knitr::include_graphics("img/RplotDispersion.png")
 ```
 
-<center>Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)</center>
+<center>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
 
 La gráfica permite visualizar que no existe relación líneal entre las variables tiempo de carrera y edad, es decir que en todas las categorías se presentaron corredores con tiempos bajos y tiempos altos.  También permite detectar que un corredor de la categoría Abierta fue el primero en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el último (166.03 min). 
 
 <br/><br/>
 
-## **De líneas**
+## <span style="color:#034a94">**De líneas**</span>
 
 Este tipo de gráficas se utiliza principalmente para representar series de tiempo y poder de esta manera observar si presentan tendencias o comportamientos estacionales
 
@@ -202,7 +237,11 @@ Gráfica  9 : Inflación Colombia 1993-01 a 2022-11
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotInflacion.png")
 ```
-<center>Fuente : Banco de la República</center>
+<center>
+<sub>
+Fuente : Banco de la República
+</sub>
+</center>
 
 En la gráfica se puede observar una tendencia creciente durante los últimos meses
 

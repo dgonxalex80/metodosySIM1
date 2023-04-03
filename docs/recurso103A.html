@@ -14,7 +14,7 @@
 
 <title>Tablas de frecuencia en R</title>
 
-<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -33,9 +33,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.2.1/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -313,8 +312,8 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><strong>Tablas de frecuencia en
-R</strong></h1>
+<h1 class="title toc-ignore"><span style="color:#034a94"><strong>Tablas
+de frecuencia en R</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
@@ -322,7 +321,8 @@ R</strong></h1>
 
 <p><br/><br/></p>
 <div id="examinar-la-base-de-datos" class="section level2">
-<h2><strong>Examinar la base de datos</strong></h2>
+<h2><span style="color:#034a94"><strong>Examinar la base de
+datos</strong></span></h2>
 <p>Antes de resumir la información contenida en una data en tablas de
 frecuencia dependiendo el tipo de variable revisamos inicialmente la
 estructura de la data, lo cual nos permite un diagnóstico inicial para
@@ -336,7 +336,7 @@ library(paqueteMET)   # activar paqueteMET
 data(&quot;CarreraLuz22&quot;)  # cargar la dataset</code></pre>
 <p><br/><br/></p>
 <div id="glimpse" class="section level3">
-<h3><strong>glimpse()</strong></h3>
+<h3><span style="color:#034a94"><strong>glimpse()</strong></span></h3>
 <p>Se puede examinar el contenido de la base de datos utilizando la
 función <code>glimpse()</code> del paquete <code>dplyr</code>,
 permitiendo identificar el tipo de variables y los primeros valores
@@ -359,7 +359,7 @@ $ nacionalidad &lt;chr&gt; &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &q
 <p><br/><br/></p>
 </div>
 <div id="summary" class="section level3">
-<h3><strong>summary()</strong></h3>
+<h3><span style="color:#034a94"><strong>summary()</strong></span></h3>
 <p>Otra alternativa es la función <code>summary()</code> :</p>
 <pre class="r"><code>summary(data)</code></pre>
 <pre><code>       id             sex                 edad          origen         
@@ -379,7 +379,7 @@ $ nacionalidad &lt;chr&gt; &quot;COL&quot;, &quot;COL&quot;, &quot;COL&quot;, &q
 <p><br/><br/></p>
 </div>
 <div id="head" class="section level3">
-<h3><strong>head()</strong></h3>
+<h3><span style="color:#034a94"><strong>head()</strong></span></h3>
 <p>La función <code>head()</code> permite visualizar los primeros 6
 registros :</p>
 <pre class="r"><code>head(data) </code></pre>
@@ -395,7 +395,7 @@ registros :</p>
 <p><br/><br/></p>
 </div>
 <div id="tail" class="section level3">
-<h3><strong>tail()</strong></h3>
+<h3><span style="color:#034a94"><strong>tail()</strong></span></h3>
 <p>Y la función <code>tail()</code> visualiza los últimos 6
 registros</p>
 <pre class="r"><code>tail(data)</code></pre>
@@ -412,10 +412,11 @@ registros</p>
 </div>
 </div>
 <div id="selección-de-parte-de-la-base-de-datos" class="section level2">
-<h2><strong>Selección de parte de la base de datos</strong></h2>
+<h2><span style="color:#034a94"><strong>Selección de parte de la base de
+datos</strong></span></h2>
 <p><br/><br/></p>
 <div id="subset" class="section level3">
-<h3><strong>subset()</strong></h3>
+<h3><span style="color:#034a94"><strong>subset()</strong></span></h3>
 <p>En ocasiones es necesario seleccionar una parte de la base de datos
 para estos casos podemos utilizar la función</p>
 <pre class="r"><code># seleccion de bases
@@ -449,10 +450,11 @@ head(dataFc1)</code></pre>
 </div>
 <div id="tablas-de-frecuencia-variables-cualitativas"
 class="section level2">
-<h2><strong>Tablas de frecuencia variables cualitativas</strong></h2>
+<h2><span style="color:#034a94"><strong>Tablas de frecuencia variables
+cualitativas</strong></span></h2>
 <p><br/></p>
 <div id="table" class="section level3">
-<h3><strong>table()</strong></h3>
+<h3><span style="color:#034a94"><strong>table()</strong></span></h3>
 <p>La función table() permite la construcción de tablas de frecuencias
 absolutas</p>
 <pre class="r"><code>table(data$categoria)</code></pre>
@@ -462,7 +464,8 @@ absolutas</p>
 <p><br/><br/></p>
 </div>
 <div id="prop.table" class="section level3">
-<h3><strong>prop.table()</strong></h3>
+<h3><span
+style="color:#034a94"><strong>prop.table()</strong></span></h3>
 <p>Si adicionamos la función prop.table() a un objeto table da como
 resultado las frecuencias relativas que se pueden multiplicar por 100
 para visualizarlas como porcentajes.</p>
@@ -477,8 +480,8 @@ prop.table()*100 </code></pre>
 </div>
 <div id="tablas-de-frecuencia-para-dos-variables-cualitativas"
 class="section level2">
-<h2><strong>Tablas de frecuencia para dos variables
-cualitativas</strong></h2>
+<h2><span style="color:#034a94"><strong>Tablas de frecuencia para dos
+variables cualitativas</strong></span></h2>
 <p><br/></p>
 <p>La función <code>table()</code> permite la construcción de tablas
 para dos variables o tablas cruzadas para frecuencias absolutas o
@@ -503,7 +506,7 @@ prop.table()</code></pre>
   5. Veteranos C 0.030176899 0.008324662</code></pre>
 <p><br/><br/></p>
 <div id="freq" class="section level3">
-<h3><strong>freq()</strong></h3>
+<h3><span style="color:#034a94"><strong>freq()</strong></span></h3>
 <p>La función <code>freq()</code> del paquete <code>summarytools</code>
 permite una construcción más elaborada de la tabla que incluye ademas de
 las frecuencias simples también las acumuladas</p>
@@ -523,7 +526,8 @@ las frecuencias simples también las acumuladas</p>
 </div>
 </div>
 <div id="variables-cuantitativas" class="section level2">
-<h2><strong>Variables cuantitativas</strong></h2>
+<h2><span style="color:#034a94"><strong>Variables
+cuantitativas</strong></span></h2>
 <p><br/></p>
 <p>En este caso se utilizan las función <code>cut()</code> para generar
 los intervalos previamente a la construcción de la tabla con la función
@@ -543,9 +547,11 @@ summarytools::freq(Edad.corredores)</code></pre>
          &lt;NA&gt;      0                               0.00         100.00
         Total   1922    100.00         100.00    100.00         100.00</code></pre>
 <p><br/><br/><br/></p>
-<div id="nota" class="section level3">
-<h3><strong>Nota</strong></h3>
-<p>Si queremos una tabla mas terminada podemos utilizar</p>
+<div id="nota" class="section level3 content-box-gray">
+<h3><span style="color:#686868"><strong>Nota</strong></span></h3>
+<p>Si queremos una tabla mas terminada podemos utilizar la librería
+flexable</p>
+</div>
 <p><br/></p>
 <pre class="r"><code># install.packages(&quot;flextable&quot;)
 library(flextable)
@@ -566,55 +572,7 @@ ft1 &lt;- ft1 %&gt;%
 width(j = 1,  width = 2) %&gt;%
 width(j = 2, width = 1)
 ft1</code></pre>
-<template id="469e0e69-3bde-43df-ba4a-5c778a1a623c"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-7807644c{}.cl-7800f738{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-78039e84{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-78039e8e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7803adc0{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7803adc1{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7803adca{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7803adcb{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7803adcc{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7803add4{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-7807644c'><thead><tr style="overflow-wrap:break-word;"><th class="cl-7803adc0"><p class="cl-78039e84"><span class="cl-7800f738">Categoría</span></p></th><th class="cl-7803adc1"><p class="cl-78039e8e"><span class="cl-7800f738">Frecuencia absoluta</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7803adca"><p class="cl-78039e84"><span class="cl-7800f738">1. Juvenil</span></p></td><td class="cl-7803adcb"><p class="cl-78039e8e"><span class="cl-7800f738">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7803adca"><p class="cl-78039e84"><span class="cl-7800f738">2. Abierta</span></p></td><td class="cl-7803adcb"><p class="cl-78039e8e"><span class="cl-7800f738">1,179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7803adca"><p class="cl-78039e84"><span class="cl-7800f738">3. Veteranos A</span></p></td><td class="cl-7803adcb"><p class="cl-78039e8e"><span class="cl-7800f738">423</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7803adca"><p class="cl-78039e84"><span class="cl-7800f738">4. Veteranos B</span></p></td><td class="cl-7803adcb"><p class="cl-78039e8e"><span class="cl-7800f738">227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7803adcc"><p class="cl-78039e84"><span class="cl-7800f738">5. Veteranos C</span></p></td><td class="cl-7803add4"><p class="cl-78039e8e"><span class="cl-7800f738">74</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="051fa3f0-980c-44bf-bd7f-d17334cc55a8"></div>
-<script>
-var dest = document.getElementById("051fa3f0-980c-44bf-bd7f-d17334cc55a8");
-var template = document.getElementById("469e0e69-3bde-43df-ba4a-5c778a1a623c");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
-</div>
+<div class="tabwid"><style>.cl-c0686164{}.cl-c06285f0{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c065a6d6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c065a6e0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-c065b630{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c065b631{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c065b63a{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c065b63b{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c065b63c{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c065b644{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-c0686164'><thead><tr style="overflow-wrap:break-word;"><th class="cl-c065b630"><p class="cl-c065a6d6"><span class="cl-c06285f0">Categoría</span></p></th><th class="cl-c065b631"><p class="cl-c065a6e0"><span class="cl-c06285f0">Frecuencia absoluta</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c065b63a"><p class="cl-c065a6d6"><span class="cl-c06285f0">1. Juvenil</span></p></td><td class="cl-c065b63b"><p class="cl-c065a6e0"><span class="cl-c06285f0">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c065b63a"><p class="cl-c065a6d6"><span class="cl-c06285f0">2. Abierta</span></p></td><td class="cl-c065b63b"><p class="cl-c065a6e0"><span class="cl-c06285f0">1,179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c065b63a"><p class="cl-c065a6d6"><span class="cl-c06285f0">3. Veteranos A</span></p></td><td class="cl-c065b63b"><p class="cl-c065a6e0"><span class="cl-c06285f0">423</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c065b63a"><p class="cl-c065a6d6"><span class="cl-c06285f0">4. Veteranos B</span></p></td><td class="cl-c065b63b"><p class="cl-c065a6e0"><span class="cl-c06285f0">227</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-c065b63c"><p class="cl-c065a6d6"><span class="cl-c06285f0">5. Veteranos C</span></p></td><td class="cl-c065b644"><p class="cl-c065a6e0"><span class="cl-c06285f0">74</span></p></td></tr></tbody></table></div>
 </div>
 
 
