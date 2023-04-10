@@ -39,10 +39,10 @@ Utilizaremos los pasos de la **Metodología Estadística** como estrategia para 
 4. **Diseño del experimento**
 5. **Recolección de la información**
 6. **Procesamiento de los datos**
-7. <span style="color:#FF7F00">**Análisis descriptivo o exploratorio de datos**</span>
+7. <span style="color:#034A94">**Análisis descriptivo o exploratorio de datos**</span>
 <!-- #####    <span style="color:#C9C9C9">**Probabilidad**</span> -->
 <!-- #####    <span style="color:#C9C9C9">**Variable aleatoria**</span> -->
-8. <span style="color:#FF7F00">**Inferencia estadística**</span>
+8. <span style="color:#034A94">**Inferencia estadística**</span>
 9. **Conclusiones y recomendaciones**
 </div>
 
