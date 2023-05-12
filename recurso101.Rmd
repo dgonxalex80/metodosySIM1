@@ -24,10 +24,12 @@ c4 ="#686868"  # gris - color texto
 
 # <span style="color:#034A94">**Estadística**</span>
 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/statistics1.png")
 ```
-<center>Tomada de : pixabay.com</center>
+<sub>Tomada de : pixabay.com</sub>
+</center>
 
 </br>
 
@@ -71,6 +73,8 @@ El objetivo de la Estadística se centra en brindar apoyo en la transformación 
 
 
 ## <span style="color:#034a94">**¿Dónde aplicarla?**</span>  
+
+<br/>
 
 La estadística es una ciencia transversal a las diversas disciplinas del conocimiento, como, por ejemplo: finanzas, ingeniería, salud, economía, contabilidad, mercadeo, sociología y ciencias, entre muchas otras.  Algunos ejemplos de su aplicación son:
 
@@ -173,10 +177,12 @@ Corresponde a características tomadas de la unidad de análisis.  Las variables
 
 <br/>
 
-```{r, echo=FALSE, out.width="800%", fig.align = "center"}
+<center>
+```{r, echo=FALSE, out.width="80%", fig.align = "center"}
 knitr::include_graphics("img/variable1.png")
 ```
-<center>Fuente: construcción propia</center>
+**Figura 1.1** Clasificación de las variables de acuerdo a su origen, naturaleza y relaciones
+</center>
 
 </br></br>
 
@@ -248,11 +254,12 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 
 ### <span style="color:#034a94">**Escalas de medición**</span>
 
-
+<center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/escalas.png")
 ```
-<ceenter>Fuente: construcción propia</center>
+**Figura 1.2** Clasificación de las variables y tipo de escalas de medición 
+</center>
 
 </br></br>
 
@@ -333,11 +340,12 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 
 100 estudiantes seleccionados del total de matriculados en la universidad o 500 personas seleccionadas de la población de Cali.
 
-
+<center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/poblacion.png")
 ```
-<center>Fuente: construcción propia</center>
+**Figura 1.3** Representación relación Población - Muestra 
+</center>
 
 </br></br>
 
@@ -390,12 +398,14 @@ El muestreo probabilístico es un método de selección de la muestra en el que 
 El muestreo no probabilístico (o muestreo no aleatorio) es la técnica de muestreo donde los elementos son elegidos a juicio del investigador. No se conoce la probabilidad con la que se puede seleccionar a cada individuo.
 
 
-
+<center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/muestreos.png")
 ```
 
-<center>Fuente: construcción propia</center>
+**Figura 1.4** Tipos de muestreo
+</center>
+
 <br/><br/>
 
 <div class="content-box-gray">

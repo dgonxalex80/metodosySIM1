@@ -45,11 +45,12 @@ Los indicadores de posición permiten identificar la posición relativa de un va
 
 </br></br>
 
-Figura 1 : Carrera 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/carrera.jpg")
 ```
-<center>
+**Figura 1.5**  Indicadores de posición 
+<br/>
 <sub>
 Tomada de : pixabay.com
 </sub>
@@ -63,11 +64,12 @@ El siguiente gráfico de puntos representa los tiempos alcanzados por los partic
 
 </br></br>
 
-Gráfico 1 : Tiempos por categoría y sexo  - Carrera La Luz 2022
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotRioCaliMH.png")
 ```
-<center>
+**Figura 1.6** Tiempos por categoría y sexo  - Carrera La Luz 2022
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -97,11 +99,12 @@ El resultado depende del grupo en que participó cada uno de los corredores. Por
 
 Veamos en cada caso que tiempo marcaron los corredores con un punto en su respectivas categorías:
 
-Gráfica  2 : Tiempos y posiciones de Carlos y María
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/Rplotcarrera.png")
 ```
-<center>
+**Figura 1.7**  Tiempos y posiciones de Carlos y María 
+<br/>
 <sub>
 Fuente : [juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -122,11 +125,12 @@ Los deciles correspondientes a los tiempos registrados en la categoría Abierta 
 
 </br></br>
 
-Gráfica 3 : Tiempos hombres categoría Abierta 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotDeciles.png")
 ```
-<center>
+**Figura 1.8** Deciles de los tiempos hombres categoría Abierta 
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -150,12 +154,13 @@ Los cuartiles son 3 números que dividen la muestra en cuatro partes, cada una c
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
-Gráfica  4 : Tiempos hombres categoría Abierta 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBoxplot.png")
 ```
 
-<center>
+**Figura 1.9** Tiempos hombres categoría Abierta 
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -268,12 +273,13 @@ Mediana (57.03+ 61.13)/2 = 59.08
 
 </br></br>
 
-Gráfica  5 : Tiempos hombres categoría juvenil  
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBoxplot3.png")
 ```
 
-<center>
+**Figura 1.10** Tiempos hombres categoría juvenil  
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -365,11 +371,12 @@ Hace falta otro indicador que nos oriente sobre, qué tan dispersos son los dato
 
 <br/>
 
-Gráfica  5 : Edades por grupo 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotGrupos.png")
 ```
-<center>
+**Figura 1.11** Edad de los atletas por grupo 
+<br/>
 <sub>
 Fuente : datos simulados
 </sub>
@@ -530,7 +537,7 @@ De acuerdo con su valor, la puntudez de los datos puede clasificarse en tres gru
 
 </br>
 
-Gráfica 6 : Formas de curtosis  
+<center>
 ```{r, echo=FALSE, fig.height=3, fig.width=9, message=FALSE, warning=FALSE}
 # Distribucion normal
 library(ggfortify)
@@ -539,6 +546,8 @@ p=ggdistribution(dnorm, seq(-5, 5, 0.01), mean = 0, sd = .7,colour = 'red', p=p)
 p=ggdistribution(dnorm, seq(-5, 5, 0.01),   mean = 0, sd = 1.5,colour = 'orange', p=p)
 p 
 ```
+**Figura 1.12** Comparación de las formas de curtosis
+</center>
 
 <br/> <br/>
 
@@ -579,14 +588,11 @@ $$CA = \dfrac{1}{s^{4}}\Bigg(\dfrac{1}{n} \sum_{i=1}^{n} (x-\bar{x})^{4} \Bigg) 
 
 
 
-Gráfica  7 :  Formas de asimétrica  
+<center> 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center", message=FALSE, warning=FALSE}
 knitr::include_graphics("img/RplotAsimetria.png")
 ```
-<center>
-<sub>
-Fuente: construcción propia
-</sub>
+**Figura 1.13** Comparación de las formas de sesgo o asimetrias
 </center>
 
 <br/>

@@ -43,7 +43,7 @@ c4="#686868"
 Elegir el gráfico adecuado es muy importante, pues existen diferentes alternativas  y se debe escoger el apropiado para representar los datos. El tipo de dato determina el tipo de gráfico así:
 
 
-Tabla  1 : Gráficas por tipo de variable
+**Tabla  1.4** : Tipos de gráficas por tipo de variable
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/tabla5.png")
 ```
@@ -62,11 +62,16 @@ Fuente: construcción propia
 
 Este tipo de gráficos se utiliza para variables cualitativas medidas en escala nominal.
 
-Gráfica  1 : Distribución demanda actividades del Medio Universitario 
+<center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/RplotPie.png")
 ```
-<center>Fuente : Unicifras Pontificia Universidad Javeriana Cali</center>
+**Figura 1.14** Distribución demanda actividades del Medio Universitario 
+<br/>
+<sub>Fuente : Unicifras Pontificia Universidad Javeriana Cali</sub>
+</center>
+
+<br/>
 
 El gráfico permite resaltar la gran participación de los estudiantes en el sector Cultural con un 74.5%
 
@@ -76,12 +81,11 @@ El gráfico permite resaltar la gran participación de los estudiantes en el sec
 
 El diagrama de barras se utiliza para representar variables cualitativas en escala ordinal.  Es necesario que los valores representados sigan el orden de la escala.
 
-
-Gráfica  2 : Evaluación pasajeros areopuerto 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotCalifica.png")
 ```
-<center>
+**Figura 1.15 ** Evaluación pasajeros areopuerto 
 <sub>
 Fuente: kaggle - Satisfacion_Airline
 </sub>
@@ -94,12 +98,12 @@ Fuente: kaggle - Satisfacion_Airline
 Este diagrama se emplea para representar dos variables cualitativas que pueden ser de escala nominal u ordinal.
 
 
-Gráfica  3 : Distribución de la categoría por sexo carrera La Luz 2022 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBarplot2.png")
 ```
-
-<center>
+**Figura 1.16** Distribución de la categoría por sexo carrera La Luz 2022 
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -114,7 +118,7 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 
 ## <span style="color:#034a94">**Diagrama de árbol**</span>
 
-Gráfica  4 : Diagrama de tallos y hojas tiempos mujeres categoría Veteranas A 
+ 
 
 <pre>
 The decimal point is 1 digit(s) to the right of the |
@@ -136,6 +140,8 @@ The decimal point is 1 digit(s) to the right of the |
 </pre>
 
 <center>
+**Figura 1.17** Diagrama de tallos y hojas tiempos mujeres categoría Veteranas A 
+<br/>
 <sub>
 Fuente:[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -161,11 +167,12 @@ El histograma es uno de los gráficos más utilizados para representar variables
 Cada barra representa la cantidad de observaciones que se encuentra en cada uno de los intervalos establecidos, permitiendo visualizar el intervalo con mayor concentración de datos, además de la forma que tiene su distribución. 
 
 
-Gráfica  5 : Distribución del tiempo por sexo categoría abierta carrera La Luz 2022 
+<center> 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotHistogramas.png")
 ```
-<center>
+**Figura 1.18** Distribución del tiempo por sexo categoría abierta carrera La Luz 2022
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -177,12 +184,12 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 
 Este diagrama corresponde a un contorno suavizado del histograma que permite visualizar claramente la forma de los datos. 
 
-Gráfica  6 : Distribución del tiempo carrer La Luz 2022 
+<center> 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotDensidad.png")
 ```
+**Figura 1.19 ** Distribución del tiempo carrera La Luz 2022 
 
-<center>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -195,12 +202,13 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 Es uno de las representaciones gráficas más utilizadas, pues además de los elementos y características que permite visualizar de las variables, permite comparar los resultados de dos o más grupos.
 
 
-Gráfica  7 : Comparación distribuciones del tiempo hombres carrera La Luz 2022 
+<center> 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotBoxplot2.png")
 ```
 
-<center>
+**Figura 1.20** Comparación distribuciones del tiempo hombres carrera La Luz 2022 
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -213,12 +221,12 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 Este diagrma de puntos permite visualizar la relación lineal que puede existir entre dos variables cualitativas.
 
 
-Gráfica  8 : Distribución de los tiempos por categoría carrera La Luz 2022 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotDispersion.png")
 ```
-
-<center>
+**Figura 1.21** Distribución de los tiempos por categoría carrera La Luz 2022  
+<br/>
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -233,11 +241,12 @@ La gráfica permite visualizar que no existe relación líneal entre las variabl
 Este tipo de gráficas se utiliza principalmente para representar series de tiempo y poder de esta manera observar si presentan tendencias o comportamientos estacionales
 
 
-Gráfica  9 : Inflación Colombia 1993-01 a 2022-11 
+<center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/RplotInflacion.png")
 ```
-<center>
+**Figura 1.22** Inflación Colombia 1993-01 a 2022-11 
+<br/>
 <sub>
 Fuente : Banco de la República
 </sub>

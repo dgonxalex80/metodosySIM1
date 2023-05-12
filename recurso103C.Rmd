@@ -30,6 +30,8 @@ Algunas consideraciones
 
 <br/><br/>
 
+**Tabla 1.5** Tipos de gráficos segun el tipo de variable y su tipo de escala
+
 |Tipo de variable | Tipos de escala  |  Tipo de gráfico            |  Sintaxis R            | 
 |:----------------|:-----------------|:----------------------------|:-----------------------|
 | Cualitativa     | Nominal          |  diagrama de torta          |  `pie(table(x))`       |
@@ -50,7 +52,7 @@ Algunas consideraciones
 |                 |                  |  diagrama de linea          | `plot(x, type="l")`    |
 |                 |                  |                             |                        |
 
-
+<br/>
 
 <div class="content-box-gray">
 ### <span style="color:#686868">**Nota**</span> 
