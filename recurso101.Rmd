@@ -40,7 +40,7 @@ knitr::include_graphics("img/statistics1.png")
 </br>
 
 <div class="content-box-blue">
-**ESTADÍSTICA** es una ciencia, la cual se encarga de suministrar diferentes métodos y procedimientos para recoger, clasificar, resumir, hallar regularidades y analizar los datos; así como de realizar inferencias a partir de ellos, con la finalidad de ayudar a la toma de decisiones y en su caso, formular predicciones.
+**ESTADÍSTICA** es una ciencia, que se encarga de suministrar diferentes métodos y procedimientos para recoger, clasificar, resumir, hallar regularidades y analizar los datos; así como de realizar inferencias a partir de ellos, con la finalidad de ayudar a la toma de decisiones y en su caso, formular predicciones.
 </div>
 
 </br>
@@ -64,7 +64,7 @@ El objetivo de la Estadística se centra en brindar apoyo en la transformación 
 <div class="content-box-gray">
 > "Llegará el día en el que el pensamiento estadístico será una condición tan necesaria para la convivencia eficiente como la capacidad de leer y escribir". 
 >
-> --H.G. Wells --
+> --H.G. Wells, 1930 --
 
 </div>
 
@@ -78,13 +78,13 @@ El objetivo de la Estadística se centra en brindar apoyo en la transformación 
 
 La estadística es una ciencia transversal a las diversas disciplinas del conocimiento, como, por ejemplo: finanzas, ingeniería, salud, economía, contabilidad, mercadeo, sociología y ciencias, entre muchas otras.  Algunos ejemplos de su aplicación son:
 
-* Finanzas: se realizan estudios para estimar el riesgo que tiene una inversión o el préstamo de dinero por parte de una entidad bancaria.
+* **Finanzas**: se realizan estudios para estimar el riesgo que tiene una inversión o el préstamo de dinero por parte de una entidad bancaria.
 
-* Ingeniería: la estadística permite realizar el control de calidad de productos.
+* **Ingeniería**: la estadística permite realizar el control de calidad de productos.
 
-* Salud: es utilizada para realizar múltiples investigaciones que generan mejores tratamientos para las enfermedades.
+* **Salud**: es utilizada para realizar múltiples investigaciones que generan mejores tratamientos para las enfermedades.
 
-* Economía: la estadística permite estudiar los determinantes del desempleo o el crecimiento económico en una región.
+* **Economía**: la estadística permite estudiar los determinantes del desempleo o el crecimiento económico en una región.
 
 Así mismo, si nos detuviéramos a analizar cada una de las disciplinas en las que se desenvuelve nuestras actividades diarias, encontraríamos ejemplos donde se tiene la necesidad de contar con información que nos permita tomar decisiones confiables.
 
@@ -263,7 +263,7 @@ knitr::include_graphics("img/escalas.png")
 
 </br></br>
 
-#### <span style="color:#034a94">**Nominal**</span> 
+### <span style="color:#034a94">**Nominal**</span> 
 
 En las variables con escala de medición nominal, sus valores no se pueden ordenar, es decir que no existe una forma particular para ordenar sus valores. | Religión (católico, cristiano, evangélico, agnóstico), 
 

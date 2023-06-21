@@ -171,8 +171,8 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 <pre>
 Límite inferior        Q1          Q2           Q3          Límite superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
-30.175                  25%         50%          75%   
-53.50       59.60        69.05       92.375
+                       25%         50%          75%  
+30.175                 53.50       59.60        69.05       92.375
 </pre>
 
 </br></br>
@@ -298,8 +298,10 @@ La **moda**  corresponde al dato o valor que más se repite. Es utilizada como m
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <pre>
-1. Juvenil     2. Abierta    3. Veteranos A    4. Veteranos B   5. Veteranos C 
-19             1179          389               214              74 
+Variable    moda
+sexo        hombre
+categoría   abierta
+origen      cali
 </pre>
 
 </br>
@@ -324,7 +326,7 @@ Con el fin de evitar que los datos atípicos generen sesgos en el indicador de l
 1      2      3      4      5      6      7      8      9      10     11     12        
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
-(42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98 ) 
+      (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
 
 media truncada al 10% : 59.748
 </pre>
@@ -360,11 +362,11 @@ Supongamos que tenemos dos grupos de participantes que son patrocinados por dos 
 
 <br/>
 
-|      |                                                                                                                       |
-|:-----|:----------------------------------------------------------------------------------------------------------------------|
-| G1   |27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 | 
-| G2   |35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 |
-
+|               |                                                                                                                       |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------|
+| **Grupo 1**   |27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 | 
+| **Grupo 2**   |35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 |
+|               |                                                                                                                       |
 </br></br>
 
 Hace falta otro indicador que nos oriente sobre, qué tan dispersos son los datos con el fin de saber si se trata de grupos parecidos tanto en centro como en variabilidad. Esta necesidad la suplen los `indicadores de dispersión`.
@@ -397,8 +399,8 @@ En el caso de los dos grupos:
 
 |**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
-|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
-|$r_{1} = 16$ años                 |$r_{2} = 38$ años                      |  
+|$\bar{x}_{1} = 28$ años      | $\bar{x}_{2} = 28$ años            |
+|$r_{1} = 16$ años            | $r_{2} = 38$ años                  |  
 |                             |                                    |
 
 Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes
@@ -458,12 +460,12 @@ $$s = \sqrt{s^{2}}$$
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
-|**Grupo 1**                  | **Grupo 2**                        |
-|:----------------------------|:-----------------------------------|
-|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
-|$s^{2}_{1} = 16.62$ años$^2$     |$s^{2}_{2} = 116.89$ años$^2$           |  
-|$s_{1}  = 4.16$ años             |$s_{2} = 10.81$ años                    | 
-
+|**Grupo 1**                      | **Grupo 2**                        |
+|:--------------------------------|:-----------------------------------|
+|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años             |
+|$s^{2}_{1} = 16.62$ años$^2$     |$s^{2}_{2} = 116.89$ años$^2$       |  
+|$s_{1}  = 4.16$ años             |$s_{2} = 10.81$ años                | 
+|                                 |                                    |
 </br>
 
 Aunque la desviación estándar reduce el problema mencionado anteriormente debido a tener las mismas unidades de la variable, es útil para comparación de dos grupos con igual media.  En caso de que las medias sean diferentes es difícil poder realizar las comparaciones.
@@ -497,9 +499,9 @@ Existen diferentes reglas empíricas para la interpretación del coeficiente de 
 
 |**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
-|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años                 |
-|$CV_{1}  = 14.56$ %              |$CV_{2} = 38.61$ %                      |  
-
+|$\bar{x}_{1} = 28$ años      |$\bar{x}_{2} = 28$ años             |
+|$CV_{1}  = 14.56$ %          |$CV_{2} = 38.61$ %                  |  
+|                             |                                    |
 </br>
 
 En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo 2 con un valor superior que indica heterogeneidad
