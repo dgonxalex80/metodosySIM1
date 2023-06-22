@@ -244,16 +244,16 @@ Este tipo de gráficas se utiliza principalmente para representar series de tiem
 <center>
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 # actualizar
-knitr::include_graphics("img/RplotInflacion.png")
+knitr::include_graphics("img/inflacion202305.png")
 ```
-**Figura 1.22** Inflación Colombia 1993-01 a 2022-11 
+**Figura 1.22** Inflación Colombia 1993-01 a 2023-05 
 <br/>
 <sub>
 Fuente : Banco de la República
 </sub>
 </center>
 
-En la gráfica se puede observar una tendencia creciente durante los últimos meses
+En la gráfica se puede observar una tendencia creciente durante los últimos dos año y al final un pequeño cambio de tendencia 
 
 
 
