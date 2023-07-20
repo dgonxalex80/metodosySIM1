@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Limpieza de datos</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Conceptos básicos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso101.html">Conceptos Básicos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso101A.html">Conceptos</a>
+    </li>
+    <li>
+      <a href="recurso100A.html">Importar datos</a>
+    </li>
+    <li>
+      <a href="recurso100B.html">Limpieza de datos</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso102.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso102A.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso102B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso102C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso103.html">Introducción a R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso103A.html">Tablas</a>
+    </li>
+    <li>
+      <a href="recurso103B.html">Indicadores</a>
+    </li>
+    <li>
+      <a href="recurso103C.html">Visualización</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Limpieza de datos</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<p></br></br></p>
+<!-- ======================================================================= -->
+<p>Una de las tareas más importante al realizar un proyecto de Ciencia
+de Datos corresponde a la preparación de los datos (Limpieza de datos o
+data cleaning) que posteriormente van a permitir el modelamiento
+adecuado.</p>
+<p><img src="img/limpieza.png" width="70%" style="display: block; margin: auto;" />
+Figura :</p>
+<p>El tratamiento de los datos faltantes es un aspecto muy importante en
+el</p>
+<p>El tratamiento de datos faltantes es un aspecto crítico en ciencia de
+datos, ya que los datos faltantes pueden afectar la calidad y validez de
+los análisis y modelos. Aquí te presento algunas estrategias comunes
+para manejar los datos faltantes:</p>
+<p>Eliminacion de variables 1. Eliminación de filas o columnas: Si los
+datos faltantes son pocos en comparación con el tamaño total del
+conjunto de datos, una estrategia simple es eliminar las filas o
+columnas que contienen datos faltantes. Sin embargo, esta estrategia
+puede llevar a una pérdida de información si los datos faltantes son
+sistemáticos o si se eliminan muchas observaciones.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Imputación de valores: La imputación implica estimar y reemplazar
+los valores faltantes con valores razonables. Esto se puede hacer de
+varias maneras, como reemplazar los valores faltantes por la media, la
+mediana o el valor más frecuente de la variable correspondiente. Otra
+opción es utilizar técnicas más avanzadas, como la imputación basada en
+modelos, donde se construye un modelo predictivo para estimar los
+valores faltantes.</p></li>
+<li><p>Tratamiento de datos faltantes como una categoría: En algunos
+casos, los datos faltantes pueden tener un significado propio y no deben
+ser imputados ni eliminados. En lugar de eso, puedes considerar tratar
+los datos faltantes como una categoría adicional en el análisis o
+modelo.</p></li>
+<li><p>Técnicas avanzadas de imputación: Existen métodos más
+sofisticados para imputar datos faltantes, como la imputación múltiple
+(multiple imputation) y la imputación basada en modelos de aprendizaje
+automático. Estos enfoques generan múltiples conjuntos de datos
+imputados y tienen en cuenta la incertidumbre asociada con la
+imputación.</p></li>
+</ol>
+<p>Es importante evaluar cuidadosamente el patrón y la naturaleza de los
+datos faltantes antes de decidir qué estrategia utilizar. Además, es
+fundamental tener en cuenta que cualquier método de imputación introduce
+cierto grado de incertidumbre y puede afectar los resultados de los
+análisis o modelos. Por lo tanto, es recomendable documentar y tener en
+cuenta el proceso de imputación en el análisis y la interpretación de
+los resultados.</p>
+<div id="crear-un-dataframe-de-ejemplo" class="section level1">
+<h1>Crear un dataframe de ejemplo</h1>
+<p>datos &lt;- data.frame(edad = c(25, 30, NA, 35, NA, 40, 45))</p>
+</div>
+<div id="imprimir-los-datos-originales" class="section level1">
+<h1>Imprimir los datos originales</h1>
+<p>cat(“Datos originales:”) print(datos)</p>
+</div>
+<div id="calcular-la-media-de-la-variable-edad" class="section level1">
+<h1>Calcular la media de la variable “edad”</h1>
+<p>media_edad &lt;- mean(datos$edad, na.rm = TRUE)</p>
+</div>
+<div id="imputar-los-valores-faltantes-con-la-media"
+class="section level1">
+<h1>Imputar los valores faltantes con la media</h1>
+<p>datos<span class="math inline">\(edad[is.na(datos\)</span>edad)]
+&lt;- media_edad</p>
+</div>
+<div id="imprimir-los-datos-imputados" class="section level1">
+<h1>Imprimir los datos imputados</h1>
+<p>cat(“imputados:”) print(datos) ———————————————–</p>
+<p>Para medir la cantidad de datos faltantes en una base de datos,
+puedes utilizar diversas funciones y métodos en R. Aquí te muestro dos
+enfoques comunes:</p>
+<ol style="list-style-type: decimal">
+<li>Función <code>is.na()</code> y <code>sum()</code>: Esta combinación
+de funciones te permite contar la cantidad de valores faltantes en cada
+columna de tu base de datos. Puedes usar <code>is.na()</code> para
+identificar los valores faltantes y <code>sum()</code> para calcular la
+suma total de valores verdaderos (TRUE), que corresponden a los datos
+faltantes.</li>
+</ol>
+<pre class="r"><code># Calcular la cantidad de datos faltantes por columna
+num_faltantes &lt;- apply(datos, 2, function(x) sum(is.na(x)))
+
+# Imprimir los resultados
+cat(&quot;Cantidad de datos faltantes por columna:\n&quot;)
+print(num_faltantes)</code></pre>
+<p>En este ejemplo, <code>datos</code> representa tu base de datos. La
+función <code>apply()</code> se utiliza para aplicar la función anónima
+a cada columna de la base de datos. La función anónima
+<code>function(x) sum(is.na(x))</code> cuenta la cantidad de valores
+faltantes en cada columna utilizando <code>is.na()</code> y
+<code>sum()</code>. El resultado se almacena en
+<code>num_faltantes</code>, que muestra la cantidad de datos faltantes
+por columna.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Paquete <code>naniar</code>: El paquete <code>naniar</code>
+proporciona una variedad de funciones útiles para trabajar con datos
+faltantes. Una función particularmente útil es <code>vis_miss()</code>,
+que crea visualizaciones gráficas de los datos faltantes.</li>
+</ol>
+<pre class="r"><code>library(naniar)
+
+# Visualización gráfica de datos faltantes
+vis_miss(datos)</code></pre>
+<p>Al utilizar <code>vis_miss()</code>, se generará un gráfico de barras
+y una matriz de puntos que resumen visualmente los datos faltantes en tu
+base de datos. Los valores faltantes se mostrarán en color rojo,
+mientras que los valores presentes se mostrarán en color azul.</p>
+<p>Estos enfoques te permitirán obtener una medida cuantitativa de la
+cantidad de datos faltantes en tu base de datos y visualizarlos de
+manera más intuitiva utilizando el paquete <code>naniar</code>. Puedes
+elegir el enfoque que mejor se adapte a tus necesidades y
+preferencias.</p>
+<hr />
+<p>Existen varias técnicas para la imputación de datos, y la elección de
+la técnica adecuada depende del contexto de tus datos y de la naturaleza
+de los valores faltantes. A continuación, te presento algunas de las
+técnicas más comunes utilizadas para la imputación de datos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Imputación por media o mediana: Esta técnica consiste en
+reemplazar los valores faltantes con la media o la mediana de la
+variable correspondiente. Es una técnica simple y ampliamente utilizada,
+especialmente en variables numéricas. La media se utiliza cuando los
+datos siguen una distribución normal, mientras que la mediana se
+prefiere cuando los datos tienen valores atípicos o una distribución
+sesgada.</p></li>
+<li><p>Imputación por moda: En esta técnica, se reemplazan los valores
+faltantes con el valor más frecuente (moda) de la variable. Es útil para
+variables categóricas y discretas.</p></li>
+<li><p>Imputación por valores aleatorios: En este enfoque, se generan
+valores aleatorios dentro del rango de los valores observados existentes
+y se utilizan para reemplazar los valores faltantes. Esto mantiene la
+variabilidad de los datos y evita introducir sesgos. Sin embargo, puede
+resultar en resultados diferentes en cada imputación aleatoria.</p></li>
+<li><p>Imputación por regresión: Esta técnica utiliza un modelo de
+regresión para predecir los valores faltantes basándose en otras
+variables predictoras. Se ajusta un modelo a los datos completos y luego
+se utilizan las variables predictoras para predecir los valores
+faltantes. Es especialmente útil cuando hay relaciones lineales o no
+lineales entre las variables.</p></li>
+<li><p>Imputación múltiple (multiple imputation): Esta técnica implica
+generar múltiples conjuntos de datos imputados, donde cada conjunto
+tiene sus propias imputaciones. Luego, se realizan análisis en cada
+conjunto de datos imputados y se combinan los resultados para tener en
+cuenta la incertidumbre introducida por la imputación.</p></li>
+<li><p>Imputación basada en modelos de aprendizaje automático: Esta
+técnica utiliza modelos de aprendizaje automático, como regresión
+lineal, regresión logística o árboles de decisión, para predecir los
+valores faltantes. Estos modelos pueden capturar relaciones más
+complejas en los datos y mejorar la precisión de la imputación.</p></li>
+</ol>
+<p>Es importante evaluar cuidadosamente el patrón de los datos faltantes
+y considerar la naturaleza de tus datos antes de elegir una técnica de
+imputación. Además, es recomendable realizar una validación cruzada o
+evaluar la calidad de las imputaciones utilizando métricas adecuadas
+para asegurarse de que los valores imputados sean razonables y no
+introduzcan sesgos en los análisis o modelos subsiguientes.</p>
+<hr />
+<p>¡Por supuesto! Aquí tienes algunos ejemplos de técnicas de imputación
+de datos en R utilizando paquetes populares como <code>mice</code> y
+<code>missForest</code>:</p>
+<ol style="list-style-type: decimal">
+<li>Imputación por media utilizando el paquete <code>mice</code>:</li>
+</ol>
+<pre class="r"><code>library(mice)
+
+# Crear un dataframe de ejemplo con valores faltantes
+datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
+var2 = c(NA, 10, 20, NA, 50))
+
+# Imputar los valores faltantes por la media
+imp &lt;- mice(datos, method = &quot;mean&quot;)
+datos_imputados &lt;- complete(imp)
+
+# Imprimir los datos imputados
+print(datos_imputados)</code></pre>
+<p>En este ejemplo, utilizamos el paquete <code>mice</code> para
+realizar la imputación por la media. La función <code>mice()</code> crea
+un objeto de imputación, donde especificamos el método de imputación
+como “mean”. Luego, utilizamos <code>complete()</code> para obtener los
+datos imputados del objeto de imputación.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Imputación utilizando el paquete <code>missForest</code>:</li>
+</ol>
+<pre class="r"><code>library(missForest)
+
+# Crear un dataframe de ejemplo con valores faltantes
+datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
+var2 = c(NA, 10, 20, NA, 50))
+
+# Imputar los valores faltantes utilizando missForest
+datos_imputados &lt;- missForest(datos)
+
+# Imprimir los datos imputados
+print(datos_imputados$ximp)</code></pre>
+<p>En este ejemplo, utilizamos el paquete <code>missForest</code> para
+realizar la imputación de datos. La función <code>missForest()</code>
+realiza la imputación utilizando métodos de bosques aleatorios. Los
+datos imputados se almacenan en el objeto devuelto por la función, y
+podemos acceder a ellos utilizando <code>$ximp</code>.</p>
+<p>Estos son solo dos ejemplos de técnicas de imputación utilizando
+paquetes populares en R. Hay otros paquetes y enfoques disponibles, por
+lo que te recomiendo explorar más opciones según tus necesidades
+específicas. Recuerda evaluar y validar los resultados de la imputación
+antes de utilizar los datos imputados para análisis o modelado.</p>
+<hr />
+<p>¡Por supuesto! Aquí tienes algunos ejemplos de técnicas de imputación
+de datos en R utilizando paquetes populares como <code>mice</code> y
+<code>missForest</code>:</p>
+<ol style="list-style-type: decimal">
+<li>Imputación por media utilizando el paquete <code>mice</code>:</li>
+</ol>
+<pre class="r"><code>library(mice)
+
+# Crear un dataframe de ejemplo con valores faltantes
+datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
+var2 = c(NA, 10, 20, NA, 50))
+
+# Imputar los valores faltantes por la media
+imp &lt;- mice(datos, method = &quot;mean&quot;)
+datos_imputados &lt;- complete(imp)
+
+# Imprimir los datos imputados
+print(datos_imputados)</code></pre>
+<p>En este ejemplo, utilizamos el paquete <code>mice</code> para
+realizar la imputación por la media. La función <code>mice()</code> crea
+un objeto de imputación, donde especificamos el método de imputación
+como “mean”. Luego, utilizamos <code>complete()</code> para obtener los
+datos imputados del objeto de imputación.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Imputación utilizando el paquete <code>missForest</code>:</li>
+</ol>
+<pre class="r"><code>library(missForest)
+
+# Crear un dataframe de ejemplo con valores faltantes
+datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
+var2 = c(NA, 10, 20, NA, 50))
+
+# Imputar los valores faltantes utilizando missForest
+datos_imputados &lt;- missForest(datos)
+
+# Imprimir los datos imputados
+print(datos_imputados$ximp)</code></pre>
+<p>En este ejemplo, utilizamos el paquete <code>missForest</code> para
+realizar la imputación de datos. La función <code>missForest()</code>
+realiza la imputación utilizando métodos de bosques aleatorios. Los
+datos imputados se almacenan en el objeto devuelto por la función, y
+podemos acceder a ellos utilizando <code>$ximp</code>.</p>
+<p>Estos son solo dos ejemplos de técnicas de imputación utilizando
+paquetes populares en R. Hay otros paquetes y enfoques disponibles, por
+lo que te recomiendo explorar más opciones según tus necesidades
+específicas. Recuerda evaluar y validar los resultados de la imputación
+antes de utilizar los datos imputados para análisis o modelado.</p>
+<p>¡Claro! A continuación, te mostraré ejemplos de cómo realizar la
+imputación de datos utilizando diferentes técnicas en R.</p>
+<ol style="list-style-type: decimal">
+<li>Imputación por media o mediana:</li>
+</ol>
+<pre class="r"><code># Imputación por media
+datos$edad[is.na(datos$edad)] &lt;- mean(datos$edad, na.rm = TRUE)
+
+# Imputación por mediana
+datos$edad[is.na(datos$edad)] &lt;- median(datos$edad, na.rm = TRUE)</code></pre>
+<p>En estos ejemplos, se imputan los valores faltantes en la variable
+“edad” del dataframe “datos” utilizando la media (<code>mean()</code>) o
+la mediana (<code>median()</code>) de la variable correspondiente. Los
+valores faltantes se reemplazan directamente con el valor imputado
+utilizando la función de indexación
+<code>[is.na(datos$edad)]</code>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Imputación por moda:</li>
+</ol>
+<pre class="r"><code># Cargar el paquete &quot;dplyr&quot; para usar la función &quot;mode()&quot;
+library(dplyr)
+
+# Imputación por moda
+datos$categoria[is.na(datos$categoria)] &lt;- mode(datos$categoria, na.rm = TRUE)</code></pre>
+<p>En este ejemplo, se imputan los valores faltantes en la variable
+categórica “categoria” del dataframe “datos” utilizando la moda
+(<code>mode()</code>) de la variable. La función <code>mode()</code> se
+obtiene del paquete “dplyr”. Los valores faltantes se reemplazan
+directamente con el valor imputado utilizando la función de indexación
+<code>[is.na(datos$categoria)]</code>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Imputación por valores aleatorios:</li>
+</ol>
+<pre class="r"><code># Imputación por valores aleatorios
+set.seed(123)  # Establecer semilla para reproducibilidad
+datos$altura[is.na(datos$altura)] &lt;- runif(sum(is.na(datos$altura)), min = min(datos$altura, na.rm = TRUE), max = max(datos$altura, na.rm = TRUE))</code></pre>
+<p>En este ejemplo, se imputan los valores faltantes en la variable
+numérica “altura” del dataframe “datos” utilizando valores aleatorios
+generados por <code>runif()</code>. La función <code>runif()</code>
+genera valores aleatorios dentro del rango de los valores observados
+existentes en la variable “altura”. La función
+<code>sum(is.na(datos$altura))</code> se utiliza para determinar cuántos
+valores faltantes hay y asegurarse de generar la cantidad adecuada de
+valores aleatorios.</p>
+<p>Estos ejemplos ilustran cómo realizar la imputación de datos
+utilizando diferentes técnicas en R. Recuerda adaptar las técnicas a tus
+propios datos y contexto, y considera la evaluación y validación de las
+imputaciones realizadas.</p>
+<p>çç Sí, hay muchos ejemplos de imputación de datos en Kaggle. Kaggle
+es una plataforma en línea muy popular para la comunidad de ciencia de
+datos, donde los profesionales comparten conjuntos de datos y colaboran
+en proyectos. Puedes encontrar numerosos kernels y notebooks en Kaggle
+que muestran diferentes técnicas de imputación de datos.</p>
+<p>Aquí te muestro un ejemplo de Kaggle donde se realiza la imputación
+de datos utilizando varias técnicas:</p>
+<p>Título: “Data Cleaning and Imputation Techniques”</p>
+<p>Enlace: <a
+href="https://www.kaggle.com/jpmiller/data-cleaning-and-imputation-techniques">https://www.kaggle.com/jpmiller/data-cleaning-and-imputation-techniques</a></p>
+<p>Este kernel muestra cómo manejar datos faltantes y aplicar diferentes
+técnicas de imputación en un conjunto de datos utilizando la biblioteca
+<code>pandas</code> en Python. El autor proporciona explicaciones
+detalladas y ejemplos prácticos de cómo utilizar la imputación por
+media, mediana, moda y valores aleatorios.</p>
+<p>Te recomendaría explorar Kaggle y buscar específicamente ejemplos de
+imputación de datos en los kernels y notebooks disponibles. Puedes
+encontrar una amplia variedad de técnicas y casos de estudio que te
+ayudarán a comprender mejor las diferentes estrategias y cómo
+implementarlas en tu propio análisis de datos.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

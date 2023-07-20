@@ -7,7 +7,16 @@ navbar:
       icon: fa-home
       href: index.html  
     - text: "Conceptos básicos"
-      href: recurso101.html
+      menu:    
+        - text: "Conceptos Básicos"
+          href: recurso101.html     
+        - text: "---------"
+        - text: "Conceptos"
+          href: recurso101A.html           
+        - text: "Importar datos"
+          href: recurso100A.html          
+        - text: "Limpieza de datos"
+          href: recurso100B.html            
     - text: "Análisis de datos"
       menu:      
         - text: "Análisis de datos"

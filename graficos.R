@@ -364,12 +364,13 @@ View(AirPassengers)
 #----------------------------------------------------------------------
 library(tidyverse)
 library(readr)
-inflacion <- read_csv("~/Documentos/Javeriana/Ms en Ciencia de Datos/data/inflacionaNov22.csv")
-inflacion$mes<- seq(as.Date("1993-02-01"),length=359,by="months")-1
+library(readr)
+inflacion <- read_csv("~/Documentos/Javeriana/Ms Ciencia de Datos/recursos/data/inflacion202305.csv")
+inflacion$t<- seq(as.Date("1993-02-01"),length=365,by="months")-1
 inflacion$inflacion=ts(inflacion$inflacion)
 
 ggplot(inflacion) +
-        geom_line(aes(x = mes, y = inflacion), color = 'red', size = 1)+ 
+        geom_line(aes(x = t, y = inflacion), color = 'red', size = 1)+ 
         scale_x_date(date_labels = "%m-%Y")+
         labs(title = "", y= "Variación anual (%)", x= "meses ") +  
         Theme2 
