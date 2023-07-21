@@ -344,320 +344,230 @@ $(document).ready(function () {
 de Datos corresponde a la preparación de los datos (Limpieza de datos o
 data cleaning) que posteriormente van a permitir el modelamiento
 adecuado.</p>
-<p><img src="img/limpieza.png" width="70%" style="display: block; margin: auto;" />
-Figura :</p>
-<p>El tratamiento de los datos faltantes es un aspecto muy importante en
-el</p>
-<p>El tratamiento de datos faltantes es un aspecto crítico en ciencia de
-datos, ya que los datos faltantes pueden afectar la calidad y validez de
-los análisis y modelos. Aquí te presento algunas estrategias comunes
-para manejar los datos faltantes:</p>
-<p>Eliminacion de variables 1. Eliminación de filas o columnas: Si los
-datos faltantes son pocos en comparación con el tamaño total del
-conjunto de datos, una estrategia simple es eliminar las filas o
-columnas que contienen datos faltantes. Sin embargo, esta estrategia
-puede llevar a una pérdida de información si los datos faltantes son
-sistemáticos o si se eliminan muchas observaciones.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>Imputación de valores: La imputación implica estimar y reemplazar
-los valores faltantes con valores razonables. Esto se puede hacer de
-varias maneras, como reemplazar los valores faltantes por la media, la
-mediana o el valor más frecuente de la variable correspondiente. Otra
-opción es utilizar técnicas más avanzadas, como la imputación basada en
-modelos, donde se construye un modelo predictivo para estimar los
-valores faltantes.</p></li>
-<li><p>Tratamiento de datos faltantes como una categoría: En algunos
-casos, los datos faltantes pueden tener un significado propio y no deben
-ser imputados ni eliminados. En lugar de eso, puedes considerar tratar
-los datos faltantes como una categoría adicional en el análisis o
-modelo.</p></li>
-<li><p>Técnicas avanzadas de imputación: Existen métodos más
-sofisticados para imputar datos faltantes, como la imputación múltiple
-(multiple imputation) y la imputación basada en modelos de aprendizaje
-automático. Estos enfoques generan múltiples conjuntos de datos
-imputados y tienen en cuenta la incertidumbre asociada con la
-imputación.</p></li>
-</ol>
+<p>Este ciclo comprende :</p>
+<ul>
+<li>Importación de los datos</li>
+<li>Fusión de datos</li>
+<li>Datos faltantes</li>
+<li>Estandarización</li>
+<li>Normalización</li>
+<li>Elinación de registros duplicados</li>
+<li>Verificación y enrequecimiento</li>
+<li>Exportación de los datos</li>
+</ul>
+<p></br></br></p>
+<p>Al importar una base de datos que está conformada por una matriz con
+n filas o registros y m columnas o variables se presentan problemas
+relacionados con:</p>
+<ul>
+<li>Datos faltantes (NA)</li>
+<li>Reemplazar los datos faltantes - imputación</li>
+<li>Datos extraños o atípicos</li>
+<li>Necesidad de estandarizar los valores con el fin varias variables
+sean comparables (una misma escala)</li>
+<li>Construir nuevas variables a partir de las contenidas en la
+base</li>
+<li>Cambiar el formato de una variable</li>
+<li>Aumentar los registros contenidos en dos bases</li>
+<li>Agregar variables contenidas en dos bases</li>
+</ul>
+<p></br></br></p>
+<p>A contunuación trataremos algunos de estos temas que nos permitan
+tratar y dejar lista la base de datos de interes para empezar el
+análisis de datos</p>
+<p></br></br></p>
+<div id="datos-faltantes" class="section level2">
+<h2><span style="color:#034a94"><strong>Datos faltantes</strong></h2>
+<p>El tratamiento de datos faltantes es un aspecto crítico en Ciencia de
+Datos, ya que ellos pueden afectar de manera significativa la calidad y
+validez de los análisis y modelos que realicemos. Acontinuación se
+presentan algunas estrategias comunes para manejar los datos
+faltantes:</p>
+<p></br></p>
+<div id="eliminacion-de-los-registros-o-filas" class="section level3">
+<h3><span style="color:#034a94"><strong>1. Eliminacion de los registros
+o filas</strong></span></h3>
+<p>Si los <strong>datos faltantes</strong> son pocos en comparación con
+el tamaño total del conjunto de datos, una estrategia es eliminar los
+registros o filas que contienen datos faltantes. Sin embargo, esta
+estrategia puede llevar a una pérdida de información si los datos
+faltantes son sistemáticos o si se eliminan muchas observaciones en
+comparación con el tamaño de la base de datos.</p>
+<p></br></p>
+</div>
+<div id="imputación-de-valores" class="section level3">
+<h3><span style="color:#034a94"><strong>2. Imputación de
+valores</strong></h3>
+<p>La imputación implica estimar y reemplazar los valores faltantes con
+valores razonables. Esto se puede realizar de diferentes maneras, como
+:</p>
+<p></br></p>
+</div>
+<div id="reemplazar-los-valores-faltantes" class="section level3">
+<h3><span style="color:#034a94"><strong>3. Reemplazar los valores
+faltantes</strong></h3>
+<p>Se reemplazan los datos faltantes por la media o la mediana en el
+caso de variables numéricas o por el valor más frecuente de la variable
+correspondiente (moda), en el caso de las variables cualitativas.</p>
+<p></br></p>
+</div>
+<div id="utilizar-técnicas-más-avanzadas" class="section level3">
+<h3><span style="color:#034a94"><strong>4. Utilizar técnicas más
+avanzadas</strong></h3>
+<p>Los valores faltantes pueden ser reemplazados por valores obtenidos a
+a partir modelos, donde se construyen para estimar los valores faltantes
+de manera predictiva.</p>
+<p></br></p>
+</div>
+<div id="tratamiento-de-datos-faltantes-como-una-categoría"
+class="section level3">
+<h3><span style="color:#034a94"><strong>5. Tratamiento de datos
+faltantes como una categoría</strong></h3>
+<p>En el caso de variables categóricas o cualitativas sus valores
+faltantes se pueden encontrar a partir del modelamiento la subbase con
+registros completos</p>
+<p>los datos faltantes pueden tener un significado propio y no deben ser
+imputados ni eliminados. En lugar de eso, puedes considerar tratar los
+datos faltantes como una categoría adicional en el análisis o
+modelo.</p>
+<p></br></p>
+</div>
+<div id="técnicas-avanzadas-de-imputación" class="section level3">
+<h3><span style="color:#034a94"><strong>6. Técnicas avanzadas de
+imputación</strong></h3>
+<p>Existen métodos Aavanzados para imputar datos faltantes, como la
+imputación múltiple (multiple imputation) y la imputación basada en
+modelos de aprendizaje automático. Estos enfoques generan múltiples
+conjuntos de datos imputados y tienen en cuenta la incertidumbre
+asociada con la imputación.</p>
+<p></br></p>
 <p>Es importante evaluar cuidadosamente el patrón y la naturaleza de los
 datos faltantes antes de decidir qué estrategia utilizar. Además, es
-fundamental tener en cuenta que cualquier método de imputación introduce
-cierto grado de incertidumbre y puede afectar los resultados de los
-análisis o modelos. Por lo tanto, es recomendable documentar y tener en
-cuenta el proceso de imputación en el análisis y la interpretación de
-los resultados.</p>
-<div id="crear-un-dataframe-de-ejemplo" class="section level1">
-<h1>Crear un dataframe de ejemplo</h1>
-<p>datos &lt;- data.frame(edad = c(25, 30, NA, 35, NA, 40, 45))</p>
+fundamental tener en cuenta que los método de imputación introduce
+incertidumbre y puede afectar los resultados de los análisis o modelos.
+Por lo tanto, es recomendable documentar y tener en cuenta el proceso de
+imputación en el análisis y la interpretación de los resultados.</p>
+<p></br></br></p>
 </div>
-<div id="imprimir-los-datos-originales" class="section level1">
-<h1>Imprimir los datos originales</h1>
-<p>cat(“Datos originales:”) print(datos)</p>
-</div>
-<div id="calcular-la-media-de-la-variable-edad" class="section level1">
-<h1>Calcular la media de la variable “edad”</h1>
-<p>media_edad &lt;- mean(datos$edad, na.rm = TRUE)</p>
-</div>
-<div id="imputar-los-valores-faltantes-con-la-media"
-class="section level1">
-<h1>Imputar los valores faltantes con la media</h1>
-<p>datos<span class="math inline">\(edad[is.na(datos\)</span>edad)]
-&lt;- media_edad</p>
-</div>
-<div id="imprimir-los-datos-imputados" class="section level1">
-<h1>Imprimir los datos imputados</h1>
-<p>cat(“imputados:”) print(datos) ———————————————–</p>
-<p>Para medir la cantidad de datos faltantes en una base de datos,
-puedes utilizar diversas funciones y métodos en R. Aquí te muestro dos
-enfoques comunes:</p>
-<ol style="list-style-type: decimal">
-<li>Función <code>is.na()</code> y <code>sum()</code>: Esta combinación
-de funciones te permite contar la cantidad de valores faltantes en cada
-columna de tu base de datos. Puedes usar <code>is.na()</code> para
-identificar los valores faltantes y <code>sum()</code> para calcular la
-suma total de valores verdaderos (TRUE), que corresponden a los datos
-faltantes.</li>
-</ol>
-<pre class="r"><code># Calcular la cantidad de datos faltantes por columna
-num_faltantes &lt;- apply(datos, 2, function(x) sum(is.na(x)))
-
-# Imprimir los resultados
-cat(&quot;Cantidad de datos faltantes por columna:\n&quot;)
-print(num_faltantes)</code></pre>
-<p>En este ejemplo, <code>datos</code> representa tu base de datos. La
-función <code>apply()</code> se utiliza para aplicar la función anónima
-a cada columna de la base de datos. La función anónima
-<code>function(x) sum(is.na(x))</code> cuenta la cantidad de valores
-faltantes en cada columna utilizando <code>is.na()</code> y
-<code>sum()</code>. El resultado se almacena en
-<code>num_faltantes</code>, que muestra la cantidad de datos faltantes
-por columna.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Paquete <code>naniar</code>: El paquete <code>naniar</code>
-proporciona una variedad de funciones útiles para trabajar con datos
-faltantes. Una función particularmente útil es <code>vis_miss()</code>,
-que crea visualizaciones gráficas de los datos faltantes.</li>
-</ol>
-<pre class="r"><code>library(naniar)
-
-# Visualización gráfica de datos faltantes
-vis_miss(datos)</code></pre>
-<p>Al utilizar <code>vis_miss()</code>, se generará un gráfico de barras
-y una matriz de puntos que resumen visualmente los datos faltantes en tu
-base de datos. Los valores faltantes se mostrarán en color rojo,
-mientras que los valores presentes se mostrarán en color azul.</p>
-<p>Estos enfoques te permitirán obtener una medida cuantitativa de la
-cantidad de datos faltantes en tu base de datos y visualizarlos de
-manera más intuitiva utilizando el paquete <code>naniar</code>. Puedes
-elegir el enfoque que mejor se adapte a tus necesidades y
-preferencias.</p>
-<hr />
-<p>Existen varias técnicas para la imputación de datos, y la elección de
-la técnica adecuada depende del contexto de tus datos y de la naturaleza
-de los valores faltantes. A continuación, te presento algunas de las
-técnicas más comunes utilizadas para la imputación de datos:</p>
-<ol style="list-style-type: decimal">
-<li><p>Imputación por media o mediana: Esta técnica consiste en
-reemplazar los valores faltantes con la media o la mediana de la
-variable correspondiente. Es una técnica simple y ampliamente utilizada,
-especialmente en variables numéricas. La media se utiliza cuando los
-datos siguen una distribución normal, mientras que la mediana se
-prefiere cuando los datos tienen valores atípicos o una distribución
-sesgada.</p></li>
-<li><p>Imputación por moda: En esta técnica, se reemplazan los valores
-faltantes con el valor más frecuente (moda) de la variable. Es útil para
-variables categóricas y discretas.</p></li>
-<li><p>Imputación por valores aleatorios: En este enfoque, se generan
-valores aleatorios dentro del rango de los valores observados existentes
-y se utilizan para reemplazar los valores faltantes. Esto mantiene la
-variabilidad de los datos y evita introducir sesgos. Sin embargo, puede
-resultar en resultados diferentes en cada imputación aleatoria.</p></li>
-<li><p>Imputación por regresión: Esta técnica utiliza un modelo de
-regresión para predecir los valores faltantes basándose en otras
-variables predictoras. Se ajusta un modelo a los datos completos y luego
-se utilizan las variables predictoras para predecir los valores
-faltantes. Es especialmente útil cuando hay relaciones lineales o no
-lineales entre las variables.</p></li>
-<li><p>Imputación múltiple (multiple imputation): Esta técnica implica
-generar múltiples conjuntos de datos imputados, donde cada conjunto
-tiene sus propias imputaciones. Luego, se realizan análisis en cada
-conjunto de datos imputados y se combinan los resultados para tener en
-cuenta la incertidumbre introducida por la imputación.</p></li>
-<li><p>Imputación basada en modelos de aprendizaje automático: Esta
-técnica utiliza modelos de aprendizaje automático, como regresión
-lineal, regresión logística o árboles de decisión, para predecir los
-valores faltantes. Estos modelos pueden capturar relaciones más
-complejas en los datos y mejorar la precisión de la imputación.</p></li>
-</ol>
-<p>Es importante evaluar cuidadosamente el patrón de los datos faltantes
-y considerar la naturaleza de tus datos antes de elegir una técnica de
-imputación. Además, es recomendable realizar una validación cruzada o
-evaluar la calidad de las imputaciones utilizando métricas adecuadas
-para asegurarse de que los valores imputados sean razonables y no
-introduzcan sesgos en los análisis o modelos subsiguientes.</p>
-<hr />
-<p>¡Por supuesto! Aquí tienes algunos ejemplos de técnicas de imputación
-de datos en R utilizando paquetes populares como <code>mice</code> y
-<code>missForest</code>:</p>
-<ol style="list-style-type: decimal">
-<li>Imputación por media utilizando el paquete <code>mice</code>:</li>
-</ol>
-<pre class="r"><code>library(mice)
-
-# Crear un dataframe de ejemplo con valores faltantes
-datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
-var2 = c(NA, 10, 20, NA, 50))
-
-# Imputar los valores faltantes por la media
-imp &lt;- mice(datos, method = &quot;mean&quot;)
-datos_imputados &lt;- complete(imp)
-
-# Imprimir los datos imputados
-print(datos_imputados)</code></pre>
-<p>En este ejemplo, utilizamos el paquete <code>mice</code> para
-realizar la imputación por la media. La función <code>mice()</code> crea
-un objeto de imputación, donde especificamos el método de imputación
-como “mean”. Luego, utilizamos <code>complete()</code> para obtener los
-datos imputados del objeto de imputación.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Imputación utilizando el paquete <code>missForest</code>:</li>
-</ol>
-<pre class="r"><code>library(missForest)
-
-# Crear un dataframe de ejemplo con valores faltantes
-datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
-var2 = c(NA, 10, 20, NA, 50))
-
-# Imputar los valores faltantes utilizando missForest
-datos_imputados &lt;- missForest(datos)
-
-# Imprimir los datos imputados
-print(datos_imputados$ximp)</code></pre>
-<p>En este ejemplo, utilizamos el paquete <code>missForest</code> para
-realizar la imputación de datos. La función <code>missForest()</code>
-realiza la imputación utilizando métodos de bosques aleatorios. Los
-datos imputados se almacenan en el objeto devuelto por la función, y
-podemos acceder a ellos utilizando <code>$ximp</code>.</p>
-<p>Estos son solo dos ejemplos de técnicas de imputación utilizando
-paquetes populares en R. Hay otros paquetes y enfoques disponibles, por
-lo que te recomiendo explorar más opciones según tus necesidades
-específicas. Recuerda evaluar y validar los resultados de la imputación
-antes de utilizar los datos imputados para análisis o modelado.</p>
-<hr />
-<p>¡Por supuesto! Aquí tienes algunos ejemplos de técnicas de imputación
-de datos en R utilizando paquetes populares como <code>mice</code> y
-<code>missForest</code>:</p>
-<ol style="list-style-type: decimal">
-<li>Imputación por media utilizando el paquete <code>mice</code>:</li>
-</ol>
-<pre class="r"><code>library(mice)
-
-# Crear un dataframe de ejemplo con valores faltantes
-datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
-var2 = c(NA, 10, 20, NA, 50))
-
-# Imputar los valores faltantes por la media
-imp &lt;- mice(datos, method = &quot;mean&quot;)
-datos_imputados &lt;- complete(imp)
-
-# Imprimir los datos imputados
-print(datos_imputados)</code></pre>
-<p>En este ejemplo, utilizamos el paquete <code>mice</code> para
-realizar la imputación por la media. La función <code>mice()</code> crea
-un objeto de imputación, donde especificamos el método de imputación
-como “mean”. Luego, utilizamos <code>complete()</code> para obtener los
-datos imputados del objeto de imputación.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Imputación utilizando el paquete <code>missForest</code>:</li>
-</ol>
-<pre class="r"><code>library(missForest)
-
-# Crear un dataframe de ejemplo con valores faltantes
-datos &lt;- data.frame(var1 = c(1, 2, NA, 4, 5),
-var2 = c(NA, 10, 20, NA, 50))
-
-# Imputar los valores faltantes utilizando missForest
-datos_imputados &lt;- missForest(datos)
-
-# Imprimir los datos imputados
-print(datos_imputados$ximp)</code></pre>
-<p>En este ejemplo, utilizamos el paquete <code>missForest</code> para
-realizar la imputación de datos. La función <code>missForest()</code>
-realiza la imputación utilizando métodos de bosques aleatorios. Los
-datos imputados se almacenan en el objeto devuelto por la función, y
-podemos acceder a ellos utilizando <code>$ximp</code>.</p>
-<p>Estos son solo dos ejemplos de técnicas de imputación utilizando
-paquetes populares en R. Hay otros paquetes y enfoques disponibles, por
-lo que te recomiendo explorar más opciones según tus necesidades
-específicas. Recuerda evaluar y validar los resultados de la imputación
-antes de utilizar los datos imputados para análisis o modelado.</p>
-<p>¡Claro! A continuación, te mostraré ejemplos de cómo realizar la
-imputación de datos utilizando diferentes técnicas en R.</p>
-<ol style="list-style-type: decimal">
-<li>Imputación por media o mediana:</li>
-</ol>
-<pre class="r"><code># Imputación por media
-datos$edad[is.na(datos$edad)] &lt;- mean(datos$edad, na.rm = TRUE)
-
-# Imputación por mediana
-datos$edad[is.na(datos$edad)] &lt;- median(datos$edad, na.rm = TRUE)</code></pre>
-<p>En estos ejemplos, se imputan los valores faltantes en la variable
-“edad” del dataframe “datos” utilizando la media (<code>mean()</code>) o
-la mediana (<code>median()</code>) de la variable correspondiente. Los
-valores faltantes se reemplazan directamente con el valor imputado
-utilizando la función de indexación
-<code>[is.na(datos$edad)]</code>.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Imputación por moda:</li>
-</ol>
-<pre class="r"><code># Cargar el paquete &quot;dplyr&quot; para usar la función &quot;mode()&quot;
+<div id="ejemplo" class="section level3">
+<h3><span style="color:#FF7F00"><strong>Ejemplo</strong></h3>
+<p>A partir de la base de datos vivienda_faltantes contenida en
+paqueteMET, se plantera examinar una muestra de ella de tamaño 1000 x 13
+que se puede obtener con el siguiente código :</p>
+<pre class="r"><code>library(paqueteMET)
 library(dplyr)
-
-# Imputación por moda
-datos$categoria[is.na(datos$categoria)] &lt;- mode(datos$categoria, na.rm = TRUE)</code></pre>
-<p>En este ejemplo, se imputan los valores faltantes en la variable
-categórica “categoria” del dataframe “datos” utilizando la moda
-(<code>mode()</code>) de la variable. La función <code>mode()</code> se
-obtiene del paquete “dplyr”. Los valores faltantes se reemplazan
-directamente con el valor imputado utilizando la función de indexación
-<code>[is.na(datos$categoria)]</code>.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Imputación por valores aleatorios:</li>
-</ol>
-<pre class="r"><code># Imputación por valores aleatorios
-set.seed(123)  # Establecer semilla para reproducibilidad
-datos$altura[is.na(datos$altura)] &lt;- runif(sum(is.na(datos$altura)), min = min(datos$altura, na.rm = TRUE), max = max(datos$altura, na.rm = TRUE))</code></pre>
-<p>En este ejemplo, se imputan los valores faltantes en la variable
-numérica “altura” del dataframe “datos” utilizando valores aleatorios
-generados por <code>runif()</code>. La función <code>runif()</code>
-genera valores aleatorios dentro del rango de los valores observados
-existentes en la variable “altura”. La función
-<code>sum(is.na(datos$altura))</code> se utiliza para determinar cuántos
-valores faltantes hay y asegurarse de generar la cantidad adecuada de
-valores aleatorios.</p>
-<p>Estos ejemplos ilustran cómo realizar la imputación de datos
-utilizando diferentes técnicas en R. Recuerda adaptar las técnicas a tus
-propios datos y contexto, y considera la evaluación y validación de las
-imputaciones realizadas.</p>
-<p>çç Sí, hay muchos ejemplos de imputación de datos en Kaggle. Kaggle
-es una plataforma en línea muy popular para la comunidad de ciencia de
-datos, donde los profesionales comparten conjuntos de datos y colaboran
-en proyectos. Puedes encontrar numerosos kernels y notebooks en Kaggle
-que muestran diferentes técnicas de imputación de datos.</p>
-<p>Aquí te muestro un ejemplo de Kaggle donde se realiza la imputación
-de datos utilizando varias técnicas:</p>
-<p>Título: “Data Cleaning and Imputation Techniques”</p>
-<p>Enlace: <a
-href="https://www.kaggle.com/jpmiller/data-cleaning-and-imputation-techniques">https://www.kaggle.com/jpmiller/data-cleaning-and-imputation-techniques</a></p>
-<p>Este kernel muestra cómo manejar datos faltantes y aplicar diferentes
-técnicas de imputación en un conjunto de datos utilizando la biblioteca
-<code>pandas</code> en Python. El autor proporciona explicaciones
-detalladas y ejemplos prácticos de cómo utilizar la imputación por
-media, mediana, moda y valores aleatorios.</p>
-<p>Te recomendaría explorar Kaggle y buscar específicamente ejemplos de
-imputación de datos en los kernels y notebooks disponibles. Puedes
-encontrar una amplia variedad de técnicas y casos de estudio que te
-ayudarán a comprender mejor las diferentes estrategias y cómo
-implementarlas en tu propio análisis de datos.</p>
+data(&quot;vivienda_faltantes&quot;)
+set.seed(123)
+datosNA&lt;-sample_n(vivienda_faltantes, 1000)
+str(datosNA)</code></pre>
+<pre><code>spc_tbl_ [1,000 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id       : num [1:1000] 122 190 880 1663 1401 ...
+ $ zona     : chr [1:1000] &quot;Zona Norte&quot; &quot;Zona Oriente&quot; &quot;Zona Oriente&quot; &quot;Zona Sur&quot; ...
+ $ piso     : num [1:1000] 1 4 1 NA NA 1 7 NA 2 4 ...
+ $ estrato  : num [1:1000] 3 3 3 4 4 5 5 3 5 3 ...
+ $ preciom  : num [1:1000] 150 360 250 375 150 270 290 235 450 125 ...
+ $ areaconst: num [1:1000] 93 420 210 74 57 75 93 122 252 72 ...
+ $ parquea  : num [1:1000] NA 1 NA 1 NA 1 1 1 2 NA ...
+ $ banios   : num [1:1000] 1 6 4 5 2 2 3 2 2 2 ...
+ $ habitac  : num [1:1000] 4 9 4 5 3 3 3 5 7 3 ...
+ $ tipo     : chr [1:1000] &quot;Casa&quot; &quot;Casa&quot; &quot;Apartamento&quot; &quot;Casa&quot; ...
+ $ barrio   : chr [1:1000] &quot;la rivera&quot; &quot;las ceibas&quot; &quot;morichal de comfandi&quot; &quot;calicanto viii&quot; ...
+ $ longitud : num [1:1000] -76.5 -76.5 -76.5 -76517 -76.5 ...
+ $ latitud  : num [1:1000] 3.48 3.46 3.4 3373 3.38 ...
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   id = col_double(),
+  ..   zona = col_character(),
+  ..   piso = col_double(),
+  ..   estrato = col_double(),
+  ..   preciom = col_double(),
+  ..   areaconst = col_double(),
+  ..   parquea = col_double(),
+  ..   banios = col_double(),
+  ..   habitac = col_double(),
+  ..   tipo = col_character(),
+  ..   barrio = col_character(),
+  ..   longitud = col_double(),
+  ..   latitud = col_double()
+  .. )
+ - attr(*, &quot;problems&quot;)=&lt;externalptr&gt; </code></pre>
+<p><br/></p>
+<p>Como se observa con la función <code>str()</code> obtenemos una
+visualización del tamaño de la base de datos, las variables que la
+conforman y el tipo de variables y una muesrta de los primeros
+valores.</p>
+<p>Existen diferentes formas de visualizar los datos faltantes</p>
+<pre class="r"><code>faltantes &lt;- colSums(is.na(datosNA))
+faltantes</code></pre>
+<pre><code>       id      zona      piso   estrato   preciom areaconst   parquea    banios 
+        0         0       344         0         0         0       208         0 
+  habitac      tipo    barrio  longitud   latitud 
+        0         0         0         0         0 </code></pre>
+<p>Esta función muestra el número total de datos faltantes por
+variable</p>
+<p><br/></p>
+<pre class="r"><code># install.packages(&quot;naniar&quot;)
+library(naniar)
+gg_miss_var(datosNA)</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>En esta gráfica podemos visualizar que las viables piso y parquea
+presentan datos faltantes, la primera al rededor de 340 y la segunda un
+poco mas de 200 datos faltantes.</p>
+<p></br></br></p>
+<pre class="r"><code># install.packages(&quot;mice&quot;)
+library(mice)
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>En la gráfica generada por la función <code>md.pattern()</code> del
+paquete <code>mice</code> representa la base de datos, se observa que
+546 registros tienen informaciçon completa (sin datos faltantes), a 246
+registros tiene datos faltantes en la variable piso, que a 110 registros
+les hace falta información en la variables parqueadero y a 98 registros
+les hace falta la información en dos variables (parqueadero y piso)</p>
+<p></br></br></p>
+<p>Ahora iniciaremos por la primera opción que consiste en elimitar
+todos los registros que contenga datos faltantes (NA) con la función
+<code>na.omit()</code> y lo verificamos</p>
+<pre class="r"><code># install.packages(&quot;mice&quot;)
+library(mice)
+datosSINA &lt;- na.omit(datosNA)
+grafico &lt;-md.pattern(datosSINA, rotate.names = TRUE)</code></pre>
+<p><img src="img/datosNA1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p></br></br></p>
+</div>
+</div>
+<div id="imputación" class="section level1">
+<h1><strong>Imputación</strong></h1>
+<p>Si no queremos eliminar los registros que contiene datos faltantes
+dado que perdemos un gran porcentaje de la información, entoces
+recurrimos a reemplazar estos valores, primero calculado el valor por el
+cual realizaremos el reemplazo, en este primer caso puede ser que se
+trate de falta de información o que los propietarios entendieron que no
+debian colocar nada, pues su vivienda no posee parqueadero. En otros
+casos es posible que se trate de un dato faltante real y se deba
+reeplazar por la media por ejemplo</p>
+<p>El caso de reemplazar el NA por cero procederemos así:</p>
+<pre class="r"><code>datosNA$parquea[is.na(datosNA$parquea)] &lt;- 0
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p></br></p>
+<p>En el caso de reemplazar el NA por el valor correspondiente a la
+media se asigna este valor de la siguiente manera:</p>
+<pre class="r"><code># Calcula la media de la variable &quot;parquea&quot;
+media_parquea &lt;- mean(datosNA$parquea, na.rm = TRUE)
+datosNA$parquea[is.na(datosNA$parquea)] &lt;- media_parquea
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="img/datosNA2.png" width="70%" style="display: block; margin: auto;" />
+</br></br></p>
+<pre class="r"><code># install.packages(&quot;DescTools&quot;)
+library(DescTools)
+moda_piso &lt;- Mode(datosNA$piso, na.rm = TRUE)
+datosNA$piso[is.na(datosNA$piso)] &lt;- moda_piso
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="img/datosNA3.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
+<p>Las otras tecnicas la iremos incorporando en las siguientes
+unidades</p>
 </div>
 
 
