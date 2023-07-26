@@ -31,7 +31,7 @@ data("vivienda_faltantes")
 
 <!-- ======================================================================= -->
 
-Una de las tareas más importante al realizar un proyecto de Ciencia de Datos corresponde a la preparación de los datos (Limpieza de datos o data cleaning) que posteriormente van a permitir el modelamiento adecuado. 
+Una de las tareas más importante al realizar un proyecto de Ciencia de Datos corresponde a la preparación de los datos (Limpieza de datos o data cleaning) que posteriormente va a permitir el modelamiento adecuado de los datos. 
 
 Este ciclo comprende :
 
@@ -46,7 +46,7 @@ Este ciclo comprende :
 
 </br></br>
 
-Al importar una base de datos que está conformada por una matriz con n filas o registros  y m columnas o variables se presentan problemas relacionados con:
+Al importar una base de datos que está conformada por una matriz con $n$ filas o registros  y $m$ columnas o variables se presentan problemas relacionados con:
 
 * Datos faltantes (NA)
 * Reemplazar los datos faltantes - imputación
@@ -59,7 +59,7 @@ Al importar una base de datos que está conformada por una matriz con n filas o 
 
 </br></br>
 
-A contunuación trataremos algunos de estos temas que nos permitan tratar y dejar lista la base de datos de interes para empezar el análisis de datos
+A contunuación se presentan algunos de estos temas que permiten tratar y dejar lista la base de datos de interes para iniciar el análisis de datos
 
 </br></br>
 
@@ -82,19 +82,19 @@ La imputación implica estimar y reemplazar los valores faltantes con valores ra
 
 </br>
 
-### <span style="color:#034a94">**3. Reemplazar los valores faltantes** 
+### <span style="color:#034a94">**Reemplazar los valores faltantes** 
 
 Se reemplazan los datos faltantes por la media o la mediana en el caso de variables numéricas  o por el valor más frecuente de la variable correspondiente (moda), en el caso de las variables cualitativas. 
 
 </br>
 
-### <span style="color:#034a94">**4. Utilizar técnicas más avanzadas**
+### <span style="color:#034a94">**Utilizar técnicas más avanzadas**
 
 Los valores faltantes pueden ser reemplazados por valores obtenidos a a partir modelos, donde se construyen para estimar los valores faltantes de manera predictiva.
 
 </br>
 
-### <span style="color:#034a94">**5. Tratamiento de datos faltantes como una categoría** 
+### <span style="color:#034a94">**Tratamiento de datos faltantes como una categoría** 
 
 En el caso de variables categóricas o cualitativas sus valores faltantes se pueden encontrar a partir del modelamiento la subbase con registros completos 
 
@@ -102,7 +102,7 @@ los datos faltantes pueden tener un significado propio y no deben ser imputados 
 
 </br>
 
-### <span style="color:#034a94">**6. Técnicas avanzadas de imputación**  
+### <span style="color:#034a94">**Técnicas avanzadas de imputación**  
 
 Existen métodos Aavanzados para imputar datos faltantes, como la imputación múltiple (multiple imputation) y la imputación basada en modelos de aprendizaje automático. Estos enfoques generan múltiples conjuntos de datos imputados y tienen en cuenta la incertidumbre asociada con la imputación.
 
@@ -150,7 +150,7 @@ library(naniar)
 gg_miss_var(datosNA)
 ```
 
-En esta gráfica podemos visualizar que las viables piso y parquea presentan datos faltantes, la primera al rededor de 340 y la segunda un poco mas de 200 datos faltantes.
+En esta gráfica podemos visualizar que las viables piso y parquea presentan datos faltantes, la primera al rededor de 340 y la segunda un poco más de 200 datos faltantes.
 
 </br></br>
 
@@ -162,17 +162,16 @@ grafico <-md.pattern(datosNA, rotate.names = TRUE)
 
 ```
 
-En la gráfica generada por la función `md.pattern()` del paquete `mice`  representa la base de datos, se observa que 546 registros tienen informaciçon completa (sin datos faltantes), a 246 registros tiene datos faltantes en la variable piso, que a 110 registros les hace falta información en la variables parqueadero  y a 98 registros les hace falta la información en dos variables (parqueadero y piso)
+En la gráfica generada por la función `md.pattern()` del paquete `mice`  representa la base de datos, se observa que 546 registros tienen informaciçon completa (sin datos faltantes), se presentan 246 registros con  datos faltantes en la variable piso, 110 registros les hace falta información en la variables parqueadero  y a 98 registros les hace falta información en dos variables (parqueadero y piso)
 
 </br></br>
 
-Ahora iniciaremos por la primera opción que consiste en elimitar todos los registros que contenga datos faltantes (NA) con la función `na.omit()`  y lo verificamos
-
+La función : `na.omit()`  , permite elimitar todos los registros contenidos en la base de datos que contenga datos faltantes (NA) c
 
 ```{r, eval=FALSE}
 # install.packages("mice")
 library(mice)
-datosSINA <- na.omit(datosNA)
+datosSINA <- na.omit(datosNA)  # elimina todos los valores con  NA
 grafico <-md.pattern(datosSINA, rotate.names = TRUE)
 ```
 
@@ -185,9 +184,12 @@ knitr::include_graphics("img/datosNA1.png")
 
 # **Imputación**
 
-Si no queremos eliminar los registros que contiene datos faltantes dado que perdemos un gran porcentaje de la información, entoces recurrimos a reemplazar estos valores, primero calculado el valor por el cual realizaremos el reemplazo, en este primer caso puede ser que se trate de falta de información o que los propietarios entendieron que no debian colocar nada, pues su vivienda no posee parqueadero. En otros casos es posible que se trate de un dato faltante real y se deba reeplazar por la media por ejemplo
+Si no se desea eliminar los registros que contiene datos faltantes,  dado que se puede perder un gran porcentaje de la información, entoces se recurre a reemplazar estos valores, primero calculado el valor por el cual se debe reemplazar,
 
-El caso de reemplazar el NA por cero procederemos así:
+En este primer caso puede se trater de falta de información o que los propietarios entendieron que no debian responder la pregunta, pues su vivienda no posee parqueadero. En otros casos es posible que se trate de un dato faltante real y se deba reeplazar por la media por ejemplo
+
+
+El caso de reemplazar el NA por **cero** procederemos así:
 
 ```{r}
 datosNA$parquea[is.na(datosNA$parquea)] <- 0

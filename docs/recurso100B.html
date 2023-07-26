@@ -342,8 +342,8 @@ $(document).ready(function () {
 <!-- ======================================================================= -->
 <p>Una de las tareas más importante al realizar un proyecto de Ciencia
 de Datos corresponde a la preparación de los datos (Limpieza de datos o
-data cleaning) que posteriormente van a permitir el modelamiento
-adecuado.</p>
+data cleaning) que posteriormente va a permitir el modelamiento adecuado
+de los datos.</p>
 <p>Este ciclo comprende :</p>
 <ul>
 <li>Importación de los datos</li>
@@ -357,8 +357,9 @@ adecuado.</p>
 </ul>
 <p></br></br></p>
 <p>Al importar una base de datos que está conformada por una matriz con
-n filas o registros y m columnas o variables se presentan problemas
-relacionados con:</p>
+<span class="math inline">\(n\)</span> filas o registros y <span
+class="math inline">\(m\)</span> columnas o variables se presentan
+problemas relacionados con:</p>
 <ul>
 <li>Datos faltantes (NA)</li>
 <li>Reemplazar los datos faltantes - imputación</li>
@@ -372,8 +373,8 @@ base</li>
 <li>Agregar variables contenidas en dos bases</li>
 </ul>
 <p></br></br></p>
-<p>A contunuación trataremos algunos de estos temas que nos permitan
-tratar y dejar lista la base de datos de interes para empezar el
+<p>A contunuación se presentan algunos de estos temas que permiten
+tratar y dejar lista la base de datos de interes para iniciar el
 análisis de datos</p>
 <p></br></br></p>
 <div id="datos-faltantes" class="section level2">
@@ -404,7 +405,7 @@ valores razonables. Esto se puede realizar de diferentes maneras, como
 <p></br></p>
 </div>
 <div id="reemplazar-los-valores-faltantes" class="section level3">
-<h3><span style="color:#034a94"><strong>3. Reemplazar los valores
+<h3><span style="color:#034a94"><strong>Reemplazar los valores
 faltantes</strong></h3>
 <p>Se reemplazan los datos faltantes por la media o la mediana en el
 caso de variables numéricas o por el valor más frecuente de la variable
@@ -412,7 +413,7 @@ correspondiente (moda), en el caso de las variables cualitativas.</p>
 <p></br></p>
 </div>
 <div id="utilizar-técnicas-más-avanzadas" class="section level3">
-<h3><span style="color:#034a94"><strong>4. Utilizar técnicas más
+<h3><span style="color:#034a94"><strong>Utilizar técnicas más
 avanzadas</strong></h3>
 <p>Los valores faltantes pueden ser reemplazados por valores obtenidos a
 a partir modelos, donde se construyen para estimar los valores faltantes
@@ -421,8 +422,8 @@ de manera predictiva.</p>
 </div>
 <div id="tratamiento-de-datos-faltantes-como-una-categoría"
 class="section level3">
-<h3><span style="color:#034a94"><strong>5. Tratamiento de datos
-faltantes como una categoría</strong></h3>
+<h3><span style="color:#034a94"><strong>Tratamiento de datos faltantes
+como una categoría</strong></h3>
 <p>En el caso de variables categóricas o cualitativas sus valores
 faltantes se pueden encontrar a partir del modelamiento la subbase con
 registros completos</p>
@@ -433,7 +434,7 @@ modelo.</p>
 <p></br></p>
 </div>
 <div id="técnicas-avanzadas-de-imputación" class="section level3">
-<h3><span style="color:#034a94"><strong>6. Técnicas avanzadas de
+<h3><span style="color:#034a94"><strong>Técnicas avanzadas de
 imputación</strong></h3>
 <p>Existen métodos Aavanzados para imputar datos faltantes, como la
 imputación múltiple (multiple imputation) y la imputación basada en
@@ -512,7 +513,7 @@ gg_miss_var(datosNA)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>En esta gráfica podemos visualizar que las viables piso y parquea
 presentan datos faltantes, la primera al rededor de 340 y la segunda un
-poco mas de 200 datos faltantes.</p>
+poco más de 200 datos faltantes.</p>
 <p></br></br></p>
 <pre class="r"><code># install.packages(&quot;mice&quot;)
 library(mice)
@@ -520,17 +521,18 @@ grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>En la gráfica generada por la función <code>md.pattern()</code> del
 paquete <code>mice</code> representa la base de datos, se observa que
-546 registros tienen informaciçon completa (sin datos faltantes), a 246
-registros tiene datos faltantes en la variable piso, que a 110 registros
-les hace falta información en la variables parqueadero y a 98 registros
-les hace falta la información en dos variables (parqueadero y piso)</p>
+546 registros tienen informaciçon completa (sin datos faltantes), se
+presentan 246 registros con datos faltantes en la variable piso, 110
+registros les hace falta información en la variables parqueadero y a 98
+registros les hace falta información en dos variables (parqueadero y
+piso)</p>
 <p></br></br></p>
-<p>Ahora iniciaremos por la primera opción que consiste en elimitar
-todos los registros que contenga datos faltantes (NA) con la función
-<code>na.omit()</code> y lo verificamos</p>
+<p>La función : <code>na.omit()</code> , permite elimitar todos los
+registros contenidos en la base de datos que contenga datos faltantes
+(NA) c</p>
 <pre class="r"><code># install.packages(&quot;mice&quot;)
 library(mice)
-datosSINA &lt;- na.omit(datosNA)
+datosSINA &lt;- na.omit(datosNA)  # elimina todos los valores con  NA
 grafico &lt;-md.pattern(datosSINA, rotate.names = TRUE)</code></pre>
 <p><img src="img/datosNA1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p></br></br></p>
@@ -538,15 +540,16 @@ grafico &lt;-md.pattern(datosSINA, rotate.names = TRUE)</code></pre>
 </div>
 <div id="imputación" class="section level1">
 <h1><strong>Imputación</strong></h1>
-<p>Si no queremos eliminar los registros que contiene datos faltantes
-dado que perdemos un gran porcentaje de la información, entoces
-recurrimos a reemplazar estos valores, primero calculado el valor por el
-cual realizaremos el reemplazo, en este primer caso puede ser que se
-trate de falta de información o que los propietarios entendieron que no
-debian colocar nada, pues su vivienda no posee parqueadero. En otros
-casos es posible que se trate de un dato faltante real y se deba
-reeplazar por la media por ejemplo</p>
-<p>El caso de reemplazar el NA por cero procederemos así:</p>
+<p>Si no se desea eliminar los registros que contiene datos faltantes,
+dado que se puede perder un gran porcentaje de la información, entoces
+se recurre a reemplazar estos valores, primero calculado el valor por el
+cual se debe reemplazar,</p>
+<p>En este primer caso puede se trater de falta de información o que los
+propietarios entendieron que no debian responder la pregunta, pues su
+vivienda no posee parqueadero. En otros casos es posible que se trate de
+un dato faltante real y se deba reeplazar por la media por ejemplo</p>
+<p>El caso de reemplazar el NA por <strong>cero</strong> procederemos
+así:</p>
 <pre class="r"><code>datosNA$parquea[is.na(datosNA$parquea)] &lt;- 0
 grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
