@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(gtools)
 library(TeachingSampling)
 library(readr)
-library(paqueteMET)
+library(paqueteMETODOS)
 
 c1="#FF7F00"
 c2="#034A94"
@@ -29,7 +29,7 @@ data(vivienda_faltantes)
 
 </br></br>
 
-La importación de los datos es una de las etapas importantes del proceso para el análisis de datos, que depende del formato y la fuente de los datos. Esta etapa forma parte del ciclo la limpieza de los datos o Data Cleansing.
+La importación de los datos es una de las etapas importantes del proceso para el análisis de datos, que depende del formato y la fuente de los que genera los datos. Esta etapa forma parte del ciclo la limpieza de datos o Data Cleansing.
 
 <!-- ======================================================================= -->
 
@@ -42,13 +42,13 @@ knitr::include_graphics("img/limpieza.png")
 
 
 <center>
-**Figura : 1.1 ** Ciclo de limpieza de datos  <br/>
+**Figura : 1.5 ** Ciclo de limpieza de datos  <br/>
 <sub> Tomado de Data Cleaning In 5 Easy Steps + Examples </sub>
 </center>
 
 </br></br>
 
-En R se puede importar los datos de diferentes formas: 
+En **R** se puede importar los datos de diferentes formas: 
 
 </br>
 
@@ -81,7 +81,7 @@ Los anteriores caso implican que tengamos la base de datos descargada en una car
 
 ### <span style="color:#034a94">**3. Utilizando API y token desde un repositorio externo**</span>
 
-Podemos importar la base de datos de un repositorio que maneje API que es un permiso a traves de un token. En este caso debemos solicitar el token e instalar el paquete RSocrata
+Podemos importar la base de datos de un repositorio que maneje API a traves de un token. En este caso debemos solicitar el token e instalar el paquete RSocrata
 
 Por ejemplo
 
@@ -96,7 +96,7 @@ Instalación de paquetes requeridos
 
 Este proceso tarde unos minutos pues  la base es grande
 
-Para guardar el archivo en mi PC, el formarto RDS es menos pesado En ete caso se guarda el archivo con el nombre de *Colombia.RDS* en la carpeta *data/*
+Para guardar el archivo, se recomienda el formarto RDS por ocupar menos espacio.  En este caso se guarda el archivo descargado con el nombre de *Colombia.RDS* en la carpeta *data/*
 
 ```{r, eval=FALSE}
 saveRDS(Colombia, file = "data/Colombia23.RDS") 
@@ -106,25 +106,25 @@ saveRDS(Colombia, file = "data/Colombia23.RDS")
 
 ### <span style="color:#034a94">**4. Desde un paquete de R instalado**</span> 
 
-Podemos trabajar con Dataset disponible en los paquetes de R. Para ello solo utilizamos la función data
+Es psosible trabajar con una dataset disponible en los paquetes de R. Para ello solo utilizamos la función `data()`
 
 ```{r}
 data(iris)  # data set iris
 data(cars)  # data set cars
+data(vivienda_faltantes)
 ```
 
 </br></br>
 
 <div class="content-box-gray">
 ### <span style="color:#686868">**Nota**</span> 
-
-Ahora si tengo un archivo en mi PC, puedo utilizar la siguinte función para conocer la ruta donde esta  el archivo  y luego copiando la ruta obtenida con Ctrl+C, 
+se tiene tengo un archivo en un equipo, puede utiliza la función: `file.choose()` , para conocer la ruta donde esta  el archivo  y luego se copia la ruta obtenida con Ctrl+C, 
 
 ```{r, eval=FALSE, warning=FALSE, message=FALSE}
 file.choose()
 ```
 
-En mi caso se genera la ruta "data/Colombia.RDS"
+En este caso se genera la ruta "data/Colombia.RDS", como resultado de ejecutar la función anterior y ubicar el archivo a importar.
 
 
 ```{r, eval=FALSE}
@@ -145,7 +145,7 @@ R permite importar datos en diferentes formatos :
 | .csv       | library(readr)   | datos <- read.csv("datos.csv")                                 |
 | .xlsx      | library(readxl)  | datos <- read_excel("datos.xlsx", sheet = "hoja1")             |
 | .json      | library(jsonlite)| datos <- fromJSON("datos.json")                                |
-| .stata     | library(haven)   |  datos_stata <- read_dta("datos_stata.dta")                    |
+| .stata     | library(haven)   | datos_stata <- read_dta("datos_stata.dta")                     |
 | .spss      | library(haven)   | datos_spss <- read_sav("datos_spss.sav")                       |
 | .sas       | library(haven)   | datos_sas <- read_sas("datos_sas.sas7bdat")                    |
 |            |                  |                                                                |ç
@@ -166,6 +166,7 @@ Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app
 </div>
 
 <div class="content-box-gray">
+
 * Importe la base de datos del dataset :  `flights` del paquete `nycflights13` y explore sus principales caracteristicas
 
 </div>

@@ -27,5 +27,5 @@ c4 ="#686868"  # gris - color texto
 knitr::include_graphics("img/nube002.png")
 ```
 
-La  ESTADÍSTICA está conformadas por múltiples conceptos que abordaremos a los largo de esta unidad o por lo menos haremos enfasis en los más importantes
+La  **ESTADÍSTICA** está conformadas por múltiples conceptos que abordaremos a los largo de esta unidad o por lo menos haremos enfasis en los más importantes
 

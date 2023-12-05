@@ -1,8 +1,10 @@
 ---
 title: <span style="color:#034a94">**Tablas de frecuencia en R**</span>
 author: "Métodos y Simulación Estadística"
-output: html_document
-css: style.css
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +14,7 @@ library(tidyverse)
 
 # cargar paqueteMET
 # devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
-library(paqueteMET)   # activar paqueteMET
+library(paqueteMETODOS)   # activar paqueteMET
 data("CarreraLuz22")    # cargar la dataset
 
 ```

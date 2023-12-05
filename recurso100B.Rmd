@@ -1,8 +1,10 @@
 ---
 title: <span style="color:#034a94"> **Limpieza de datos**</span> 
 author: "Métodos y Simulación Estadística"
-output: html_document
-css: style.css
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(gtools)
 library(TeachingSampling)
 library(readr)
-library(paqueteMET)
+library(paqueteMETODOS)
 
 c1="#FF7F00"
 c2="#034A94"

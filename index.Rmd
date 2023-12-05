@@ -1,8 +1,9 @@
 ---
 title : <span style="color:#034A94"> **Experiencia**</span>
-author: "  " 
-output: html_document
-css: style.css
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
 ---
 
 
@@ -52,7 +53,7 @@ La **Metodología Estadística** está basada en el método científico que corr
 
 1. Formulación de una hipótesis, 
 2. Observación, 
-3. Análisis de información y prueba de la hipótesis, interpretación de resultados y decisión.
+3. Análisis de información, prueba de la hipótesis, interpretación de resultados y decisión.
 
 <br/>
 

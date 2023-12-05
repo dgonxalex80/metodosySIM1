@@ -14,7 +14,7 @@
 
 <title> Importación de datos</title>
 
-<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -33,8 +33,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -341,16 +341,17 @@ $(document).ready(function () {
 <p></br></br></p>
 <p>La importación de los datos es una de las etapas importantes del
 proceso para el análisis de datos, que depende del formato y la fuente
-de los datos. Esta etapa forma parte del ciclo la limpieza de los datos
-o Data Cleansing.</p>
+de los que genera los datos. Esta etapa forma parte del ciclo la
+limpieza de datos o Data Cleansing.</p>
 <!-- ======================================================================= -->
 <p><img src="img/limpieza.png" width="70%" style="display: block; margin: auto;" /></p>
 <center>
-<strong>Figura : 1.1 </strong> Ciclo de limpieza de datos <br/> <sub>
+<strong>Figura : 1.5 </strong> Ciclo de limpieza de datos <br/> <sub>
 Tomado de Data Cleaning In 5 Easy Steps + Examples </sub>
 </center>
 <p></br></br></p>
-<p>En R se puede importar los datos de diferentes formas:</p>
+<p>En <strong>R</strong> se puede importar los datos de diferentes
+formas:</p>
 <p></br></p>
 <div id="utilizando-el-menú-rstudio" class="section level3">
 <h3><span style="color:#034a94"><strong>1. Utilizando el menú
@@ -411,9 +412,9 @@ en una carpeta de nuestro PC</p>
 class="section level3">
 <h3><span style="color:#034a94"><strong>3. Utilizando API y token desde
 un repositorio externo</strong></span></h3>
-<p>Podemos importar la base de datos de un repositorio que maneje API
-que es un permiso a traves de un token. En este caso debemos solicitar
-el token e instalar el paquete RSocrata</p>
+<p>Podemos importar la base de datos de un repositorio que maneje API a
+traves de un token. En este caso debemos solicitar el token e instalar
+el paquete RSocrata</p>
 <p>Por ejemplo</p>
 <p>Instalación de paquetes requeridos</p>
 <pre class="r"><code># install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata
@@ -421,28 +422,30 @@ el token e instalar el paquete RSocrata</p>
  # token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
  # Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
 <p>Este proceso tarde unos minutos pues la base es grande</p>
-<p>Para guardar el archivo en mi PC, el formarto RDS es menos pesado En
-ete caso se guarda el archivo con el nombre de <em>Colombia.RDS</em> en
-la carpeta <em>data/</em></p>
+<p>Para guardar el archivo, se recomienda el formarto RDS por ocupar
+menos espacio. En este caso se guarda el archivo descargado con el
+nombre de <em>Colombia.RDS</em> en la carpeta <em>data/</em></p>
 <pre class="r"><code>saveRDS(Colombia, file = &quot;data/Colombia23.RDS&quot;) </code></pre>
 <p></br></br></p>
 </div>
 <div id="desde-un-paquete-de-r-instalado" class="section level3">
 <h3><span style="color:#034a94"><strong>4. Desde un paquete de R
 instalado</strong></span></h3>
-<p>Podemos trabajar con Dataset disponible en los paquetes de R. Para
-ello solo utilizamos la función data</p>
+<p>Es psosible trabajar con una dataset disponible en los paquetes de R.
+Para ello solo utilizamos la función <code>data()</code></p>
 <pre class="r"><code>data(iris)  # data set iris
-data(cars)  # data set cars</code></pre>
+data(cars)  # data set cars
+data(vivienda_faltantes)</code></pre>
 <p></br></br></p>
 </div>
 <div id="nota-1" class="section level3 content-box-gray">
 <h3><span style="color:#686868"><strong>Nota</strong></span></h3>
-<p>Ahora si tengo un archivo en mi PC, puedo utilizar la siguinte
-función para conocer la ruta donde esta el archivo y luego copiando la
-ruta obtenida con Ctrl+C,</p>
+<p>se tiene tengo un archivo en un equipo, puede utiliza la función:
+<code>file.choose()</code> , para conocer la ruta donde esta el archivo
+y luego se copia la ruta obtenida con Ctrl+C,</p>
 <pre class="r"><code>file.choose()</code></pre>
-<p>En mi caso se genera la ruta “data/Colombia.RDS”</p>
+<p>En este caso se genera la ruta “data/Colombia.RDS”, como resultado de
+ejecutar la función anterior y ubicar el archivo a importar.</p>
 <pre class="r"><code>Colombia&lt;- readRDS(&quot;data/Colombia23.RDS&quot;)</code></pre>
 </div>
 <p></br></br></p>

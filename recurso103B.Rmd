@@ -1,8 +1,10 @@
 ---
 title: <span style="color:#034a94">**Indicadores en R**</span>
 author: "Métodos y Simulación Estadística"
-output: html_document
-css: style.css
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -12,8 +14,8 @@ library(tidyverse)
 
 # cargar paqueteMET
 # devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
-library(paqueteMET)   # activar paqueteMET
-data = paqueteMET::CarreraLuz22    # cargar la dataset
+library(paqueteMETODOS)   # activar paqueteMET
+data = paqueteMETODOS::CarreraLuz22    # cargar la dataset
 
 ```
 
