@@ -16,7 +16,10 @@ navbar:
         - text: "Importar datos"
           href: recurso100A.html          
         - text: "Limpieza de datos"
-          href: recurso100B.html            
+          href: recurso100B.html   
+        - text: "Fusión de datos"
+          href: recurso100D.html             
+          
     - text: "Análisis de datos"
       menu:      
         - text: "Análisis de datos"

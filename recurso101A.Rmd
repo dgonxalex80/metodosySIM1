@@ -360,7 +360,7 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 
 <center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/poblacion.png")
+knitr::include_graphics("img/poblacion1.png")
 ```
 **Figura 1.3** Representación relación Población - Muestra 
 </center>

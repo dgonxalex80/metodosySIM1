@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(tidyverse)
 
 # cargar paqueteMET
-devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+# devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
 library(paqueteMET)     # activar paqueteMET
 data("CarreraLuz22")    # cargar la dataset
 data("evaluacion")      # cargar la dataset

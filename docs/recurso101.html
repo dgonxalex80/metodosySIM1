@@ -14,7 +14,7 @@
 
 <title> Conceptos básicos</title>
 
-<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -31,10 +31,16 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="site_libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+<script src="site_libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="site_libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="site_libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -220,6 +226,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -272,6 +281,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="recurso100B.html">Limpieza de datos</a>
+    </li>
+    <li>
+      <a href="recurso100D.html">Fusión de datos</a>
     </li>
   </ul>
 </li>
@@ -329,6 +341,14 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore"><span style="color:#034A94">
@@ -339,7 +359,37 @@ $(document).ready(function () {
 
 
 <p><br/></p>
-<p><img src="img/nube002.png" width="100%" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>library(&quot;tm&quot;)
+library(&quot;SnowballC&quot;)
+library(&quot;wordcloud2&quot;)
+library(&quot;RColorBrewer&quot;)
+# nube1 &lt;- read.csv(&quot;data/nube1.csv&quot;)
+
+palabras=c(&quot;ESTADÍSTICA&quot;,&quot;DESCRIPTIVA&quot;, &quot;INERENCIA&quot;,&quot;VALIDEZ&quot;, &quot;UNIDAD ANÁLISIS&quot;, &quot;VARIABLE&quot;,&quot;VARIABLE DISCRETA&quot;,
+  &quot;VARIABLE CONTINUA&quot;,&quot;VARIABLE CUANTITATIVA&quot;, &quot;VARIABLE CUALITATIVA&quot;,&quot;ESCALA NOMINAL&quot;, &quot;ESCALA ORDINAL&quot;,&quot;ESCALA DE RAZÓN&quot;, &quot;ESCALA DE INTERVALO&quot;,&quot;POBLACIÓN&quot;, &quot;CENSO&quot;,&quot;PARÁMETRO&quot;, &quot;MUESTRA&quot;,&quot;MUESTREO&quot;, &quot;ESTIMADOR&quot;, &quot;MUESTREO POR CONVENIENCIA&quot;, &quot;MUESTEO POR JUICIO&quot;,  &quot;MUESTREO BOLA DE NIEVE&quot;,&quot;MUESTREO ALEATORIO SIMPLE&quot;,  &quot;MUESTREO ALEATORIO ESTRATIFICADO&quot;, &quot;MUESTREO ALEATORIO POR CONGLOMERADO&quot;, &quot;MUESTEO SISTEMÁTICO&quot;,&quot;VARIABLE DEPENDIENTE&quot;, &quot;VARIABLE INDEPENDIENTE&quot;, &quot;MEDIA&quot;, &quot;MEDIANA&quot;,&quot;MODA&quot;,&quot;MEDIA TRUNCADA&quot;,&quot;MEDIA GEOMÉTRICA&quot;, &quot;RANGO MEDIO&quot;, &quot;RANGO&quot;, &quot;DESVIACIÓN ESTANDAR&quot;, &quot;VARIANZA&quot;, &quot;COEFICIENTE DE VARIACIÓN&quot;, &quot;COEFICIENTE DE ASIMETRIA&quot;, &quot;SESGO&quot;, &quot;CURTOSIS&quot;, &quot;PERCENTIL&quot;, &quot;DECIL&quot;, &quot;CUARTIL&quot;, &quot;QUINTIL&quot;, &quot;MÁXIMO&quot;, &quot;MÍNIMO&quot;, &quot;TABLAS DE FRECUENCIA&quot;, &quot;FRECUENCIA ABSOLUTA&quot;, &quot;FRECUENCIA RELATIVA&quot;, &quot;FRECUENCIA ACUMULADA&quot;, &quot;DIAGRAMA DE TALLOS Y HOJAS&quot;, &quot;HISTOGRAMA&quot;,&quot;DIAGRAMA DE BARRAS&quot;, &quot;DIAGRAMA DE TORTA&quot;, &quot;DIAGRAMA DE DISPERSIÓN&quot;, &quot;DIAGRAMA DE LÍNEAS&quot;, &quot;R&quot;, &quot;RStudio&quot;)
+ #29
+
+replicas=c(25, rbinom(59, 10,0.5))
+ 
+nube1=rep(palabras, replicas)
+
+t=data.frame(table(nube1))
+
+dword=t[,1]
+dfreq=t[,2]
+set.seed(1234)
+# wordcloud(words = dword, freq = dfreq, min.freq = 1,
+#            max.words=200, random.order=FALSE, rot.per=0.35, 
+#            colors=brewer.pal(8, &quot;Dark2&quot;))
+
+mycolor&lt;-c(&quot;#F27F0C&quot;, &quot;#F7AD19&quot;, &quot;#053F5C&quot;, &quot;#429EBD&quot;, &quot;#034A94&quot;)
+library(wordcloud2)
+wordcloud2(data = t, size = 0.5, color=rep_len( c(&quot;#F27F0C&quot;, &quot;#F7AD19&quot;, &quot;#053F5C&quot;, &quot;#429EBD&quot;, &quot;#034A94&quot;), nrow(demoFreq)),
+           minRotation = 0, 
+           maxRotation = 0, 
+           shuffle = F) </code></pre>
+<div class="wordcloud2 html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1b4ff99564eb6e8884a5" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-1b4ff99564eb6e8884a5">{"x":{"word":["CENSO","COEFICIENTE DE ASIMETRIA","COEFICIENTE DE VARIACIÓN","CUARTIL","CURTOSIS","DECIL","DESCRIPTIVA","DESVIACIÓN ESTANDAR","DIAGRAMA DE BARRAS","DIAGRAMA DE DISPERSIÓN","DIAGRAMA DE LÍNEAS","DIAGRAMA DE TALLOS Y HOJAS","DIAGRAMA DE TORTA","ESCALA DE INTERVALO","ESCALA DE RAZÓN","ESCALA NOMINAL","ESCALA ORDINAL","ESTADÍSTICA","ESTIMADOR","FRECUENCIA ABSOLUTA","FRECUENCIA ACUMULADA","FRECUENCIA RELATIVA","HISTOGRAMA","INERENCIA","MÁXIMO","MEDIA","MEDIA GEOMÉTRICA","MEDIA TRUNCADA","MEDIANA","MÍNIMO","MODA","MUESTEO POR JUICIO","MUESTEO SISTEMÁTICO","MUESTRA","MUESTREO","MUESTREO ALEATORIO ESTRATIFICADO","MUESTREO ALEATORIO POR CONGLOMERADO","MUESTREO ALEATORIO SIMPLE","MUESTREO BOLA DE NIEVE","MUESTREO POR CONVENIENCIA","PARÁMETRO","PERCENTIL","POBLACIÓN","QUINTIL","R","RANGO","RANGO MEDIO","RStudio","SESGO","TABLAS DE FRECUENCIA","UNIDAD ANÁLISIS","VALIDEZ","VARIABLE","VARIABLE CONTINUA","VARIABLE CUALITATIVA","VARIABLE CUANTITATIVA","VARIABLE DEPENDIENTE","VARIABLE DISCRETA","VARIABLE INDEPENDIENTE","VARIANZA"],"freq":[8,4,2,1,6,5,5,4,3,3,5,5,6,3,5,8,4,25,7,8,4,5,2,9,7,7,6,4,4,3,3,1,2,5,4,5,4,4,4,5,2,5,7,3,7,6,5,3,6,4,5,4,3,5,4,6,3,6,6,5],"fontFamily":"Segoe UI","fontWeight":"bold","color":["#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C","#F7AD19","#053F5C","#429EBD","#034A94","#F27F0C"],"minSize":0,"weightFactor":3.6,"backgroundColor":"white","gridSize":0,"minRotation":0,"maxRotation":0,"shuffle":false,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 <p>La <strong>ESTADÍSTICA</strong> está conformadas por múltiples
 conceptos que abordaremos a los largo de esta unidad o por lo menos
 haremos enfasis en los más importantes</p>
@@ -377,6 +427,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

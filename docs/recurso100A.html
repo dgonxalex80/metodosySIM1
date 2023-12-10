@@ -31,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -220,6 +221,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -272,6 +276,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="recurso100B.html">Limpieza de datos</a>
+    </li>
+    <li>
+      <a href="recurso100D.html">Fusión de datos</a>
     </li>
   </ul>
 </li>
@@ -329,6 +336,14 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
@@ -340,14 +355,15 @@ $(document).ready(function () {
 
 <p></br></br></p>
 <p>La importación de los datos es una de las etapas importantes del
-proceso para el análisis de datos, que depende del formato y la fuente
-de los que genera los datos. Esta etapa forma parte del ciclo la
-limpieza de datos o Data Cleansing.</p>
+proceso para el análisis de datos, que depende del formato y las fuentes
+generadoras los datos. Esta etapa forma parte del ciclo los de
+datos.</p>
 <!-- ======================================================================= -->
-<p><img src="img/limpieza.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="img/proceso_cd1.png" width="70%" style="display: block; margin: auto;" /></p>
 <center>
-<strong>Figura : 1.5 </strong> Ciclo de limpieza de datos <br/> <sub>
-Tomado de Data Cleaning In 5 Easy Steps + Examples </sub>
+<strong>Figura : 1.5 </strong> Ciclo de datos <br/> <sub> Tomado de <a
+href="https://datosgcba.github.io/ciencia-de-datos-politicas-publicas/docs/">Ciencia
+de Datos y Políticas Públicas</a> </sub>
 </center>
 <p></br></br></p>
 <p>En <strong>R</strong> se puede importar los datos de diferentes
@@ -363,27 +379,27 @@ RStudio</strong></span></h3>
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left">* <strong>formato .txt</strong></td>
+<td align="left"><strong>formato .txt</strong></td>
 <td align="left"><em>File/Import Dataset/From Text (base)</em></td>
 </tr>
 <tr class="even">
-<td align="left">* <strong>formato .csv</strong></td>
+<td align="left"><strong>formato .csv</strong></td>
 <td align="left"><em>File/Import Dataset/From text (base)</em></td>
 </tr>
 <tr class="odd">
-<td align="left">* <strong>formato .xlsx</strong></td>
+<td align="left"><strong>formato .xlsx</strong></td>
 <td align="left"><em>File/Import Dataset/ From Excel</em></td>
 </tr>
 <tr class="even">
-<td align="left">* <strong>formato .dat</strong></td>
+<td align="left"><strong>formato .dat</strong></td>
 <td align="left"><em>File/Import Dataset/ From SPSS</em></td>
 </tr>
 <tr class="odd">
-<td align="left">* <strong>formato .sas7bdat</strong></td>
+<td align="left"><strong>formato .sas7bdat</strong></td>
 <td align="left"><em>File/Import Dataset/ From SAS</em></td>
 </tr>
 <tr class="even">
-<td align="left">* <strong>formato .dta</strong></td>
+<td align="left"><strong>formato .dta</strong></td>
 <td align="left"><em>File/Import Dataset/ From Stata</em></td>
 </tr>
 <tr class="odd">
@@ -394,14 +410,6 @@ RStudio</strong></span></h3>
 </table>
 <p></br></br></p>
 </div>
-<div id="utilizando-el-paquete-rcmdr-y-rcomdrmisc"
-class="section level3">
-<h3><span style="color:#034a94"><strong>2. Utilizando el paquete Rcmdr y
-RcomdrMisc</strong></span></h3>
-<p>Este paquete activa una interfas de R que trabaja con menus y
-ventanas con un proceso semejante al proceso anterior</p>
-<p></br></p>
-</div>
 <div id="nota" class="section level3 content-box-gray">
 <h3><span style="color:#686868"><strong>Nota</strong></span></h3>
 <p>Los anteriores caso implican que tengamos la base de datos descargada
@@ -410,22 +418,42 @@ en una carpeta de nuestro PC</p>
 <p></br></br></p>
 <div id="utilizando-api-y-token-desde-un-repositorio-externo"
 class="section level3">
-<h3><span style="color:#034a94"><strong>3. Utilizando API y token desde
+<h3><span style="color:#034a94"><strong>2. Utilizando API y token desde
 un repositorio externo</strong></span></h3>
 <p>Podemos importar la base de datos de un repositorio que maneje API a
 traves de un token. En este caso debemos solicitar el token e instalar
-el paquete RSocrata</p>
-<p>Por ejemplo</p>
-<p>Instalación de paquetes requeridos</p>
+el paquete <code>RSocrata</code></p>
+<p></br></br></p>
+</div>
+<div id="ejemplo" class="section level3">
+<h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
+<p>El siguiente código importa la base de datos de la Secretaria de
+Salud correspondiente a las parsonas reportadas con Covid-19 para el
+territorio Colombiano. Para ello se debe solicitar en la plataforma de
+Datos Abiertos Colombia un token y realizar la siguiente solicitud</p>
 <pre class="r"><code># install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata
- library(RSocrata)    # llamado de libreria
- # token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
- # Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
+library(RSocrata)    # llamado de libreria
+token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
+Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
+<p></br></p>
+<pre>
+# install.packages("RSocrata", dependencies = TRUE)   # instalación de paquete RSocrata
+library(RSocrata)    # llamado de libreria
+token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token
+Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token) # lectura 
+</pre>
+<p></br></p>
 <p>Este proceso tarde unos minutos pues la base es grande</p>
-<p>Para guardar el archivo, se recomienda el formarto RDS por ocupar
-menos espacio. En este caso se guarda el archivo descargado con el
-nombre de <em>Colombia.RDS</em> en la carpeta <em>data/</em></p>
+<p>Para guardar el archivo en una carpeta <code>data</code>, se
+recomienda el formarto RDS por ocupar menos espacio. En este caso se
+guarda el archivo descargado con el nombre de <em>Colombia.RDS</em> en
+la carpeta <em>data/</em></p>
+<p></br></p>
 <pre class="r"><code>saveRDS(Colombia, file = &quot;data/Colombia23.RDS&quot;) </code></pre>
+<p></br></p>
+<pre>
+saveRDS(Colombia, file = "data/Colombia23.RDS") 
+</pre>
 <p></br></br></p>
 </div>
 <div id="desde-un-paquete-de-r-instalado" class="section level3">
@@ -433,9 +461,18 @@ nombre de <em>Colombia.RDS</em> en la carpeta <em>data/</em></p>
 instalado</strong></span></h3>
 <p>Es psosible trabajar con una dataset disponible en los paquetes de R.
 Para ello solo utilizamos la función <code>data()</code></p>
+<p></br></br></p>
+</div>
+<div id="ejemplo-1" class="section level3">
+<h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
 <pre class="r"><code>data(iris)  # data set iris
 data(cars)  # data set cars
 data(vivienda_faltantes)</code></pre>
+<pre>
+data(iris)  # data set iris
+data(cars)  # data set cars
+data(vivienda_faltantes)
+</pre>
 <p></br></br></p>
 </div>
 <div id="nota-1" class="section level3 content-box-gray">
@@ -447,6 +484,9 @@ y luego se copia la ruta obtenida con Ctrl+C,</p>
 <p>En este caso se genera la ruta “data/Colombia.RDS”, como resultado de
 ejecutar la función anterior y ubicar el archivo a importar.</p>
 <pre class="r"><code>Colombia&lt;- readRDS(&quot;data/Colombia23.RDS&quot;)</code></pre>
+<pre>
+Colombia<- readRDS("data/Colombia23.RDS")
+</pre>
 </div>
 <p></br></br></p>
 <p>R permite importar datos en diferentes formatos :</p>
@@ -510,8 +550,10 @@ delim = “,”)</td>
 </tbody>
 </table>
 <p></br></br></p>
+<div class="content-box-gray">
+
 <div id="retos" class="section level3">
-<h3><span style="color:#FF7F00"><strong>Retos</strong></span></h3>
+<h3><span style="color:#686868"><strong>Retos</strong></span></h3>
 <div class="content-box-gray">
 <ul>
 <li>Importe la base de datos a la fecha de Covid-19</li>
@@ -520,8 +562,6 @@ delim = “,”)</td>
 library(RSocrata)    # llamado de libreria
 token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token - cada uno puede obtener su token en la pagina de Datos Abiertos Colombia
 Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
-</div>
-<div class="content-box-gray">
 <ul>
 <li>Importe la base de datos del dataset : <code>flights</code> del
 paquete <code>nycflights13</code> y explore sus principales
@@ -563,6 +603,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

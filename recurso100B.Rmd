@@ -1,5 +1,5 @@
 ---
-title: <span style="color:#034a94"> **Limpieza de datos**</span> 
+title: <span style="color:#034a94"> **Ordenar y limpiar los datos**</span> 
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 library(gtools)
 library(TeachingSampling)
 library(readr)
-library(paqueteMETODOS)
+library(paqueteMET)
 
 c1="#FF7F00"
 c2="#034A94"
@@ -37,7 +37,7 @@ Una de las tareas más importante al realizar un proyecto de Ciencia de Datos co
 
 Este ciclo comprende :
 
-* Importación de los datos 
+* Importación de los datos - ya tratado -
 * Fusión de datos
 * Datos faltantes
 * Estandarización
@@ -55,8 +55,8 @@ Al importar una base de datos que está conformada por una matriz con $n$ filas 
 * Datos extraños o  atípicos
 * Necesidad de estandarizar los valores con el fin varias variables sean comparables (una misma escala)
 * Construir nuevas variables a partir de las contenidas en la base
-* Cambiar el formato de una variable 
-* Aumentar los registros contenidos en dos bases
+* Cambiar el formato de una variable - formato corto y formato largo -
+* Aumentar los registros contenidos en dos bases - adicionar registros -
 * Agregar variables contenidas en dos bases
 
 </br></br>
@@ -65,8 +65,8 @@ A contunuación se presentan algunos de estos temas que permiten tratar y dejar 
 
 </br></br>
 
+# <span style="color:#034a94">**Tratamiento de datos faltantes**
 
-## <span style="color:#034a94">**Datos faltantes**
 
 El tratamiento de datos faltantes es un aspecto crítico en Ciencia de Datos, ya que ellos pueden afectar de manera significativa la calidad y validez de los análisis y modelos que realicemos. Acontinuación se presentan algunas estrategias comunes para manejar los datos faltantes:
 
@@ -78,46 +78,10 @@ Si los **datos faltantes** son pocos en comparación con el tamaño total del co
 
 </br>
 
-### <span style="color:#034a94">**2. Imputación de valores** 
-
-La imputación implica estimar y reemplazar los valores faltantes con valores razonables. Esto se puede realizar  de diferentes maneras, como :
-
-</br>
-
-### <span style="color:#034a94">**Reemplazar los valores faltantes** 
-
-Se reemplazan los datos faltantes por la media o la mediana en el caso de variables numéricas  o por el valor más frecuente de la variable correspondiente (moda), en el caso de las variables cualitativas. 
-
-</br>
-
-### <span style="color:#034a94">**Utilizar técnicas más avanzadas**
-
-Los valores faltantes pueden ser reemplazados por valores obtenidos a a partir modelos, donde se construyen para estimar los valores faltantes de manera predictiva.
-
-</br>
-
-### <span style="color:#034a94">**Tratamiento de datos faltantes como una categoría** 
-
-En el caso de variables categóricas o cualitativas sus valores faltantes se pueden encontrar a partir del modelamiento la subbase con registros completos 
-
-los datos faltantes pueden tener un significado propio y no deben ser imputados ni eliminados. En lugar de eso, puedes considerar tratar los datos faltantes como una categoría adicional en el análisis o modelo.
-
-</br>
-
-### <span style="color:#034a94">**Técnicas avanzadas de imputación**  
-
-Existen métodos Aavanzados para imputar datos faltantes, como la imputación múltiple (multiple imputation) y la imputación basada en modelos de aprendizaje automático. Estos enfoques generan múltiples conjuntos de datos imputados y tienen en cuenta la incertidumbre asociada con la imputación.
-
-</br>
-
-Es importante evaluar cuidadosamente el patrón y la naturaleza de los datos faltantes antes de decidir qué estrategia utilizar. Además, es fundamental tener en cuenta que los método de imputación introduce incertidumbre y puede afectar los resultados de los análisis o modelos. Por lo tanto, es recomendable documentar y tener en cuenta el proceso de imputación en el análisis y la interpretación de los resultados.
-
-</br></br>
-
 
 ### <span style="color:#FF7F00">**Ejemplo**
 
-A partir de la base de datos vivienda_faltantes contenida en paqueteMET, se plantera examinar una muestra de ella de tamaño 1000 x 13 que se puede obtener con el siguiente código :
+A partir de la base de datos `vivienda_faltantes` contenida en `paqueteMET`, se plantera examinar una muestra de ella de tamaño 1000 x 13 que se puede obtener con el siguiente código :
 
 
 ```{r}
@@ -131,17 +95,23 @@ str(datosNA)
 
 <br/>
 
-Como se observa con la función  `str()`  obtenemos una visualización del tamaño de la base de datos, las variables que la conforman y el tipo de variables y una muesrta de los primeros valores.
+La función  `str()`  se obtiene una visualización del tamaño de la base de datos, las variables que la conforman y el tipo de variables y una muesrta de los primeros valores.
 
+Ahora para visualizar que variables y con que frecuencia se presentan los datos faltantes o `NA` utilizamos el siguiente código
 
-Existen diferentes formas de visualizar los datos faltantes 
+<br/>
 
 ```{r}
 faltantes <- colSums(is.na(datosNA))
 faltantes
 ```
 
-Esta función muestra el número total de datos faltantes por variable
+<br/><br/>
+
+
+La función   `colSums(is.na(datosNA))`  totaliza  el número total de datos faltantes por variable para la data `datosNA`
+
+
 
 <br/>
 
@@ -152,9 +122,13 @@ library(naniar)
 gg_miss_var(datosNA)
 ```
 
-En esta gráfica podemos visualizar que las viables piso y parquea presentan datos faltantes, la primera al rededor de 340 y la segunda un poco más de 200 datos faltantes.
+
+En esta gráfica podemos visualizar que las viables piso y parquea presentan datos faltantes, la primera al rededor de 340 y la segunda un poco más de 200 datos faltantes. Para ello se utiliza la función  `gg_miss_var(datosNA)`
 
 </br></br>
+
+Otra forma de detectar y representar gráficamente los datos faltantes es utilizando la función `md.pattern(datosNA, rotate.names = TRUE)`  del paquete `mice`
+
 
 
 ```{r}
@@ -164,11 +138,17 @@ grafico <-md.pattern(datosNA, rotate.names = TRUE)
 
 ```
 
-En la gráfica generada por la función `md.pattern()` del paquete `mice`  representa la base de datos, se observa que 546 registros tienen informaciçon completa (sin datos faltantes), se presentan 246 registros con  datos faltantes en la variable piso, 110 registros les hace falta información en la variables parqueadero  y a 98 registros les hace falta información en dos variables (parqueadero y piso)
+En este caso se observa una primera fila que represnta los registros tienen informaciçon completa (sin datos faltantes). Las filas restantes donde aparecen cuadrados en rojo, registran los datos faltantes para las variables parqueadero y piso.
+
+Detectados la proporción de datos faltantes procederemos como una primera estrategia a eliminarlos por completo
+
 
 </br></br>
 
-La función : `na.omit()`  , permite elimitar todos los registros contenidos en la base de datos que contenga datos faltantes (NA) c
+#### <span style="color:#686868">**Eliminación de datos faltantes**</span>
+
+
+La función : `na.omit()`  , permite elimitar todos los registros contenidos en la base de datos que contenga datos faltantes (NA) 
 
 ```{r, eval=FALSE}
 # install.packages("mice")
@@ -177,60 +157,136 @@ datosSINA <- na.omit(datosNA)  # elimina todos los valores con  NA
 grafico <-md.pattern(datosSINA, rotate.names = TRUE)
 ```
 
-```{r, echo=FALSE, out.width="60%", fig.align = "center"}
-knitr::include_graphics("img/datosNA1.png")
-```
-
+* **Verifique que se han eliminado los datos faltantes**
 
 </br></br>
 
-# **Imputación**
+### <span style="color:#034a94">**2. Tratamiento de datos faltantes como una categoría** 
 
-Si no se desea eliminar los registros que contiene datos faltantes,  dado que se puede perder un gran porcentaje de la información, entoces se recurre a reemplazar estos valores, primero calculado el valor por el cual se debe reemplazar,
+En el caso de variables categóricas o cualitativas sus valores faltantes se pueden encontrar a partir del modelamiento la sub-base con registros completos 
 
-En este primer caso puede se trater de falta de información o que los propietarios entendieron que no debian responder la pregunta, pues su vivienda no posee parqueadero. En otros casos es posible que se trate de un dato faltante real y se deba reeplazar por la media por ejemplo
+los datos faltantes pueden tener un significado propio y no deben ser imputados ni eliminados. En lugar de eso, puedes considerar tratar los datos faltantes como una categoría adicional en el análisis o modelo.
 
 
-El caso de reemplazar el NA por **cero** procederemos así:
+
+</br>
+
+
+```{r}
+datosNA$faltante =0
+datosNA$faltante[is.na(datosNA$parquea)] <-1 
+grafico <-md.pattern(datosNA, rotate.names = TRUE)
+# Categoría datos faltantes
+table(datosNA$faltante)
+```
+
+</br></br>
+
+## <span style="color:#034a94">**2. Imputación de valores**</span> 
+
+
+Si no se desea eliminar los registros que contiene datos faltantes,  dado que se puede perder un gran porcentaje de la información, entoces se recurre a reemplazar estos valores, primero calculado el valor por el cual se debe reemplazar (**imputación de datos**). 
+
+Para realizar este procedimiento se tienen varias alternativas, cambiando los datos faltantes por :
+
+* cero
+* la media
+* mediana
+* por el valor de un registro completo semejante al del dato faltante - tecnicas avanzadas de imputación -
+ 
+</br></br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+####  <span style="color:#686868">**Caso imputación por cero**</span>
+
+En el caso de la data vivienda_faltantes, es posible que los  propietarios al ser interrogados, entendieron que no debian responder la pregunta: **Número de parqueaderes**, cuando su vivienda no posee parqueadero. 
+
+En otros casos es posible que se trate de un dato faltante real y se deba reeplazar por la media por ejemplo
+
+El caso de reemplazar los  NA por **cero** procederemos así:
+
 
 ```{r}
 datosNA$parquea[is.na(datosNA$parquea)] <- 0
 grafico <-md.pattern(datosNA, rotate.names = TRUE)
 ```
 
-</br>
+
+</br></br>
+
+#### <span style="color:#686868">**Caso reemplazo por la media**</span> 
 
 En el caso de reemplazar el NA por el valor correspondiente a la media se asigna este valor de la siguiente manera:
 
-```{r, eval=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Calcula la media de la variable "parquea"
-media_parquea <- mean(datosNA$parquea, na.rm = TRUE)
+media_parquea <- mean(datosNA$parquea, na.rm = TRUE) %>%
+                    round(,0)
+
 datosNA$parquea[is.na(datosNA$parquea)] <- media_parquea
+grafico <-md.pattern(datosNA, rotate.names = TRUE)
+
+```
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span>
+
+Dado que la variable número de parqueaderos es un valor entero, se aproxima al entero más cercano con la función `round()`
+
+<</div>
+
+
+</br></br>
+
+#### <span style="color:#686868">**Caso reemplazo por la mediana**</span> 
+
+En el caso de reemplazar el NA por el valor correspondiente a la mediana se asigna este valor de la siguiente manera:
+
+```{r, message=FALSE, warning=FALSE}
+# Calcula la media de la variable "parquea"
+mediana_parquea <- median(datosNA$parquea, na.rm = TRUE) %>%
+                    round(,0)
+
+datosNA$parquea[is.na(datosNA$parquea)] <- mediana_parquea
 grafico <-md.pattern(datosNA, rotate.names = TRUE)
 
 ```
 
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/datosNA2.png")
-```
+
+
 </br></br>
 
+#### <span style="color:#686868">**Caso reemplazo por la moda**</span> 
 
-```{r, eval=FALSE}
+En el caso de la variable piso, que corresponde cualitativa de escala ordinal, si se desea reemplazar por la moda a los datos faltantes procedemos de la siguiente forma:
+
+```{r, message=FALSE, warning=FALSE}
+
 # install.packages("DescTools")
 library(DescTools)
 moda_piso <- Mode(datosNA$piso, na.rm = TRUE)
 datosNA$piso[is.na(datosNA$piso)] <- moda_piso
 grafico <-md.pattern(datosNA, rotate.names = TRUE)
+
 ```
 
+</br></br>
 
-```{r, echo=FALSE, out.width="70%", fig.align = "center"}
-knitr::include_graphics("img/datosNA3.png")
-```
+### <span style="color:#034a94">**3. Técnicas más avanzadas**</span>
 
-<br/>
+Los valores faltantes pueden ser reemplazados por valores obtenidos a a partir modelos, donde se construyen para estimar los valores faltantes de manera predictiva.
 
-Las otras tecnicas la iremos incorporando en las siguientes unidades
+Existen métodos Aavanzados para imputar datos faltantes, como la imputación múltiple (multiple imputation) y la imputación basada en modelos de aprendizaje automático. Estos enfoques generan múltiples conjuntos de datos imputados y tienen en cuenta la incertidumbre asociada con la imputación. Los cuales serán tratado mas adelante.
+
+</br>
+
+Es importante evaluar cuidadosamente el patrón y la naturaleza de los datos faltantes antes de decidir qué estrategia utilizar. Además, es fundamental tener en cuenta que los método de imputación introduce incertidumbre y puede afectar los resultados de los análisis o modelos. Por lo tanto, es recomendable documentar y tener en cuenta el proceso de imputación en el análisis y la interpretación de los resultados.
+
+
+
+
+
+
+
 

@@ -12,7 +12,7 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Visualización de datos</title>
+<title> Fusión de datos</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -346,206 +346,234 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span style="color:#034a94">
-<strong>Visualización de datos</strong></span></h1>
+<h1 class="title toc-ignore"><span style="color:#034a94"> <strong>Fusión
+de datos</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
 
 
-<p></br></br></p>
-<!-- ======================================================================= -->
-<div class="content-box-gray">
-<blockquote>
-<p>“Se denomina gráfico a una representación visual de una serie de
-datos, representación que tiene como finalidad dar una rápida noción
-acerca de volúmenes, cantidades y porcentajes, estableciendo
-comparaciones”.</p>
-<p>enciclopedia.net</p>
-</blockquote>
-</div>
 <p><br/><br/></p>
-<p>Elegir el gráfico adecuado es muy importante, pues existen diferentes
-alternativas y se debe escoger el apropiado para representar los datos.
-El tipo de dato determina el tipo de gráfico así:</p>
-<strong>Tabla 1.4</strong> : Tipos de gráficas por tipo de variable
-<img src="img/tabla5.png" width="70%" style="display: block; margin: auto;" />
-<center>
-<sub> Fuente: construcción propia </sub>
-</center>
-<p><br/><br/></p>
-<div id="variables-cualitativas" class="section level1">
-<h1><span style="color:#034a94"><strong>Variables
-cualitativas</strong></span></h1>
+<p>Una de las necesidades impotante en el manejo de bases de datos la
+conforma el agregar mas registros o filas a una base de datos o de
+agregar nuevas variables.</p>
 <p><br/></p>
-<div id="diagráma-circular-tortas" class="section level2">
-<h2><span style="color:#034a94"><strong>Diagráma circular
-(Tortas)</strong></span></h2>
-<p>Este tipo de gráficos se utiliza para variables cualitativas medidas
-en escala nominal.</p>
-<center>
-<img src="img/RplotPie.png" width="70%" style="display: block; margin: auto;" />
-<strong>Figura 1.14</strong> Distribución demanda actividades del Medio
-Universitario <br/> <sub>Fuente : Unicifras Pontificia Universidad
-Javeriana Cali</sub>
-</center>
-<p><br/></p>
-<p>El gráfico permite resaltar la gran participación de los estudiantes
-en el sector Cultural con un 74.5%</p>
-<p><br/><br/></p>
-</div>
-<div id="diagrama-de-barras" class="section level2">
-<h2><span style="color:#034a94"><strong>Diagrama de
-barras</strong></span></h2>
-<p>El diagrama de barras se utiliza para representar variables
-cualitativas en escala ordinal. Es necesario que los valores
-representados sigan el orden de la escala.</p>
-<center>
-<img src="img/RplotCalifica.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.15 </strong> Evaluación pasajeros areopuerto <sub>
-Fuente: kaggle - Satisfacion_Airline </sub>
-</center>
-<p><br/><br/></p>
-</div>
-<div id="barras-con-dos-variables" class="section level2">
-<h2><span style="color:#034a94"><strong>Barras con dos
-variables</strong></span></h2>
-<p>Este diagrama se emplea para representar dos variables cualitativas
-que pueden ser de escala nominal u ordinal.</p>
-<center>
-<img src="img/RplotBarplot2.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.16</strong> Distribución de la categoría por sexo
-carrera La Luz 2022 <br/> <sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
-<p><br/><br/><br/></p>
-</div>
-</div>
-<div id="variables-cualitativas-1" class="section level1">
-<h1><span style="color:#034a94"><strong>Variables
-cualitativas</strong></span></h1>
-<p><br/></p>
-<div id="diagrama-de-árbol" class="section level2">
-<h2><span style="color:#034a94"><strong>Diagrama de
-árbol</strong></span></h2>
-<pre>
-The decimal point is 1 digit(s) to the right of the |
-
-4  | 89
-5  | 02234
-5  | 555566666788899
-6  | 00000011111122222333344444
-6  | 5555666677888899
-7  | 0000011122233333333344
-7  | 555666678888999
-8  | 011123334
-8  | 5556778899
-9  | 02334
-9  | 67
-10 | 1
-10 | 
-11 | 1
-</pre>
-<center>
-<strong>Figura 1.17</strong> Diagrama de tallos y hojas tiempos mujeres
-categoría Veteranas A <br/> <sub> Fuente:<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
-<p>Este diagrama ordena los datos de manera que se puede determinar
-tanto el mínimo (48 min) como el máximo (111 min) , además de visualizar
-donde están la mayor concentración de ellos.</p>
-<p>El diagrama divide los datos en dos partes :</p>
+<p>Esta etapa implica combinar datos provenientes de múltiples fuentes
+en una única estructura de datos, permitiendo un análisis más completo y
+holístico. La fusión de datos se utiliza comúnmente cuando se trabaja
+con conjuntos de datos que comparten una o más variables en común, como
+identificadores únicos, fechas o categorías.</p>
+<p>En <strong>R</strong>, uno de los paquetes más utilizados para
+realizar la fusión de datos es el paquete <code>dplyr</code>, que forma
+parte del grupo de paquetes agrupados en <code>tidyverse</code></p>
+<p>En este caso se presentan dos casos :</p>
 <ul>
-<li>tallo : dígitos delanteros</li>
-<li>hoja : últimos dígitos</li>
+<li>Adicionar registros a una base de datos</li>
+<li>Adicionar variables a una base de datos</li>
 </ul>
-<p>4 | 89 : representa 48 minutos que corresponde al mínimo seguido de
-49 5 | 0 : 50 minutos</p>
+<p><br/><br/></p>
+<div id="adicionar-registros" class="section level2">
+<h2><span style="color:#034a94"> <strong>Adicionar
+registros</strong></span></h2>
+<p><br/></p>
+<div id="ejemplo" class="section level3">
+<h3><strong>Ejemplo</strong></h3>
+<p>Para ilustrar el primer caso tomaremos una muestras pequeñas de la
+base rotacion contenida en paqueteMET</p>
+<p><br/></p>
+</div>
+<div id="data1" class="section level3">
+<h3><span style="color:#034a94"> <strong>data1</strong></span></h3>
+<p>Esta base contiene información de tres variables, correspondientes a
+6 personas</p>
+<pre class="r"><code>library(paqueteMET)
+data(&quot;rotacion&quot;)
+id = 1:1470
+data= data.frame(id, rotacion)
+
+data1 = data[1:6,c(2,3,4,5)]
+data1</code></pre>
+<pre><code>  Rotación Edad Viaje.de.Negocios Departamento
+1       Si   41         Raramente       Ventas
+2       No   49    Frecuentemente          IyD
+3       Si   37         Raramente          IyD
+4       No   33    Frecuentemente          IyD
+5       No   27         Raramente          IyD
+6       No   32    Frecuentemente          IyD</code></pre>
 <p><br/><br/></p>
 </div>
-<div id="histograma" class="section level2">
-<h2><span style="color:#034a94"><strong>Histograma</strong></span></h2>
-<p>El histograma es uno de los gráficos más utilizados para representar
-variables cuantitativas y permite resumir por rangos los diferentes
-datos. Es una buena forma de visualizar la distribución de los datos y
-su forma.</p>
-<p>Cada barra representa la cantidad de observaciones que se encuentra
-en cada uno de los intervalos establecidos, permitiendo visualizar el
-intervalo con mayor concentración de datos, además de la forma que tiene
-su distribución.</p>
-<center>
-<img src="img/RplotHistogramas.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.18</strong> Distribución del tiempo por sexo categoría
-abierta carrera La Luz 2022 <br/> <sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
+<div id="data2" class="section level3">
+<h3><span style="color:#034a94"> <strong>data2</strong></span></h3>
+<p>Esta segunda base contiene las mismas tres variables pero que
+corresponden a otras 6 personas y deseamos juntar todos los registros (
+en total 12) en una sola base de datos</p>
+<pre class="r"><code>library(paqueteMET)
+data(&quot;rotacion&quot;)
+id = 1:1470
+data= data.frame(id, rotacion)
+
+data2 = data[7:12,c(2,3,4,5)]
+data2</code></pre>
+<pre><code>   Rotación Edad Viaje.de.Negocios Departamento
+7        No   59         Raramente          IyD
+8        No   30         Raramente          IyD
+9        No   38    Frecuentemente          IyD
+10       No   36         Raramente          IyD
+11       No   35         Raramente          IyD
+12       No   29         Raramente          IyD</code></pre>
+<p><br/></p>
+<p>Para unir estas dos base utilizamos la función <code>rbind()</code>
+del paquete <code>dplyr</code>.</p>
+<pre class="r"><code>library(dplyr)
+data20 = rbind(data1,data2)
+data20</code></pre>
+<pre><code>   Rotación Edad Viaje.de.Negocios Departamento
+1        Si   41         Raramente       Ventas
+2        No   49    Frecuentemente          IyD
+3        Si   37         Raramente          IyD
+4        No   33    Frecuentemente          IyD
+5        No   27         Raramente          IyD
+6        No   32    Frecuentemente          IyD
+7        No   59         Raramente          IyD
+8        No   30         Raramente          IyD
+9        No   38    Frecuentemente          IyD
+10       No   36         Raramente          IyD
+11       No   35         Raramente          IyD
+12       No   29         Raramente          IyD</code></pre>
 <p><br/><br/></p>
 </div>
-<div id="de-densidad" class="section level2">
-<h2><span style="color:#034a94"><strong>De densidad</strong></sub></h2>
-<p>Este diagrama corresponde a un contorno suavizado del histograma que
-permite visualizar claramente la forma de los datos.</p>
-<center>
-<p><img src="img/RplotDensidad.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.19 </strong> Distribución del tiempo carrera La Luz
-2022</p>
-<sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
+<div id="adicionar-variables" class="section level3">
+<h3><span style="color:#034a94"> <strong>Adicionar
+variables</strong></span></h3>
+<p><br/></p>
+</div>
+<div id="ejemplo-1" class="section level3">
+<h3><strong>Ejemplo</strong></h3>
+<p><br/></p>
+<p>Para ilustrar este caso tomaremos una muestra de la data
+<code>rotacion</code> contenida en <code>paqueteMET</code></p>
+<pre class="r"><code>library(paqueteMET)
+data(&quot;rotacion&quot;)
+id = 1:1470
+data= data.frame(id, rotacion)
+data3 = data[1:10,c(1,2,3)]
+data4 = data[1:10,c(1,4,5)] 
+data5 = data[3:12,c(1,4,5)]  </code></pre>
 <p><br/><br/></p>
 </div>
-<div id="de-cajas" class="section level2">
-<h2><span style="color:#034a94"><strong>De cajas</strong></span></h2>
-<p>Es uno de las representaciones gráficas más utilizadas, pues además
-de los elementos y características que permite visualizar de las
-variables, permite comparar los resultados de dos o más grupos.</p>
-<center>
-<p><img src="img/RplotBoxplot2.png" width="100%" style="display: block; margin: auto;" /></p>
-<strong>Figura 1.20</strong> Comparación distribuciones del tiempo
-hombres carrera La Luz 2022 <br/> <sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
+<div id="data3" class="section level3">
+<h3><span style="color:#034a94"> <strong>data3</strong></span></h3>
+<p>Conformada por 10 registros y tres variables dentro de las cuales
+esta id que sirve en este caso para verificar que los registros estan en
+un mismo orden.</p>
+<pre class="r"><code>data3</code></pre>
+<pre><code>   id Rotación Edad
+1   1       Si   41
+2   2       No   49
+3   3       Si   37
+4   4       No   33
+5   5       No   27
+6   6       No   32
+7   7       No   59
+8   8       No   30
+9   9       No   38
+10 10       No   36</code></pre>
 <p><br/><br/></p>
 </div>
-<div id="de-dispersión" class="section level2">
-<h2><span style="color:#034a94"><strong>De
-dispersión</strong></span></h2>
-<p>Este diagrma de puntos permite visualizar la relación lineal que
-puede existir entre dos variables cualitativas.</p>
-<center>
-<img src="img/RplotDispersion.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.21</strong> Distribución de los tiempos por categoría
-carrera La Luz 2022<br />
-<br/> <sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
-<p>La gráfica permite visualizar que no existe relación líneal entre las
-variables tiempo de carrera y edad, es decir que en todas las categorías
-se presentaron corredores con tiempos bajos y tiempos altos. También
-permite detectar que un corredor de la categoría Abierta fue el primero
-en cruzar la meta (33.13 min) y uno de la categoría Veteranos C el
-último (166.03 min).</p>
+<div id="data4" class="section level3">
+<h3><span style="color:#034a94"> <strong>data4</strong></span></h3>
+<p>data4 contiene además del identificador otras dos variables</p>
+<pre class="r"><code>data4</code></pre>
+<pre><code>   id Viaje.de.Negocios Departamento
+1   1         Raramente       Ventas
+2   2    Frecuentemente          IyD
+3   3         Raramente          IyD
+4   4    Frecuentemente          IyD
+5   5         Raramente          IyD
+6   6    Frecuentemente          IyD
+7   7         Raramente          IyD
+8   8         Raramente          IyD
+9   9    Frecuentemente          IyD
+10 10         Raramente          IyD</code></pre>
+<p><br/></p>
+<p>En este caso se tienen las funciones :</p>
+<ul>
+<li><code>cbind()</code> Utilizada para combinar dos o mas conjuntos por
+columnas, agregando un conjunto de columnas. Es decir pegar dos datas
+que presentan el mismo orde de registros</li>
+</ul>
+<p><br/></p>
+<pre class="r"><code>cbind(data3, data4[,2:3])</code></pre>
+<pre><code>   id Rotación Edad Viaje.de.Negocios Departamento
+1   1       Si   41         Raramente       Ventas
+2   2       No   49    Frecuentemente          IyD
+3   3       Si   37         Raramente          IyD
+4   4       No   33    Frecuentemente          IyD
+5   5       No   27         Raramente          IyD
+6   6       No   32    Frecuentemente          IyD
+7   7       No   59         Raramente          IyD
+8   8       No   30         Raramente          IyD
+9   9       No   38    Frecuentemente          IyD
+10 10       No   36         Raramente          IyD</code></pre>
+<p><br/></p>
+<ul>
+<li><code>merge()</code>. Se utiliza para combinar conjuntos de datos
+por columnas clave específicas, independientemente del número de
+filas.</li>
+</ul>
 <p><br/><br/></p>
 </div>
-<div id="de-líneas" class="section level2">
-<h2><span style="color:#034a94"><strong>De líneas</strong></span></h2>
-<p>Este tipo de gráficas se utiliza principalmente para representar
-series de tiempo y poder de esta manera observar si presentan tendencias
-o comportamientos estacionales</p>
-<center>
-<img src="img/inflacion202305.png" width="100%" style="display: block; margin: auto;" />
-<strong>Figura 1.22</strong> Inflación Colombia 1993-01 a 2023-05 <br/>
-<sub> Fuente : Banco de la República </sub>
-</center>
-<p>En la gráfica se puede observar una tendencia creciente durante los
-últimos dos año y al final un pequeño cambio de tendencia</p>
+<div id="data5" class="section level3">
+<h3><span style="color:#034a94"> <strong>data5</strong></span></h3>
+<pre class="r"><code>data5</code></pre>
+<pre><code>   id Viaje.de.Negocios Departamento
+3   3         Raramente          IyD
+4   4    Frecuentemente          IyD
+5   5         Raramente          IyD
+6   6    Frecuentemente          IyD
+7   7         Raramente          IyD
+8   8         Raramente          IyD
+9   9    Frecuentemente          IyD
+10 10         Raramente          IyD
+11 11         Raramente          IyD
+12 12         Raramente          IyD</code></pre>
+<pre class="r"><code>merge(data3, data5, by = &quot;id&quot;, all = TRUE)</code></pre>
+<pre><code>   id Rotación Edad Viaje.de.Negocios Departamento
+1   1       Si   41              &lt;NA&gt;         &lt;NA&gt;
+2   2       No   49              &lt;NA&gt;         &lt;NA&gt;
+3   3       Si   37         Raramente          IyD
+4   4       No   33    Frecuentemente          IyD
+5   5       No   27         Raramente          IyD
+6   6       No   32    Frecuentemente          IyD
+7   7       No   59         Raramente          IyD
+8   8       No   30         Raramente          IyD
+9   9       No   38    Frecuentemente          IyD
+10 10       No   36         Raramente          IyD
+11 11     &lt;NA&gt;   NA         Raramente          IyD
+12 12     &lt;NA&gt;   NA         Raramente          IyD</code></pre>
+<div class="content-box-gray">
 <p><br/><br/></p>
+<div id="nota" class="section level3">
+<h3><span style="color:#686868"> <strong>Nota</strong></span></h3>
+<p>En el caso de unir columnas mediante la función <code>cbind()</code>
+, se combinan dos base de datos (<code>data3</code> y
+<code>data4</code>) de igual número de filas y que corresponde
+información que corresponde a las mismas personas. Para que no parezca
+la variable id repetida se quita de data4 dejando solo las columnas 2 a
+3 - <code>data4[, 2:3]</code> - .</p>
+<p>Para el caso de la función <code>merge()</code> , se requiere tener
+un indice que identifique cada regitro y por tanto no es necesario que
+los registros en las bases a unir se encuentren ordenadas. Para ello
+utilizamos las bases data3 y data5. En ellas se puede notar que la
+primera presenta los registros de las personas con id del 1 al 12,
+mientras que la data5 los registros correspondientes a las personas con
+id del 3 al 14. Es por esta razón que se toma como base la data3 y sobre
+ella se agregan los registros que coincidan al comparar su id con los de
+la <code>data5</code>. Quedanto vacios los resgistros de las personas
+con id 1 y 2.</p>
+</div>
+</div>
+<p><br/><br/> `</p>
 </div>
 </div>
 

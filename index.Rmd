@@ -60,3 +60,35 @@ La **Metodología Estadística** está basada en el método científico que corr
 Es necesario tener en cuenta al realizar un análisis exploratorio de datos los pasos previos a este, como son la definición del problema objeto de estudio, cual será nuestra meta (objetivos) o finalidad del estudio. Que variables debemos recoger para poder cumplir con el objetivo propuesto, además del diseño del experimento, es decir como se requiere recolectar la información, cuanta información, las fuentes y los medios para su procesamiento.
 
 Después de tener claridad sobre los pasos anteriores (1 a 6 de la metodología estadística) se empieza el análisis exploratorio de datos. Con él realizamos una primera aproximación a los objetivos planteados. 
+
+
+<br/>
+
+Contenido de la unidad :
+
+* **Conceptos básicos de Estadística**
+  * Conceptos
+  * Importar datos
+  * Limpieza de datos
+
+<br/>
+
+* **Análisis de datos**
+  * Tablas de contingencia
+  * Indicadores
+    * Indicadores de posición
+    * Indicadores de centro
+    * Indicadores de dispersión
+    * Indicadores de forma
+
+<br/>
+
+* **Software R**
+  * Introducción
+  * Tablas
+  * Indicadores
+  * Visualización de datos
+  
+  
+
+

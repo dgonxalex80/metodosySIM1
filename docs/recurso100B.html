@@ -12,9 +12,9 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Limpieza de datos</title>
+<title> Ordenar y limpiar los datos</title>
 
-<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
@@ -31,10 +31,11 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -220,6 +221,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -272,6 +276,9 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="recurso100B.html">Limpieza de datos</a>
+    </li>
+    <li>
+      <a href="recurso100D.html">Fusión de datos</a>
     </li>
   </ul>
 </li>
@@ -329,10 +336,18 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
-<strong>Limpieza de datos</strong></span></h1>
+<strong>Ordenar y limpiar los datos</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
@@ -346,7 +361,7 @@ data cleaning) que posteriormente va a permitir el modelamiento adecuado
 de los datos.</p>
 <p>Este ciclo comprende :</p>
 <ul>
-<li>Importación de los datos</li>
+<li>Importación de los datos - ya tratado -</li>
 <li>Fusión de datos</li>
 <li>Datos faltantes</li>
 <li>Estandarización</li>
@@ -368,8 +383,10 @@ problemas relacionados con:</p>
 sean comparables (una misma escala)</li>
 <li>Construir nuevas variables a partir de las contenidas en la
 base</li>
-<li>Cambiar el formato de una variable</li>
-<li>Aumentar los registros contenidos en dos bases</li>
+<li>Cambiar el formato de una variable - formato corto y formato largo
+-</li>
+<li>Aumentar los registros contenidos en dos bases - adicionar registros
+-</li>
 <li>Agregar variables contenidas en dos bases</li>
 </ul>
 <p></br></br></p>
@@ -377,8 +394,9 @@ base</li>
 tratar y dejar lista la base de datos de interes para iniciar el
 análisis de datos</p>
 <p></br></br></p>
-<div id="datos-faltantes" class="section level2">
-<h2><span style="color:#034a94"><strong>Datos faltantes</strong></h2>
+<div id="tratamiento-de-datos-faltantes" class="section level1">
+<h1><span style="color:#034a94"><strong>Tratamiento de datos
+faltantes</strong></h1>
 <p>El tratamiento de datos faltantes es un aspecto crítico en Ciencia de
 Datos, ya que ellos pueden afectar de manera significativa la calidad y
 validez de los análisis y modelos que realicemos. Acontinuación se
@@ -396,65 +414,12 @@ faltantes son sistemáticos o si se eliminan muchas observaciones en
 comparación con el tamaño de la base de datos.</p>
 <p></br></p>
 </div>
-<div id="imputación-de-valores" class="section level3">
-<h3><span style="color:#034a94"><strong>2. Imputación de
-valores</strong></h3>
-<p>La imputación implica estimar y reemplazar los valores faltantes con
-valores razonables. Esto se puede realizar de diferentes maneras, como
-:</p>
-<p></br></p>
-</div>
-<div id="reemplazar-los-valores-faltantes" class="section level3">
-<h3><span style="color:#034a94"><strong>Reemplazar los valores
-faltantes</strong></h3>
-<p>Se reemplazan los datos faltantes por la media o la mediana en el
-caso de variables numéricas o por el valor más frecuente de la variable
-correspondiente (moda), en el caso de las variables cualitativas.</p>
-<p></br></p>
-</div>
-<div id="utilizar-técnicas-más-avanzadas" class="section level3">
-<h3><span style="color:#034a94"><strong>Utilizar técnicas más
-avanzadas</strong></h3>
-<p>Los valores faltantes pueden ser reemplazados por valores obtenidos a
-a partir modelos, donde se construyen para estimar los valores faltantes
-de manera predictiva.</p>
-<p></br></p>
-</div>
-<div id="tratamiento-de-datos-faltantes-como-una-categoría"
-class="section level3">
-<h3><span style="color:#034a94"><strong>Tratamiento de datos faltantes
-como una categoría</strong></h3>
-<p>En el caso de variables categóricas o cualitativas sus valores
-faltantes se pueden encontrar a partir del modelamiento la subbase con
-registros completos</p>
-<p>los datos faltantes pueden tener un significado propio y no deben ser
-imputados ni eliminados. En lugar de eso, puedes considerar tratar los
-datos faltantes como una categoría adicional en el análisis o
-modelo.</p>
-<p></br></p>
-</div>
-<div id="técnicas-avanzadas-de-imputación" class="section level3">
-<h3><span style="color:#034a94"><strong>Técnicas avanzadas de
-imputación</strong></h3>
-<p>Existen métodos Aavanzados para imputar datos faltantes, como la
-imputación múltiple (multiple imputation) y la imputación basada en
-modelos de aprendizaje automático. Estos enfoques generan múltiples
-conjuntos de datos imputados y tienen en cuenta la incertidumbre
-asociada con la imputación.</p>
-<p></br></p>
-<p>Es importante evaluar cuidadosamente el patrón y la naturaleza de los
-datos faltantes antes de decidir qué estrategia utilizar. Además, es
-fundamental tener en cuenta que los método de imputación introduce
-incertidumbre y puede afectar los resultados de los análisis o modelos.
-Por lo tanto, es recomendable documentar y tener en cuenta el proceso de
-imputación en el análisis y la interpretación de los resultados.</p>
-<p></br></br></p>
-</div>
 <div id="ejemplo" class="section level3">
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></h3>
-<p>A partir de la base de datos vivienda_faltantes contenida en
-paqueteMET, se plantera examinar una muestra de ella de tamaño 1000 x 13
-que se puede obtener con el siguiente código :</p>
+<p>A partir de la base de datos <code>vivienda_faltantes</code>
+contenida en <code>paqueteMET</code>, se plantera examinar una muestra
+de ella de tamaño 1000 x 13 que se puede obtener con el siguiente código
+:</p>
 <pre class="r"><code>library(paqueteMET)
 library(dplyr)
 data(&quot;vivienda_faltantes&quot;)
@@ -493,19 +458,22 @@ str(datosNA)</code></pre>
   .. )
  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt; </code></pre>
 <p><br/></p>
-<p>Como se observa con la función <code>str()</code> obtenemos una
-visualización del tamaño de la base de datos, las variables que la
-conforman y el tipo de variables y una muesrta de los primeros
-valores.</p>
-<p>Existen diferentes formas de visualizar los datos faltantes</p>
+<p>La función <code>str()</code> se obtiene una visualización del tamaño
+de la base de datos, las variables que la conforman y el tipo de
+variables y una muesrta de los primeros valores.</p>
+<p>Ahora para visualizar que variables y con que frecuencia se presentan
+los datos faltantes o <code>NA</code> utilizamos el siguiente código</p>
+<p><br/></p>
 <pre class="r"><code>faltantes &lt;- colSums(is.na(datosNA))
 faltantes</code></pre>
 <pre><code>       id      zona      piso   estrato   preciom areaconst   parquea    banios 
         0         0       344         0         0         0       208         0 
   habitac      tipo    barrio  longitud   latitud 
         0         0         0         0         0 </code></pre>
-<p>Esta función muestra el número total de datos faltantes por
-variable</p>
+<p><br/><br/></p>
+<p>La función <code>colSums(is.na(datosNA))</code> totaliza el número
+total de datos faltantes por variable para la data
+<code>datosNA</code></p>
 <p><br/></p>
 <pre class="r"><code># install.packages(&quot;naniar&quot;)
 library(naniar)
@@ -513,64 +481,174 @@ gg_miss_var(datosNA)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>En esta gráfica podemos visualizar que las viables piso y parquea
 presentan datos faltantes, la primera al rededor de 340 y la segunda un
-poco más de 200 datos faltantes.</p>
+poco más de 200 datos faltantes. Para ello se utiliza la función
+<code>gg_miss_var(datosNA)</code></p>
 <p></br></br></p>
+<p>Otra forma de detectar y representar gráficamente los datos faltantes
+es utilizando la función
+<code>md.pattern(datosNA, rotate.names = TRUE)</code> del paquete
+<code>mice</code></p>
 <pre class="r"><code># install.packages(&quot;mice&quot;)
 library(mice)
 grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>En la gráfica generada por la función <code>md.pattern()</code> del
-paquete <code>mice</code> representa la base de datos, se observa que
-546 registros tienen informaciçon completa (sin datos faltantes), se
-presentan 246 registros con datos faltantes en la variable piso, 110
-registros les hace falta información en la variables parqueadero y a 98
-registros les hace falta información en dos variables (parqueadero y
-piso)</p>
+<p>En este caso se observa una primera fila que represnta los registros
+tienen informaciçon completa (sin datos faltantes). Las filas restantes
+donde aparecen cuadrados en rojo, registran los datos faltantes para las
+variables parqueadero y piso.</p>
+<p>Detectados la proporción de datos faltantes procederemos como una
+primera estrategia a eliminarlos por completo</p>
 <p></br></br></p>
+<div id="eliminación-de-datos-faltantes" class="section level4">
+<h4><span style="color:#686868"><strong>Eliminación de datos
+faltantes</strong></span></h4>
 <p>La función : <code>na.omit()</code> , permite elimitar todos los
 registros contenidos en la base de datos que contenga datos faltantes
-(NA) c</p>
+(NA)</p>
 <pre class="r"><code># install.packages(&quot;mice&quot;)
 library(mice)
 datosSINA &lt;- na.omit(datosNA)  # elimina todos los valores con  NA
 grafico &lt;-md.pattern(datosSINA, rotate.names = TRUE)</code></pre>
-<p><img src="img/datosNA1.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Verifique que se han eliminado los datos
+faltantes</strong></li>
+</ul>
 <p></br></br></p>
 </div>
 </div>
-<div id="imputación" class="section level1">
-<h1><strong>Imputación</strong></h1>
+<div id="tratamiento-de-datos-faltantes-como-una-categoría"
+class="section level3">
+<h3><span style="color:#034a94"><strong>2. Tratamiento de datos
+faltantes como una categoría</strong></h3>
+<p>En el caso de variables categóricas o cualitativas sus valores
+faltantes se pueden encontrar a partir del modelamiento la sub-base con
+registros completos</p>
+<p>los datos faltantes pueden tener un significado propio y no deben ser
+imputados ni eliminados. En lugar de eso, puedes considerar tratar los
+datos faltantes como una categoría adicional en el análisis o
+modelo.</p>
+<p></br></p>
+<pre class="r"><code>datosNA$faltante =0
+datosNA$faltante[is.na(datosNA$parquea)] &lt;-1 
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># Categoría datos faltantes
+table(datosNA$faltante)</code></pre>
+<pre><code>
+  0   1 
+792 208 </code></pre>
+<p></br></br></p>
+</div>
+<div id="imputación-de-valores" class="section level2">
+<h2><span style="color:#034a94"><strong>2. Imputación de
+valores</strong></span></h2>
 <p>Si no se desea eliminar los registros que contiene datos faltantes,
 dado que se puede perder un gran porcentaje de la información, entoces
 se recurre a reemplazar estos valores, primero calculado el valor por el
-cual se debe reemplazar,</p>
-<p>En este primer caso puede se trater de falta de información o que los
-propietarios entendieron que no debian responder la pregunta, pues su
-vivienda no posee parqueadero. En otros casos es posible que se trate de
-un dato faltante real y se deba reeplazar por la media por ejemplo</p>
-<p>El caso de reemplazar el NA por <strong>cero</strong> procederemos
+cual se debe reemplazar (<strong>imputación de datos</strong>).</p>
+<p>Para realizar este procedimiento se tienen varias alternativas,
+cambiando los datos faltantes por :</p>
+<ul>
+<li>cero</li>
+<li>la media</li>
+<li>mediana</li>
+<li>por el valor de un registro completo semejante al del dato faltante
+- tecnicas avanzadas de imputación -</li>
+</ul>
+<p></br></br></p>
+<div id="ejemplo-1" class="section level3">
+<h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
+<div id="caso-imputación-por-cero" class="section level4">
+<h4><span style="color:#686868"><strong>Caso imputación por
+cero</strong></span></h4>
+<p>En el caso de la data vivienda_faltantes, es posible que los
+propietarios al ser interrogados, entendieron que no debian responder la
+pregunta: <strong>Número de parqueaderes</strong>, cuando su vivienda no
+posee parqueadero.</p>
+<p>En otros casos es posible que se trate de un dato faltante real y se
+deba reeplazar por la media por ejemplo</p>
+<p>El caso de reemplazar los NA por <strong>cero</strong> procederemos
 así:</p>
 <pre class="r"><code>datosNA$parquea[is.na(datosNA$parquea)] &lt;- 0
 grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
 <p><img src="recurso100B_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p></br></p>
+<p></br></br></p>
+</div>
+<div id="caso-reemplazo-por-la-media" class="section level4">
+<h4><span style="color:#686868"><strong>Caso reemplazo por la
+media</strong></span></h4>
 <p>En el caso de reemplazar el NA por el valor correspondiente a la
 media se asigna este valor de la siguiente manera:</p>
 <pre class="r"><code># Calcula la media de la variable &quot;parquea&quot;
-media_parquea &lt;- mean(datosNA$parquea, na.rm = TRUE)
+media_parquea &lt;- mean(datosNA$parquea, na.rm = TRUE) %&gt;%
+                    round(,0)
+
 datosNA$parquea[is.na(datosNA$parquea)] &lt;- media_parquea
 grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
-<p><img src="img/datosNA2.png" width="70%" style="display: block; margin: auto;" />
-</br></br></p>
+<img src="recurso100B_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+</div>
+</div>
+<div id="nota" class="section level3 content-box-gray">
+<h3><span style="color:#686868"><strong>Nota</strong></span></h3>
+<p>Dado que la variable número de parqueaderos es un valor entero, se
+aproxima al entero más cercano con la función <code>round()</code></p>
+&lt;
+</div>
+<p></br></br></p>
+<div id="caso-reemplazo-por-la-mediana" class="section level4">
+<h4><span style="color:#686868"><strong>Caso reemplazo por la
+mediana</strong></span></h4>
+<p>En el caso de reemplazar el NA por el valor correspondiente a la
+mediana se asigna este valor de la siguiente manera:</p>
+<pre class="r"><code># Calcula la media de la variable &quot;parquea&quot;
+mediana_parquea &lt;- median(datosNA$parquea, na.rm = TRUE) %&gt;%
+                    round(,0)
+
+datosNA$parquea[is.na(datosNA$parquea)] &lt;- mediana_parquea
+grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p></br></br></p>
+</div>
+<div id="caso-reemplazo-por-la-moda" class="section level4">
+<h4><span style="color:#686868"><strong>Caso reemplazo por la
+moda</strong></span></h4>
+<p>En el caso de la variable piso, que corresponde cualitativa de escala
+ordinal, si se desea reemplazar por la moda a los datos faltantes
+procedemos de la siguiente forma:</p>
 <pre class="r"><code># install.packages(&quot;DescTools&quot;)
 library(DescTools)
 moda_piso &lt;- Mode(datosNA$piso, na.rm = TRUE)
 datosNA$piso[is.na(datosNA$piso)] &lt;- moda_piso
 grafico &lt;-md.pattern(datosNA, rotate.names = TRUE)</code></pre>
-<p><img src="img/datosNA3.png" width="70%" style="display: block; margin: auto;" /></p>
-<p><br/></p>
-<p>Las otras tecnicas la iremos incorporando en las siguientes
-unidades</p>
+<pre><code> /\     /\
+{  `---&#39;  }
+{  O   O  }
+==&gt;  V &lt;==  No need for mice. This data set is completely observed.
+ \  \|/  /
+  `-----&#39;</code></pre>
+<p><img src="recurso100B_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p></br></br></p>
+</div>
+<div id="técnicas-más-avanzadas" class="section level3">
+<h3><span style="color:#034a94"><strong>3. Técnicas más
+avanzadas</strong></span></h3>
+<p>Los valores faltantes pueden ser reemplazados por valores obtenidos a
+a partir modelos, donde se construyen para estimar los valores faltantes
+de manera predictiva.</p>
+<p>Existen métodos Aavanzados para imputar datos faltantes, como la
+imputación múltiple (multiple imputation) y la imputación basada en
+modelos de aprendizaje automático. Estos enfoques generan múltiples
+conjuntos de datos imputados y tienen en cuenta la incertidumbre
+asociada con la imputación. Los cuales serán tratado mas adelante.</p>
+<p></br></p>
+<p>Es importante evaluar cuidadosamente el patrón y la naturaleza de los
+datos faltantes antes de decidir qué estrategia utilizar. Además, es
+fundamental tener en cuenta que los método de imputación introduce
+incertidumbre y puede afectar los resultados de los análisis o modelos.
+Por lo tanto, es recomendable documentar y tener en cuenta el proceso de
+imputación en el análisis y la interpretación de los resultados.</p>
+</div>
+</div>
 </div>
 
 
@@ -606,6 +684,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

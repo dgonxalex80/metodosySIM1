@@ -12,7 +12,7 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Tablas de frecuencia</title>
+<title> Verificación - Enrequecimiento de la base</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -31,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -220,6 +221,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -332,174 +336,24 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore"><span style="color:#034a94"> <strong>Tablas
-de frecuencia</strong></span></h1>
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Verificación - Enrequecimiento de la base</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
 
 
-<p><br/><br/></p>
-<div id="variables-cualitativas" class="section level1">
-<h1><span style="color:#034a94"><strong>Variables
-cualitativas</strong></span></h1>
-<p></br></p>
-<div id="escala-nominal" class="section level2">
-<h2><span style="color:#034a94"><strong>Escala
-nominal</strong></span></h2>
-<p></br></p>
-<p>Las distribuciones de frecuencia o también llamadas tablas de
-frecuencia nos sirven para agrupar los datos y tener una idea mas clara
-de sus características. Están conformadas por una primera columna donde
-se presentan las clases (filas de la tabla) que corresponden con las
-categorías observadas de una variable cualitativa. En caso de tener la
-variable una escala de medición nominal, es decisión del investigador la
-ubicación u ordenamiento de las categorías dentro de la tabla de
-frecuencias. Por el contrario para las variables en escala ordinal se
-realiza el ordenamiento siguiendo la jerarquía de las categorías</p>
-<p></br></p>
-<p>Para las variables cualitativas en escala nominal, las tabla posee 3
-columnas :</p>
-<div class="content-box-blue">
-<table>
-<colgroup>
-<col width="4%" />
-<col width="8%" />
-<col width="86%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">c1</td>
-<td align="left"></td>
-<td align="left">los diferentes valores que toma la variable.</td>
-</tr>
-<tr class="even">
-<td align="left">c2</td>
-<td align="left"><span class="math inline">\(n_{i}\)</span></td>
-<td align="left">frecuencia absoluta que consiste en el conteo para cada
-uno de los valores distintos que toma la variable.</td>
-</tr>
-<tr class="odd">
-<td align="left">c3</td>
-<td align="left"><span class="math inline">\(f_{i}\)</span></td>
-<td align="left">frecuencia relativa que corresponde al porcentaje la
-cantidad de datos para cada los valores</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p></br></p>
-<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
-<p></br></p>
-<strong>Tabla 1.1</strong> Distribución del número de equipos
-participantes en Qatar 2022 por confederaciones
-<img src="img/tabla1.png" width="60%" style="display: block; margin: auto;" />
-<center>
-<sub> Fuente : <a
-href="https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F%C3%BAtbol_de_2022">wikipedia</a>
-</sub>
-</center>
-<p></br></br></p>
-<p>La información resumida nos muestra de manera clara la participación
-de cada confederación en el torneo, destacándose la UEFA con un 41.96%
-de participación.</p>
-<p></br></br></p>
-</div>
-<div id="escala-ordinal" class="section level2">
-<h2><span style="color:#034a94"><strong>Escala
-ordinal</strong></span></h2>
-<p></br></p>
-<p>Otro caso correspondiente a las variables cualitativas en escala
-ordinal, para lo cual se agregan dos nuevas columnas además de las
-descritas en el ejemplo anterior.</p>
-<div class="content-box-blue">
-<table>
-<colgroup>
-<col width="5%" />
-<col width="8%" />
-<col width="86%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">c4</td>
-<td align="left"><span class="math inline">\(N_{i}\)</span></td>
-<td align="left">frecuencia absoluta acumulada que consiste en el conteo
-de los casos menores o iguales al nivel correspondiente.</td>
-</tr>
-<tr class="even">
-<td align="left">c5</td>
-<td align="left"><span class="math inline">\(F_{i}\)</span></td>
-<td align="left">frecuencia relativa acumulada que corresponde al
-porcentaje acumulado hasta el nivel correspondiente.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p></br></p>
-<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
-<center>
-<p><strong>Tabla 1.2</strong> : Nivel de satisfacción usuarios
-aereolinea, servicio de alimentación/bebidas a bordo</p>
-<img src="img/tabla2.png" width="70%" style="display: block; margin: auto;" />
-<sub> Fuente : <a
-href="https://www.kaggle.com/datasets/alfredoblancas/airline-passenger-satisfaction-spanish?resource=download">kaggle</a>
-</sub>
-</center>
-<p></br></p>
-<p>En ella se destaca que un 33.5% de los clientes tienen una percepción
-negativa sobre el servicio de alimentación abordo de las naves de la
-aerolínea, mientras que un 66.5% tiene una percepción de bueno a
-excelente.</p>
-<p></br></br></br></p>
-</div>
-</div>
-<div id="variables-cuantitativas" class="section level1">
-<h1><span style="color:#034a94"><strong>Variables
-cuantitativas</strong></span></h1>
-<p></br></p>
-<p>Para el caso de las variables cualitativas es necesario agrupar los
-valores en intervalos siguiendo los siguientes criterios :</p>
-<ul>
-<li>Si se desea realizar comparaciones con otra información clasificada
-en tablas de frecuencia, debemos realizar las mismas divisiones</li>
-<li>Si la variable tiene criterios de división previamente establecidos
-se realizan las mismas divisiones. Este es el caso de variables como el
-salario (divisiones en función de los salarios mínimos vigentes). La
-variable edad tiene rangos establecidos por ciclos de vida.</li>
-<li>En caso de no aplicar alguno de los criterios anteriores se pueden
-construir intervalos de igual tamaño (por defecto los programas
-estadísticos siguen este criterio)</li>
-</ul>
-<p>También es importante determinar el número de intervalos a construir
-(<span class="math inline">\(k\)</span>), para los cuales nos podemos
-basar en el criterio de Sturges : <span class="math inline">\(k=1+3.3
-log(n)\)</span>.</p>
-<p></br></br></p>
-<p><span style="color:#FF7F00"><strong>Ejemplo</strong></span></p>
-<p>La tabla para los tiempos empleados por las corredoras de la
-categoría abieta muestra una mayor concentración en el intervalo 2,
-comprendido entre 45 y 60 minutos, las cuales representan un 45.6% del
-grupo</p>
-<p>Además de las columnas descritas anteriormente se adicionan :</p>
-<ul>
-<li>El número del intervalo</li>
-<li>Los límites inferior y superior de los intervalos</li>
-<li>La marca de clase que determina la mitad de cada intervalo y que
-representará los números contenidos en el intervalo</li>
-</ul>
-<p></br></br></p>
-<center>
-<strong>Tabla 1.3</strong> : Tiempo de carrera categoría juvenil
-mujeres, carrera La Luz 2022
-<img src="img/tabla4.png" width="80%" style="display: block; margin: auto;" />
-<sub> Fuente :<a
-href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
-</sub>
-</center>
-<p><br/><br/></p>
-</div>
+
 
 
 
@@ -534,6 +388,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

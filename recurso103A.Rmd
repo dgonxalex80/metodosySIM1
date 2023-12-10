@@ -14,7 +14,7 @@ library(tidyverse)
 
 # cargar paqueteMET
 # devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
-library(paqueteMETODOS)   # activar paqueteMET
+library(paqueteMET)   # activar paqueteMET
 data("CarreraLuz22")    # cargar la dataset
 
 ```
