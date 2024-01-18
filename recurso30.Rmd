@@ -1,0 +1,81 @@
+---
+title: <span style="color:#034a94"> **Visualización de datos**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+library(tidyverse)
+
+# cargar paqueteMET
+# devtools::install_github("dgonxalex80/paqueteMET") # descarga de paqueteMET
+library(paqueteMETODOS)     # activar paqueteMET
+data("CarreraLuz22")    # cargar la dataset
+data("evaluacion")      # cargar la dataset
+data("inflacion2022")   # carga la dataset
+inflacion2022[360,]=c(0,"2022-12",13.12, 2022,NA,12)
+
+#CarreraLuz22_c2M = subset(CarreraLuz22, CarreraLuz22M$categoria=="2. Abierta")
+```
+
+</br>
+
+
+La visualización de datos es una de las partes más importantes del análisis de datos, que permite de manera gráfica representar la información con el fin de poder resumirlos e interpretarlos 
+
+
+Algunas consideraciones
+
+<br/><br/>
+<center>
+**Tabla 1.5** Tipos de gráficos segun el tipo de variable y su tipo de escala
+</center>
+
+<br/>
+
+|Tipo de variable | Tipos de escala  |  Tipo de gráfico            |  Sintaxis R            | 
+|:----------------|:-----------------|:----------------------------|:-----------------------|
+| Cualitativa     | Nominal          |  diagrama de torta          |  `pie(table(x))`       |
+|                 | Ordinal          |  diagrama de barras         |  `barplot(table(x))`   |
+|                 |                  |  diag.barras dobles         |  `barplot(table(x,y))` |
+|                 |                  |  diag. mosaico              |  `plot(x,y)`           |
+|                 |                  |                             |                        |
+
+<br/>
+
+|                 |                  |                             |                        |
+|:----------------|:-----------------|:----------------------------|:-----------------------|
+|Cuantitativa     | De intervalo     |  diagrama de tallos y hojas | `stem(x)`              |
+|                 |                  |  histograma                 | `hist(x)`              | 
+|                 | De razón         |  diagrama de puntos         | `plot(x,y)`            |
+|                 |                  |  diagrama de densidad       | `density(x)`           |
+|                 |                  |  diagrama de cajas          | `boxplot(x)`           |
+|                 |                  |  diagrama de linea          | `plot(x, type="l")`    |
+|                 |                  |                             |                        |
+
+<br/>
+
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span> 
+
+Además de estas formas de representación gráfica existen otras formas que combinan variables como:
+
++ Mapas
++ Diagrama de Mosaico
++ Diagramas de radar
++ Diagrama likert
+</div>
+
+
+<br/><br/>
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+---
+title: <span style="color:#034a94"> **Visualización de avanzada**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+data("CarreraLuz22")
+data("evaluacion")
+data("inflacionov22")
+```
+
+</br>
+
+# <span style="color:#034a94">**xxx**</span> 
+
+</br>
+
+
+
+
+
+

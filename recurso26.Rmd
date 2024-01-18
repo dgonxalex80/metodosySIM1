@@ -1,0 +1,344 @@
+---
+title: <span style="color:#034a94"> **Ejemplo**</span>
+author: "Métodos y Simulación Estadística"
+output:
+html_document:
+code_folding: hide
+css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+```
+
+</br>
+
+
+Se requiere realizar un análisis descriptivo de la información contenida en la data `CarreraLuz22`, para lo cual se requiere importar la data contenida en `paqueteMETODOS`.
+
+```{r}
+library(paqueteMETODOS)
+data("CarreraLuz22")
+str(CarreraLuz22)
+```
+
+<br/>
+
+Inicialmente se examina la data con el fin de detectar datos faltantes
+
+
+```{r}
+colSums(is.na(CarreraLuz22))
+```
+
+Lo cual también se puede validar de manera gráfica 
+
+<br/>
+
+```{r, message=FALSE, warning=FALSE}
+VIM::aggr(CarreraLuz22, cex.axis = 1, cex.lab= 1)  # gráficos de datos faltantes
+```
+
+<br/>
+
+La gráfica indica que no existen datos faltantes en la data.
+
+
+Se inicia con un análisis univariado, para lo cual se dividen las variables en :
+
+<br/><br/>
+
+### **Variables cuantitativas**
+
+
+Para el caso de las variables cualitativas utilizamos tablas y gráficos circulares o de torta para el caso de las variables cualitativas- nominales (sex, origen) y de barras en el caso de las variables - ordinales (categoría)
+
+
+* **sex** :sexo del participante : Hombre, Mujer
+* **origen** : ciudad de origen del participante
+* **categoría** :  1. Juvenil, 2. Abierta, 3. Veteranos A, 4. Veteranos B,  5. Veteranos C
+
+<br/>
+
+### **sex**
+
+```{r, message=FALSE, warning=FALSE}
+attach(CarreraLuz22) # esta funcion permite nombrar las variables de manera independiente a la base
+summarytools::freq(sex, cumul = FALSE)
+```
+
+El resultado indica que un 61.29% de los participantes eran hombres
+
+
+<br/>
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(scales)
+t=prop.table(table(sex))
+df=as.data.frame(t)
+names(df) = c("sexo", "frecuencia")
+
+ggplot(df,aes(x="",y=frecuencia, fill=sexo))+
+geom_bar(stat = "identity",
+color="white")+
+geom_text(aes(label=percent(frecuencia)),
+position=position_stack(vjust=0.5),color="white",size=5)+
+coord_polar(theta = "y")+
+scale_fill_manual(values=c("steelblue","orange"))+
+theme_void()+
+labs(title="Distribución sexo participantes Carrera La Luz")
+```
+
+<br/><br/>
+
+### **categoria**
+
+```{r}
+summarytools::freq(categoria)
+```
+
+En este caso como la variable es ordinal, tiene sentido la inclusión de las dos últimas columnas que corresponden a las frecuencias acumuladas.
+
+Por un lado se puede indicar que la categoría abierta representa el mayor porcentaje de los participantes (61.33%), mientras que la juvenil constituye la categoría con menor participación alcanzando casi el 1%.
+
+<br/>
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+ggplot(CarreraLuz22, aes(x = categoria)) +
+geom_bar(fill = "#0EB0C6") +
+labs(title = "Distribución por categoría",
+x = "Carrera",
+y = "Frecuencia")
+
+
+```
+
+La representación gráfica, permite visualizar las diferencias entre las frecuencias de las categorías participantes en la carrera. 
+
+<br/><br/>
+
+### **Variables cualitativas**
+
+En el caso de las variables cuantitativas se construye un resumen de indicadores y su representación gráfica puede ser un histograma, gráfico de densidad, diagrama de cajas, diagrama de puntos, diagrama de lineas
+
+* **edad** : edad del participante 
+* **timerun** :tiempo de recorrido en segundos. Para una mejor interpretación pararemos esta variable a minutos, dividiendo por 60
+
+
+<br/><br/>
+
+### **edad**
+
+```{r, message=FALSE, warning=FALSE}
+summarytools::descr(edad)
+```
+
+El resumen de indicadores se puede dividir en cuatro partes:
+
+<br/>
+
+* **indicadores de centro**
+
+<pre>
+Mean     37.45    # media
+Median     36.00    # mediana
+</pre>
+
+Los valores de media y mediana son similares, lo que indica posiblemente una forma simétrica. En este caso dado que la media es más conocida, se utiliza este indicador para describir la muestra.
+
+En promedio los participantes tienen en promedio 37 años.
+
+
+<br/>
+
+* **indicadores de dispersión**
+
+<pre>
+Std.Dev     10.90     # desviación estandar
+IQR     14.00     # rango intercuartilico - Q3-Q1
+CV      0.29     # coeficiente de variación
+</pre>
+
+Estos valores dan una idea de la dispersión de los datos, es decir que tanto se parecen o se diferencian. La desviación estándar como también el rango (max-min) y el rango intercuartilico IQR, corresponde a valores útiles al realizar comparación de grupos.
+
+El coeficiente de variación en cambio permite comparar la magnitud de la desviación estándar en comparación con la media de la variable. En este caso (CV = 0.29) el indicador corresponde a un grupo heterogéneo.
+
+
+<br/>
+
+* **indicadores de forma**
+
+
+<pre>
+Skewness      0.64    # sesgo
+SE.Skewness      0.06    # error estándar del sesgo
+Kurtosis      0.11    # curtosis
+</pre>
+
+En cuanto al valor del indicador de sesgo (0.64), representa una leve simetría positiva y un valor de curtosis similar al estándar representado por la distribución normal estandar.
+
+
+<br/>
+
+* **indicadores de posición**
+
+<pre>
+Min     15.00     # mínimo
+Q1     30.00     # percentil 25
+Median     36.00     # percentil 50
+Q3     44.00     # percentil 75
+Max     76.00     # máximo
+</pre>
+
+Los indicadores de posición nos ayudan a comparar un valor con estos indicadores de referencia. Por ejemplo un atleta con un valor de 35 minutos tienen una posición en el orden de llegada entre el 25% y el 50%, estando mas cercano al centro.
+
+
+<br/>
+
+En resumen se utilizan los indicadores para resumir los valores de una variable  aleatoria. Para el caso de la edad de los corredores podría decirse:
+
+
+Se presentaron 1922 atletas que tenían en promedio 37 años, conformando un grupo heterogéneo (CV 29%) y una distribución levemente asimetrica positiva.
+
+
+
+<br/>
+
+```{r, message=FALSE, warning=FALSE}
+# Crear un histograma para la variable 'edad' en ggplot2
+ggplot(CarreraLuz22, aes(x = edad)) +
+geom_histogram(binwidth = 5, fill = "#0EB0C6", color = "black", alpha = 0.7) +
+labs(title = "Distribución de la edad",
+x = "años",
+y = "Frecuencia")
+
+```
+
+El histograma permite visualizar tanto distribución de la variable, como también el rango 
+
+<br/><br/>
+
+
+```{r, message=FALSE, warning=FALSE, fig.align='center', fig.height=3, fig.width=10}
+# Crear un diagrama de cajas para la variable 'edad' en ggplot2
+ggplot(CarreraLuz22, aes(x = edad, y = "")) +
+geom_boxplot(fill = "#0EB0C6", color = "black", alpha = 0.7) +
+labs(title = "Distribución de la edad",
+x = "",
+y = "Edad")
+
+```
+
+El diagrama de cajas permite visualizar los datos atípicos (punto ubicados a la izquierda de la gráfica)
+
+
+<br/><br/>
+
+## **Analisis bivariado**
+
+Después de realizar una análisis unidimensional, puede ser necesario realizar análisis por grupos de variables . En este caso se pueden presentar las siguientes combinaciones:
+
+<br/>
+
+### **Cualitativa - Cualitativa**
+
+```{r, message=FALSE, warning=FALSE}
+summarytools::ctable(categoria, sex)
+
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +
+geom_bar(position = "stack", color = "white") +
+scale_fill_manual(values = c("#FF7F00", "#034A94")) +
+labs(title = "Distribución de las categorías por sexo",
+x = "Categoría",
+y = "Frecuencia",
+fill = "Sexo")
+
+```
+
+
+<br/>
+
+### **Cualitativa - Cuantitativa**
+
+```{r, message=FALSE, warning=FALSE}
+# install.packages("doBy")
+library(doBy)
+CarreraLuz22$t = timerun/60
+summaryBy(t ~ categoria, data = CarreraLuz22, 
+FUN = c(mean, median, sd, min, max))
+```
+
+
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(viridis)
+library(hrbrthemes)
+
+# Plot con colores en las cajas
+CarreraLuz22 %>%
+ggplot(aes(x = categoria, y = t, fill = categoria)) +
+geom_boxplot() +
+scale_fill_viridis(discrete = TRUE, alpha = 0.) +
+geom_jitter(color = "black", size = 0.4, alpha = 0.5) +
+theme_ipsum() +
+theme(
+legend.position = "none",
+plot.title = element_text(size = 11)
+) +
+ggtitle("Distribución del tiempo de carrera por categoría") +
+xlab("") +
+scale_fill_manual(values = c("#FF9999", "#66B2FF", "#99FF99", "#FFCC99", "#686868"))  # Puedes ajustar los colores según tus preferencias
+
+```
+
+El gráfico permite visualizar una mayor cantidad de participantes en la categoría Abierta y también que la distribución de los tiempo de carrera es similar para todas las categorías. Tambien se puede observar que el dato atípico corresponde a un atleta de la categoría Veteranos C.
+
+
+
+<br/>
+
+### **Cuantitativa - Cuantitativa**
+
+
+Para realizar un análisis bivariado en este caso utilizamos el coeficiente de correlación que permite medir la asociación lineal entre las dos variables numéricas, es decir que tanto se ajustan las dos variable a una linea recta. Esta relación será estudiada con más detalle en el curso de Modelos Estadísticos.
+
+
+```{r, message=FALSE, warning=FALSE}
+cor(CarreraLuz22$edad, CarreraLuz22$t)
+```
+
+Este resultado nos indica que no existe ninguna relación entre la edad y el tiempo de carrera de los participantes, lo cual se puede observar en el siguiente gráfico.
+
+
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+# Asumiendo que "Carrera" es tu conjunto de datos
+# Asegúrate de tener las variables "edad" y "t" en tus datos
+
+# Plot de puntos con color azul
+ggplot(CarreraLuz22, aes(x = edad, y = t)) +
+geom_point(color = "#0EB0C6") +  # Color azul
+labs(title = "Edad vs. Tiempo de carrera",
+x = "Edad (años)",
+y = "Tiempo (min.)")
+
+```
+
+
+

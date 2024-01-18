@@ -1,0 +1,75 @@
+---
+title: <span style="color:#034a94"> **Visualización de variables cualitativas**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+data("CarreraLuz22")
+data("evaluacion")
+data("inflacionov22")
+```
+
+</br>
+
+# <span style="color:#034a94">**Variable cualitativa-nominal**</span>
+
+<br/>
+
+## <span style="color:#034a94">**Diagrama circular**</span>
+
+```{r}
+data=CarreraLuz22
+t1=table(data$categoria)
+pie(t1)
+```
+
+
+<br/><br/>
+
+# <span style="color:#034a94">**Variable cualitativa-ordinal**</span>
+
+## <span style="color:#034a94">**Diagrama de barras**</span>
+
+
+```{r}
+ev=c(5,13,30,52,35)
+ev=as.table(ev)
+names(ev)=c("MR","R","B","MB","E")
+barplot(ev,  col=c("#f95738","#ee964b", "#f4d35e", "#faf0ca", "#0d3b66"), 
+main = "Evaluación proceso de inducción",
+las=1 )
+```
+
+<br/><br/>
+
+## <span style="color:#034a94">**Gráfico de barras 2 **</span>
+
+<br/>
+```{r}
+conteo <- table(data$sex,data$categoria)
+
+barplot(conteo, main="Número de atletas por categoria y sexo",  
+xlab="Categorías",
+col=c("#0d3b66","#f4d35e"),
+legend = rownames(conteo),
+las=1, ylim = c(0,1200), 
+names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
+
+```
+
+
+
+
+
+
+

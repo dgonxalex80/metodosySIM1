@@ -1,0 +1,183 @@
+---
+title: <span style="color:#034a94"> **Indicadores de dispersión**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+data("CarreraLuz22")
+data("evaluacion")
+data("inflacionov22")
+```
+
+</br>
+
+Supongamos que tenemos dos grupos de participantes que son patrocinados por dos empresas. Se sabe que ambos grupos tienen igual en promedio de edad. Lo que primero se puede pensar es que los dos grupos tienen una composición igual o muy parecida dado que coinciden en el promedio.  Pero no es así, los datos que se presentan a continuación tienen medias de 28,  pero corresponden a grupos diferentes.
+
+<br/>
+
+|               |                                                                                                                       |
+|:--------------|:----------------------------------------------------------------------------------------------------------------------|
+| **Grupo 1**   |27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 | 
+| **Grupo 2**   |35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 |
+|               |                                                                                                                       |
+</br></br>
+
+Hace falta otro indicador que nos oriente sobre, qué tan dispersos son los datos con el fin de saber si se trata de grupos parecidos tanto en centro como en variabilidad. Esta necesidad la suplen los `indicadores de dispersión`.
+
+<br/>
+
+<center>
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotGrupos.png")
+```
+
+**Figura 1.11** Edad de los atletas por grupo 
+<br/>
+<sub>
+Fuente : datos simulados
+</sub>
+</center>
+
+</br></br>
+
+
+## <span style="color:#034a94">**Rango**</span>
+
+El rango es el indicador de dispersión más fácil de calcular, pues se obtiene restando los valores extremos de los datos: 
+
+$$r = \max(x) - \min(x)$$
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+En el caso de los dos grupos:
+
+|**Grupo 1**                  | **Grupo 2**                        |
+|:----------------------------|:-----------------------------------|
+|$\bar{x}_{1} = 28$ años      | $\bar{x}_{2} = 28$ años            |
+|$r_{1} = 16$ años            | $r_{2} = 38$ años                  |  
+|                             |                                    |
+
+Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes
+
+
+</br></br></br>
+
+## <span style="color:#034a94">**Varianza**</span>
+
+</br>
+
+Es la medida de dispersión más utilizada en estadística y está definida por :
+
+<div class="content-box-blue">
+$$s^{2}=\frac{1}{n-1} \sum_{i=1}^{n} (x_{i}-\bar{x})^{2}$$
+
+</div>
+
+Se podría afirmar que la varianza es un promedio de los cuadrados de las diferencias entre los datos  y su media.
+
+<br/> <br/>
+<div class="content-box-blue">
+
+### <span style="color:#034a94">**Propiedades de la varianza**</span>
+
++ $s^{2} = \frac{1}{n} \sum x_{i}^{2}- (\bar{x})^{2}$ 
+
++ La varianza es siempre no negativa  $s^{2} >=0$
+
++ La varianza de una constante es cero $s_{k}^{2}=0$
+
++ Si $y_{i}=k x_{i}$, entonces $s_{y}^{2}= k^{2} s_{x}^{2}$
+
++ Si $y_{i}=x_{i} + k$ , entonces  $s_{y}^{2} = s_{x}^{2}$
+
++ Si $z_{i} = a x_{i} + b y_{i}$, entonces $s_{z}^{2}$ = $a^{2}s_{x}^{2}$ + $b^{2}s_{y}^{2}$ + $2ab$ $cov(xy)$
+
+</div>
+
+</br></br>
+
+El problema de la varianza es su **interpretación**, pues sus unidades quedan al cuadrado y en la mayoría de los casos no es posible interpretar los resultados. Por esta razón se optó por utilizar otra medida de dispersión calculada a partir de la raíz cuadrada de la varianza.
+
+<br/> <br/>
+
+## <span style="color:#034a94">**Desviación estándar**</span>
+
+</br>
+
+Es la raíz cuadrada de la varianza
+
+<div class="content-box-blue">
+$$s = \sqrt{s^{2}}$$
+
+</div>
+
+
+</br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+|**Grupo 1**                      | **Grupo 2**                        |
+|:--------------------------------|:-----------------------------------|
+|$\bar{x}_{1} = 28$ años          |$\bar{x}_{2} = 28$ años             |
+|$s^{2}_{1} = 16.62$ años$^2$     |$s^{2}_{2} = 116.89$ años$^2$       |  
+|$s_{1}  = 4.16$ años             |$s_{2} = 10.81$ años                | 
+|                                 |                                    |
+</br>
+
+Aunque la desviación estándar reduce el problema mencionado anteriormente debido a tener las mismas unidades de la variable, es útil para comparación de dos grupos con igual media.  En caso de que las medias sean diferentes es difícil poder realizar las comparaciones.
+
+</br>
+
+<div class="content-box-gray">
+### <span style="color:#686868">**Nota**</span> 
+
+Las propiedades definidas para la varianza no aplican para la desviación estándar dado que la raíz cuadrada no es una función lineal
+</div>
+
+<br/> <br/>
+
+
+## <span style="color:#034a94">**Coeficiente de variación**</span>
+
+</br>
+
+Por último, el coeficiente de variación es un indicador adimensional que indica que tan grande o que tan pequeña es la desviación estándar con respecto a su media en porcentaje y de esta manera podemos resolver el problema de la dispersión para cualquier grupo de datos.
+
+<div class="content-box-blue">
+$$CV = \dfrac{s}{\vert\bar{x}\vert} \times 100 \% $$
+</div>
+
+Existen diferentes reglas empíricas para la interpretación del coeficiente de variación. Una de ellas establece como límite el 20% para separar los grupos homogéneos de los heterogéneos, por lo general se utiliza un valor hasta el 20% para determinar que un grupo de datos son homogéneos, de lo contrario se calificará como heterogéneo.
+
+</br></br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+|**Grupo 1**                  | **Grupo 2**                        |
+|:----------------------------|:-----------------------------------|
+|$\bar{x}_{1} = 28$ años      |$\bar{x}_{2} = 28$ años             |
+|$CV_{1}  = 14.56$ %          |$CV_{2} = 38.61$ %                  |  
+|                             |                                    |
+</br>
+
+En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo 2 con un valor superior que indica heterogeneidad
+
+
+
+
+
+
+
+
+
+

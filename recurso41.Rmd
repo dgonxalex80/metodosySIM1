@@ -1,0 +1,191 @@
+---
+title: <span style="color:#034a94"> **Introducción a R**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+```
+
+</br>
+
+A manera de introducción a  continuación se relacionan algunas ayudas para la iniciación del lenguaje :
+
+<br/><br/><br/>
+
+## <span style="color:#034a94">**Tipos de objetos**</span>
+
+<br/><br/>
+
+| Objeto      | tipos                                          | varios tipos objeto                       |
+|:------------|:-----------------------------------------------|:------------------------------------------|
+|  vector     | numéricos, caracter, complejo, lógico          | No                                        |
+|  factor     | numérico, caracter                             | No                                        |
+|  arreglo    | numéricos, caracter, complejo, lógico          | No                                        |
+|  matriz     | numéricos, caracter, complejo, lógico          | No                                        |
+|  data.frame | numéricos, caracter, complejo, lógico          | Si                                        |
+|  ts         | numéricos, caracter, complejo, lógico          | Si                                        |
+|  lista      | numéricos, caracter, complejo, lógico, función, expresión  | Si                            |
+
+<center>
+<sub>
+Tomado de: [R para principiantes](https://bookdown.org/jboscomendoza/r-principiantes4/)
+</sub>
+</center>
+
+### **vector**
+
+Secuencia unidimensional de elementos del mismo tipo
+
+<pre>
+a <- c(1,2,3,4,5,6,7,8,9) 
+b <- c("a","b","c","d","e","f","g","h","i") 
+
+class(a)
+class(b)
+</pre>
+
+```{r}
+a <- c(1,2,3,4,5,6,7,8,9)
+b <- c("a","b","c","d","e","f","g","h","i")
+
+class(a)
+class(b)
+
+```
+
+
+<br><br>
+
+### **factor**
+
+Vector que representa datos categóricos con niveles o categorías específicas.
+
+
+<pre>
+b_factor <- factor(b)
+class(b_factor)
+</pre>
+
+
+
+```{r}
+b_factor <- factor(b)
+class(b_factor)
+```
+
+<br><br>
+
+
+### **arreglo**
+
+Estructura de datos multidimensional que puede contener elementos del mismo tipo.
+
+
+<pre>
+ab = array(1:24, dim= c(2,3,4))
+class(ab)
+</pre>
+
+
+```{r}
+ab = array(1:24, dim= c(2,3,4))
+class(ab)
+```
+
+
+
+<br><br>
+
+#### **matriz**
+
+Array bidimensional que contiene elementos del mismo tipo.
+
+```{r}
+m = matrix(a, nrow = 3, byrow = TRUE)
+m
+class(m)
+```
+
+<pre>
+m = matrix(a, nrow = 3, byrow = TRUE)
+m
+class(m)
+</pre>
+
+
+<br><br>
+
+### **data.frame**
+
+Estructura tabular conformado por filas y columnas, en las que estas últimas peede ser de diferentes tipos.
+
+
+<pre>
+df = data.frame(a,b,c,d)
+df
+class(df)
+</pre>
+
+```{r}
+df = data.frame(a,b)
+df
+class(df)
+```
+
+<br><br>
+
+### **ts**  
+
+objeto de series temporales,utilizado para representar datos secuenciales en el tiempo.
+
+<pre>
+x = 1:24
+t = ts(x, start = 2000, frequency = 1) 
+t
+class(t)
+</pre>
+
+
+```{r}
+x = 1:24
+t = ts(x, start = 2000, frequency = 1) 
+t
+class(t)
+```
+  
+  
+<br><br>
+
+### **Lista**
+
+Colección ordenada y flexible que puede contener elementos de diferentes tipos.
+
+<pre>
+data_lista = list(
+  nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
+    edad = c(23,43,25,30,21),
+  ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
+)
+data_lista
+class(data_lista)
+</pre>
+
+```{r}
+data_lista = list(
+  nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
+    edad = c(23,43,25,30,21),
+  ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
+)
+data_lista
+class(data_lista)
+```
+
+
+
+

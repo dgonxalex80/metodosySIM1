@@ -32,9 +32,9 @@ Theme2 = theme(
 library(readr)
 library(tidyverse)
 library(lubridate)
-RioCali10<- read_csv("~/Documentos/Javeriana/Ms en Ciencia de Datos/data/RioCali10k.csv", col_types = cols(edad = col_integer()))
-
-apply(is.na(RioCali10), 2, sum)   
+library(paqueteMETODOS)
+data("CarreraLuz22")
+apply(is.na(CarreraLuz22), 2, sum)   
 
 
 RioCali10 <- RioCali10[!is.na(RioCali10$edad),]

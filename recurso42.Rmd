@@ -1,0 +1,22 @@
+---
+title: <span style="color:#034a94"> **Referencias**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+```
+
+
+<br/>
+
+* [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+* [Statistical Inference via Data Science](https://moderndive.com/)
+
+* [R for Data Science](https://r4ds.had.co.nz/) 

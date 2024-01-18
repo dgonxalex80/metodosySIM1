@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Ejemplo</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Métodos
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Conceptos básicos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso10.html">Conceptos Básicos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso11.html">Conceptos</a>
+    </li>
+    <li>
+      <a href="recurso12.html">Importar datos</a>
+    </li>
+    <li>
+      <a href="recurso13.html">Ordenar y limpiar datos</a>
+    </li>
+    <li>
+      <a href="recurso14.html">Fusión de datos</a>
+    </li>
+    <li>
+      <a href="recurso15.html">Estandarización - Normalización</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso20.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso21.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso22.html">Indicadores de posición</a>
+    </li>
+    <li>
+      <a href="recurso23.html">Indicadores de centro</a>
+    </li>
+    <li>
+      <a href="recurso24.html">Indicadores de disperción</a>
+    </li>
+    <li>
+      <a href="recurso25.html">Indicadores de forma</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Visualización de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso30.html">Visualización</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso31.html">Visualización variables cualitativas</a>
+    </li>
+    <li>
+      <a href="recurso32.html">Visualización variables cuantitativas</a>
+    </li>
+    <li>
+      <a href="recurso33.html">Visualización multivariada</a>
+    </li>
+    <li>
+      <a href="recurso34.html">Visualización avanzada</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso40.html">Introducción a R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso41.html">Objetos en R</a>
+    </li>
+    <li>
+      <a href="recurso42.html">Referencias</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Ejemplo</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<p></br></p>
+<p>Se requiere realizar un análisis descriptivo de la información
+contenida en la data <code>CarreraLuz22</code>, para lo cual se requiere
+importar la data contenida en <code>paqueteMETODOS</code>.</p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+str(CarreraLuz22)</code></pre>
+<pre><code>tibble [1,922 × 7] (S3: tbl_df/tbl/data.frame)
+ $ id          : num [1:1922] 1 2 3 4 5 6 7 8 9 10 ...
+ $ sex         : chr [1:1922] &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; &quot;Hombre&quot; ...
+ $ edad        : int [1:1922] 22 31 31 36 32 48 31 19 51 24 ...
+ $ origen      : chr [1:1922] &quot;Sevilla&quot; &quot;Sevilla&quot; &quot;Yumbo&quot; &quot;Cali&quot; ...
+ $ timerun     : num [1:1922] 1988 2041 2083 2112 2213 ...
+ $ categoria   : chr [1:1922] &quot;2. Abierta&quot; &quot;2. Abierta&quot; &quot;2. Abierta&quot; &quot;2. Abierta&quot; ...
+ $ nacionalidad: chr [1:1922] &quot;COL&quot; &quot;COL&quot; &quot;COL&quot; &quot;COL&quot; ...</code></pre>
+<p><br/></p>
+<p>Inicialmente se examina la data con el fin de detectar datos
+faltantes</p>
+<pre class="r"><code>colSums(is.na(CarreraLuz22))</code></pre>
+<pre><code>          id          sex         edad       origen      timerun    categoria 
+           0            0            0            0            0            0 
+nacionalidad 
+           0 </code></pre>
+<p>Lo cual también se puede validar de manera gráfica</p>
+<p><br/></p>
+<pre class="r"><code>VIM::aggr(CarreraLuz22, cex.axis = 1, cex.lab= 1)  # gráficos de datos faltantes</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><br/></p>
+<p>La gráfica indica que no existen datos faltantes en la data.</p>
+<p>Se inicia con un análisis univariado, para lo cual se dividen las
+variables en :</p>
+<p><br/><br/></p>
+<div id="variables-cuantitativas" class="section level3">
+<h3><strong>Variables cuantitativas</strong></h3>
+<p>Para el caso de las variables cualitativas utilizamos tablas y
+gráficos circulares o de torta para el caso de las variables
+cualitativas- nominales (sex, origen) y de barras en el caso de las
+variables - ordinales (categoría)</p>
+<ul>
+<li><strong>sex</strong> :sexo del participante : Hombre, Mujer</li>
+<li><strong>origen</strong> : ciudad de origen del participante</li>
+<li><strong>categoría</strong> : 1. Juvenil, 2. Abierta, 3. Veteranos A,
+4. Veteranos B, 5. Veteranos C</li>
+</ul>
+<p><br/></p>
+</div>
+<div id="sex" class="section level3">
+<h3><strong>sex</strong></h3>
+<pre class="r"><code>attach(CarreraLuz22) # esta funcion permite nombrar las variables de manera independiente a la base
+summarytools::freq(sex, cumul = FALSE)</code></pre>
+<pre><code>Frequencies  
+
+               Freq   % Valid   % Total
+------------ ------ --------- ---------
+      Hombre   1178     61.29     61.29
+       Mujer    744     38.71     38.71
+        &lt;NA&gt;      0                0.00
+       Total   1922    100.00    100.00</code></pre>
+<p>El resultado indica que un 61.29% de los participantes eran
+hombres</p>
+<p><br/></p>
+<pre class="r"><code>library(ggplot2)
+library(scales)
+t=prop.table(table(sex))
+df=as.data.frame(t)
+names(df) = c(&quot;sexo&quot;, &quot;frecuencia&quot;)
+
+ggplot(df,aes(x=&quot;&quot;,y=frecuencia, fill=sexo))+
+geom_bar(stat = &quot;identity&quot;,
+color=&quot;white&quot;)+
+geom_text(aes(label=percent(frecuencia)),
+position=position_stack(vjust=0.5),color=&quot;white&quot;,size=5)+
+coord_polar(theta = &quot;y&quot;)+
+scale_fill_manual(values=c(&quot;steelblue&quot;,&quot;orange&quot;))+
+theme_void()+
+labs(title=&quot;Distribución sexo participantes Carrera La Luz&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br/><br/></p>
+</div>
+<div id="categoria" class="section level3">
+<h3><strong>categoria</strong></h3>
+<pre class="r"><code>summarytools::freq(categoria)</code></pre>
+<pre><code>Frequencies  
+
+                       Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+-------------------- ------ --------- -------------- --------- --------------
+          1. Juvenil     19      0.99           0.99      0.99           0.99
+          2. Abierta   1179     61.34          62.33     61.34          62.33
+      3. Veteranos A    423     22.01          84.34     22.01          84.34
+      4. Veteranos B    227     11.81          96.15     11.81          96.15
+      5. Veteranos C     74      3.85         100.00      3.85         100.00
+                &lt;NA&gt;      0                               0.00         100.00
+               Total   1922    100.00         100.00    100.00         100.00</code></pre>
+<p>En este caso como la variable es ordinal, tiene sentido la inclusión
+de las dos últimas columnas que corresponden a las frecuencias
+acumuladas.</p>
+<p>Por un lado se puede indicar que la categoría abierta representa el
+mayor porcentaje de los participantes (61.33%), mientras que la juvenil
+constituye la categoría con menor participación alcanzando casi el
+1%.</p>
+<p><br/></p>
+<pre class="r"><code>library(ggplot2)
+
+ggplot(CarreraLuz22, aes(x = categoria)) +
+geom_bar(fill = &quot;#0EB0C6&quot;) +
+labs(title = &quot;Distribución por categoría&quot;,
+x = &quot;Carrera&quot;,
+y = &quot;Frecuencia&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>La representación gráfica, permite visualizar las diferencias entre
+las frecuencias de las categorías participantes en la carrera.</p>
+<p><br/><br/></p>
+</div>
+<div id="variables-cualitativas" class="section level3">
+<h3><strong>Variables cualitativas</strong></h3>
+<p>En el caso de las variables cuantitativas se construye un resumen de
+indicadores y su representación gráfica puede ser un histograma, gráfico
+de densidad, diagrama de cajas, diagrama de puntos, diagrama de
+lineas</p>
+<ul>
+<li><strong>edad</strong> : edad del participante</li>
+<li><strong>timerun</strong> :tiempo de recorrido en segundos. Para una
+mejor interpretación pararemos esta variable a minutos, dividiendo por
+60</li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="edad" class="section level3">
+<h3><strong>edad</strong></h3>
+<pre class="r"><code>summarytools::descr(edad)</code></pre>
+<pre><code>Descriptive Statistics  
+value  
+N: 1922  
+
+                      value
+----------------- ---------
+             Mean     37.45
+          Std.Dev     10.90
+              Min     15.00
+               Q1     30.00
+           Median     36.00
+               Q3     44.00
+              Max     76.00
+              MAD     10.38
+              IQR     14.00
+               CV      0.29
+         Skewness      0.64
+      SE.Skewness      0.06
+         Kurtosis      0.11
+          N.Valid   1922.00
+        Pct.Valid    100.00</code></pre>
+<p>El resumen de indicadores se puede dividir en cuatro partes:</p>
+<p><br/></p>
+<ul>
+<li><strong>indicadores de centro</strong></li>
+</ul>
+<pre>
+Mean     37.45    # media
+Median     36.00    # mediana
+</pre>
+<p>Los valores de media y mediana son similares, lo que indica
+posiblemente una forma simétrica. En este caso dado que la media es más
+conocida, se utiliza este indicador para describir la muestra.</p>
+<p>En promedio los participantes tienen en promedio 37 años.</p>
+<p><br/></p>
+<ul>
+<li><strong>indicadores de dispersión</strong></li>
+</ul>
+<pre>
+Std.Dev     10.90     # desviación estandar
+IQR     14.00     # rango intercuartilico - Q3-Q1
+CV      0.29     # coeficiente de variación
+</pre>
+<p>Estos valores dan una idea de la dispersión de los datos, es decir
+que tanto se parecen o se diferencian. La desviación estándar como
+también el rango (max-min) y el rango intercuartilico IQR, corresponde a
+valores útiles al realizar comparación de grupos.</p>
+<p>El coeficiente de variación en cambio permite comparar la magnitud de
+la desviación estándar en comparación con la media de la variable. En
+este caso (CV = 0.29) el indicador corresponde a un grupo
+heterogéneo.</p>
+<p><br/></p>
+<ul>
+<li><strong>indicadores de forma</strong></li>
+</ul>
+<pre>
+Skewness      0.64    # sesgo
+SE.Skewness      0.06    # error estándar del sesgo
+Kurtosis      0.11    # curtosis
+</pre>
+<p>En cuanto al valor del indicador de sesgo (0.64), representa una leve
+simetría positiva y un valor de curtosis similar al estándar
+representado por la distribución normal estandar.</p>
+<p><br/></p>
+<ul>
+<li><strong>indicadores de posición</strong></li>
+</ul>
+<pre>
+Min     15.00     # mínimo
+Q1     30.00     # percentil 25
+Median     36.00     # percentil 50
+Q3     44.00     # percentil 75
+Max     76.00     # máximo
+</pre>
+<p>Los indicadores de posición nos ayudan a comparar un valor con estos
+indicadores de referencia. Por ejemplo un atleta con un valor de 35
+minutos tienen una posición en el orden de llegada entre el 25% y el
+50%, estando mas cercano al centro.</p>
+<p><br/></p>
+<p>En resumen se utilizan los indicadores para resumir los valores de
+una variable aleatoria. Para el caso de la edad de los corredores podría
+decirse:</p>
+<p>Se presentaron 1922 atletas que tenían en promedio 37 años,
+conformando un grupo heterogéneo (CV 29%) y una distribución levemente
+asimetrica positiva.</p>
+<p><br/></p>
+<pre class="r"><code># Crear un histograma para la variable &#39;edad&#39; en ggplot2
+ggplot(CarreraLuz22, aes(x = edad)) +
+geom_histogram(binwidth = 5, fill = &quot;#0EB0C6&quot;, color = &quot;black&quot;, alpha = 0.7) +
+labs(title = &quot;Distribución de la edad&quot;,
+x = &quot;años&quot;,
+y = &quot;Frecuencia&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>El histograma permite visualizar tanto distribución de la variable,
+como también el rango</p>
+<p><br/><br/></p>
+<pre class="r"><code># Crear un diagrama de cajas para la variable &#39;edad&#39; en ggplot2
+ggplot(CarreraLuz22, aes(x = edad, y = &quot;&quot;)) +
+geom_boxplot(fill = &quot;#0EB0C6&quot;, color = &quot;black&quot;, alpha = 0.7) +
+labs(title = &quot;Distribución de la edad&quot;,
+x = &quot;&quot;,
+y = &quot;Edad&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>El diagrama de cajas permite visualizar los datos atípicos (punto
+ubicados a la izquierda de la gráfica)</p>
+<p><br/><br/></p>
+</div>
+<div id="analisis-bivariado" class="section level2">
+<h2><strong>Analisis bivariado</strong></h2>
+<p>Después de realizar una análisis unidimensional, puede ser necesario
+realizar análisis por grupos de variables . En este caso se pueden
+presentar las siguientes combinaciones:</p>
+<p><br/></p>
+<div id="cualitativa---cualitativa" class="section level3">
+<h3><strong>Cualitativa - Cualitativa</strong></h3>
+<pre class="r"><code>summarytools::ctable(categoria, sex)</code></pre>
+<pre><code>Cross-Tabulation, Row Proportions  
+categoria * sex  
+
+---------------- ----- -------------- ------------- ---------------
+                   sex         Hombre         Mujer           Total
+       categoria                                                   
+      1. Juvenil           12 (63.2%)     7 (36.8%)     19 (100.0%)
+      2. Abierta          677 (57.4%)   502 (42.6%)   1179 (100.0%)
+  3. Veteranos A          276 (65.2%)   147 (34.8%)    423 (100.0%)
+  4. Veteranos B          155 (68.3%)    72 (31.7%)    227 (100.0%)
+  5. Veteranos C           58 (78.4%)    16 (21.6%)     74 (100.0%)
+           Total         1178 (61.3%)   744 (38.7%)   1922 (100.0%)
+---------------- ----- -------------- ------------- ---------------</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +
+geom_bar(position = &quot;stack&quot;, color = &quot;white&quot;) +
+scale_fill_manual(values = c(&quot;#FF7F00&quot;, &quot;#034A94&quot;)) +
+labs(title = &quot;Distribución de las categorías por sexo&quot;,
+x = &quot;Categoría&quot;,
+y = &quot;Frecuencia&quot;,
+fill = &quot;Sexo&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><br/></p>
+</div>
+<div id="cualitativa---cuantitativa" class="section level3">
+<h3><strong>Cualitativa - Cuantitativa</strong></h3>
+<pre class="r"><code># install.packages(&quot;doBy&quot;)
+library(doBy)
+CarreraLuz22$t = timerun/60
+summaryBy(t ~ categoria, data = CarreraLuz22, 
+FUN = c(mean, median, sd, min, max))</code></pre>
+<pre><code># A tibble: 5 × 6
+  categoria      t.mean t.median  t.sd t.min t.max
+  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 1. Juvenil       65.0     61.1  15.7  41.7  91.3
+2 2. Abierta       65.5     64.0  12.7  33.1 114. 
+3 3. Veteranos A   64.7     62.4  12.2  37.3 111. 
+4 4. Veteranos B   64.5     63.8  11.9  37.8 105. 
+5 5. Veteranos C   67.6     66.0  16.7  45.0 166. </code></pre>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
+library(viridis)
+library(hrbrthemes)
+
+# Plot con colores en las cajas
+CarreraLuz22 %&gt;%
+ggplot(aes(x = categoria, y = t, fill = categoria)) +
+geom_boxplot() +
+scale_fill_viridis(discrete = TRUE, alpha = 0.) +
+geom_jitter(color = &quot;black&quot;, size = 0.4, alpha = 0.5) +
+theme_ipsum() +
+theme(
+legend.position = &quot;none&quot;,
+plot.title = element_text(size = 11)
+) +
+ggtitle(&quot;Distribución del tiempo de carrera por categoría&quot;) +
+xlab(&quot;&quot;) +
+scale_fill_manual(values = c(&quot;#FF9999&quot;, &quot;#66B2FF&quot;, &quot;#99FF99&quot;, &quot;#FFCC99&quot;, &quot;#686868&quot;))  # Puedes ajustar los colores según tus preferencias</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>El gráfico permite visualizar una mayor cantidad de participantes en
+la categoría Abierta y también que la distribución de los tiempo de
+carrera es similar para todas las categorías. Tambien se puede observar
+que el dato atípico corresponde a un atleta de la categoría Veteranos
+C.</p>
+<p><br/></p>
+</div>
+<div id="cuantitativa---cuantitativa" class="section level3">
+<h3><strong>Cuantitativa - Cuantitativa</strong></h3>
+<p>Para realizar un análisis bivariado en este caso utilizamos el
+coeficiente de correlación que permite medir la asociación lineal entre
+las dos variables numéricas, es decir que tanto se ajustan las dos
+variable a una linea recta. Esta relación será estudiada con más detalle
+en el curso de Modelos Estadísticos.</p>
+<pre class="r"><code>cor(CarreraLuz22$edad, CarreraLuz22$t)</code></pre>
+<pre><code>[1] -0.009211491</code></pre>
+<p>Este resultado nos indica que no existe ninguna relación entre la
+edad y el tiempo de carrera de los participantes, lo cual se puede
+observar en el siguiente gráfico.</p>
+<pre class="r"><code>library(ggplot2)
+
+# Asumiendo que &quot;Carrera&quot; es tu conjunto de datos
+# Asegúrate de tener las variables &quot;edad&quot; y &quot;t&quot; en tus datos
+
+# Plot de puntos con color azul
+ggplot(CarreraLuz22, aes(x = edad, y = t)) +
+geom_point(color = &quot;#0EB0C6&quot;) +  # Color azul
+labs(title = &quot;Edad vs. Tiempo de carrera&quot;,
+x = &quot;Edad (años)&quot;,
+y = &quot;Tiempo (min.)&quot;)</code></pre>
+<p><img src="recurso26_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

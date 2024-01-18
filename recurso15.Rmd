@@ -1,0 +1,178 @@
+---
+title: <span style="color:#034a94"> **Transformacion de datos**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+
+# install.packages('gtools')
+# install.packages("TeachingSampling")
+
+#load library
+library(gtools)
+library(TeachingSampling)
+library(readr)
+library(paqueteMETODOS)
+library(tidyverse)
+
+c1="#FF7F00"
+c2="#034A94"
+c3="#0EB0C6"
+c4="#686868"
+
+library(paqueteMETODOS)
+data("vivienda_faltantes")
+data("rotacion")
+```
+
+<br/>
+
+Una de las etapas importantes dentro del ciclo de datos corresponde a la transformación de las variables. Dentro de los procesos más importantes en este aspecto estan :
+
+* Construcción de nuevas variables
+* Estantarización de variables
+* Normalización de variables
+
+<br/>
+
+Para presentar estos procesos se utiliza la data `rotación` contenida en `paqueteMETODOS`, iniciando con su importación y descripción:
+
+
+```{r}
+library(dplyr)
+data(rotacion)
+set.seed(123)
+datos <- sample_n(rotacion, 1000)
+# variables <- c("Edad", "Antigüedad", "Antigüedad_Cargo", "Años_ultima_promoción", "Años_acargo_con_mismo_jefe")
+datos = datos[, c(2,18,21,22,23,24)] # se seleccionan variables de interes para facilitar su visualizacion
+str(datos) # Muestra los datos originales
+```
+
+<br/><br/>
+
+## <span style="color:#034a94"> **Construcción de variables**</span>
+
+Es usual que se requiera construir variables a partir de las variables existente en la data. Este proceso se puede realizar de dos formas:
+
+* Utilizando la transformación directamente 
+* Utilizando la función `mutate`  del paquete `dplyr` 
+
+<br/><br/>
+
+### <span style="color:#FF7F00"> **Ejemplo** </span>
+
+Supongamos que se desea contruir un indicador de razón que involucre las variables Años de Experiencia y Antigüedad
+
+$$\text{Indicador} = \dfrac{\text{Antigüedad}}{\text{Años de Experiencia}}$$
+Este indicador podrá suministra información sobre si el empleado ha sido contratado con experiencia previa o si por el contrario se ha adquirido su experiencia en la empresa. 
+
+
+<br/>
+
+**Transformación directa**
+
+```{r}
+datos$Indicador1 = datos$Antigüedad/datos$Años_Experiencia
+str(datos) 
+```
+
+<br/>
+
+**Transformacion utilizando la función mutate del paquete dplyr**
+
+```{r}
+datos <- mutate(datos, Indicador2 = Antigüedad / Años_Experiencia)
+str(datos) # Muestra los datos originales
+```
+
+<br/>
+
+Otra de las transformaciones importantes en el analisis de datos corresponde a la estandarización y la normalización  de las variables, las cuales permiten el cambio de escala, permitiendo realizar comparaciones.
+
+<br/><br/>
+
+## <span style="color:#034a94"> **Estandarización**</span>
+
+Consiste en restar a la media de una variable a todos sus valores y diviviendo este resultado por su desviación estandar. Esta tranaformación hace que la nueva variable tenga media cero y varianza uno.
+
+
+$$X_{\text{estandarizada}} = \dfrac{X- \text{media}(x)}{\text{desviación estandar}(x)}$$
+
+<br/>
+
+### <span style="color:#FF7F00"> **Ejemplo** </span> 
+
+```{r}
+datos <- sample_n(rotacion, 1000)
+datos$Edad_estandarizada1 = (datos$Edad - mean(datos$Edad))/sd(datos$Edad)
+datos$Edad_estandarizada2 = scale(datos$Edad)
+str(datos[,c(2,25,26)]) 
+
+summarytools::descr(datos[,c(2,25,26)])
+
+```
+
+
+<br/>
+
+La estandarización en el contexto de la limpieza y ajuste de datos en ciencia de datos se refiere al proceso de transformar las variables para que tengan una media de cero y una desviación estándar de uno. Este paso es comúnmente realizado para asegurar que las variables tengan escalas comparables y para facilitar la interpretación y el análisis de los modelos.
+
+<br/><br/>
+
+## <span style="color:#034a94"> **Normalización**</span>
+
+Esta transformación escala los valores de una variable a un rango específico, por defecto el rango es [0,1]. 
+
+<br/>
+
+**Normalización manual**
+
+Para realizar la tranformación de manera manual debemos de contar con :
+
+* valor mínimo de la variable
+* valor máximo de la variable
+
+
+
+$$X_{\text{normalizada}} = \dfrac{X - \min(x)}{(\max(x)-\min(x))} $$
+<br/>
+
+### <span style="color:#FF7F00"> **Ejemplo** </span> 
+
+
+**Normalización utilizando la función rescale del paquete scales**
+
+
+```{r}
+datos <- sample_n(rotacion, 1000)
+
+datos$Edad_normalizada1 = (datos$Edad - min(datos$Edad))/(max(datos$Edad)-min(datos$Edad))
+
+library(scales)
+datos$Edad_normalizada2 = rescale(datos$Edad, to =c(0,1))
+
+
+str(datos[,c(2,25, 26)])
+summarytools::descr(datos[,c(2,25,26)])
+```
+
+<br/><br/>
+
+<div class="content-box-gray">
+### <span style="color:#686868"> **Nota** </span>
+
+En Ciencia de Datos puede ser necesario realizar tranformación de las variables como la estandarización o la normalización depediendo algunos requerimientos específicos del proceso de modelamientoo algoritmos utilizados
+
+
+En el caso de algoritmos relacionados con aprendizaje automático, regresión lineal o en casos donde se requiera la comparación de los resultados, será necesario realizar procesos de estandarización (pasar a media cero y varianza uno).
+
+
+En el caso de algunos algoritmos de redes neuronales, puede ser necesario que los datos originales se distribuyan en el mismo rango o en el caso de mejorar la velocidad de convergencia de uno de los metodos de optimización será necesario realizar normalización de las variables (una misma escala con el mismo rango) 
+
+
+</div>

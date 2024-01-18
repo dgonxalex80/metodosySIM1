@@ -1,0 +1,75 @@
+---
+title: <span style="color:#034A94"> **Conceptos básicos**</span> 
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+c1 ="#FF7F00"  # naranja - color primario 
+c2 ="#034A94"  # azul oscuro - color secundario
+c3 ="#0EB0C6"  # azul claro - color terciario
+c4 ="#686868"  # gris - color texto
+
+# <span style="color:#FF7F00"> **naranja**</span> 
+# <span style="color:#034A94"> **azul oscuro**</span>
+# <span style="color:#0EB0C6"> **azul claro**</span>  
+
+```
+
+```{r, warning=FALSE, message=FALSE, fig.align='center'}
+#library("tm")
+#library("SnowballC")
+library("wordcloud2")
+library("RColorBrewer")
+
+palabras= c("Estadística", 
+            "Análisis descriptivo","Inferencia estadística",
+            "Validez", "Unidad de análisis", 
+            "Variable aleatoria", 
+            "Variable cualitativa", "Variable cuantitativa",
+            "Variable discreta", "Variable continua", "Escala nominal",
+            "Escala ordinal", "Escala de intervalo", "Escala de razón" ,
+            "Población", "Muestra", "Parámetro", "Estimador", 
+            "Muestreo", "Tipo de muestreo",
+            "Muestreo probabilistico", "Muestreo no probabilistico",
+            "Muestreo por conveniencia",
+            "Muestreo por juicio",
+            "Muestreo por cuotas",
+            "Muestreo bola de nieve",
+            "Muestreo aleatorio simple",
+            "Muestreo aleatorio estratificado",
+            "Muestreo aleatorio sistemático",
+            "Muestreo aleatorio por conglomerados")
+
+frecuencia = c(10, 8, 8, 
+              7, 7, 7, 7, 7, 7, 
+              5,5,  5, 5, 5, 5, 4, 4, 4, 4, 6, 
+              6, 6,  5, 5, 5, 4, 5, 6, 5,6) 
+
+nube1=rep(palabras, frecuencia)
+t=data.frame(table(nube1))
+
+dword=t[,1]
+dfreq=t[,2]
+set.seed(1234)
+# wordcloud(words = dword, freq = dfreq, min.freq = 1,
+#            max.words=200, random.order=FALSE, rot.per=0.35, 
+#            colors=brewer.pal(8, "Dark2"))
+
+#c("#F27F0C", "#F7AD19", "#053F5C", "#429EBD", "#034A94")
+library(wordcloud2)
+wordcloud2(data = t, 
+           size = 0.5, 
+           color=rep_len( c("#F27F0C", "#F7AD19", "#053F5C", "#429EBD", "#034A94"), 
+                          nrow(demoFreq)),
+           rotateRatio = 0)
+```
+

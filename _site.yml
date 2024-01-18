@@ -3,47 +3,60 @@ output_dir: "docs"
 navbar:
   title: " "
   left:
-    - text: " "
+    - text: "Métodos"  
       icon: fa-home
       href: index.html  
     - text: "Conceptos básicos"
       menu:    
         - text: "Conceptos Básicos"
-          href: recurso101.html     
+          href: recurso10.html     
         - text: "---------"
         - text: "Conceptos"
-          href: recurso101A.html           
+          href: recurso11.html  
         - text: "Importar datos"
-          href: recurso100A.html          
-        - text: "Limpieza de datos"
-          href: recurso100B.html   
+          href: recurso12.html  
+        - text: "Ordenar y limpiar datos"
+          href: recurso13.html            
         - text: "Fusión de datos"
-          href: recurso100D.html             
-          
+          href: recurso14.html  
+        - text: "Estandarización - Normalización"
+          href: recurso15.html  
     - text: "Análisis de datos"
       menu:      
         - text: "Análisis de datos"
-          href: recurso102.html      
+          href: recurso20.html      
         - text: "---------"         
         - text: "Tablas de frecuencia"
-          href: recurso102A.html            
-        - text: "Indicadores"
-          href: recurso102B.html            
+          href: recurso21.html            
+        - text: "Indicadores de posición"
+          href: recurso22.html
+        - text: "Indicadores de centro"
+          href: recurso23.html       
+        - text: "Indicadores de disperción"
+          href: recurso24.html
+        - text: "Indicadores de forma"
+          href: recurso25.html           
+    - text: "Visualización de datos"
+      menu:      
         - text: "Visualización"
-          href: recurso102C.html 
+          href: recurso30.html      
+        - text: "---------"            
+        - text: "Visualización variables cualitativas"
+          href: recurso31.html 
+        - text: "Visualización variables cuantitativas"
+          href: recurso32.html 
+        - text: "Visualización multivariada"
+          href: recurso33.html 
+        - text: "Visualización avanzada"
+          href: recurso34.html          
     - text: "Software R"
       menu:
         - text: "Introducción a R"
-          href: recurso103.html   
-        - text: "---------"    
-        - text: "Tablas"
-          href: recurso103A.html            
-        - text: "Indicadores"
-          href: recurso103B.html            
-        - text: "Visualización"
-          href: recurso103C.html       
-output:
-  html_document:
-      css: style.css
-      theme: paper
+          href: recurso40.html   
+        - text: "---------"  
+        - text: "Objetos en R"
+          href: recurso41.html
+        - text: "Referencias"
+          href: recurso42.html      
+
       

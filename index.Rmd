@@ -1,12 +1,16 @@
 ---
-title : <span style="color:#034A94"> **Experiencia**</span>
+title: <span style="color:#034a94">**Experiencia**</span>
+subtitle: " "
+author: " "
+date: " "
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
-
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
@@ -70,6 +74,7 @@ Contenido de la unidad :
   * Conceptos
   * Importar datos
   * Limpieza de datos
+  
 
 <br/>
 
@@ -80,6 +85,14 @@ Contenido de la unidad :
     * Indicadores de centro
     * Indicadores de dispersión
     * Indicadores de forma
+    
+<br/>    
+    
+* **Visualización de datos**
+  * Representación variables cualitativas
+  * Representación variables cualitativas
+  * Representaciones bivariadas
+  * Representaciones multivariadas
 
 <br/>
 

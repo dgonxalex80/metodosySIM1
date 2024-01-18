@@ -27,7 +27,7 @@ palabras=c("ESTADÍSTICA","DESCRIPTIVA",
   "DIAGRAMA DE LÍNEAS", "R", "RStudio")
  #29
 
-replicas=c(25, rep(8,59))
+replicas=c(18, sample(5:15,59, replace = TRUE))# rep(5,59))
  
 nube1=rep(palabras, replicas)
 

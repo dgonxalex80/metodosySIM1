@@ -1,0 +1,189 @@
+---
+title: <span style="color:#034a94"> **Indicadores de centro**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+data("CarreraLuz22")
+data("evaluacion")
+data("inflacionov22")
+```
+
+</br>
+
+Una vez que se han organizado los datos y se ha observado su distribución a través de tablas o gráficos de frecuencias, en ocasiones se requiere de **indicadores** que resuman los datos, es decir que en forma muy directa puedan indicar rasgos importantes de las observaciones,como su magnitud, su homogeneidad y su simetría. Medidos a través de un único valor representan todo el conjunto de observaciones. Entre los principales indicadores de tendencia central se encuentran: La **media aritmética** o **promedio aritmético** (o simplemente media o promedio), la **mediana** y la **moda**.
+
+</br></br>
+
+## <span style="color:#034a94">**Media aritmética**</span>
+
+Es el indicador de tendencia central más conocido y utilizado por su fácil interpretación y calculo. Consiste en sumar todos los valores de un conjunto de datos y dividirlos por el número de datos.
+
+<br/>
+
+<div class="content-box-blue">
+$$\bar{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
+</div>
+
+</br></br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+La siguiente es la información de los tiempos correspondientes a la categoría juvenil femenina:
+
+
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+n    = 12
+suma = 717.20
+promedio = 59.77
+</pre>
+
+<br/>
+
+Las mujeres de la categoría juveniles presentan el promedio más bajo (59.77 min).
+
+</br></br>
+
+<div class="content-box-blue">
+
+### <span style="color:#034a94">**Propiedades de la media**</span> 
+
++ La suma de las desviaciones de los datos con respecto a la media es cero. $\sum (x_{i}-\bar{x})=0$.
+
++ La suma de los cuadrados de las desviaciones de los datos con respecto a un valor $a$ es mínimo cuando $a=\bar{x}$.
+
++ Si $x_{i}=k$ para todo $i$, entonces, $\bar{x}=k$.
+
+
++ Si todos los datos de una variable se multiplican por una constante $k$, es decir $y_{i}=kx_{i}$, entonces $\bar{y}=k\bar{x}$
+
++ Si $z_{i}=a x_{i}+b y_{i}$, donde: **a**, **b** constantes y $x_{i}$, $y_{i}$ variables, entonces: $\bar{z}=a\bar{x}+b\bar{y}$. 
+</div>
+
+<br/> <br/>
+
+
+## <span style="color:#034a94">**Mediana**</span>
+
+
+La **mediana** es el número que divide la muestra en dos partes de igual proporción (50% : 50%). Es decir que corresponde al percentil 50.
+
+
+<div class="content-box-blue">
+$$Me = P_{50} = D_{5} = Q_{2} $$
+
+n    = 12
+(n+1)/2  = 6.5   : posición de la mediana 
+Mediana (57.03 + 61.13)/2 = 59.08
+</pre>
+
+</br></br>
+
+<center>
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/RplotBoxplot3.png")
+```
+
+**Figura 1.10** Tiempos hombres categoría juvenil  
+<br/>
+<sub>
+Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
+</sub>
+</center>
+
+La línea central de las cajas representan las medianas. En ellas se puede evidenciar el valor mayor del grupo juvenil femenino.
+
+</br></br>
+
+## <span style="color:#034a94">**Moda**</span>
+
+La **moda**  corresponde al dato o valor que más se repite. Es utilizada como medida de tendencia central en variables cualitativas o en cuantitativas discretas con pocos valores. 
+
+<br/> <br/>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+<pre>
+Variable    moda
+------------------
+sexo        hombre
+categoría   abierta
+origen      cali
+------------------
+</pre>
+
+</br>
+
+
+Los datos de la carrera indican que la categoría Abierta representa la categoría con mayor participación 
+
+<pre>
+Moda : categoría Abierta
+</pre>
+
+</br></br>
+
+## <span style="color:#034a94">**Media truncada**</span>
+
+Con el fin de evitar que los datos atípicos generen sesgos en el indicador de la media, es posible separar el 90% central de los datos, quitando un 5% de los datos más pequeños y un  5% de los datos mayores. A este indicador se le llama **media truncada** al 10%  ($\bar{x}_{_{0.10}}$)
+
+<br/> <br/>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+<pre>
+1      2      3      4      5      6      7      8      9      10     11     12        
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+      (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
+
+media truncada al 10% : 59.748
+</pre>
+
+</br></br>
+
+
+## <span style="color:#034a94">**Rango medio**</span>
+
+El rango medio se obtiene al sumar los valores extremos ( mínimo y máximo) y dividir el resultado por dos. Este indicador es de fácil cálculo y útil cuando se desea una estimación empírica y alta precisión en datos simétricos. 
+
+<div class="content-box-blue">
+$$r = \frac{1}{2}\Big(\max(x)+\min(x)\Big)$$
+</div>
+
+<br/><br/>
+
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+<pre>
+41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+
+rango medio = (41.67 + 78.05) /2 = 59.86
+
+</pre>
+
+
+<br/> <br/></br>
+
+
+
+
+
+
+
+
+
+

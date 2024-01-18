@@ -1,0 +1,232 @@
+---
+title: <span style="color:#034a94"> **Tablas de frecuencia**</span>
+author: "Métodos y Simulación Estadística"
+output:
+  html_document:
+    code_folding: hide
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+#install.packages("devtools") # solo una vez
+devtools::install_github("dgonxalex80/paqueteMETODOS")
+library(readr)
+library(tidyverse)
+library(DT)
+library(paqueteMETODOS)
+
+data("CarreraLuz22")
+data("Cali")
+```
+
+<br/><br/>
+
+Las tablas de frecuencia constituyen una de las formas de resumir información, permitiendo tener una primera impresión de los diferentes valores de una variable,  si presenta errores de sistematización o datos faltantes (NA).
+
+</br>
+
+En el caso de los datos faltantes, se puede determinar el número de datos faltantes en una base de datos con la función `table()`
+
+```{r}
+library(paqueteMETODOS)
+data("vivienda_faltantes")
+table(is.na(vivienda_faltantes))
+```
+
+Tambien es posible determinar si existen problemas de sistematización en los datos, como se presenta en la variable `ubicacion` de la base de datos `Cali` construida a partir de la información de Covid-19 ubicada en Datos abiertos. 
+
+
+```{r}
+library(paqueteMETODOS)
+data(Cali)
+table(Cali$ubicacion)
+```
+
+
+</br></br>
+
+Ahora, las tabla contituyen un elemento importante en el análisis de datos, pues resumen la imformación de una variable que llamaremos inicialmente categórica (puede ser cualitativa o cuantitativa dividida por rangos).
+
+<br/>
+
+Para la correcta representación de los datos a través de tablas de frecuencia es necesario determinar la escala de medición de las variables. Dependiendo de ella se construye la tabla apropiada.
+
+</br>
+
+# <span style="color:#034a94">**Variables cualitativas**</span>
+
+</br>
+
+## <span style="color:#034a94">**Escala nominal**</span>
+
+</br>
+
+Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos sirven para agrupar los datos y tener una idea mas clara de sus características. Están conformadas por una primera columna donde se presentan  las clases (filas de la tabla) que corresponden con las categorías observadas de una variable cualitativa. En caso de tener la variable una escala de medición nominal, es decisión del investigador la ubicación u ordenamiento de las categorías dentro de la tabla de frecuencias. Por el contrario para las variables en escala ordinal se realiza el ordenamiento siguiendo la jerarquía de las categorías 
+
+
+</br>
+
+
+Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
+
+<div class="content-box-blue">
+
+|      |           |                                                                                                           |
+|:-----|:----------|:----------------------------------------------------------------------------------------------------------|
+|c1    |           | los diferentes valores que toma la variable.                                                              |
+|c2    | $n_{i}$   | frecuencia absoluta que consiste en el conteo para cada uno de los valores distintos que toma la variable.|
+|c3    | $f_{i}$   | frecuencia relativa que corresponde al porcentaje la cantidad de datos para cada los valores              |
+
+</div>
+
+</br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+</br>
+
+**Tabla 1.1** Distribución del número de equipos participantes en Qatar 2022 por confederaciones
+
+
+```{r, warning=FALSE, message=FALSE}
+# Instalar y cargar el paquete necesario
+# install.packages("kableExtra")
+library(kableExtra)
+
+# Datos
+Confederaciones <- c("Africa - CFA", "Asia - AFC", "Europa - UEFA", "Centro, Norte América - CONCACAF", "Oceanía - OFC", "Suramérica - COMEBOL")
+Frecuencia_abs <- c(5, 5, 13, 4, 0, 4)
+Frecuencia_rel <- Frecuencia_abs / sum(Frecuencia_abs)
+
+# Crear el dataframe
+df <- data.frame(Confederaciones, Frecuencia_abs, Frecuencia_rel)
+
+# Crear la tabla formateada con kableExtra
+tabla11 <- df %>%
+  kbl() %>%
+  kable_paper(full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) %>%
+  column_spec(2:3, width = "1cm") %>%
+  collapse_rows(columns = 1, valign = "middle")
+
+# Mostrar la tabla formateada
+tabla11
+
+```
+<center>
+<sub>
+Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F%C3%BAtbol_de_2022)
+</sub>
+</center>
+
+<br/>
+
+En ella se resalta la mayor participación de los paises afiliados a la UEFA (13), los cuales representan un 41.9% del total de paises que participaron, segudo de la CFA y AFC cada uno con un 16.1% de participación.
+
+
+
+</br></br>
+
+
+</br></br>
+
+## <span style="color:#034a94">**Escala ordinal**</span>
+
+</br>
+
+Otro caso correspondiente a las variables cualitativas en escala ordinal, para lo cual  se agregan dos nuevas columnas además de las descritas en el ejemplo anterior.
+
+<div class="content-box-blue">
+
+|      |          |                                                                                                          |
+|:-----|:---------|:-------------------------------------------------------------------------------------------------------|
+|c4    | $N_{i}$<center>
+<sub>  | frecuencia absoluta acumulada que consiste en el conteo de los casos menores o iguales al nivel correspondiente.|
+|c5    | $F_{i}$  | frecuencia relativa acumulada que corresponde al porcentaje acumulado hasta el nivel correspondiente.|
+
+</div>
+
+</br>
+
+### <span style="color:#FF7F00">**Ejemplo**</span>
+
+<center>
+**Tabla 1.2** : Nivel de satisfacción usuarios aereolinea, servicio de alimentación/bebidas a 
+</center>
+
+```{r, fig.align='center'}
+Calificacion = c( rep("1. Muy regular", 12837), 
+                  rep("2. Regular", 21988),
+                  rep("3. Bueno", 22300),
+                  rep("4. Muy bueno", 24466), 
+                  rep("5. Excelente", 22313))
+t1 = table(Calificacion)
+t1
+
+summarytools::freq(Calificacion)
+```
+
+En este caso importa el orden de los resultados dado que se trata de una variable en escala ordinal. Se destaca en ella que un 33.52% de las respuestas mostraron una respuesta Regular y Muy regular, mientras que su complemento (66.48%), la representan respuestas favorables (Bueno,Muy bueno, Excelente).
+
+
+
+<br/><br/>
+
+Con el paquete `formattable` se pueden construir tablas mas elegantes 
+
+<br/>
+
+<center>
+**Tabla 1.3** : Tabla de resultados proceso de admisión 
+</center>
+
+```{r, fig.align='center', warning=FALSE, message=FALSE}
+
+df <- data.frame(
+  id = 1:10,
+  nombre = c("Juan", "Carlos", "James", "David", "Jenny",
+           "Harold", "Leonardo", "John", "Ana", "Luz"),
+  edad = c(25, 27, 30, 28, 29, 29, 35, 27, 31, 30),
+  grado = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
+  Examen1 = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
+  Examen2 = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
+  Promedio = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
+  Entrevista = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
+  stringsAsFactors = FALSE)
+
+
+library(formattable)
+
+formattable(df, list(
+  edad = color_tile("white", "orange"),
+  grado = formatter("span", style = x ~ ifelse(x == "A",
+                                               style(color = "green", font.weight = "bold"), NA)),
+  area(col = c(Examen1, Examen2)) ~ normalize_bar("pink", 0.2),
+  Promedio = formatter("span",
+                        style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
+                        x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
+  Entrevista = formatter("span",
+                         style = x ~ style(color = ifelse(x, "green", "red")),
+                         x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Si", "No")))
+))
+
+```
+
+
+<center>
+<sub>
+Tomada de : https://renkun-ken.github.io/formattable/ - MIT License.
+</sub>
+</center>
+
+<br/>
+
+En este caso los colores que se adicionan a los valores, permiten visualizar rapidamente los valores mayores y tambien si cumplen o no una condición.
+
+
+
+<br/><br/>
+
+
