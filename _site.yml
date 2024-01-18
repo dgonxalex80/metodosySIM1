@@ -47,8 +47,6 @@ navbar:
           href: recurso32.html 
         - text: "Visualización multivariada"
           href: recurso33.html 
-        - text: "Visualización avanzada"
-          href: recurso34.html          
     - text: "Software R"
       menu:
         - text: "Introducción a R"

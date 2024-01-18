@@ -98,9 +98,8 @@ Contenido de la unidad :
 
 * **Software R**
   * Introducción
-  * Tablas
-  * Indicadores
-  * Visualización de datos
+  * Objetos en R
+  * Referencias 
   
   
 

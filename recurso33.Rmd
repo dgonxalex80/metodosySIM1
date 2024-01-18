@@ -21,7 +21,7 @@ data("inflacionov22")
 
 </br>
 
-# <span style="color:#034a94">**Gráfico de radar**</span>
+### <span style="color:#034a94">**Gráfico de radar**</span>
 
 Este tipo de gráfica tambien llamado gráfico de telaraña, permite comparar múltiples variables, permitiendo el análisis de información compleja.
 
@@ -86,7 +86,7 @@ legend("topright",
 ```
 
 
-### **gráfico de barras polar**
+### <span style="color:#034a94">**gráfico de barras polar**</span>
 
 Este tipo de gráfico se emplea en variables categóricas con múltiples valores, facilitando su visualización.
 
@@ -135,7 +135,7 @@ plot # imprime grafico
 
 <!-- <br/><br/> -->
 
-### **Nube de palabras**
+### <span style="color:#034a94">**Nube de palabras**</span>
 
 ```{r, warning=FALSE}
 library("wordcloud2")
@@ -186,4 +186,4 @@ animacion <- datos2 %>%
 animate(animacion, width = 700, height = 432, fps = 25, duration = 15, rewind = FALSE)
 ```
 
-
+<!-- <br/><br/> -->
