@@ -92,13 +92,13 @@ str(datos) # Muestra los datos originales
 
 <br/>
 
-Otra de las transformaciones importantes en el analisis de datos corresponde a la estandarización y la normalización  de las variables, las cuales permiten el cambio de escala, permitiendo realizar comparaciones.
+Otra de las transformaciones importantes en el analisis de datos corresponde a la **estandarización** y la **normalización**  de las variables, las cuales permiten el cambio de escala, permitiendo realizar comparaciones.
 
 <br/><br/>
 
 ## <span style="color:#034a94"> **Estandarización**</span>
 
-Consiste en restar a la media de una variable a todos sus valores y diviviendo este resultado por su desviación estandar. Esta tranaformación hace que la nueva variable tenga media cero y varianza uno.
+Consiste en restar a la media de una variable a todos sus valores y diviviendo este resultado por su desviación estandar. Esta tranaformación hace que la nueva variable tenga media cero y varianza uno. El procedimiento permite ajustar la escala de varias variables y se aplica cuando estas presentan distribuciones simetricas. 
 
 
 $$X_{\text{estandarizada}} = \dfrac{X- \text{media}(x)}{\text{desviación estandar}(x)}$$
@@ -120,13 +120,13 @@ summarytools::descr(datos[,c(2,25,26)])
 
 <br/>
 
-La estandarización en el contexto de la limpieza y ajuste de datos en ciencia de datos se refiere al proceso de transformar las variables para que tengan una media de cero y una desviación estándar de uno. Este paso es comúnmente realizado para asegurar que las variables tengan escalas comparables y para facilitar la interpretación y el análisis de los modelos.
+La estandarización en el contexto de la limpieza y ajuste de datos en ciencia de datos se refiere al proceso de transformar las variables para que tengan una media de cero y una desviación estándar de uno. Este paso es comúnmente realizado para asegurar que las variables tengan escalas comparables y para facilitar la interpretación y el análisis de los modelos. Este procedimiento tambie se conoce con lod nombres de **z-score normalization** o **z-score scaling**.
 
 <br/><br/>
 
 ## <span style="color:#034a94"> **Normalización**</span>
 
-Esta transformación escala los valores de una variable a un rango específico, por defecto el rango es [0,1]. 
+Esta transformación escala los valores de una variable a un rango específico, por defecto el rango es [0,1]. Se presenta cuando las variables no siguen una distribución normal, haciendo que las variable tengan el mismo rango. Tambien se conoce con el nombre de  **min-max scaling**.
 
 <br/>
 

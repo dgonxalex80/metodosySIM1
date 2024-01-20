@@ -27,7 +27,13 @@ c4="#686868"
 
 library(paqueteMETODOS)
 data("vivienda_faltantes")
-data("rotacionNA")
+
+data("rotacionNA")      # carga data set rotacionNA del paqueteMETODOS
+set.seed(123)           # fija semilla para numeros aleatorios
+rotacionNA<-sample_n(rotacionNA, 1000) # toma una muestra de tamaño 1000 de la data
+datosNA <- rotacionNA  # copia el contenido a datosNA
+
+
 ```
 
 </br></br>
@@ -35,6 +41,11 @@ data("rotacionNA")
 <!-- ======================================================================= -->
 
 Una de las tareas más importante al realizar un proyecto de Ciencia de Datos corresponde a la preparación de los datos (Limpieza de datos o data cleaning) que posteriormente va a permitir el modelamiento adecuado de los datos. 
+
+
+```{r, echo=FALSE, out.width="60%", fig.align = "center"}
+knitr::include_graphics("img/ordenar.png")
+```
 
 Este ciclo comprende :
 
@@ -82,10 +93,10 @@ Si los **datos faltantes** son pocos en comparación con el tamaño total del co
 
 ### <span style="color:#FF7F00">**Ejemplo**
 
-A partir de la base de datos `rotacionNA` contenida en `paqueteMETODOS`, se plantera examinar una muestra de ella de tamaño 1000 x 13 que se puede obtener con el siguiente código :
+A partir de la base de datos `rotacionNA` contenida en `paqueteMETODOS`, se plantera examinar una muestra de ella de tamaño `1000 x 25` que se puede obtener con el siguiente código :
 
 
-```{r}
+```{r, eval=FALSE}
 library(paqueteMETODOS) # carga paqueteMETODOS
 library(dplyr)          # carga paqiete dplyr 
 data("rotacionNA")      # carga data set rotacionNA del paqueteMETODOS
@@ -94,6 +105,35 @@ rotacionNA<-sample_n(rotacionNA, 1000) # toma una muestra de tamaño 1000 de la 
 datosNA <- rotacionNA  # copia el contenido a datosNA
 str(datosNA)  # explora contenido de datosNA
 ```
+
+<pre>
+spc_tbl_ [1,000 × 25] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id                         : num [1:1000] 415 463 179 526 195 ...
+ $ Rotación                   : chr [1:1000] "Si" "No" "No" "Si" ...
+ $ Edad                       : num [1:1000] 24 34 46 24 45 39 30 46 34 34 ...
+ $ Viaje de Negocios          : chr [1:1000] "Raramente" "Raramente" "Raramente" "Raramente" ...
+ $ Departamento               : chr [1:1000] "Ventas" "Ventas" "Ventas" "Ventas" ...
+ $ Distancia_Casa             : num [1:1000] 1 21 1 3 2 13 7 2 2 10 ...
+ $ Educación                  : num [1:1000] 1 4 2 2 2 4 3 2 4 3 ...
+ $ Campo_Educación            : chr [1:1000] "Tecnicos" "Ciencias" "Mercadeo" "Ciencias" ...
+ $ Satisfacción_Ambiental     : num [1:1000] 1 4 2 1 1 3 2 4 4 4 ...
+ $ Genero                     : chr [1:1000] "F" "M" "F" "F" ...
+ $ Cargo                      : chr [1:1000] "Representante_Ventas" "Ejecutivo_Ventas" "Ejecutivo_Ventas" "Ejecutivo_Ventas" ...
+ $ Satisfación_Laboral        : num [1:1000] 2 4 1 3 4 2 2 4 4 3 ...
+ $ Estado_Civil               : chr [1:1000] "Soltero" "Soltero" "Divorciado" "Soltero" ...
+ $ Ingreso_Mensual            : num [1:1000] 3202 5337 10453 4577 16792 ...
+ $ Trabajos_Anteriores        : num [1:1000] 1 1 1 9 9 6 1 3 0 1 ...
+ $ Horas_Extra                : chr [1:1000] "Si" "No" "No" "No" ...
+ $ Porcentaje_aumento_salarial: num [1:1000] 16 12 25 14 23 13 12 14 14 14 ...
+ $ Rendimiento_Laboral        : num [1:1000] 3 3 4 3 4 3 3 3 3 3 ...
+ $ Años_Experiencia           : num [1:1000] 6 10 24 4 22 21 6 12 6 15 ...
+ $ Capacitaciones             : num [1:1000] 4 3 2 3 1 4 3 4 3 3 ...
+ $ Equilibrio_Trabajo_Vida    : num [1:1000] 3 3 3 3 3 3 2 2 3 3 ...
+ $ Antigüedad                 : num [1:1000] 5 10 24 2 20 19 6 9 5 15 ...
+ $ Antigüedad_Cargo           : num [1:1000] 3 7 13 2 8 9 4 8 0 14 ...
+ $ Años_ultima_promoción      : num [1:1000] 1 5 15 2 11 15 1 4 1 0 ...
+ $ Años_acargo_con_mismo_jefe : num [1:1000] 4 7 7 0 8 2 1 7 2 7 ...
+</pre>
 
 <br/>
 
@@ -104,8 +144,12 @@ Ahora para visualizar que variables y con que frecuencia se presentan los datos 
 <br/>
 
 ```{r}
-faltantes <- colSums(is.na(datosNA))  # suma por variable los datos faltantes
+library(dplyr)
+faltantes <- colSums(is.na(datosNA)) %>%
+                 as.data.frame() 
+
 faltantes
+
 ```
 
 <br/><br/>
@@ -135,7 +179,7 @@ Otra forma de detectar y representar gráficamente los datos faltantes es utiliz
 
 ```{r}
 # install.packages("VIM")
-VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)  # graficos de datos faltantes
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # graficos de datos faltantes
 ```
 
 
@@ -159,8 +203,10 @@ La función : `na.omit()`  , permite elimitar todos los registros contenidos en 
 # install.packages("VIM")
 datosSINA <- na.omit(datosNA)  # elimina todos los valores con  NA
 VIM::aggr(datosSINA, cex.axis = 0.4, cex.lab= 0.8)
+cat("dimensión dataSINA : ", dim(datosSINA))
 ```
 
+Este proceso elimina 100 de los registros, dejando una data de `900 x 25` .
 
 </br></br>
 
@@ -202,20 +248,21 @@ Para realizar este procedimiento se tienen varias alternativas, cambiando los da
 
 ###  <span style="color:#686868">**Caso imputación por cero**</span>
 
-En el caso de la data `rotacionNA`, es posible que los  empleados  al ser interrogados, entendieron que no debian responder la pregunta: **Horas Extgras**, cuando no trabajan horas por fuera de su jornada laboral. 
+En el caso de la data `rotacionNA`, es posible que los  empleados  al ser interrogados, entendieron que no debian responder la pregunta: **Horas Extras**, cuando no trabajan horas por fuera de su jornada laboral. 
 
-En otros casos es posible que se trate de un dato faltante real y se deba reeplazar por la media por ejemplo
+En otros casos es posible que se trate de un dato faltante real -no respuesta - y se deba reeplazar por un valor que lo represente. 
 
-El caso de reemplazar los  `NA` por **cero** en la variable `Horas_Extra`,  procederemos así:
+El caso de reemplazar los  `NA` por **cero** en la variable `Horas_Extra`,  se procede la siguiente forma:
 
-
+<pre>
+datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- 0
+</pre>
 
 ```{r}
 datosNA <- rotacionNA
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- 0
-VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)
 ```
-
 
 </br></br>
 
@@ -223,8 +270,19 @@ VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)
 
 En el caso de reemplazar el `NA` por el valor correspondiente a la media se asigna este valor de la siguiente manera:
 
+<pre>
+# Calcula la media de la variable "Años_Experiencia"
+media_Años_Experiencia <- mean(datosNA$Años_Experiencia, na.rm = TRUE) %>%
+                    round(,0)
+# se asigna el valor medio en los registro con datos faltantes
+datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- media_Años_Experiencia
+
+media Años_Experiencia :  12
+</pre>
+
 ```{r, message=FALSE, warning=FALSE}
 datosNA <- rotacionNA
+
 # Calcula la media de la variable "Años_Experiencia"
 media_Años_Experiencia <- mean(datosNA$Años_Experiencia, na.rm = TRUE) %>%
                     round(,0)

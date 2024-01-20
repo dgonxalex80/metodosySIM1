@@ -387,6 +387,7 @@ $(document).ready(function () {
 de Datos corresponde a la preparación de los datos (Limpieza de datos o
 data cleaning) que posteriormente va a permitir el modelamiento adecuado
 de los datos.</p>
+<p><img src="img/ordenar.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Este ciclo comprende :</p>
 <ul>
 <li>Importación de los datos - ya tratado -</li>
@@ -446,7 +447,8 @@ comparación con el tamaño de la base de datos.</p>
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></h3>
 <p>A partir de la base de datos <code>rotacionNA</code> contenida en
 <code>paqueteMETODOS</code>, se plantera examinar una muestra de ella de
-tamaño 1000 x 13 que se puede obtener con el siguiente código :</p>
+tamaño <code>1000 x 25</code> que se puede obtener con el siguiente
+código :</p>
 <pre class="r"><code>library(paqueteMETODOS) # carga paqueteMETODOS
 library(dplyr)          # carga paqiete dplyr 
 data(&quot;rotacionNA&quot;)      # carga data set rotacionNA del paqueteMETODOS
@@ -454,23 +456,24 @@ set.seed(123)           # fija semilla para numeros aleatorios
 rotacionNA&lt;-sample_n(rotacionNA, 1000) # toma una muestra de tamaño 1000 de la data
 datosNA &lt;- rotacionNA  # copia el contenido a datosNA
 str(datosNA)  # explora contenido de datosNA</code></pre>
-<pre><code>spc_tbl_ [1,000 × 25] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+<pre>
+spc_tbl_ [1,000 × 25] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ id                         : num [1:1000] 415 463 179 526 195 ...
- $ Rotación                   : chr [1:1000] &quot;Si&quot; &quot;No&quot; &quot;No&quot; &quot;Si&quot; ...
+ $ Rotación                   : chr [1:1000] "Si" "No" "No" "Si" ...
  $ Edad                       : num [1:1000] 24 34 46 24 45 39 30 46 34 34 ...
- $ Viaje de Negocios          : chr [1:1000] &quot;Raramente&quot; &quot;Raramente&quot; &quot;Raramente&quot; &quot;Raramente&quot; ...
- $ Departamento               : chr [1:1000] &quot;Ventas&quot; &quot;Ventas&quot; &quot;Ventas&quot; &quot;Ventas&quot; ...
+ $ Viaje de Negocios          : chr [1:1000] "Raramente" "Raramente" "Raramente" "Raramente" ...
+ $ Departamento               : chr [1:1000] "Ventas" "Ventas" "Ventas" "Ventas" ...
  $ Distancia_Casa             : num [1:1000] 1 21 1 3 2 13 7 2 2 10 ...
  $ Educación                  : num [1:1000] 1 4 2 2 2 4 3 2 4 3 ...
- $ Campo_Educación            : chr [1:1000] &quot;Tecnicos&quot; &quot;Ciencias&quot; &quot;Mercadeo&quot; &quot;Ciencias&quot; ...
+ $ Campo_Educación            : chr [1:1000] "Tecnicos" "Ciencias" "Mercadeo" "Ciencias" ...
  $ Satisfacción_Ambiental     : num [1:1000] 1 4 2 1 1 3 2 4 4 4 ...
- $ Genero                     : chr [1:1000] &quot;F&quot; &quot;M&quot; &quot;F&quot; &quot;F&quot; ...
- $ Cargo                      : chr [1:1000] &quot;Representante_Ventas&quot; &quot;Ejecutivo_Ventas&quot; &quot;Ejecutivo_Ventas&quot; &quot;Ejecutivo_Ventas&quot; ...
+ $ Genero                     : chr [1:1000] "F" "M" "F" "F" ...
+ $ Cargo                      : chr [1:1000] "Representante_Ventas" "Ejecutivo_Ventas" "Ejecutivo_Ventas" "Ejecutivo_Ventas" ...
  $ Satisfación_Laboral        : num [1:1000] 2 4 1 3 4 2 2 4 4 3 ...
- $ Estado_Civil               : chr [1:1000] &quot;Soltero&quot; &quot;Soltero&quot; &quot;Divorciado&quot; &quot;Soltero&quot; ...
+ $ Estado_Civil               : chr [1:1000] "Soltero" "Soltero" "Divorciado" "Soltero" ...
  $ Ingreso_Mensual            : num [1:1000] 3202 5337 10453 4577 16792 ...
  $ Trabajos_Anteriores        : num [1:1000] 1 1 1 9 9 6 1 3 0 1 ...
- $ Horas_Extra                : chr [1:1000] &quot;Si&quot; &quot;No&quot; &quot;No&quot; &quot;No&quot; ...
+ $ Horas_Extra                : chr [1:1000] "Si" "No" "No" "No" ...
  $ Porcentaje_aumento_salarial: num [1:1000] 16 12 25 14 23 13 12 14 14 14 ...
  $ Rendimiento_Laboral        : num [1:1000] 3 3 4 3 4 3 3 3 3 3 ...
  $ Años_Experiencia           : num [1:1000] 6 10 24 4 22 21 6 12 6 15 ...
@@ -480,35 +483,7 @@ str(datosNA)  # explora contenido de datosNA</code></pre>
  $ Antigüedad_Cargo           : num [1:1000] 3 7 13 2 8 9 4 8 0 14 ...
  $ Años_ultima_promoción      : num [1:1000] 1 5 15 2 11 15 1 4 1 0 ...
  $ Años_acargo_con_mismo_jefe : num [1:1000] 4 7 7 0 8 2 1 7 2 7 ...
- - attr(*, &quot;spec&quot;)=
-  .. cols(
-  ..   id = col_double(),
-  ..   Rotación = col_character(),
-  ..   Edad = col_double(),
-  ..   `Viaje de Negocios` = col_character(),
-  ..   Departamento = col_character(),
-  ..   Distancia_Casa = col_double(),
-  ..   Educación = col_double(),
-  ..   Campo_Educación = col_character(),
-  ..   Satisfacción_Ambiental = col_double(),
-  ..   Genero = col_character(),
-  ..   Cargo = col_character(),
-  ..   Satisfación_Laboral = col_double(),
-  ..   Estado_Civil = col_character(),
-  ..   Ingreso_Mensual = col_double(),
-  ..   Trabajos_Anteriores = col_double(),
-  ..   Horas_Extra = col_character(),
-  ..   Porcentaje_aumento_salarial = col_double(),
-  ..   Rendimiento_Laboral = col_double(),
-  ..   Años_Experiencia = col_double(),
-  ..   Capacitaciones = col_double(),
-  ..   Equilibrio_Trabajo_Vida = col_double(),
-  ..   Antigüedad = col_double(),
-  ..   Antigüedad_Cargo = col_double(),
-  ..   Años_ultima_promoción = col_double(),
-  ..   Años_acargo_con_mismo_jefe = col_double()
-  .. )
- - attr(*, &quot;problems&quot;)=&lt;externalptr&gt; </code></pre>
+</pre>
 <p><br/></p>
 <p>Con la función <code>str()</code> se obtiene una visualización del
 tamaño de la base de datos, las variables que la conforman y el tipo de
@@ -516,34 +491,37 @@ variables y una muesrta de los primeros valores.</p>
 <p>Ahora para visualizar que variables y con que frecuencia se presentan
 los datos faltantes o <code>NA</code> utilizamos el siguiente código</p>
 <p><br/></p>
-<pre class="r"><code>faltantes &lt;- colSums(is.na(datosNA))  # suma por variable los datos faltantes
+<pre class="r"><code>library(dplyr)
+faltantes &lt;- colSums(is.na(datosNA)) %&gt;%
+                 as.data.frame() 
+
 faltantes</code></pre>
-<pre><code>                         id                    Rotación 
-                          0                          17 
-                       Edad           Viaje de Negocios 
-                         11                          22 
-               Departamento              Distancia_Casa 
-                         11                           0 
-                  Educación             Campo_Educación 
-                          0                           0 
-     Satisfacción_Ambiental                      Genero 
-                          0                          13 
-                      Cargo         Satisfación_Laboral 
-                          0                           0 
-               Estado_Civil             Ingreso_Mensual 
-                         18                           0 
-        Trabajos_Anteriores                 Horas_Extra 
-                          0                           5 
-Porcentaje_aumento_salarial         Rendimiento_Laboral 
-                          0                           0 
-           Años_Experiencia              Capacitaciones 
-                         11                           0 
-    Equilibrio_Trabajo_Vida                  Antigüedad 
-                          0                           0 
-           Antigüedad_Cargo       Años_ultima_promoción 
-                          0                           0 
- Años_acargo_con_mismo_jefe 
-                          0 </code></pre>
+<pre><code>                             .
+id                           0
+Rotación                    17
+Edad                        11
+Viaje de Negocios           22
+Departamento                11
+Distancia_Casa               0
+Educación                    0
+Campo_Educación              0
+Satisfacción_Ambiental       0
+Genero                      13
+Cargo                        0
+Satisfación_Laboral          0
+Estado_Civil                18
+Ingreso_Mensual              0
+Trabajos_Anteriores          0
+Horas_Extra                  5
+Porcentaje_aumento_salarial  0
+Rendimiento_Laboral          0
+Años_Experiencia            11
+Capacitaciones               0
+Equilibrio_Trabajo_Vida      0
+Antigüedad                   0
+Antigüedad_Cargo             0
+Años_ultima_promoción        0
+Años_acargo_con_mismo_jefe   0</code></pre>
 <p><br/><br/></p>
 <p>La función <code>colSums(is.na(datosNA))</code> totaliza el número
 total de datos faltantes por variable para la data
@@ -552,7 +530,7 @@ total de datos faltantes por variable para la data
 <pre class="r"><code># install.packages(&quot;naniar&quot;)
 library(naniar)
 gg_miss_var(datosNA) # grafico de datos faltantes</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>En esta gráfica podemos visualizar que las viables : Viaje de
 Negocio, Estado Civil, Rotacion, Genero, Departamento y Horas Extras
 presentan datos faltantes. Para ello se utiliza la función
@@ -563,8 +541,8 @@ es utilizando la función
 <code>md.pattern(datosNA, rotate.names = TRUE)</code> del paquete
 <code>mice</code></p>
 <pre class="r"><code># install.packages(&quot;VIM&quot;)
-VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)  # graficos de datos faltantes</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # graficos de datos faltantes</code></pre>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>En este caso se observa una primera fila que represnta los registros
 tienen informaciçon completa (sin datos faltantes). Las filas restantes
 donde aparecen cuadrados en rojo, representan los datos faltantes para
@@ -585,7 +563,10 @@ faltantes</strong></li>
 </ul>
 <pre class="r"><code># install.packages(&quot;VIM&quot;)
 datosSINA &lt;- na.omit(datosNA)  # elimina todos los valores con  NA
-VIM::aggr(datosSINA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
+VIM::aggr(datosSINA, cex.axis = 0.4, cex.lab= 0.8)
+cat(&quot;dimensión dataSINA : &quot;, dim(datosSINA))</code></pre>
+<p>Este proceso elimina 100 de los registros, dejando una data de
+<code>900 x 25</code> .</p>
 <p></br></br></p>
 </div>
 </div>
@@ -605,7 +586,7 @@ datos faltantes como una categoría adicional en el análisis o modelo
 datosNA$Otro_motivo &lt;- 0
 datosNA$faltante[is.na(datosNA$`Viaje de Negocios`)] &lt;- 1 
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p></br></br></p>
 </div>
 <div id="imputación-de-valores" class="section level2">
@@ -633,16 +614,20 @@ cambiando los datos faltantes por :</p>
 cero</strong></span></h3>
 <p>En el caso de la data <code>rotacionNA</code>, es posible que los
 empleados al ser interrogados, entendieron que no debian responder la
-pregunta: <strong>Horas Extgras</strong>, cuando no trabajan horas por
+pregunta: <strong>Horas Extras</strong>, cuando no trabajan horas por
 fuera de su jornada laboral.</p>
-<p>En otros casos es posible que se trate de un dato faltante real y se
-deba reeplazar por la media por ejemplo</p>
+<p>En otros casos es posible que se trate de un dato faltante real -no
+respuesta - y se deba reeplazar por un valor que lo represente.</p>
 <p>El caso de reemplazar los <code>NA</code> por <strong>cero</strong>
-en la variable <code>Horas_Extra</code>, procederemos así:</p>
+en la variable <code>Horas_Extra</code>, se procede la siguiente
+forma:</p>
+<pre>
+datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- 0
+</pre>
 <pre class="r"><code>datosNA &lt;- rotacionNA
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] &lt;- 0
-VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)</code></pre>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p></br></br></p>
 </div>
 <div id="caso-reemplazo-por-la-media" class="section level3">
@@ -651,14 +636,24 @@ media</strong></span></h3>
 <p>En el caso de reemplazar el <code>NA</code> por el valor
 correspondiente a la media se asigna este valor de la siguiente
 manera:</p>
+<pre>
+# Calcula la media de la variable "Años_Experiencia"
+media_Años_Experiencia <- mean(datosNA$Años_Experiencia, na.rm = TRUE) %>%
+                    round(,0)
+# se asigna el valor medio en los registro con datos faltantes
+datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- media_Años_Experiencia
+
+media Años_Experiencia :  12
+</pre>
 <pre class="r"><code>datosNA &lt;- rotacionNA
+
 # Calcula la media de la variable &quot;Años_Experiencia&quot;
 media_Años_Experiencia &lt;- mean(datosNA$Años_Experiencia, na.rm = TRUE) %&gt;%
                     round(,0)
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] &lt;- media_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>cat(&quot;media Años_Experiencia : &quot;, media_Años_Experiencia)</code></pre>
 <pre><code>media Años_Experiencia :  12</code></pre>
 </div>
@@ -681,7 +676,7 @@ mediana_Años_Experiencia &lt;- median(datosNA$Años_Experiencia, na.rm = TRUE) 
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] &lt;- mediana_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>cat(&quot;mediana Años_Experiencia : &quot;, mediana_Años_Experiencia)</code></pre>
 <pre><code>mediana Años_Experiencia :  10</code></pre>
 <p></br></br></p>
@@ -697,7 +692,7 @@ library(DescTools)
 moda_Estado_Civil &lt;- Mode(datosNA$Estado_Civil, na.rm = TRUE)
 datosNA$Estado_Civil[is.na(datosNA$Estado_Civil)] &lt;- moda_Estado_Civil
 VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)</code></pre>
-<p><img src="recurso13_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="recurso13_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>cat(&quot;moda Estado_Civil : &quot;, moda_Estado_Civil)</code></pre>
 <pre><code>moda Estado_Civil :  Casado</code></pre>
 <p></br></br></p>

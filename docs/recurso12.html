@@ -387,7 +387,7 @@ proceso para el análisis de datos, que depende del formato y las fuentes
 generadoras los datos. Esta etapa forma parte del ciclo los de
 datos.</p>
 <!-- ======================================================================= -->
-<p><img src="img/proceso_cd1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="img/importar.png" width="60%" style="display: block; margin: auto;" /></p>
 <center>
 <strong>Figura : 1.5 </strong> Ciclo de datos <br/> <sub> Tomado de <a
 href="https://datosgcba.github.io/ciencia-de-datos-politicas-publicas/docs/">Ciencia
@@ -400,37 +400,47 @@ formas:</p>
 <div id="utilizando-el-menú-rstudio" class="section level3">
 <h3><span style="color:#034a94"><strong>1. Utilizando el menú
 RStudio</strong></span></h3>
+<p><img src="img/importar_datos.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
 <table>
 <colgroup>
-<col width="35%" />
-<col width="64%" />
+<col width="23%" />
+<col width="42%" />
+<col width="34%" />
 </colgroup>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>formato .txt</strong></td>
 <td align="left"><em>File/Import Dataset/From Text (base)</em></td>
+<td align="left">formato texto separado por espacios</td>
 </tr>
 <tr class="even">
 <td align="left"><strong>formato .csv</strong></td>
 <td align="left"><em>File/Import Dataset/From text (base)</em></td>
+<td align="left">fomato csv separado por ; o por ,</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>formato .xlsx</strong></td>
 <td align="left"><em>File/Import Dataset/ From Excel</em></td>
+<td align="left">formato excel</td>
 </tr>
 <tr class="even">
 <td align="left"><strong>formato .dat</strong></td>
 <td align="left"><em>File/Import Dataset/ From SPSS</em></td>
+<td align="left">formato SPSS - programa estadístico</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>formato .sas7bdat</strong></td>
 <td align="left"><em>File/Import Dataset/ From SAS</em></td>
+<td align="left">formato SAS - programa estadístico</td>
 </tr>
 <tr class="even">
 <td align="left"><strong>formato .dta</strong></td>
 <td align="left"><em>File/Import Dataset/ From Stata</em></td>
+<td align="left">formato STATA - programa estadístico</td>
 </tr>
 <tr class="odd">
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
@@ -459,13 +469,13 @@ el paquete <code>RSocrata</code></p>
 Salud correspondiente a las parsonas reportadas con Covid-19 para el
 territorio Colombiano. Para ello se debe solicitar en la plataforma de
 Datos Abiertos Colombia un token y realizar la siguiente solicitud</p>
-<pre class="r"><code># install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata
+<pre class="r"><code># install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata, solo una vez
 library(RSocrata)    # llamado de libreria
 token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
 Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
 <p></br></p>
 <pre>
-# install.packages("RSocrata", dependencies = TRUE)   # instalación de paquete RSocrata
+install.packages("RSocrata", dependencies = TRUE)   
 library(RSocrata)    # llamado de libreria
 token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token
 Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token) # lectura 
@@ -477,10 +487,10 @@ recomienda el formarto RDS por ocupar menos espacio. En este caso se
 guarda el archivo descargado con el nombre de <em>Colombia.RDS</em> en
 la carpeta <em>data/</em></p>
 <p></br></p>
-<pre class="r"><code>saveRDS(Colombia, file = &quot;data/Colombia23.RDS&quot;) </code></pre>
+<pre class="r"><code>saveRDS(Colombia, file = &quot;data/Colombia.RDS&quot;) </code></pre>
 <p></br></p>
 <pre>
-saveRDS(Colombia, file = "data/Colombia23.RDS") 
+saveRDS(Colombia, file = "data/Colombia.RDS") 
 </pre>
 <p></br></br></p>
 </div>
@@ -495,11 +505,11 @@ Para ello solo utilizamos la función <code>data()</code></p>
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
 <pre class="r"><code>data(iris)  # data set iris
 data(cars)  # data set cars
-data(vivienda_faltantes)</code></pre>
+data(vivienda_faltantes) # data contenida en paqueteMETODOS</code></pre>
 <pre>
-data(iris)  # data set iris
-data(cars)  # data set cars
-data(vivienda_faltantes)  # data set paqueteMETODOS
+data(iris)  
+data(cars) 
+data(vivienda_faltantes)  
 </pre>
 <p></br></br></p>
 </div>
