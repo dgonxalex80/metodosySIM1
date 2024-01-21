@@ -27,11 +27,11 @@ data("inflacionov22")
 
 Una de las formas para organizar y resumir conjuntos grandes de datos es por medio de tablas y gráficas de frecuencias, dado que permiten condensar la información y facilitan la apreciación de su contenido. Pese a que ambas formas proporcionan información similar, cuando se desea transmitir una idea rápida y sencilla es preferible utilizar una gráfica de frecuencias; mientras que cuando se desea analizar los datos con mayor detenimiento o precisión, las tablas de frecuencias son más útiles.
 
-</br>
+Estos indicadores y gráficos pueden formar parte de informes estadísticos, tableros, posters o infografías. 
 
-Es posible construir una gran variedad de tablas y gráficas, sin embargo, en este momento solo se presentarán tablas y gráficas de frecuencia de una sola variable (una sola entrada) y sólo tres casos o tipos de tablas (datos categóricos, datos puntuales y datos agrupados), que pueden construirse a partir de un determinado conjunto de datos ya sea para una muestra o una población.
+El siguiente tablero, permite visualizar en tiempo real los paquetes de R que se están descargando. El tamaño del los circulos representan las frecuencias de cada uno de ellos, haciendo que los que se representan por circulos más grandes tengan una mayor frecuencia.
 
-<br/>
+</br><br/>
 
 <iframe src="https://testing-apps.shinyapps.io/flexdashboard-shiny-crandash/" width="1000" height="800"></iframe>
 
@@ -40,3 +40,7 @@ Es posible construir una gran variedad de tablas y gráficas, sin embargo, en es
 Fuente : Tomado de [CRAN Download Monitor](https://testing-apps.shinyapps.io/flexdashboard-shiny-crandash)
 </sub>
 </center>
+
+<br/>
+
+

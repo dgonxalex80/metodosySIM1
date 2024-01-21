@@ -194,10 +194,10 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 </br></br>
 
 <pre>
-Límite inferior        Q1          Q2           Q3          Límite superior
+Límite inferior        Q1          Q2           Q3           Límite superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
                        25%         50%          75%  
-30.175                 53.50       59.60        69.05       92.375
+30.175                 53.50       59.60        69.05        92.375
 </pre>
 
 </br></br>
@@ -205,6 +205,62 @@ Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 Los valores que queden por fuera de los límites inferior y superior, se consideran como datos atípicos, que son objeto de estudio por separado para averiguar sus causas. 
 
 
+</br></br>
+
+### <span style="color:#FF7F00">**Ejemplos**</span>
+
+</br>
+
+Los percentiles se utilizan en ciencia de datos para comprender la distribución de los datos, identificar valores atípicos, y realizar análisis comparativos. 
+
+Como por ejemplo:
+
+</br></br>
+
+#### <span style="color:#034a94">**Identificación de valores atípicos**</sapn>
+
+Los percentiles pueden ayudar a identificar valores extremos o atípicos en un conjunto de datos. `Q1 - 1.5(Q3-Q1)` y `Q3 + 1.5(Q3-Q1)`, representan dos límites a partir de los cuales se consideran datos atípidos. Este método fue planteado por John Tukey (1977).
 
 
+</br>
+
+#### <span style="color:#034a94">**Análisis de rendimiento en pruebas estandarizadas**</sapn>
+
+En el sector de la educación, los percentiles se utilizan comúnmente para informar sobre el rendimiento de los estudiantes en pruebas estandarizadas. Un puntaje en el percentil 75, por ejemplo, indica que el estudiante superó al 75% de los participantes.
+
+</br>
+
+#### <span style="color:#034a94">**Evaluación de distribuciones de ingresos**</sapn>
+
+En economía y sociología, los percentiles son útiles para entender la distribución de ingresos. Las curvas de distribución de la riqueza se basan en los quintiles, los cuales corresponden a los percentiles : P20, P40, P60, P80.
+
+</br>
+
+#### <span style="color:#034a94">**Segmentación de audiencia en marketing**</sapn>
+
+En marketing, se pueden utilizar percentiles para segmentar audiencias según el comportamiento del cliente. r 
+
+</br>
+
+#### <span style="color:#034a94">**Evaluación de rendimiento en deportes**</sapn>
+
+En análisis deportivo, los percentiles se utilizan para evaluar el rendimiento de los atletas en comparación con otros en ciertos aspectos, como velocidad, resistencia o fuerza.
+
+</br>
+
+####  <span style="color:#034a94">**Establecimiento de límites para decisiones empresariales**</sapn>
+
+Los percentiles pueden utilizarse para establecer límites o umbrales en decisiones empresariales. Basados en un indicador premiar a los empleados que se encuentren del percentil 95 en adelante.
+
+</br>
+
+#### <span style="color:#034a94">**Comparación de rendimiento de modelos en aprendizaje automático**</sapn>
+
+En el desarrollo de modelos de aprendizaje automático, los percentiles pueden ser útiles para comparar el rendimiento de diferentes modelos en diferentes regiones de la distribución de datos.
+
+</br>
+
+#### <span style="color:#034a94">**Determinación de valores críticos en salud**</sapn>
+
+En estudios de salud, los percentiles se utilizan para establecer valores de referencia para medidas biológicas como el índice de masa corporal (IMC), la presión arterial, entre otros.
 

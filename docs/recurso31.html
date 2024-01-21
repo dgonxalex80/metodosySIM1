@@ -381,11 +381,20 @@ $(document).ready(function () {
 </div>
 
 
-<p></br></p>
+<p></br><br/></p>
 <div id="variable-cualitativa-nominal" class="section level1">
 <h1><span style="color:#034a94"><strong>Variable
 cualitativa-nominal</strong></span></h1>
 <p><br/></p>
+<p>Para las variables cualitativas en escala nominal se recomienda su
+visualización a traves de una grafica circular o de torta. En ella se
+observa rapidamente la categoría con más participación (representada por
+el área que ocupa). En algunos caso puede además de las etiquetas
+indicar el porcentaje de participación de cada categoría.</p>
+<p>En caso de que la variable posea muchas categorías se pueden
+reagrupar las categorías con bajas frecuencias en una sola llamada
+<strong>otras</strong> y de esta forma mejorar su presentación.</p>
+<p><br/><br/><br/></p>
 <div id="diagrama-circular" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama
 circular</strong></span></h2>
@@ -394,11 +403,32 @@ t1=table(data$categoria)
 pie(t1)</code></pre>
 <p><img src="recurso31_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p><br/><br/></p>
+<div class="content-box-gray">
+<div id="reto" class="section level3">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(paqueteMETODOS)
+# install.packages(&quot;lessR)
+library(lessR)
+data=CarreraLuz22
+PieChart(categoria, hole = 0, values = &quot;%&quot;, data = CarreraLuz22, fill = &quot;blues&quot;, main = &quot;&quot;,values_size =.8)</code></pre>
+<div>
+
+
+
+<p><br/><br/><br/></p>
+</div>
 </div>
 </div>
 <div id="variable-cualitativa-ordinal" class="section level1">
 <h1><span style="color:#034a94"><strong>Variable
 cualitativa-ordinal</strong></span></h1>
+<p>Este tipo de variables son muy frecuentes en mediciones de
+psicológia, marketing, salud y en procesos de evaluación. El color ayuda
+tambien a reforzar el significado de las categorías, empleandose paletas
+que en algunos casos representan el semaforo (rojo - amarillo -
+verde).</p>
+<p><br/><br/><br/></p>
 <div id="diagrama-de-barras" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama de
 barras</strong></span></h2>
@@ -408,22 +438,95 @@ names(ev)=c(&quot;MR&quot;,&quot;R&quot;,&quot;B&quot;,&quot;MB&quot;,&quot;E&qu
 barplot(ev,  col=c(&quot;#f95738&quot;,&quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;), 
 main = &quot;Evaluación proceso de inducción&quot;,
 las=1 )</code></pre>
-<p><img src="recurso31_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="recurso31_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><br/><br/></p>
+<div id="reto-1" class="section level3 content-box-gray">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(ggplot2)
+
+# Datos de evaluación
+ev &lt;- c(5, 13, 30, 52, 35)
+categories &lt;- c(&quot;Muy regular&quot;, &quot;Regular&quot;, &quot;Bueno&quot;, &quot;Muy bueno&quot;, &quot;Excelente&quot;)
+ev_data &lt;- data.frame(Categoria = factor(categories, levels = categories), Frecuencia = ev)
+
+# Crear el gráfico de barras con ggplot2
+ggplot(ev_data, aes(x = Categoria, y = Frecuencia, fill = Categoria)) +
+  geom_bar(stat = &quot;identity&quot;, width = 0.7) +
+  scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
+  labs(title = &quot;Evaluación proceso de inducción&quot;,
+       x = &quot;Categoría&quot;,
+       y = &quot;Frecuencia&quot;) +
+  theme_minimal() +
+  theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(plotly)
+
+# Datos de evaluación
+ev &lt;- c(5, 13, 30, 52, 35)
+categories &lt;- c(&quot;Muy regular&quot;, &quot;Regular&quot;, &quot;Bueno&quot;, &quot;Muy bueno&quot;, &quot;Excelente&quot;)
+ev_data &lt;- data.frame(Categoria = factor(categories, levels = categories), Frecuencia = ev)
+
+# Crear el gráfico de barras con ggplot2
+plot &lt;- ggplot(ev_data, aes(x = Categoria, y = Frecuencia, fill = Categoria)) +
+  geom_bar(stat = &quot;identity&quot;, width = 0.7) +
+  scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
+  labs(title = &quot;Evaluación proceso de inducción&quot;,
+       x = &quot;Categoría&quot;,
+       y = &quot;Frecuencia&quot;) +
+  theme_minimal() +
+  theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda
+
+# Convertir el gráfico de ggplot2 a un gráfico interactivo de plotly
+plotly_graph &lt;- ggplotly(plot, tooltip = c(&quot;x&quot;, &quot;y&quot;))
+
+# Imprimir el gráfico interactivo
+print(plotly_graph)</code></pre>
+</div>
+<p><br/><br/><br/></p>
 </div>
 <div id="gráfico-de-barras-2" class="section level2">
 <h2><span style="color:#034a94"><strong>Gráfico de barras 2
 </strong></span></h2>
+<p>Es posible que se requiera representar dos variables cualitativas al
+tiempo, para lo cual se debe construir una tabla cruzada o de doble
+entreada y luego representar la tabla resultante con un diagrama de
+barras.</p>
 <p><br/></p>
-<pre class="r"><code>conteo &lt;- table(data$sex,data$categoria)
-
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+conteo &lt;- table(data$sex,data$categoria)
 barplot(conteo, main=&quot;Número de atletas por categoria y sexo&quot;,  
 xlab=&quot;Categorías&quot;,
 col=c(&quot;#0d3b66&quot;,&quot;#f4d35e&quot;),
 legend = rownames(conteo),
 las=1, ylim = c(0,1200), 
 names.arg=c(&quot;Juvenil&quot;,&quot;Abierta&quot;,&quot;Veteranos A&quot;,&quot;Veteranos B&quot;,&quot;Veteranos C&quot;))</code></pre>
-<p><img src="recurso31_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="recurso31_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><br/><br/></p>
+<div id="reto-2" class="section level3 content-box-gray">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(ggplot2)
+library(plotly)
+library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+# Crear el gráfico de barras con ggplot2
+p =ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +
+  geom_bar(position = &quot;stack&quot;, width = 0.7) +
+  labs(title = &quot;Número de atletas por categoría y sexo&quot;,
+       x = &quot;Categorías&quot;,
+       y = &quot;Número de atletas&quot;) +
+  scale_fill_manual(values = c(&quot;#0d3b66&quot;, &quot;#f4d35e&quot;)) +
+  theme_minimal() +
+  theme(legend.position = &quot;top&quot;, legend.title = element_blank())
+ggplotly(p)</code></pre>
+<ul>
+<li>El gráfico actial se construye a partir de una tabla categoría por
+sexo. Representa ahora una gráfico de barras pero del sexo por
+categoría. Cúal de los dos gráficos prefieres? ¿Porqé?</li>
+</ul>
+</div>
 </div>
 </div>
 

@@ -385,6 +385,13 @@ $(document).ready(function () {
 <div id="variables-cuantitativas" class="section level1">
 <h1><span style="color:#034a94"><strong>Variables
 cuantitativas</strong></span></h1>
+<p>En el caso de las variables numéricas en escala de intervalo o de
+razón requieren un tipo de gráficas que permita visualizar sus
+principales características : centro, dispersión y forma.</p>
+<p>Empezaremos con el diagrama de tallos y hojas, que aunque no es un
+gráfico y corresponde a un ordenamiento de los datos, permite visualizar
+de una forma rápida su forma. Tambien permite ubicar el valor mínimo y
+el máximo.</p>
 <div id="diagrama-de-tallos-y-hojas" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama de tallos y
 hojas</strong></span></h2>
@@ -408,26 +415,68 @@ stem(x) # Diagrama de tallos y hojas</code></pre>
   8 | 0001112333334
   8 | 57899
   9 | 04</code></pre>
-<p><br/><br/></p>
+<p><br/></p>
+<p>Este diagrama ordena los datos, permitiendo reconstruir la serie :
+<code>46, 48,52,52,53,54,....90,94</code></p>
+<p><br/><br/><br/></p>
 </div>
 <div id="histograma" class="section level2">
 <h2><span style="color:#034a94"><strong>Histograma</strong></span></h2>
 <p><br/></p>
-<pre class="r"><code># seleccion de bases
+<p>Para la construcción del histograma se el rango de los datos en
+intervalos que pueden ser de igual o diferente tamaño, recomendandose
+que tenga un número de divisiones apropiado ( 7 a 15) que permita
+resumir los datos.</p>
+<p>Aparentemente se puede semejar con un diagra de barras, pues los
+rectangulos que lo conforman representan frecuencias, indicando que
+rectangulos más altos estan indicando una mayor frecuencia de datos en
+su intervalo.</p>
+<p>Este tipo de gráficos permite visualizar además de la forma de los
+datos, su rango.</p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+# seleccion de bases
 dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
 x=dataFc4$timerun/60
-hist(x, xlim=c(40,100), las=1,
-main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
-xlab=&quot;tiempo (min)&quot;,
-ylab = &quot;frecuencia&quot;,
-col =&quot;#ee964b&quot;)</code></pre>
+hist(x, 
+     breaks = 6,
+     las=1,
+     main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+     xlab=&quot;tiempo (min)&quot;,
+     ylab = &quot;frecuencia&quot;,
+     col =&quot;#ee964b&quot;)</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="reto" class="section level3 content-box-gray">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+
+data(&quot;CarreraLuz22&quot;)
+
+# Selección de bases
+dataFc4 &lt;- subset(CarreraLuz22, (CarreraLuz22$sex == &quot;Mujer&quot; &amp; CarreraLuz22$categoria == &quot;4. Veteranos B&quot;))
+
+# Crear el histograma con ggplot2
+p = ggplot(dataFc4, aes(x = timerun/60)) +
+  geom_histogram(bins = 6, fill = &quot;#ee964b&quot;, color = &quot;white&quot;, alpha = 0.7) +
+  labs(title = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+       x = &quot;Tiempo (min)&quot;,
+       y = &quot;Frecuencia&quot;) +
+  theme_minimal()
+
+ggplotly(p)</code></pre>
+</div>
 <p><br/><br/></p>
 </div>
 <div id="diagrama-de-densidad" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama de
 densidad</strong></span></h2>
 <p><br/></p>
+<p>Este diagrama permite visualizar la forma de los datos, su rango y en
+que parte se concentra la mayoria de los datos. Es útil para establecer
+comparaciones con modelos de probabilidad teóricos como la distribución
+normal, unifirme, ji-cuadrado, ….</p>
 <pre class="r"><code>par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
 plot(density(x), lwd=3, col=&quot;#0d3b66&quot;,
 main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
@@ -437,38 +486,108 @@ cex.lab=1,  # tamaño de etiqueta ejes
 cex.axis=.8, # tamaño escalas de los ejes 
 cex.main=1, # tamaño del titulo
 cex.sub=1)    # tamaño del subtitulo)</code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br/><br/></p>
 <p><br/><br/></p>
 </div>
 <div id="diagrama-de-cajas" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama de cajas</strong>
 </span></h2>
 <p><br/></p>
+<p>El diagrama de cajas permite visualizar el rango, los datos atípicos,
+los percentiles 25, 50 o mediana y 75, el valor mínimo y el máximo e
+intuir la forma de los datos. Además es útil al realizar la comparación
+de dos o mas variables numéricas.</p>
 <pre class="r"><code>boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
 main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
 ylab=&quot;tiempo (min)&quot;,
 xlab = &quot;sexo&quot;, las=1,
 col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="reto-1" class="section level3 content-box-gray">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+library(plotly)
+
+data(&quot;CarreraLuz22&quot;)
+
+# Crear el boxplot con ggplot2
+p =ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = sex)) +
+  geom_boxplot() +
+  labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+       x = &quot;Sexo&quot;,
+       y = &quot;Tiempo (min)&quot;) +
+  scale_fill_manual(values = c(&quot;#f4d35e&quot;, &quot;#ee964b&quot;)) +
+  theme_minimal()
+ggplotly(p)</code></pre>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+data(&quot;CarreraLuz22&quot;)
+
+# Definir la paleta de 5 colores
+paleta &lt;- colorRampPalette(c(&quot;#001B48&quot;, &quot;#97CADB&quot;))(5)
+
+# Crear el boxplot con ggplot2
+p &lt;- ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = categoria)) +
+  geom_boxplot() +
+  labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+       x = &quot;Sexo&quot;,
+       y = &quot;Tiempo (min)&quot;) +
+  scale_fill_manual(values = paleta) +
+  theme_minimal()
+
+# Mostrar el gráfico ggplot2
+p</code></pre>
+</div>
 <p><br/><br/></p>
 </div>
 <div id="gráfico-de-series-de-tiempo" class="section level2">
 <h2><span style="color:#034a94"><strong>Gráfico de series de
 tiempo</strong></span></h2>
 <p><br/></p>
+<p>El grafico de lineas es muy utilizado para representar series de
+tiempo, pudiendo visualizar sus principales caracteristicas como son :
+tendencia, estacionalidad, ciclicidad y componentes aleatorios</p>
 <pre class="r"><code>#----------------------------------------------------------------------
 library(tidyverse)
 library(readr)
 library(readr)
-inflacion &lt;- c(24.82, 24.71, 24.18, 23.08, 22.21, 21.38, 20.46, 21.07, 21.43, 21.69, 22.37, 22.60, 22.50, 23.01, 23.41, 23.94, 23.86, 23.08, 22.69, 22.35, 22.31, 22.37, 22.16, 22.59, 21.04, 20.86, 21.33, 21.17, 21.30, 21.66, 21.50, 21.09, 20.79, 20.52, 20.13, 19.46, 20.24, 20.81, 20.20, 19.90, 19.78, 19.70, 20.57, 21.13, 21.55, 21.87, 21.88, 21.63, 20.62, 19.58, 18.93, 18.52, 18.60, 18.67, 17.88, 17.93, 18.01, 17.80, 17.81, 17.68, 17.84, 18.03, 19.24, 20.74, 20.67, 20.69, 20.27, 18.94, 17.80, 17.09, 16.35, 16.70, 17.18, 15.38, 13.51, 11.17,  9.98,  8.96,  8.78,  9.28,  9.33,  9.32,  9.65,  9.23,  8.25,  8.89,  9.73,  9.96, 10.00,  9.68,  9.29,  9.10,  9.20,  8.99,  8.82,  8.75, 8.49,  8.06,  7.81,  7.98,  7.87,  7.93,  8.09,  8.03, 7.97,  8.01,  7.78,  7.65,  7.37,  6.70,  5.89,  5.65,  5.84,  6.25,  6.16,  5.98,  5.97,  6.37,  7.07,  6.99, 7.39,  7.24,  7.60,  7.85, 7.73,   7.21,  7.04,  7.26,  7.11,  6.58,  6.13,  6.49, 6.19,  6.28,  6.21, 5.49,  5.37,  6.07,  6.19,  5.89,  5.97,  5.90,  5.82,  5.50, 5.43,  5.25,  5.03,  5.01,  5.04,  4.83,  4.91,  4.88,  5.02,  5.27,  5.10,  4.85, 4.56,  4.19,  4.11,  4.12,  4.04,  3.94,  4.32,  4.72,  4.58,  4.19,  4.31,  4.48, 4.71,  5.25,  5.78,  6.26,  6.23,  6.03,  5.77,  5.22,  5.01,  5.16,  5.41,  5.69, 6.00,  6.35,  5.93,  5.73,  6.39,  7.18,  7.52,  7.87,  7.57,  7.94,  7.73,  7.67,  7.18,  6.47,  6.14,  5.73,  4.77,  3.81,  3.28,  3.13,  3.21,  2.72,  2.37,  2.00,   2.10,  2.09,  1.84,  1.98,  2.07,  2.25,  2.24,  2.31,  2.28,  2.33,  2.59,  3.17, 3.40,  3.17,  3.19,  2.84,  3.02,  3.23,  3.42,  3.27,  3.73,  4.02,  3.96,  3.73, 3.54,  3.55,  3.40,  3.43,  3.44,  3.20,  3.03,  3.11,  3.08,  3.06,  2.77,  2.44, 2.00,  1.83,  1.91,  2.02,  2.00,  2.16,  2.22,  2.27,  2.27,  1.84,  1.76,  1.94, 2.13,  2.32,  2.51,  2.72,  2.93,  2.79,  2.89,  3.02,  2.86,  3.29,  3.65,  3.66, 3.82,  4.36,  4.56,  4.64,  4.41,  4.42,  4.46,  4.74,  5.35,  5.89,  6.39,  6.77, 7.45,  7.59,  7.98,  7.93,  8.20,  8.60,  8.97,  8.10,  7.27,  6.48,  5.96,  5.75, 5.47,  5.18,  4.69,  4.66,  4.37,  3.99,  3.40,  3.87,  3.97,  4.05,  4.12,  4.09,  3.68,  3.37,  3.14,  3.13,  3.16,  3.20,  3.12,  3.10,  3.23,  3.33,  3.27,  3.18, 3.15,  3.01,  3.21,  3.25,  3.31,  3.43,  3.79,  3.75,  3.82,  3.86,  3.84,  3.80, 3.62,  3.72,  3.86,  3.51,  2.85,  2.19,  1.97,  1.88,  1.97,  1.75,  1.49,  1.61,  1.60,  1.56,  1.51,  1.95,  3.30,  3.63,  3.97,  4.44,  4.51,  4.58,  5.26,  5.62, 6.94,  8.01,  8.53,  9.23,  9.07,  9.67, 10.21, 10.84, 11.44, 12.22, 12.53, 13.12, 13.20, 13.20, 13.30, 12.80, 12.40)
-y=ts(inflacion, star=c(1993,1), end=c(2023,5), frequency=12)
+inflacion &lt;- c(99.31, 88.3,66,66.7,20.5,8.9,2.3,7.3,8.8,1.72,8.47,18.75,9.21,20.23,6.74,6.32,6.93,32.41,8.39,14.84,12.92,7.46,6.48,8.26,6.83,13.91,13.86,
+23.48,26.06,17.69,25.79,28.3,18.73,28.82,25.96,26.36,24.04,16.66,18.26,22.45,20.95,24,28.1,26.2,32.4,26.8,25.1,22.6,22.6,19.5,21.69,17.7,16.7,13.2,9.3,8.5,7.4,7.8,6.3,5.4,4.7,6.3,7.9,7.2,3.17,4,3.6,2.3,3.7,6.8,9,5.5,3.7,3.9,3.90,5.6,13.12,9.28)
+y=ts(inflacion, star=c(1946), end=c(2023), frequency=1)
 plot(y, type=&quot;l&quot;,
-main=&quot;Inflación Colombia  ene-1993 a may-2023&quot;,
+main=&quot;Inflación Colombia  1946 a 2023&quot;,
 ylab=&quot;inflación acumulada anual (%)&quot;,
 xlab = &quot;meses&quot;, las=1,
 col=&quot;#ee964b&quot;, 
 lwd = 4)</code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<img src="recurso32_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<centar> <sub> Fuente : <a
+href="https://es.wikipedia.org/wiki/Anexo:Variaci%C3%B3n_de_la_inflaci%C3%B3n_de_Colombia_desde_1946">wikipedia</a>
+</sub>
+</center>
+<div id="reto-2" class="section level3 content-box-gray">
+<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
+<p>Averigua que hace el código oculto</p>
+<pre class="r"><code>library(tidyverse)
+library(gganimate)
+
+# Datos de inflación
+inflacion &lt;- c(99.31, 88.3,66,66.7,20.5,8.9,2.3,7.3,8.8,1.72,8.47,18.75,9.21,20.23,6.74,6.32,6.93,32.41,8.39,14.84,12.92,7.46,6.48,8.26,6.83,13.91,13.86,23.48,26.06,17.69,25.79,28.3,18.73,28.82,25.96,26.36,24.04,16.66,18.26,22.45,20.95,24,28.1,26.2,32.4,26.8,25.1,22.6,22.6,19.5,21.69,17.7,16.7,13.2,9.3,8.5,7.4,7.8,6.3,5.4,4.7,6.3,7.9,7.2,3.17,4,3.6,2.3,3.7,6.8,9,5.5,3.7,3.9,3.90,5.6,13.12,9.28)
+year &lt;- seq(as.Date(&quot;1946-12-31&quot;), as.Date(&quot;2023-12-31&quot;), by = &quot;1 year&quot;)
+
+# Crear un data frame con los datos
+df &lt;- data.frame(year, inflacion)
+
+# Crear el gráfico animado con ggplot2 y gganimate
+ggplot(df, aes(x=year, y=inflacion)) + geom_point() + 
+          geom_line() + theme_minimal() +transition_reveal(year)</code></pre>
+</div>
+<p>Aunque en los retos previos se ha empleado el paquete gráfico
+<code>ggplot2</code>, a continuación se hace una presentación de su
+sintaxis</p>
 <p><br/><br/><br/></p>
 </div>
 </div>
@@ -506,11 +625,11 @@ de datos con ggplot2</a></p>
 <pre class="r"><code>library(readr)
 library(ggplot2)
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 geom_point()     # grafico de puntos</code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p><br/></p>
 <table>
 <colgroup>
@@ -544,25 +663,25 @@ geom_point()     # grafico de puntos</code></pre>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 geom_point()+
 facet_wrap(~ sex)   # separacion por sexo</code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+        
 coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
 coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
 labs(title = &quot;Tiempos Carrera La Luz  2022&quot;,  y= &quot;Edad&quot;, x= &quot;Tiempo (min)&quot;)  # titulo y etiquetas </code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p><br/><br/></p>
 <div id="otros-gráficos-con-ggplot2" class="section level2">
 <h2><span style="color:#034a94"><strong>Otros gráficos con
@@ -601,7 +720,7 @@ geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = &quot;Q3&quot;,col=&quo
 geom_text(size=6,data = NULL, x = 96, y = 0.5, label = &quot;atípicos&quot;,col=&quot;#FF7F00&quot;) +  
 Theme1
 p4 </code></pre>
-<p><img src="recurso32_files/figure-html/unnamed-chunk-14-1.png" width="1152" /></p>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-18-1.png" width="1152" /></p>
 </div>
 </div>
 

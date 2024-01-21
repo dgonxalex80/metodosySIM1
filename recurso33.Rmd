@@ -28,7 +28,7 @@ Este tipo de gráfica tambien llamado gráfico de telaraña, permite comparar m�
 
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=8}
 # install.packages("fmsb")
 library(fmsb)
 
@@ -50,13 +50,13 @@ radarchart(df,
 
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=8}
 # install.packages("fmsb")
 library(fmsb)
 # matriz de datos
 x = c(2.3, 2.9, 1.5, 4.0, 3.8, 4.0, 3.7, 3.2, 
-      3.1, 4.2, 2.0, 3.6, 3.2, 3.3, 1.2, 4.0, 
-      3.8, 4.0, 3.9, 3.5, 1.5, 3.0, 3.4, 4.4)
+      3.1, 4.0, 2.0, 3.6, 3.2, 3.3, 1.2, 4.0, 
+      3.8, 4.0, 3.9, 3.5, 1.5, 3.0, 3.4, 4.0)
 
 puntos = matrix(x, nrow = 3, byrow = TRUE)
 
@@ -66,9 +66,7 @@ df2 <- data.frame(rbind(rep(4, 8),
                        
 colnames(df2) <- paste("Var", 1:8)
 # colores de areas
-areas <- c(rgb(1, 0, 0, 0.25),
-           rgb(0, 1, 0, 0.25),
-           rgb(0, 0, 1, 0.25))
+areas <- c(rgb(1, 0, 0, 0.25), rgb(0, 1, 0, 0.25), rgb(0, 0, 1, 0.25))
 
 radarchart(df2,
            cglty = 1,       # Tipo de línea del grid
@@ -108,9 +106,9 @@ plot <- ggplot(data,aes(x = variable,y = value,
                  fill = factor(variable))) +
           geom_col(width = 1, color = "white") +
           coord_polar() +                         # vonvierte en grafico circular
-          labs(x = "", y = "",title = "Titulo",   # add titulo, subtitulo, nota
-                             subtitle = "Subtitulo", 
-                             caption = "Nota" ) +
+          labs(x = "", y = "",title = "  ",   # add titulo, subtitulo, nota
+                             subtitle = " ", 
+                             caption = " " ) +
          theme_minimal() +                     # borra caracteristicas del grafico
          theme(                                # asigna caracteristicas
             legend.position = "none",
