@@ -28,15 +28,23 @@ Este tipo de gráfica tambien llamado gráfico de telaraña, permite comparar m�
 
 
 
-```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=8}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=10}
 # install.packages("fmsb")
 library(fmsb)
 
 set.seed(1)
-df <- data.frame(rbind(rep(10, 8), # limite superior de la escala
-                       rep(0, 8), #  limite inferior de la escala
-                       matrix(sample(0:10, 8),nrow = 1))) # genera una muestra de valores
-colnames(df) <- paste("Var", 1:8)   # genera las etiquetas de las variables
+
+x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286)
+
+df <- data.frame(rbind(rep(4, 5), # limite superior de la escala
+                       rep(1, 5), #  limite inferior de la escala
+                       x))# genera una muestra de valores
+colnames(df) <- c("Satisfacción Amb",
+                   "Satisfacción Lab",
+                   "Rendimiento Lab",
+                   "Nivel educativo",
+                   "Equilibrio Trab-Vida")
+
 
 radarchart(df,
            cglty = 1, cglcol = "gray",
@@ -50,21 +58,28 @@ radarchart(df,
 
 
 
-```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=8}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=10}
 # install.packages("fmsb")
 library(fmsb)
+
+library(fmsb)
 # matriz de datos
-x = c(2.3, 2.9, 1.5, 4.0, 3.8, 4.0, 3.7, 3.2, 
-      3.1, 4.0, 2.0, 3.6, 3.2, 3.3, 1.2, 4.0, 
-      3.8, 4.0, 3.9, 3.5, 1.5, 3.0, 3.4, 4.0)
+x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286,
+     2.682540, 2.603175, 2.142857, 3.476190, 3.920635,
+     3.679372, 2.751121, 3.136771, 2.451233, 2.816143)
 
 puntos = matrix(x, nrow = 3, byrow = TRUE)
 
-df2 <- data.frame(rbind(rep(4, 8), 
-                        rep(1, 8),
+df2 <- data.frame(rbind(rep(4, 5), 
+                        rep(1, 5),
                         puntos))
-                       
-colnames(df2) <- paste("Var", 1:8)
+
+colnames(df2) <- c("Satisfacción Amb",
+                   "Satisfacción Lab",
+                   "Rendimiento Lab",
+                   "Nivel educativo",
+                   "Equilibrio Trab-Vida")
+
 # colores de areas
 areas <- c(rgb(1, 0, 0, 0.25), rgb(0, 1, 0, 0.25), rgb(0, 0, 1, 0.25))
 
@@ -77,9 +92,10 @@ radarchart(df2,
            pfcol = areas)   # Color de las áreas 
 
 legend("topright",
-       legend = paste("Grupo", 1:3),
+       legend = c("IyD", "RH", "Ventas"),
        bty = "n", pch = 20, col = areas,
        text.col = "grey25", pt.cex = 2)
+
 
 ```
 
@@ -91,14 +107,14 @@ Este tipo de gráfico se emplea en variables categóricas con múltiples valores
 Tambien se emplea para representar el nivel alcanzado en un indicador por un grupo de variables
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=10}
 
 # Import tidyverse to have access to dplyr and ggplot2
 library(tidyverse)
 
 # Create a simple dummy data frame with columns "variable" and "value"
-data <- data.frame(variable = paste("Var", 1:10), 
-                   value = sample(10, replace = TRUE))
+data <- data.frame(variable = c("Bachillerato", "Técnico", "Prefesional", "Magister", "Doctorado"),
+                   value = c(170, 282, 572, 398, 48 ))
 
 
 # Create grafico en coordenadas 
@@ -106,7 +122,7 @@ plot <- ggplot(data,aes(x = variable,y = value,
                  fill = factor(variable))) +
           geom_col(width = 1, color = "white") +
           coord_polar() +                         # vonvierte en grafico circular
-          labs(x = "", y = "",title = "  ",   # add titulo, subtitulo, nota
+          labs(x = "", y = "",title = "Nivel educativo",   # add titulo, subtitulo, nota
                              subtitle = " ", 
                              caption = " " ) +
          theme_minimal() +                     # borra caracteristicas del grafico
@@ -134,6 +150,9 @@ plot # imprime grafico
 <!-- <br/><br/> -->
 
 ### <span style="color:#034a94">**Nube de palabras**</span>
+
+
+Este tipo de representación visual se emplea en el análisis de texto (mineria de texto), permitiendo detactar rápidamente las palabras más empleadas en un texto
 
 ```{r, warning=FALSE}
 library("wordcloud2")

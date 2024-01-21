@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 #install.packages("devtools") # solo una vez
-devtools::install_github("dgonxalex80/paqueteMETODOS")
+# devtools::install_github("dgonxalex80/paqueteMETODOS", force = TRUE)
 library(readr)
 library(tidyverse)
 library(DT)
@@ -142,8 +142,7 @@ Otro caso correspondiente a las variables cualitativas en escala ordinal, para l
 
 |      |          |                                                                                                          |
 |:-----|:---------|:-------------------------------------------------------------------------------------------------------|
-|c4    | $N_{i}$<center>
-<sub>  | frecuencia absoluta acumulada que consiste en el conteo de los casos menores o iguales al nivel correspondiente.|
+|c4    | $N_{i}$  | frecuencia absoluta acumulada que consiste en el conteo de los casos menores o iguales al nivel correspondiente.|
 |c5    | $F_{i}$  | frecuencia relativa acumulada que corresponde al porcentaje acumulado hasta el nivel correspondiente.|
 
 </div>

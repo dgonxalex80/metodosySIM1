@@ -432,8 +432,39 @@ Veteranos A, Veteranos B y Veteranos C para hombre y mujeres).</p>
 los participantes por categoría y sexo empleados para recorrer los 10
 kilómetros de la competencia.</p>
 <p></br></br></p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(CarreraLuz22F)
+paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
+p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
+  geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
+  aes(color=paleta6)+
+  labs(title = &quot;Mujeres&quot;,
+       y= &quot;tiempo - min&quot;,
+       x= &quot;categorías&quot;)+ 
+  #facet_wrap(~ sex)
+  #facet_grid(vars(sex), scale=&quot;free&quot;)+
+  ylim(0,170)+
+  Theme1
+
+p1</code></pre>
+<p><img src="recurso22_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLu22M&quot;)
+paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
+p2=ggplot(CarreraLuz22M, aes(y=timerun/60, x=categoria))+
+  geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
+  aes(color=paleta6)+
+  labs(title = &quot;Hombres&quot;,
+       y= &quot;tiempo - min&quot;,
+       x= &quot;categorías&quot;)+ 
+  #facet_wrap(~ sex)
+  #facet_grid(vars(sex), scale=&quot;free&quot;)+
+  ylim(0,170)+
+  Theme1
+
+p2</code></pre>
+<p><img src="recurso22_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
 <center>
-<img src="img/RplotRioCaliMH.png" width="100%" style="display: block; margin: auto;" />
 <strong>Figura 1.6</strong> Tiempos por categoría y sexo - Carrera La
 Luz 2022 <br/> <sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>

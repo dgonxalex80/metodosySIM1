@@ -589,24 +589,20 @@ align="left"><code>datos_sas &lt;- read_sas("datos_sas.sas7bdat")</code></td>
 </tbody>
 </table>
 <p></br></br></p>
-<div class="content-box-gray">
-
-<div id="retos" class="section level3">
-<h3><span style="color:#686868"><strong>Retos</strong></span></h3>
-<div class="content-box-gray">
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
 <ul>
-<li>Importe la base de datos a la fecha de Covid-19</li>
+<li>Importa la base de datos a la fecha de Covid-19</li>
 </ul>
 <pre class="r"><code>install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata
 library(RSocrata)    # llamado de libreria
 token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token - cada uno puede obtener su token en la pagina de Datos Abiertos Colombia
 Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
 <ul>
-<li>Importe la base de datos del dataset : <code>flights</code> del
+<li>Importa la base de datos del dataset : <code>flights</code> del
 paquete <code>nycflights13</code> y explore sus principales
 caracteristicas</li>
 </ul>
-</div>
 </div>
 
 

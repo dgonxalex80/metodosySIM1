@@ -9,10 +9,25 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
+# devtools::install_github("dgonxalex80/paqueteMETODOS")
 library(readr)
 library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
+
+# Tamaños de letras graficos con ggplot2
+Theme1 = theme(
+  axis.title.x = element_text(size = 16),
+  axis.text.x = element_text(size = 12),
+  axis.title.y = element_text(size = 12),
+  axis.text.y = element_text(size = 0),
+  axis.text = element_text( size = 12),
+  legend.title = element_text(size = 12),
+  legend.text = element_text(size = 12),  
+  strip.text = element_text(size=12),
+  title =element_text(size=12, face='bold')
+)# tamaño letra por grupos
+
 
 data("CarreraLuz22")
 data("evaluacion")
@@ -41,18 +56,34 @@ $$\bar{x}= \frac{1}{n} \sum_{i=1}^{n} x_{i}$$
 
 La siguiente es la información de los tiempos correspondientes a la categoría juvenil femenina:
 
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+library(paqueteMETODOS)
+data("CarreraLu22_c1F")
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+x
+
+cat("n        = ", length(x), "\n")
+cat("suma     = ", sum(x), "\n")
+cat("promedio = ", mean(x))
+```
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+mean(x)
+```
+
 
 <pre>
-41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+50.97    60.38    61.10    81.48    83.05    88.77    91.33
+n        =  7 
+suma     =  517.08 
+promedio =  73.86857
 
-n    = 12
-suma = 717.20
-promedio = 59.77
+[1] 73.86857
 </pre>
 
 <br/>
 
-Las mujeres de la categoría juveniles presentan el promedio más bajo (59.77 min).
+Las mujeres de la categoría juveniles presentan promedio del tiempo de carrera  de 73.86 minutos.
 
 </br></br>
 
@@ -82,38 +113,80 @@ La **mediana** es el número que divide la muestra en dos partes de igual propor
 
 
 <div class="content-box-blue">
+
+$$Me = \left \{ 
+				\begin{matrix} 
+				 \dfrac{x_{(n+1)}}{2} & \mbox{       si n es impar }\\ 
+				           & \\
+				\dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  & \mbox{si n es par}
+				\end{matrix}\right.  
+				$$
+
+
 $$Me = P_{50} = D_{5} = Q_{2} $$
 </div>
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
 Continuando con la misma información sobre los tiempos correspondientes a la categoría juvenil femenina:
+
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+library(paqueteMETODOS)
+data("CarreraLu22_c1F")
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+x
+
+cat("mediana = ", median(x))
+
+```
+
+
 <pre>
-x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12
-41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
-n    = 12
+     x1       x2       x3       x4       x5       x6       x7  
+[1]  50.97    60.38    61.10    81.48    83.05    88.77    91.33
+mediana =  x4 = 81.48
+n       =  7
 </pre>
 
 <br/>
 
+Lo que indica que $Me$ el dato que está en la posición  $4$  
 
-$n = 12$
-
-$\text{posición de la mediana :}\dfrac{12}{2} = 6.5$
-
-Lo que indica que $Me$ se encuentra entre la posición $6$ y $7$ 
-
-$Me = \dfrac{X_{6}+X_{7}}{2} = \dfrac{57.03 + 61.13}{2} = 59.08 $
+$Me = x_{4} = 81.48$
 
 </br></br>
 
-<center>
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("img/RplotBoxplot3.png")
+
+
+```{r, warning=FALSE, message=FALSE, eval=FALSE}
+library(paqueteMETODOS)
+data("CarreraLu22_c1F")
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+boxplot(x)
+```
+```{r, message=FALSE,warning=FALSE, fig.align='center', fig.height=3, fig.width=10}
+library(ggplot2)
+library(paqueteMETODOS)
+data("CarreraLuz22_c1F")
+
+# Crear un gráfico de caja horizontal con ggplot2
+x = round(CarreraLuz22_c1F$timerun/60, 2)
+df <- data.frame(x = x)
+
+ggplot(df, aes(x = x)) +
+  geom_boxplot(fill = "#0EB0C6") +
+  theme_minimal() +
+  labs(title = "Tiempo de Carrera categoría juvenil femenina",
+       x = "tiempo (minutos)")+
+  Theme1
+
 ```
 
-**Figura 1.10** Tiempos hombres categoría juvenil  
 
+
+<center>
+**Figura 1.10** Tiempos hombres categoría juvenil  
 <sub>
 Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/1031677/Results)
 </sub>
@@ -140,14 +213,28 @@ origen      cali
 ------------------
 </pre>
 
+
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+Valida los resultados anteriores
+</div>
+
 </br>
 
 
 Los datos de la carrera indican que la categoría Abierta representa la categoría con mayor participación 
 
+
 <pre>
 Moda : categoría Abierta
 </pre>
+
+```{r, eval=FALSE}
+library(paqueteMETODOS)
+data("CarreraLuz22")
+table(CarreraLuz22$categoria)
+```
+
 
 </br></br>
 
@@ -164,9 +251,15 @@ x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
       (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
-
+      
 media truncada al 10% : 59.748
 </pre>
+
+```{r, eval=FALSE}
+x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+mean(x, 0.10)
+```
+
 
 </br></br>
 
@@ -189,8 +282,19 @@ min                                                                          max
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 </pre>
 
+```{r, eval=FALSE}
+x=c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+range(x)
+```
 
+<div class="content-box-blue">
 $$\text{rango medio} = \dfrac{41.67 + 78.05}{2} = 59.86 $$
+</div>
+```{r, eval=FALSE}
+x=c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+sum(range(x))/2
+
+```
 
 
 <br/> <br/></br>

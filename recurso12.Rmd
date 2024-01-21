@@ -196,13 +196,9 @@ R permite importar datos en diferentes formatos :
 
 </br></br> 
 
-<div class="content-box-gray">
-
-### <span style="color:#686868">**Retos**</span> 
-
-<div class="content-box-gray">
-
-* Importe la base de datos a  la fecha de Covid-19
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+* Importa la base de datos a  la fecha de Covid-19
 
 ```{r, eval=FALSE }
 install.packages("RSocrata", dependencies = TRUE)   # instalación de paquete RSocrata
@@ -211,8 +207,7 @@ token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token - cada uno puede obtener su token 
 Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token) # lectura 
 ```
 
-
-* Importe la base de datos del dataset :  `flights` del paquete `nycflights13` y explore sus principales caracteristicas
+* Importa la base de datos del dataset :  `flights` del paquete `nycflights13` y explore sus principales caracteristicas
 
 </div>
 

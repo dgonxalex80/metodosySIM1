@@ -417,8 +417,18 @@ son los datos con el fin de saber si se trata de grupos parecidos tanto
 en centro como en variabilidad. Esta necesidad la suplen los
 <code>indicadores de dispersión</code>.</p>
 <p><br/></p>
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+
+data5=data.frame(Edad=c(G1,G2),
+                 Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
+
+p5=ggplot(data5, aes(x=Edad, y=Grupo, color=Grupo))+
+  geom_jitter(size=2, alpha=0.9) +
+  scale_fill_manual(values =c(&quot;Grupo 1&quot;= &quot;#FF7F00&quot;, &quot;Grupo 2&quot;= &quot;#0EB0C6&quot;)) + Theme1
+p5</code></pre>
+<img src="recurso24_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" />
 <center>
-<p><img src="img/RplotGrupos.png" width="100%" style="display: block; margin: auto;" /></p>
 <strong>Figura 1.11</strong> Edad de los atletas por grupo <br/> <sub>
 Fuente : datos simulados </sub>
 </center>
@@ -457,10 +467,21 @@ años</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Valida los resultados anteriores</p>
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+
+data5=data.frame(Edad=c(G1,G2),
+                 Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
+
+describeBy(data5$Edad, data5$Grupo)</code></pre>
+</div>
 <p>Este complemento al indicador de centro permite distinguir que se
 trata de dos grupos diferentes</p>
 <p></br></br></br></p>
-</div>
 </div>
 <div id="varianza" class="section level2">
 <h2><span style="color:#034a94"><strong>Varianza</strong></span></h2>
@@ -599,10 +620,8 @@ años</td>
 años</td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(CV_{1} = 14.56\)</span>
-%</td>
-<td align="left"><span class="math inline">\(CV_{2} = 38.61\)</span>
-%</td>
+<td align="left"><span class="math inline">\(CV_{1} = 15\)</span> %</td>
+<td align="left"><span class="math inline">\(CV_{2} = 39\)</span> %</td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -610,11 +629,20 @@ años</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="retos-1" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Valida los resultados anteriores</p>
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+data6 = data.frame(G1,G2) 
+
+summarytools::descr(data6)</code></pre>
+</div>
 <p></br></p>
 <p>En este caso se obtienen valores diferentes para los dos grupos. El
 grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo
 2 con un valor superior que indica heterogeneidad</p>
-</div>
 </div>
 
 

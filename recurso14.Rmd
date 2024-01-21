@@ -218,5 +218,32 @@ Para el caso de la función `merge()` , se requiere tener un indice que identifi
 </div>
 
 <br/><br/>
-`
 
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+
+Desde  paqueteMETODOS puede importar las bases :
+
+* **CarreraLu22_c1F** - mujeres categoría juvenil
+* **CarreraLu22_c1M** - hombres categoría juvenil
+* **CarreraLu22_c2F** - mujeres categoría abierta
+* **CarreraLu22_c2M** - hombre categoría abierta
+* **CarreraLu22_c3F** - mujeres categoría veteranos a
+* **CarreraLu22_c3M** - hombres categoría veteranos a
+* **CarreraLu22_c4F** - mujeres categoría veteranos b
+* **CarreraLu22_c4M** - hombres categoría veteranos b
+* **CarreraLu22_c5F** - mujeres categoría veteranos c
+* **CarreraLu22_c5M** - hombres categoría veteranos c
+* **CarreraLu22F** - mujeres
+* **CarreraLu22M** - hombres
+
+A partir de esta información reconstruya la data original - CarreraLuz22
+
+```{r}
+library(paqueteMETODOS)
+data("CarreraLuz22")  # contiene todos los datos
+```
+
+
+
+</div>

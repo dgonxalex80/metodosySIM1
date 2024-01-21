@@ -420,6 +420,10 @@ coeficiente (CA&lt;0)</p></li>
 
 coeficiente de curtosis = -1.674344
 </pre>
+<pre class="r"><code># install.packages(&quot;e1071&quot;)
+library(e1071)
+x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+kurtosis(x)</code></pre>
 <p>El valor indica que los datos presentan una forma platicurtica o
 aplanada</p>
 <p><br/><br/></p>
@@ -484,6 +488,10 @@ pocos resultados altos. Esto haría pensar que la prueba fue exigente
 
 coeficiente de asimetría = 0.07062934
 </pre>
+<pre class="r"><code># install.packages(&quot;e1071&quot;)
+library(e1071)
+x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+skewness(x)</code></pre>
 </div>
 </div>
 

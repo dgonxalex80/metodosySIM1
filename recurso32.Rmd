@@ -76,9 +76,9 @@ hist(x,
 
 
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
-Averigua que hace el código oculto
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+Explora el código oculto
 
 ```{r, eval=FALSE}
 library(paqueteMETODOS)
@@ -146,9 +146,10 @@ col=c("#f4d35e","#ee964b"))
 
 
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
-Averigua que hace el código oculto
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+
+Explora el código oculto
 ```{r, eval=FALSE}
 library(paqueteMETODOS)
 library(ggplot2)
@@ -201,7 +202,7 @@ p
 El grafico de lineas es muy utilizado para representar series de tiempo, pudiendo visualizar sus principales caracteristicas como son : tendencia, estacionalidad, ciclicidad y componentes aleatorios
 
 
-```{r}
+```{r, fig.align='center'}
 #----------------------------------------------------------------------
 library(tidyverse)
 library(readr)
@@ -216,16 +217,17 @@ xlab = "meses", las=1,
 col="#ee964b", 
 lwd = 4)
 ```
- <centar>
+ <center>
  <sub>
  Fuente : [wikipedia](https://es.wikipedia.org/wiki/Anexo:Variaci%C3%B3n_de_la_inflaci%C3%B3n_de_Colombia_desde_1946)
 </sub>
 </center>
 
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
-Averigua que hace el código oculto
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+
+Explora el código oculto
 ```{r, eval=FALSE}
 library(tidyverse)
 library(gganimate)
@@ -245,10 +247,11 @@ ggplot(df, aes(x=year, y=inflacion)) + geom_point() +
 ```
 </div>
 
+<br/><br/><br/>
 
 Aunque en los retos previos se ha empleado el paquete gráfico `ggplot2`, a continuación se hace una presentación de su sintaxis
 
-<br/><br/><br/>
+<br/>
 
 # <span style="color:#034a94">**ggplot2**</span>
 
@@ -285,9 +288,13 @@ knitr::include_graphics("img/ge_themes.png")
 
 <br/><br/>
 
+<center>
+<sub>
+Fuente: [Visualizacion de datos con ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
+</sub>
+</center>
 
-[Visualizacion de datos con ggplot2](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)
-
+1. Se declara la data y las variables
 
 ```{r,fig.height=5}
 library(readr)
@@ -295,6 +302,7 @@ library(ggplot2)
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas 
 ```
 
+2. Se determina el tipo de gráfico a realizar con las variables declaradas
 
 <br/><br/>
 
@@ -305,6 +313,8 @@ geom_point()     # grafico de puntos
 ```
 
 <br/>
+
+Para declarar el tipo de grafico se emplean diferentes geometrias, en este caso se utiliza `geom_point()`
 
 |                   |                    |                     |                      |
 |:------------------|:-------------------|:--------------------|:---------------------|
@@ -321,7 +331,7 @@ facet_wrap(~ sex)   # separacion por sexo
 
 ```
 
-
+3. Se declaran las capas y las estadística a emplear
 
 <br/><br/>
 
@@ -331,7 +341,7 @@ facet_wrap(~ categoria)+
 stat_smooth(method = "loess" , formula =y ~ x)  # ajuste de modelo 
 ```
 
-
+4. Se definen capas de coordenadas para dar límites a los ejes
 
 <br/><br/>
 
@@ -346,6 +356,7 @@ coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes
 
 <br/><br/>
 
+5. Se adicionan titulos y etiquetes de los ejes
 
 ```{r, fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
@@ -355,7 +366,10 @@ coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
 labs(title = "Tiempos Carrera La Luz  2022",  y= "Edad", x= "Tiempo (min)")  # titulo y etiquetas 
 ```
 
-<br/><br/>
+**Listo !!**
+
+
+<br/><br/><br/>
 
 ## <span style="color:#034a94">**Otros gráficos con ggplot2**</span>
 

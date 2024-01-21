@@ -43,9 +43,9 @@ pie(t1)
 <br/><br/>
 
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
-Averigua que hace el código oculto
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+Explora el código oculto
 
 ```{r, eval=FALSE}
 library(paqueteMETODOS)
@@ -54,9 +54,7 @@ library(lessR)
 data=CarreraLuz22
 PieChart(categoria, hole = 0, values = "%", data = CarreraLuz22, fill = "blues", main = "",values_size =.8)
 ```
-<div> 
-
-
+</div> 
 
 <br/><br/><br/>
 
@@ -80,10 +78,10 @@ las=1 )
 
 <br/><br/>
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
 
-Averigua que hace el código oculto
+Explora los códigos ocultos
 
 
 ```{r, eval=FALSE}
@@ -161,10 +159,10 @@ names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
 
 <br/><br/>
 
-<div class="content-box-gray">
-### <span style="color:#034a94">**Reto**</span> 
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
 
-Averigua que hace el código oculto
+Explora el código oculto
 
 ```{r, eval=FALSE}
 library(ggplot2)
@@ -184,7 +182,7 @@ ggplotly(p)
 
 ```
 
-* El gráfico actial se construye a partir de una tabla categoría por sexo. Representa ahora una gráfico de barras pero del sexo por categoría. Cúal de los dos gráficos prefieres? ¿Porqé?
+* El gráfico se construye a partir de una tabla categoría por sexo (tabla cruzada). Representa ahora una gráfico de barras pero del sexo por categoría. Cúal de los dos gráficos prefieres? ¿Porqé?
 
 </div>
 

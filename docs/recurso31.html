@@ -403,21 +403,16 @@ t1=table(data$categoria)
 pie(t1)</code></pre>
 <p><img src="recurso31_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p><br/><br/></p>
-<div class="content-box-gray">
-<div id="reto" class="section level3">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
 <pre class="r"><code>library(paqueteMETODOS)
 # install.packages(&quot;lessR)
 library(lessR)
 data=CarreraLuz22
 PieChart(categoria, hole = 0, values = &quot;%&quot;, data = CarreraLuz22, fill = &quot;blues&quot;, main = &quot;&quot;,values_size =.8)</code></pre>
-<div>
-
-
-
-<p><br/><br/><br/></p>
 </div>
+<p><br/><br/><br/></p>
 </div>
 </div>
 <div id="variable-cualitativa-ordinal" class="section level1">
@@ -440,9 +435,9 @@ main = &quot;Evaluación proceso de inducción&quot;,
 las=1 )</code></pre>
 <p><img src="recurso31_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><br/><br/></p>
-<div id="reto-1" class="section level3 content-box-gray">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos-1" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora los códigos ocultos</p>
 <pre class="r"><code>library(ggplot2)
 
 # Datos de evaluación
@@ -504,9 +499,9 @@ las=1, ylim = c(0,1200),
 names.arg=c(&quot;Juvenil&quot;,&quot;Abierta&quot;,&quot;Veteranos A&quot;,&quot;Veteranos B&quot;,&quot;Veteranos C&quot;))</code></pre>
 <p><img src="recurso31_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><br/><br/></p>
-<div id="reto-2" class="section level3 content-box-gray">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos-2" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
 <pre class="r"><code>library(ggplot2)
 library(plotly)
 library(paqueteMETODOS)
@@ -522,9 +517,9 @@ p =ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +
   theme(legend.position = &quot;top&quot;, legend.title = element_blank())
 ggplotly(p)</code></pre>
 <ul>
-<li>El gráfico actial se construye a partir de una tabla categoría por
-sexo. Representa ahora una gráfico de barras pero del sexo por
-categoría. Cúal de los dos gráficos prefieres? ¿Porqé?</li>
+<li>El gráfico se construye a partir de una tabla categoría por sexo
+(tabla cruzada). Representa ahora una gráfico de barras pero del sexo
+por categoría. Cúal de los dos gráficos prefieres? ¿Porqé?</li>
 </ul>
 </div>
 </div>

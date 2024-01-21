@@ -446,9 +446,9 @@ hist(x,
      ylab = &quot;frecuencia&quot;,
      col =&quot;#ee964b&quot;)</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div id="reto" class="section level3 content-box-gray">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
 <pre class="r"><code>library(paqueteMETODOS)
 library(ggplot2)
 
@@ -504,9 +504,9 @@ ylab=&quot;tiempo (min)&quot;,
 xlab = &quot;sexo&quot;, las=1,
 col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div id="reto-1" class="section level3 content-box-gray">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos-1" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
 <pre class="r"><code>library(paqueteMETODOS)
 library(ggplot2)
 library(plotly)
@@ -563,14 +563,15 @@ ylab=&quot;inflación acumulada anual (%)&quot;,
 xlab = &quot;meses&quot;, las=1,
 col=&quot;#ee964b&quot;, 
 lwd = 4)</code></pre>
-<img src="recurso32_files/figure-html/unnamed-chunk-8-1.png" width="672" />
-<centar> <sub> Fuente : <a
+<img src="recurso32_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
+<center>
+<sub> Fuente : <a
 href="https://es.wikipedia.org/wiki/Anexo:Variaci%C3%B3n_de_la_inflaci%C3%B3n_de_Colombia_desde_1946">wikipedia</a>
 </sub>
 </center>
-<div id="reto-2" class="section level3 content-box-gray">
-<h3><span style="color:#034a94"><strong>Reto</strong></span></h3>
-<p>Averigua que hace el código oculto</p>
+<div id="retos-2" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
 <pre class="r"><code>library(tidyverse)
 library(gganimate)
 
@@ -585,10 +586,11 @@ df &lt;- data.frame(year, inflacion)
 ggplot(df, aes(x=year, y=inflacion)) + geom_point() + 
           geom_line() + theme_minimal() +transition_reveal(year)</code></pre>
 </div>
+<p><br/><br/><br/></p>
 <p>Aunque en los retos previos se ha empleado el paquete gráfico
 <code>ggplot2</code>, a continuación se hace una presentación de su
 sintaxis</p>
-<p><br/><br/><br/></p>
+<p><br/></p>
 </div>
 </div>
 <div id="ggplot2" class="section level1">
@@ -619,18 +621,29 @@ ajustar las escalas de los ejes</p></li>
 no dependen de los datos</p></li>
 </ul>
 <p><br/><br/></p>
-<p><a
+<center>
+<sub> Fuente: <a
 href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Visualizacion
-de datos con ggplot2</a></p>
+de datos con ggplot2</a> </sub>
+</center>
+<ol style="list-style-type: decimal">
+<li>Se declara la data y las variables</li>
+</ol>
 <pre class="r"><code>library(readr)
 library(ggplot2)
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Se determina el tipo de gráfico a realizar con las variables
+declaradas</li>
+</ol>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 geom_point()     # grafico de puntos</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p><br/></p>
+<p>Para declarar el tipo de grafico se emplean diferentes geometrias, en
+este caso se utiliza <code>geom_point()</code></p>
 <table>
 <colgroup>
 <col width="23%" />
@@ -664,11 +677,17 @@ geom_point()     # grafico de puntos</code></pre>
 geom_point()+
 facet_wrap(~ sex)   # separacion por sexo</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Se declaran las capas y las estadística a emplear</li>
+</ol>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Se definen capas de coordenadas para dar límites a los ejes</li>
+</ol>
 <p><br/><br/></p>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
@@ -676,13 +695,17 @@ stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
 coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br/><br/></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Se adicionan titulos y etiquetes de los ejes</li>
+</ol>
 <pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
 coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
 labs(title = &quot;Tiempos Carrera La Luz  2022&quot;,  y= &quot;Edad&quot;, x= &quot;Tiempo (min)&quot;)  # titulo y etiquetas </code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p><br/><br/></p>
+<p><strong>Listo !!</strong></p>
+<p><br/><br/><br/></p>
 <div id="otros-gráficos-con-ggplot2" class="section level2">
 <h2><span style="color:#034a94"><strong>Otros gráficos con
 ggplot2</strong></span></h2>

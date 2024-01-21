@@ -74,6 +74,12 @@ p
 coeficiente de curtosis = -1.674344
 </pre>
 
+```{r, eval=FALSE}
+# install.packages("e1071")
+library(e1071)
+x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+kurtosis(x)
+```
 
 El valor indica que los datos presentan una  forma platicurtica o aplanada
 
@@ -132,6 +138,12 @@ knitr::include_graphics("img/RplotAsimetria.png")
 coeficiente de asimetría = 0.07062934
 </pre>
 
+```{r, eval=FALSE}
+# install.packages("e1071")
+library(e1071)
+x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+skewness(x)
+```
 
 
 

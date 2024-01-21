@@ -18,7 +18,32 @@ library(readr)
 library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
+#-----------------------------------------------------
+# Tamaños de letras graficos con ggplot2
+Theme1 = theme(
+  axis.title.x = element_text(size = 16),
+  axis.text.x = element_text(size = 12),
+  axis.title.y = element_text(size = 16),
+  axis.text.y = element_text(size = 12),
+  axis.text = element_text( size = 12),
+  legend.title = element_text(size = 12),
+  legend.text = element_text(size = 12),  
+  strip.text = element_text(size=12),
+  title =element_text(size=12, face='bold')
+)# tamaño letra por grupos
 
+Theme2 = theme(
+  axis.title.x = element_text(size = 26),
+  axis.text.x = element_text(size = 20),
+  axis.title.y = element_text(size = 26),
+  # axis.text.y = element_blank(),
+  axis.text = element_text( size = 20),
+  legend.title = element_text(size = 20),
+  legend.text = element_text(size = 20),  
+  strip.text = element_text(size=20),
+  title =element_text(size=20, face='bold')
+)# tamaño letra por grupos
+#-----------------------------------------------------
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
@@ -86,10 +111,44 @@ El siguiente gráfico de puntos representa los tiempos alcanzados por los partic
 
 </br></br>
 
-<center>
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("img/RplotRioCaliMH.png")
+
+```{r, message=FALSE,warning=FALSE, fig.align='center', fig.height=5, fig.width=10 }
+library(paqueteMETODOS)
+data(CarreraLuz22F)
+paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
+p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
+  geom_jitter(color="#034A94", size=1, alpha=0.9) +
+  aes(color=paleta6)+
+  labs(title = "Mujeres",
+       y= "tiempo - min",
+       x= "categorías")+ 
+  #facet_wrap(~ sex)
+  #facet_grid(vars(sex), scale="free")+
+  ylim(0,170)+
+  Theme1
+
+p1
 ```
+
+```{r, message=FALSE,warning=FALSE, fig.align='center', fig.height=5, fig.width=10 }
+library(paqueteMETODOS)
+data("CarreraLu22M")
+paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
+p2=ggplot(CarreraLuz22M, aes(y=timerun/60, x=categoria))+
+  geom_jitter(color="#034A94", size=1, alpha=0.9) +
+  aes(color=paleta6)+
+  labs(title = "Hombres",
+       y= "tiempo - min",
+       x= "categorías")+ 
+  #facet_wrap(~ sex)
+  #facet_grid(vars(sex), scale="free")+
+  ylim(0,170)+
+  Theme1
+
+p2
+```
+
+<center>
 **Figura 1.6** Tiempos por categoría y sexo  - Carrera La Luz 2022
 <br/>
 <sub>

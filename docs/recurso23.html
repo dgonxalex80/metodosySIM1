@@ -409,16 +409,26 @@ x_{i}\]</span></p>
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
 <p>La siguiente es la información de los tiempos correspondientes a la
 categoría juvenil femenina:</p>
-<pre>
-41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLu22_c1F&quot;)
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+x
 
-n    = 12
-suma = 717.20
-promedio = 59.77
+cat(&quot;n        = &quot;, length(x), &quot;\n&quot;)
+cat(&quot;suma     = &quot;, sum(x), &quot;\n&quot;)
+cat(&quot;promedio = &quot;, mean(x))</code></pre>
+<pre class="r"><code>mean(x)</code></pre>
+<pre>
+50.97    60.38    61.10    81.48    83.05    88.77    91.33
+n        =  7 
+suma     =  517.08 
+promedio =  73.86857
+
+[1] 73.86857
 </pre>
 <p><br/></p>
-<p>Las mujeres de la categoría juveniles presentan el promedio más bajo
-(59.77 min).</p>
+<p>Las mujeres de la categoría juveniles presentan promedio del tiempo
+de carrera de 73.86 minutos.</p>
 <p></br></br></p>
 </div>
 <div id="propiedades-de-la-media"
@@ -454,30 +464,60 @@ class="math inline">\(\bar{z}=a\bar{x}+b\bar{y}\)</span>.</p></li>
 partes de igual proporción (50% : 50%). Es decir que corresponde al
 percentil 50.</p>
 <div class="content-box-blue">
+<p><span class="math display">\[Me = \left \{
+                \begin{matrix}
+                 \dfrac{x_{(n+1)}}{2} &amp; \mbox{       si n es impar
+}\\
+                           &amp; \\
+                \dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  &amp; \mbox{si n es
+par}
+                \end{matrix}\right.  
+                \]</span></p>
 <p><span class="math display">\[Me = P_{50} = D_{5} = Q_{2}
 \]</span></p>
 </div>
 <div id="ejemplo-1" class="section level3">
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
-Continuando con la misma información sobre los tiempos correspondientes
-a la categoría juvenil femenina:
+<p>Continuando con la misma información sobre los tiempos
+correspondientes a la categoría juvenil femenina:</p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLu22_c1F&quot;)
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+x
+
+cat(&quot;mediana = &quot;, median(x))</code></pre>
 <pre>
-x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12
-41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
-n    = 12
+     x1       x2       x3       x4       x5       x6       x7  
+[1]  50.97    60.38    61.10    81.48    83.05    88.77    91.33
+mediana =  x4 = 81.48
+n       =  7
 </pre>
 <p><br/></p>
-<p><span class="math inline">\(n = 12\)</span></p>
-<p><span class="math inline">\(\text{posición de la mediana
-:}\dfrac{12}{2} = 6.5\)</span></p>
-<p>Lo que indica que <span class="math inline">\(Me\)</span> se
-encuentra entre la posición <span class="math inline">\(6\)</span> y
-<span class="math inline">\(7\)</span></p>
-<p>$Me = = = 59.08 $</p>
+<p>Lo que indica que <span class="math inline">\(Me\)</span> el dato que
+está en la posición <span class="math inline">\(4\)</span></p>
+<p><span class="math inline">\(Me = x_{4} = 81.48\)</span></p>
 <p></br></br></p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLu22_c1F&quot;)
+x= round(CarreraLuz22_c1F$timerun/60, 2)
+boxplot(x)</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(paqueteMETODOS)
+data(&quot;CarreraLuz22_c1F&quot;)
+
+# Crear un gráfico de caja horizontal con ggplot2
+x = round(CarreraLuz22_c1F$timerun/60, 2)
+df &lt;- data.frame(x = x)
+
+ggplot(df, aes(x = x)) +
+  geom_boxplot(fill = &quot;#0EB0C6&quot;) +
+  theme_minimal() +
+  labs(title = &quot;Tiempo de Carrera categoría juvenil femenina&quot;,
+       x = &quot;tiempo (minutos)&quot;)+
+  Theme1</code></pre>
+<p><img src="recurso23_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
 <center>
-<p><img src="img/RplotBoxplot3.png" width="100%" style="display: block; margin: auto;" /></p>
-<p><strong>Figura 1.10</strong> Tiempos hombres categoría juvenil</p>
+<strong>Figura 1.10</strong> Tiempos hombres categoría juvenil<br />
 <sub> Fuente :<a
 href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanchocorrelon</a>
 </sub>
@@ -503,14 +543,21 @@ categoría   abierta
 origen      cali
 ------------------
 </pre>
+</div>
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Valida los resultados anteriores</p>
+</div>
 <p></br></p>
 <p>Los datos de la carrera indican que la categoría Abierta representa
 la categoría con mayor participación</p>
 <pre>
 Moda : categoría Abierta
 </pre>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+table(CarreraLuz22$categoria)</code></pre>
 <p></br></br></p>
-</div>
 </div>
 <div id="media-truncada" class="section level2">
 <h2><span style="color:#034a94"><strong>Media
@@ -528,9 +575,11 @@ x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
       (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
-
+      
 media truncada al 10% : 59.748
 </pre>
+<pre class="r"><code>x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+mean(x, 0.10)</code></pre>
 <p></br></br></p>
 </div>
 </div>
@@ -551,8 +600,14 @@ en datos simétricos.</p>
 min                                                                          max  
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 </pre>
+<pre class="r"><code>x=c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+range(x)</code></pre>
+<div class="content-box-blue">
 <p><span class="math display">\[\text{rango medio} = \dfrac{41.67 +
 78.05}{2} = 59.86 \]</span></p>
+</div>
+<pre class="r"><code>x=c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)
+sum(range(x))/2</code></pre>
 <p><br/> <br/></br></p>
 </div>
 </div>

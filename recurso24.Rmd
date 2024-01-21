@@ -8,15 +8,34 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+devtools::install_github("dgonxalex80/paqueteMETODOS")
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 library(readr)
 library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
 
+# Tamaños de letras graficos con ggplot2
+Theme1 = theme(
+  axis.title.x = element_text(size = 16),
+  axis.text.x = element_text(size = 12),
+  axis.title.y = element_text(size = 16),
+  axis.text.y = element_blank(),
+  axis.text = element_text( size = 12),
+  legend.title = element_text(size = 12),
+  legend.text = element_text(size = 12),  
+  strip.text = element_text(size=12),
+  title =element_text(size=12, face='bold')
+)# tamaño letra por grupos
+
+
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
+
+G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+
 ```
 
 </br>
@@ -36,11 +55,20 @@ Hace falta otro indicador que nos oriente sobre, qué tan dispersos son los dato
 
 <br/>
 
-<center>
-```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("img/RplotGrupos.png")
-```
 
+```{r, fig.align='center', fig.height=3, fig.width=10}
+G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+
+data5=data.frame(Edad=c(G1,G2),
+                 Grupo = rep(c("Grupo 1", "Grupo 2"), each=30) )
+
+p5=ggplot(data5, aes(x=Edad, y=Grupo, color=Grupo))+
+  geom_jitter(size=2, alpha=0.9) +
+  scale_fill_manual(values =c("Grupo 1"= "#FF7F00", "Grupo 2"= "#0EB0C6")) + Theme1
+p5
+```
+<center>
 **Figura 1.11** Edad de los atletas por grupo 
 <br/>
 <sub>
@@ -66,6 +94,24 @@ En el caso de los dos grupos:
 |$\bar{x}_{1} = 28$ años      | $\bar{x}_{2} = 28$ años            |
 |$r_{1} = 16$ años            | $r_{2} = 38$ años                  |  
 |                             |                                    |
+
+
+
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span> 
+Valida los resultados anteriores
+
+
+```{r, eval=FALSE}
+G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+
+data5=data.frame(Edad=c(G1,G2),
+                 Grupo = rep(c("Grupo 1", "Grupo 2"), each=30) )
+
+describeBy(data5$Edad, data5$Grupo)
+```
+</div>
 
 Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes
 
@@ -166,8 +212,21 @@ Existen diferentes reglas empíricas para la interpretación del coeficiente de 
 |**Grupo 1**                  | **Grupo 2**                        |
 |:----------------------------|:-----------------------------------|
 |$\bar{x}_{1} = 28$ años      |$\bar{x}_{2} = 28$ años             |
-|$CV_{1}  = 14.56$ %          |$CV_{2} = 38.61$ %                  |  
+|$CV_{1}  = 15$ %          |$CV_{2} = 39$ %                  |  
 |                             |                                    |
+
+<div class="content-box-yellow">
+### <span style="color:#034A94">**Retos**</span>  
+Valida los resultados anteriores
+```{r, eval=FALSE}
+G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+data6 = data.frame(G1,G2) 
+
+summarytools::descr(data6)
+```
+</div>
+
 </br>
 
 En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo 2 con un valor superior que indica heterogeneidad
