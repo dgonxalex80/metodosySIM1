@@ -390,7 +390,7 @@ estadísticos</strong></span></h1>
 indicadores que permiten al conductor validar el estado del vehículo. El
 nivel de combustible, la temperatura, el estado de la batería, si alguna
 puerta esta abierta, la velocidad a la que se viaja, indicadores de las
-luces estacionarias, de giro, entre otros, permitiendonos tomar
+luces estacionarias, de giro, entre otros, permitiéndonos tomar
 decisiones en cada momento. Todos estos indicadores son construidos con
 información que se sintetiza de diferentes maneras.</p>
 <p><img src="img/tablero_carro.gif" width="70%" style="display: block; margin: auto;" />
@@ -436,15 +436,15 @@ kilómetros de la competencia.</p>
 data(CarreraLuz22F)
 paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
 p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
-  geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
-  aes(color=paleta6)+
-  labs(title = &quot;Mujeres&quot;,
-       y= &quot;tiempo - min&quot;,
-       x= &quot;categorías&quot;)+ 
-  #facet_wrap(~ sex)
-  #facet_grid(vars(sex), scale=&quot;free&quot;)+
-  ylim(0,170)+
-  Theme1
+geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
+aes(color=paleta6)+
+labs(title = &quot;Mujeres&quot;,
+y= &quot;tiempo - min&quot;,
+x= &quot;categorías&quot;)+ 
+#facet_wrap(~ sex)
+#facet_grid(vars(sex), scale=&quot;free&quot;)+
+ylim(0,170)+
+Theme1
 
 p1</code></pre>
 <p><img src="recurso22_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -452,15 +452,15 @@ p1</code></pre>
 data(&quot;CarreraLu22M&quot;)
 paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
 p2=ggplot(CarreraLuz22M, aes(y=timerun/60, x=categoria))+
-  geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
-  aes(color=paleta6)+
-  labs(title = &quot;Hombres&quot;,
-       y= &quot;tiempo - min&quot;,
-       x= &quot;categorías&quot;)+ 
-  #facet_wrap(~ sex)
-  #facet_grid(vars(sex), scale=&quot;free&quot;)+
-  ylim(0,170)+
-  Theme1
+geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
+aes(color=paleta6)+
+labs(title = &quot;Hombres&quot;,
+y= &quot;tiempo - min&quot;,
+x= &quot;categorías&quot;)+ 
+#facet_wrap(~ sex)
+#facet_grid(vars(sex), scale=&quot;free&quot;)+
+ylim(0,170)+
+Theme1
 
 p2</code></pre>
 <p><img src="recurso22_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -570,7 +570,7 @@ href="https://www.athlinks.com/event/212331/results/Event/1031677/Results">juanc
 <pre>
 Límite inferior        Q1          Q2           Q3           Límite superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
-                       25%         50%          75%  
+25%         50%          75%  
 30.175                 53.50       59.60        69.05        92.375
 </pre>
 <p></br></br></p>
@@ -593,7 +593,7 @@ atípicos</strong></sapn></h4>
 <p>Los percentiles pueden ayudar a identificar valores extremos o
 atípicos en un conjunto de datos. <code>Q1 - 1.5(Q3-Q1)</code> y
 <code>Q3 + 1.5(Q3-Q1)</code>, representan dos límites a partir de los
-cuales se consideran datos atípidos. Este método fue planteado por John
+cuales se consideran datos atípicos. Este método fue planteado por John
 Tukey (1977).</p>
 <p></br></p>
 </div>

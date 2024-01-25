@@ -391,19 +391,29 @@ tienen medias de 28, pero corresponden a grupos diferentes.</p>
 <p><br/></p>
 <table>
 <colgroup>
-<col width="11%" />
-<col width="88%" />
+<col width="19%" />
+<col width="80%" />
 </colgroup>
 <tbody>
 <tr class="odd">
 <td align="left"><strong>Grupo 1</strong></td>
 <td align="left">27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27,
-34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23</td>
+34,</td>
 </tr>
 <tr class="even">
+<td align="left"></td>
+<td align="left">38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25,
+23</td>
+</tr>
+<tr class="odd">
 <td align="left"><strong>Grupo 2</strong></td>
 <td align="left">35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19,
-20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18</td>
+20,</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40,
+18</td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -417,15 +427,17 @@ son los datos con el fin de saber si se trata de grupos parecidos tanto
 en centro como en variabilidad. Esta necesidad la suplen los
 <code>indicadores de dispersión</code>.</p>
 <p><br/></p>
-<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
-G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 
+     38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 
+     17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
 
 data5=data.frame(Edad=c(G1,G2),
-                 Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
+Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
 
 p5=ggplot(data5, aes(x=Edad, y=Grupo, color=Grupo))+
-  geom_jitter(size=2, alpha=0.9) +
-  scale_fill_manual(values =c(&quot;Grupo 1&quot;= &quot;#FF7F00&quot;, &quot;Grupo 2&quot;= &quot;#0EB0C6&quot;)) + Theme1
+geom_jitter(size=2, alpha=0.9) +
+scale_fill_manual(values =c(&quot;Grupo 1&quot;= &quot;#FF7F00&quot;, &quot;Grupo 2&quot;= &quot;#0EB0C6&quot;)) + Theme1
 p5</code></pre>
 <img src="recurso24_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" />
 <center>
@@ -471,11 +483,13 @@ años</td>
 <div id="retos" class="section level3 content-box-yellow">
 <h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
 <p>Valida los resultados anteriores</p>
-<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
-G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 
+     38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 
+     17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
 
 data5=data.frame(Edad=c(G1,G2),
-                 Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
+Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
 
 describeBy(data5$Edad, data5$Grupo)</code></pre>
 </div>
@@ -633,8 +647,10 @@ años</td>
 <div id="retos-1" class="section level3 content-box-yellow">
 <h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
 <p>Valida los resultados anteriores</p>
-<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23 )
-G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18 )
+<pre class="r"><code>G1=c(27, 27, 28, 28, 34, 28, 26, 33, 24, 28, 25, 25, 33, 27, 34, 
+     38, 24, 26, 22, 23, 33, 23, 26, 26, 32, 33, 29, 30, 25, 23)
+G2=c(35, 25, 19, 17, 24, 17, 55, 25, 31, 35, 43, 28, 32, 19, 20, 
+     17, 25, 18, 21, 22, 17, 35, 29, 20, 54, 46, 24, 29, 40, 18)
 data6 = data.frame(G1,G2) 
 
 summarytools::descr(data6)</code></pre>

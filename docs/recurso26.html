@@ -31,6 +31,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -220,6 +221,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -359,6 +363,14 @@ $(document).ready(function () {
 </div><!--/.navbar -->
 
 <div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
 
@@ -561,7 +573,7 @@ Kurtosis      0.11    # curtosis
 </pre>
 <p>En cuanto al valor del indicador de sesgo (0.64), representa una leve
 simetría positiva y un valor de curtosis similar al estándar
-representado por la distribución normal estandar.</p>
+representado por la distribución normal estándar.</p>
 <p><br/></p>
 <ul>
 <li><strong>indicadores de posición</strong></li>
@@ -677,7 +689,7 @@ scale_fill_manual(values = c(&quot;#FF9999&quot;, &quot;#66B2FF&quot;, &quot;#99
 <p><img src="recurso26_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>El gráfico permite visualizar una mayor cantidad de participantes en
 la categoría Abierta y también que la distribución de los tiempo de
-carrera es similar para todas las categorías. Tambien se puede observar
+carrera es similar para todas las categorías. También se puede observar
 que el dato atípico corresponde a un atleta de la categoría Veteranos
 C.</p>
 <p><br/></p>
@@ -742,6 +754,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

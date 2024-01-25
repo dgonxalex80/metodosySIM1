@@ -417,7 +417,7 @@ RStudio</strong></span></h3>
 <tr class="even">
 <td align="left"><strong>formato .csv</strong></td>
 <td align="left"><em>File/Import Dataset/From text (base)</em></td>
-<td align="left">fomato csv separado por ; o por ,</td>
+<td align="left">formato csv separado por ; o por ,</td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>formato .xlsx</strong></td>
@@ -459,14 +459,14 @@ class="section level3">
 <h3><span style="color:#034a94"><strong>2. Utilizando API y token desde
 un repositorio externo</strong></span></h3>
 <p>Podemos importar la base de datos de un repositorio que maneje API a
-traves de un token. En este caso debemos solicitar el token e instalar
+través de un token. En este caso debemos solicitar el token e instalar
 el paquete <code>RSocrata</code></p>
 <p></br></br></p>
 </div>
 <div id="ejemplo" class="section level3">
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
 <p>El siguiente código importa la base de datos de la Secretaria de
-Salud correspondiente a las parsonas reportadas con Covid-19 para el
+Salud correspondiente a las personas reportadas con Covid-19 para el
 territorio Colombiano. Para ello se debe solicitar en la plataforma de
 Datos Abiertos Colombia un token y realizar la siguiente solicitud</p>
 <pre class="r"><code># install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata, solo una vez
@@ -483,9 +483,9 @@ Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app
 <p></br></p>
 <p>Este proceso tarde unos minutos pues la base es grande</p>
 <p>Para guardar el archivo en una carpeta <code>data</code>, se
-recomienda el formarto RDS por ocupar menos espacio. En este caso se
-guarda el archivo descargado con el nombre de <em>Colombia.RDS</em> en
-la carpeta <em>data/</em></p>
+recomienda el formato <code>RDS</code> por ocupar menos espacio. En este
+caso se guarda el archivo descargado con el nombre de
+<em>Colombia.RDS</em> en la carpeta <em>data/</em></p>
 <p></br></p>
 <pre class="r"><code>saveRDS(Colombia, file = &quot;data/Colombia.RDS&quot;) </code></pre>
 <p></br></p>
@@ -497,8 +497,9 @@ saveRDS(Colombia, file = "data/Colombia.RDS")
 <div id="desde-un-paquete-de-r-instalado" class="section level3">
 <h3><span style="color:#034a94"><strong>4. Desde un paquete de R
 instalado</strong></span></h3>
-<p>Es psosible trabajar con una dataset disponible en los paquetes de R.
-Para ello solo utilizamos la función <code>data()</code></p>
+<p>Es psosible trabajar con una <code>dataset</code> disponible en los
+paquetes de R. Para ello solo utilizamos la función
+<code>data()</code></p>
 <p></br></br></p>
 </div>
 <div id="ejemplo-1" class="section level3">
@@ -599,9 +600,9 @@ library(RSocrata)    # llamado de libreria
 token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token - cada uno puede obtener su token en la pagina de Datos Abiertos Colombia
 Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura </code></pre>
 <ul>
-<li>Importa la base de datos del dataset : <code>flights</code> del
-paquete <code>nycflights13</code> y explore sus principales
-caracteristicas</li>
+<li>Importa la base de datos del <code>dataset</code> :
+<code>flights</code> del paquete <code>nycflights13</code> y explore sus
+principales características</li>
 </ul>
 </div>
 

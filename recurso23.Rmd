@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Indicadores de centro**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -17,15 +20,15 @@ library(paqueteMETODOS)
 
 # Tamaños de letras graficos con ggplot2
 Theme1 = theme(
-  axis.title.x = element_text(size = 16),
-  axis.text.x = element_text(size = 12),
-  axis.title.y = element_text(size = 12),
-  axis.text.y = element_text(size = 0),
-  axis.text = element_text( size = 12),
-  legend.title = element_text(size = 12),
-  legend.text = element_text(size = 12),  
-  strip.text = element_text(size=12),
-  title =element_text(size=12, face='bold')
+axis.title.x = element_text(size = 16),
+axis.text.x = element_text(size = 12),
+axis.title.y = element_text(size = 12),
+axis.text.y = element_text(size = 0),
+axis.text = element_text( size = 12),
+legend.title = element_text(size = 12),
+legend.text = element_text(size = 12),  
+strip.text = element_text(size=12),
+title =element_text(size=12, face='bold')
 )# tamaño letra por grupos
 
 
@@ -115,12 +118,12 @@ La **mediana** es el número que divide la muestra en dos partes de igual propor
 <div class="content-box-blue">
 
 $$Me = \left \{ 
-				\begin{matrix} 
-				 \dfrac{x_{(n+1)}}{2} & \mbox{       si n es impar }\\ 
-				           & \\
-				\dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  & \mbox{si n es par}
-				\end{matrix}\right.  
-				$$
+\begin{matrix} 
+	\dfrac{x_{(n+1)}}{2} & \mbox{       si n es impar }\\ 
+	& \\
+	\dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  & \mbox{si n es par}
+\end{matrix}\right.  
+$$
 
 
 $$Me = P_{50} = D_{5} = Q_{2} $$
@@ -143,7 +146,7 @@ cat("mediana = ", median(x))
 
 
 <pre>
-     x1       x2       x3       x4       x5       x6       x7  
+x1       x2       x3       x4       x5       x6       x7  
 [1]  50.97    60.38    61.10    81.48    83.05    88.77    91.33
 mediana =  x4 = 81.48
 n       =  7
@@ -175,11 +178,11 @@ x = round(CarreraLuz22_c1F$timerun/60, 2)
 df <- data.frame(x = x)
 
 ggplot(df, aes(x = x)) +
-  geom_boxplot(fill = "#0EB0C6") +
-  theme_minimal() +
-  labs(title = "Tiempo de Carrera categoría juvenil femenina",
-       x = "tiempo (minutos)")+
-  Theme1
+geom_boxplot(fill = "#0EB0C6") +
+theme_minimal() +
+labs(title = "Tiempo de Carrera categoría juvenil femenina",
+x = "tiempo (minutos)")+
+Theme1
 
 ```
 
@@ -250,8 +253,8 @@ Con el fin de evitar que los datos atípicos generen sesgos en el indicador de l
 x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12      
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
-      (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
-      
+(42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
+
 media truncada al 10% : 59.748
 </pre>
 

@@ -387,8 +387,8 @@ $(document).ready(function () {
 cualitativa-nominal</strong></span></h1>
 <p><br/></p>
 <p>Para las variables cualitativas en escala nominal se recomienda su
-visualización a traves de una grafica circular o de torta. En ella se
-observa rapidamente la categoría con más participación (representada por
+visualización a través de una gráfica circular o de torta. En ella se
+observa rápidamente la categoría con más participación (representada por
 el área que ocupa). En algunos caso puede además de las etiquetas
 indicar el porcentaje de participación de cada categoría.</p>
 <p>En caso de que la variable posea muchas categorías se pueden
@@ -419,9 +419,9 @@ PieChart(categoria, hole = 0, values = &quot;%&quot;, data = CarreraLuz22, fill 
 <h1><span style="color:#034a94"><strong>Variable
 cualitativa-ordinal</strong></span></h1>
 <p>Este tipo de variables son muy frecuentes en mediciones de
-psicológia, marketing, salud y en procesos de evaluación. El color ayuda
-tambien a reforzar el significado de las categorías, empleandose paletas
-que en algunos casos representan el semaforo (rojo - amarillo -
+psicología, marketing, salud y en procesos de evaluación. El color ayuda
+también a reforzar el significado de las categorías, empleándose paletas
+que en algunos casos representan el semáforo (rojo - amarillo -
 verde).</p>
 <p><br/><br/><br/></p>
 <div id="diagrama-de-barras" class="section level2">
@@ -447,13 +447,13 @@ ev_data &lt;- data.frame(Categoria = factor(categories, levels = categories), Fr
 
 # Crear el gráfico de barras con ggplot2
 ggplot(ev_data, aes(x = Categoria, y = Frecuencia, fill = Categoria)) +
-  geom_bar(stat = &quot;identity&quot;, width = 0.7) +
-  scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
-  labs(title = &quot;Evaluación proceso de inducción&quot;,
-       x = &quot;Categoría&quot;,
-       y = &quot;Frecuencia&quot;) +
-  theme_minimal() +
-  theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda</code></pre>
+geom_bar(stat = &quot;identity&quot;, width = 0.7) +
+scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
+labs(title = &quot;Evaluación proceso de inducción&quot;,
+x = &quot;Categoría&quot;,
+y = &quot;Frecuencia&quot;) +
+theme_minimal() +
+theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(plotly)
 
@@ -464,13 +464,13 @@ ev_data &lt;- data.frame(Categoria = factor(categories, levels = categories), Fr
 
 # Crear el gráfico de barras con ggplot2
 plot &lt;- ggplot(ev_data, aes(x = Categoria, y = Frecuencia, fill = Categoria)) +
-  geom_bar(stat = &quot;identity&quot;, width = 0.7) +
-  scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
-  labs(title = &quot;Evaluación proceso de inducción&quot;,
-       x = &quot;Categoría&quot;,
-       y = &quot;Frecuencia&quot;) +
-  theme_minimal() +
-  theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda
+geom_bar(stat = &quot;identity&quot;, width = 0.7) +
+scale_fill_manual(values = c(&quot;#f95738&quot;, &quot;#ee964b&quot;, &quot;#f4d35e&quot;, &quot;#faf0ca&quot;, &quot;#0d3b66&quot;)) +
+labs(title = &quot;Evaluación proceso de inducción&quot;,
+x = &quot;Categoría&quot;,
+y = &quot;Frecuencia&quot;) +
+theme_minimal() +
+theme(legend.position = &quot;none&quot;)  # Esta línea quita la leyenda
 
 # Convertir el gráfico de ggplot2 a un gráfico interactivo de plotly
 plotly_graph &lt;- ggplotly(plot, tooltip = c(&quot;x&quot;, &quot;y&quot;))
@@ -508,18 +508,18 @@ library(paqueteMETODOS)
 data(&quot;CarreraLuz22&quot;)
 # Crear el gráfico de barras con ggplot2
 p =ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +
-  geom_bar(position = &quot;stack&quot;, width = 0.7) +
-  labs(title = &quot;Número de atletas por categoría y sexo&quot;,
-       x = &quot;Categorías&quot;,
-       y = &quot;Número de atletas&quot;) +
-  scale_fill_manual(values = c(&quot;#0d3b66&quot;, &quot;#f4d35e&quot;)) +
-  theme_minimal() +
-  theme(legend.position = &quot;top&quot;, legend.title = element_blank())
+geom_bar(position = &quot;stack&quot;, width = 0.7) +
+labs(title = &quot;Número de atletas por categoría y sexo&quot;,
+x = &quot;Categorías&quot;,
+y = &quot;Número de atletas&quot;) +
+scale_fill_manual(values = c(&quot;#0d3b66&quot;, &quot;#f4d35e&quot;)) +
+theme_minimal() +
+theme(legend.position = &quot;top&quot;, legend.title = element_blank())
 ggplotly(p)</code></pre>
 <ul>
 <li>El gráfico se construye a partir de una tabla categoría por sexo
 (tabla cruzada). Representa ahora una gráfico de barras pero del sexo
-por categoría. Cúal de los dos gráficos prefieres? ¿Porqé?</li>
+por categoría. Cuál de los dos gráficos prefieres? ¿Porqué?</li>
 </ul>
 </div>
 </div>

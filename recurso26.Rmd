@@ -2,9 +2,12 @@
 title: <span style="color:#034a94"> **Ejemplo**</span>
 author: "Métodos y Simulación Estadística"
 output:
-html_document:
-code_folding: hide
-css: style.css
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -183,7 +186,7 @@ SE.Skewness      0.06    # error estándar del sesgo
 Kurtosis      0.11    # curtosis
 </pre>
 
-En cuanto al valor del indicador de sesgo (0.64), representa una leve simetría positiva y un valor de curtosis similar al estándar representado por la distribución normal estandar.
+En cuanto al valor del indicador de sesgo (0.64), representa una leve simetría positiva y un valor de curtosis similar al estándar representado por la distribución normal estándar.
 
 
 <br/>
@@ -306,7 +309,7 @@ scale_fill_manual(values = c("#FF9999", "#66B2FF", "#99FF99", "#FFCC99", "#68686
 
 ```
 
-El gráfico permite visualizar una mayor cantidad de participantes en la categoría Abierta y también que la distribución de los tiempo de carrera es similar para todas las categorías. Tambien se puede observar que el dato atípico corresponde a un atleta de la categoría Veteranos C.
+El gráfico permite visualizar una mayor cantidad de participantes en la categoría Abierta y también que la distribución de los tiempo de carrera es similar para todas las categorías. También se puede observar que el dato atípico corresponde a un atleta de la categoría Veteranos C.
 
 
 

@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Indicadores de posición**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -19,29 +22,29 @@ library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
 #-----------------------------------------------------
-# Tamaños de letras graficos con ggplot2
+# Tamaños de letras gráficos con ggplot2
 Theme1 = theme(
-  axis.title.x = element_text(size = 16),
-  axis.text.x = element_text(size = 12),
-  axis.title.y = element_text(size = 16),
-  axis.text.y = element_text(size = 12),
-  axis.text = element_text( size = 12),
-  legend.title = element_text(size = 12),
-  legend.text = element_text(size = 12),  
-  strip.text = element_text(size=12),
-  title =element_text(size=12, face='bold')
+axis.title.x = element_text(size = 16),
+axis.text.x = element_text(size = 12),
+axis.title.y = element_text(size = 16),
+axis.text.y = element_text(size = 12),
+axis.text = element_text( size = 12),
+legend.title = element_text(size = 12),
+legend.text = element_text(size = 12),  
+strip.text = element_text(size=12),
+title =element_text(size=12, face='bold')
 )# tamaño letra por grupos
 
 Theme2 = theme(
-  axis.title.x = element_text(size = 26),
-  axis.text.x = element_text(size = 20),
-  axis.title.y = element_text(size = 26),
-  # axis.text.y = element_blank(),
-  axis.text = element_text( size = 20),
-  legend.title = element_text(size = 20),
-  legend.text = element_text(size = 20),  
-  strip.text = element_text(size=20),
-  title =element_text(size=20, face='bold')
+axis.title.x = element_text(size = 26),
+axis.text.x = element_text(size = 20),
+axis.title.y = element_text(size = 26),
+# axis.text.y = element_blank(),
+axis.text = element_text( size = 20),
+legend.title = element_text(size = 20),
+legend.text = element_text(size = 20),  
+strip.text = element_text(size=20),
+title =element_text(size=20, face='bold')
 )# tamaño letra por grupos
 #-----------------------------------------------------
 data("CarreraLuz22")
@@ -55,7 +58,7 @@ data("inflacionov22")
 
 </br>
 
-Cuando nos subimos a un auto observamos un tablero con muchos indicadores que permiten al conductor validar el estado del vehículo. El nivel de combustible, la temperatura, el estado de la batería, si alguna puerta esta abierta, la velocidad a la que se viaja, indicadores de las luces estacionarias, de giro, entre otros, permitiendonos tomar decisiones en cada momento.  Todos estos indicadores son construidos con información que se sintetiza de diferentes maneras.
+Cuando nos subimos a un auto observamos un tablero con muchos indicadores que permiten al conductor validar el estado del vehículo. El nivel de combustible, la temperatura, el estado de la batería, si alguna puerta esta abierta, la velocidad a la que se viaja, indicadores de las luces estacionarias, de giro, entre otros, permitiéndonos tomar decisiones en cada momento.  Todos estos indicadores son construidos con información que se sintetiza de diferentes maneras.
 
 
 
@@ -117,15 +120,15 @@ library(paqueteMETODOS)
 data(CarreraLuz22F)
 paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
 p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
-  geom_jitter(color="#034A94", size=1, alpha=0.9) +
-  aes(color=paleta6)+
-  labs(title = "Mujeres",
-       y= "tiempo - min",
-       x= "categorías")+ 
-  #facet_wrap(~ sex)
-  #facet_grid(vars(sex), scale="free")+
-  ylim(0,170)+
-  Theme1
+geom_jitter(color="#034A94", size=1, alpha=0.9) +
+aes(color=paleta6)+
+labs(title = "Mujeres",
+y= "tiempo - min",
+x= "categorías")+ 
+#facet_wrap(~ sex)
+#facet_grid(vars(sex), scale="free")+
+ylim(0,170)+
+Theme1
 
 p1
 ```
@@ -135,15 +138,15 @@ library(paqueteMETODOS)
 data("CarreraLu22M")
 paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
 p2=ggplot(CarreraLuz22M, aes(y=timerun/60, x=categoria))+
-  geom_jitter(color="#034A94", size=1, alpha=0.9) +
-  aes(color=paleta6)+
-  labs(title = "Hombres",
-       y= "tiempo - min",
-       x= "categorías")+ 
-  #facet_wrap(~ sex)
-  #facet_grid(vars(sex), scale="free")+
-  ylim(0,170)+
-  Theme1
+geom_jitter(color="#034A94", size=1, alpha=0.9) +
+aes(color=paleta6)+
+labs(title = "Hombres",
+y= "tiempo - min",
+x= "categorías")+ 
+#facet_wrap(~ sex)
+#facet_grid(vars(sex), scale="free")+
+ylim(0,170)+
+Theme1
 
 p2
 ```
@@ -255,7 +258,7 @@ Fuente :[juanchocorrelon](https://www.athlinks.com/event/212331/results/Event/10
 <pre>
 Límite inferior        Q1          Q2           Q3           Límite superior
 Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
-                       25%         50%          75%  
+25%         50%          75%  
 30.175                 53.50       59.60        69.05        92.375
 </pre>
 
@@ -278,7 +281,7 @@ Como por ejemplo:
 
 #### <span style="color:#034a94">**Identificación de valores atípicos**</sapn>
 
-Los percentiles pueden ayudar a identificar valores extremos o atípicos en un conjunto de datos. `Q1 - 1.5(Q3-Q1)` y `Q3 + 1.5(Q3-Q1)`, representan dos límites a partir de los cuales se consideran datos atípidos. Este método fue planteado por John Tukey (1977).
+Los percentiles pueden ayudar a identificar valores extremos o atípicos en un conjunto de datos. `Q1 - 1.5(Q3-Q1)` y `Q3 + 1.5(Q3-Q1)`, representan dos límites a partir de los cuales se consideran datos atípicos. Este método fue planteado por John Tukey (1977).
 
 
 </br>

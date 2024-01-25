@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Introducción a R**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -123,7 +126,7 @@ class(m)
 
 ### **data.frame**
 
-Estructura tabular conformado por filas y columnas, en las que estas últimas peede ser de diferentes tipos.
+Estructura tabular conformado por filas y columnas, en las que estas últimas pueden ser de diferentes tipos.
 
 
 <pre>
@@ -158,8 +161,8 @@ t = ts(x, start = 2000, frequency = 1)
 t
 class(t)
 ```
-  
-  
+
+
 <br><br>
 
 ### **Lista**
@@ -168,9 +171,9 @@ Colección ordenada y flexible que puede contener elementos de diferentes tipos.
 
 <pre>
 data_lista = list(
-  nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
-    edad = c(23,43,25,30,21),
-  ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
+nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
+edad = c(23,43,25,30,21),
+ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
 )
 data_lista
 class(data_lista)
@@ -178,9 +181,9 @@ class(data_lista)
 
 ```{r}
 data_lista = list(
-  nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
-    edad = c(23,43,25,30,21),
-  ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
+nombre = c("Juan", "Ana", "Harold", "Oscar", "Isabel"),
+edad = c(23,43,25,30,21),
+ciudad = c("Cali", "Bogotá", "Medellín", "Cartagena")
 )
 data_lista
 class(data_lista)

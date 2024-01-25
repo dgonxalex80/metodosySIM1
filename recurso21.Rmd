@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Tablas de frecuencia**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -47,7 +50,7 @@ table(Cali$ubicacion)
 
 </br></br>
 
-Ahora, las tabla contituyen un elemento importante en el análisis de datos, pues resumen la imformación de una variable que llamaremos inicialmente categórica (puede ser cualitativa o cuantitativa dividida por rangos).
+Ahora, las tabla constituyen un elemento importante en el análisis de datos, pues resumen la información de una variable que llamaremos inicialmente categórica (puede ser cualitativa o cuantitativa dividida por rangos).
 
 <br/>
 
@@ -105,11 +108,11 @@ df <- data.frame(Confederaciones, Frecuencia_abs, Frecuencia_rel)
 
 # Crear la tabla formateada con kableExtra
 tabla11 <- df %>%
-  kbl() %>%
-  kable_paper(full_width = FALSE) %>%
-  row_spec(0, bold = TRUE) %>%
-  column_spec(2:3, width = "1cm") %>%
-  collapse_rows(columns = 1, valign = "middle")
+kbl() %>%
+kable_paper(full_width = FALSE) %>%
+row_spec(0, bold = TRUE) %>%
+column_spec(2:3, width = "1cm") %>%
+collapse_rows(columns = 1, valign = "middle")
 
 # Mostrar la tabla formateada
 tabla11
@@ -123,7 +126,7 @@ Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Co
 
 <br/>
 
-En ella se resalta la mayor participación de los paises afiliados a la UEFA (13), los cuales representan un 41.9% del total de paises que participaron, segudo de la CFA y AFC cada uno con un 16.1% de participación.
+En ella se resalta la mayor participación de los países afiliados a la UEFA (13), los cuales representan un 41.9% del total de paises que participaron, segudo de la CFA y AFC cada uno con un 16.1% de participación.
 
 
 
@@ -157,10 +160,10 @@ Otro caso correspondiente a las variables cualitativas en escala ordinal, para l
 
 ```{r, fig.align='center'}
 Calificacion = c( rep("1. Muy regular", 12837), 
-                  rep("2. Regular", 21988),
-                  rep("3. Bueno", 22300),
-                  rep("4. Muy bueno", 24466), 
-                  rep("5. Excelente", 22313))
+rep("2. Regular", 21988),
+rep("3. Bueno", 22300),
+rep("4. Muy bueno", 24466), 
+rep("5. Excelente", 22313))
 t1 = table(Calificacion)
 t1
 
@@ -184,31 +187,31 @@ Con el paquete `formattable` se pueden construir tablas mas elegantes
 ```{r, fig.align='center', warning=FALSE, message=FALSE}
 
 df <- data.frame(
-  id = 1:10,
-  nombre = c("Juan", "Carlos", "James", "David", "Jenny",
-           "Harold", "Leonardo", "John", "Ana", "Luz"),
-  edad = c(25, 27, 30, 28, 29, 29, 35, 27, 31, 30),
-  grado = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
-  Examen1 = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
-  Examen2 = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
-  Promedio = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
-  Entrevista = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
-  stringsAsFactors = FALSE)
+id = 1:10,
+nombre = c("Juan", "Carlos", "James", "David", "Jenny",
+"Harold", "Leonardo", "John", "Ana", "Luz"),
+edad = c(25, 27, 30, 28, 29, 29, 35, 27, 31, 30),
+grado = c("C", "A", "A", "C", "B", "B", "B", "A", "C", "C"),
+Examen1 = c(8.9, 9.5, 9.6, 8.9, 9.1, 9.3, 9.3, 9.9, 8.5, 8.6),
+Examen2 = c(9.1, 9.1, 9.2, 9.1, 8.9, 8.5, 9.2, 9.3, 9.1, 8.8),
+Promedio = c(9, 9.3, 9.4, 9, 9, 8.9, 9.25, 9.6, 8.8, 8.7),
+Entrevista = c(TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE),
+stringsAsFactors = FALSE)
 
 
 library(formattable)
 
 formattable(df, list(
-  edad = color_tile("white", "orange"),
-  grado = formatter("span", style = x ~ ifelse(x == "A",
-                                               style(color = "green", font.weight = "bold"), NA)),
-  area(col = c(Examen1, Examen2)) ~ normalize_bar("pink", 0.2),
-  Promedio = formatter("span",
-                        style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
-                        x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
-  Entrevista = formatter("span",
-                         style = x ~ style(color = ifelse(x, "green", "red")),
-                         x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Si", "No")))
+edad = color_tile("white", "orange"),
+grado = formatter("span", style = x ~ ifelse(x == "A",
+style(color = "green", font.weight = "bold"), NA)),
+area(col = c(Examen1, Examen2)) ~ normalize_bar("pink", 0.2),
+Promedio = formatter("span",
+style = x ~ style(color = ifelse(rank(-x) <= 3, "green", "gray")),
+x ~ sprintf("%.2f (rank: %02d)", x, rank(-x))),
+Entrevista = formatter("span",
+style = x ~ style(color = ifelse(x, "green", "red")),
+x ~ icontext(ifelse(x, "ok", "remove"), ifelse(x, "Si", "No")))
 ))
 
 ```
@@ -222,7 +225,7 @@ Tomada de : https://renkun-ken.github.io/formattable/ - MIT License.
 
 <br/>
 
-En este caso los colores que se adicionan a los valores, permiten visualizar rapidamente los valores mayores y tambien si cumplen o no una condición.
+En este caso los colores que se adicionan a los valores, permiten visualizar rápidamente los valores mayores y también si cumplen o no una condición.
 
 
 

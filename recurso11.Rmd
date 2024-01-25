@@ -2,12 +2,12 @@
 title: <span style="color:#034A94"> **Conceptos básicos**</span> 
 author: "Métodos y Simulación Estadística"
 output:
-  html_document:
-    toc: no
-    toc_depth: 2
-    toc_float: yes
-    code_folding: hide
-    css: style.css
+html_document:
+  toc: no
+  toc_depth: 2
+  toc_float: yes
+  code_folding: hide
+  css: style.css
 ---
 
 ```{r setup, include=FALSE}
@@ -287,7 +287,7 @@ Las variables discretas sólo toman valores enteros, por lo general proceden el 
 ### <span style="color:#034a94">**Escalas de medición**</span>
 
 
-Es gran importancia determinar el tipo de escala de medición de una variable, por cuanto con ella se determina el tipo de análisis a realizar y tambien la mejera apropiada de realizar su prepresentación gráfica.
+Es de gran importancia determinar el tipo de escala de medición de una variable, por cuanto con ella se determina el tipo de análisis a realizar y también la manera apropiada de realizar su presentación gráfica.
 
 <center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
@@ -306,7 +306,7 @@ En las variables con escala de medición nominal, sus valores no se pueden orden
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
-* Profesión (ingeniéro, estadístico, administrador,...)  
+* Profesión (ingeniero, estadístico, administrador,...)  
 * Nacionalidad (colombiano, venezolano, ecuatoriano, ...) 
 * Religión (católico, cristiano, evangélico, agnóstico,...) 
 
@@ -353,7 +353,7 @@ En este caso el cero (0) refleja ausencia de la característica, implica la ause
 
 * Número de hijos de una familia
 * Salario que recibe un empleado en una empresa
-* Ventas mesuales de una empresa comercializadora de alimentos para mascotas
+* Ventas mensuales de una empresa comercializadora de alimentos para mascotas
 
 <br/>
 
@@ -367,7 +367,7 @@ Es el conjunto de todos los elementos de interés en un estudio, sobre los cuale
 
 * Total de estudiantes matriculados en la universidad para el periodo 2024-1 
 * Total de la población en la ciudad de Cali a diciembre 31 de 2023.
-* Compradores de la poliza de seguro obligatorio SOAT para el 2024.  
+* Compradores de la póliza de seguro obligatorio SOAT para el 2024.  
 
 
 </br>
@@ -382,7 +382,7 @@ Es cualquier subconjunto representativo de la población, sobre el que se realiz
 
 * 100 estudiantes seleccionados del total de matriculados en la universidad 
 * 500 personas seleccionadas de la población de Cali.
-* Grupo de personas que compran vehículo nuevo durante el mes de diciembre del 2023 en una determinao concesionario.
+* Grupo de personas que compran vehículo nuevo durante el mes de diciembre del 2023 en un determinado concesionario.
 
 <center>
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}

@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Fusión de datos**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -23,7 +26,7 @@ data4 = data[1:12,c(4,5)]
 
 <br/><br/>
 
-Una de las necesidades impotante en el manejo de bases de datos la conforma el agregar mas registros o filas a una base de datos o de agregar nuevas variables.
+Una de las necesidades importante en el manejo de bases de datos la conforma el agregar mas registros o filas a una base de datos o de agregar nuevas variables.
 
 <br/>
 
@@ -106,7 +109,7 @@ data20
 
 ### <span style="color:#034a94"> **Adicionar variables**</span>
 
-En la adición de variables se presentan dos casos El primero corresponde a la unión de dos o más columas contenidas en bases diferentes pero que deben estar ordenadas en la misma foma para que coincidan los registros.
+En la adición de variables se presentan dos casos El primero corresponde a la unión de dos o más columnas contenidas en bases diferentes pero que deben estar ordenadas en la misma forma para que coincidan los registros.
 
 En el segundo caso las bases de datos deben contener una llave que permita indexar sus registros.
 
@@ -146,7 +149,7 @@ data5 = data[3:12,c(1,4,5)]
 
 ### <span style="color:#034a94"> **data3**</span>
 
-Conformada por 10 registros y tres variables dentro de las cuales esta id que sirve en este caso para verificar que los registros estan en un mismo orden.
+Conformada por 10 registros y tres variables dentro de las cuales esta id que sirve en este caso para verificar que los registros están en un mismo orden.
 
 
 ```{r}
@@ -171,7 +174,7 @@ data4
 
 En este caso se tienen las funciones :
 
-* `cbind()` Utilizada para combinar dos o mas conjuntos por columnas, agregando un conjunto de columnas. Es decir pegar dos datas que presentan el mismo orde de registros
+* `cbind()` Utilizada para combinar dos o mas conjuntos por columnas, agregando un conjunto de columnas. Es decir pegar dos datas que presentan el mismo orden de registros
 
 
 <br/>
@@ -213,7 +216,7 @@ merge(data3, data5, by = "id", all = TRUE)
 
 En el caso de unir columnas mediante la función `cbind()` , se combinan dos base de datos (`data3` y `data4`) de igual número de filas y que corresponde información que corresponde a las mismas personas. Para que no parezca la variable id repetida se quita de data4 dejando solo las columnas 2 a 3 - `data4[, 2:3]` - .
 
-Para el caso de la función `merge()` , se requiere tener un indice que identifique cada regitro y por tanto no es necesario que los registros en las bases a unir se encuentren ordenadas. Para ello utilizamos las bases data3 y data5. En ellas se puede notar que la primera presenta los registros de las personas con id del 1 al 12, mientras que la data5 los registros correspondientes a las personas con id del 3 al 14. Es por esta razón que se toma como base la data3 y sobre ella se agregan los registros que coincidan al comparar su id con los de la `data5`. Quedanto vacios los resgistros de las personas con id 1 y 2.
+Para el caso de la función `merge()` , se requiere tener un indice que identifique cada registro y por tanto no es necesario que los registros en las bases a unir se encuentren ordenadas. Para ello utilizamos las bases data3 y data5. En ellas se puede notar que la primera presenta los registros de las personas con id del 1 al 12, mientras que la data5 los registros correspondientes a las personas con id del 3 al 14. Es por esta razón que se toma como base la data3 y sobre ella se agregan los registros que coincidan al comparar su id con los de la `data5`. Quedando vacíos los registros de las personas con id 1 y 2.
 
 </div>
 

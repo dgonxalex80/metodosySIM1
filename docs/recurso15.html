@@ -12,7 +12,7 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Transformacion de datos</title>
+<title> Transformación de datos</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -375,7 +375,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
-<strong>Transformacion de datos</strong></span></h1>
+<strong>Transformación de datos</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
@@ -384,7 +384,7 @@ $(document).ready(function () {
 <p><br/></p>
 <p>Una de las etapas importantes dentro del ciclo de datos corresponde a
 la transformación de las variables. Dentro de los procesos más
-importantes en este aspecto estan :</p>
+importantes en este aspecto están :</p>
 <ul>
 <li>Construcción de nuevas variables</li>
 <li>Estantarización de variables</li>
@@ -457,7 +457,7 @@ str(datos) # Muestra los datos originales</code></pre>
  $ Indicador1                : num [1:1000] 0.833 1 1 0.5 0.909 ...
  $ Indicador2                : num [1:1000] 0.833 1 1 0.5 0.909 ...</code></pre>
 <p><br/></p>
-<p>Otra de las transformaciones importantes en el analisis de datos
+<p>Otra de las transformaciones importantes en el análisis de datos
 corresponde a la <strong>estandarización</strong> y la
 <strong>normalización</strong> de las variables, las cuales permiten el
 cambio de escala, permitiendo realizar comparaciones.</p>
@@ -468,10 +468,10 @@ cambio de escala, permitiendo realizar comparaciones.</p>
 <h2><span style="color:#034a94">
 <strong>Estandarización</strong></span></h2>
 <p>Consiste en restar a la media de una variable a todos sus valores y
-diviviendo este resultado por su desviación estandar. Esta
-tranaformación hace que la nueva variable tenga media cero y varianza
+dividiendo este resultado por su desviación estándar. Esta
+transformación hace que la nueva variable tenga media cero y varianza
 uno. El procedimiento permite ajustar la escala de varias variables y se
-aplica cuando estas presentan distribuciones simetricas.</p>
+aplica cuando estas presentan distribuciones simétricas.</p>
 <p><span class="math display">\[X_{\text{estandarizada}} = \dfrac{X-
 \text{media}(x)}{\text{desviación estandar}(x)}\]</span></p>
 <p><br/></p>
@@ -513,7 +513,7 @@ ciencia de datos se refiere al proceso de transformar las variables para
 que tengan una media de cero y una desviación estándar de uno. Este paso
 es comúnmente realizado para asegurar que las variables tengan escalas
 comparables y para facilitar la interpretación y el análisis de los
-modelos. Este procedimiento tambie se conoce con lod nombres de
+modelos. Este procedimiento también se conoce con los nombres de
 <strong>z-score normalization</strong> o <strong>z-score
 scaling</strong>.</p>
 <p><br/><br/></p>
@@ -529,8 +529,8 @@ tengan el mismo rango. Tambien se conoce con el nombre de
 <strong>min-max scaling</strong>.</p>
 <p><br/></p>
 <p><strong>Normalización manual</strong></p>
-<p>Para realizar la tranformación de manera manual debemos de contar con
-:</p>
+<p>Para realizar la transformación de manera manual debemos de contar
+con :</p>
 <ul>
 <li>valor mínimo de la variable</li>
 <li>valor máximo de la variable</li>
@@ -578,18 +578,18 @@ str(datos[,c(2,25, 26)])</code></pre>
 </div>
 <div id="nota" class="section level3 content-box-gray">
 <h3><span style="color:#686868"> <strong>Nota</strong> </span></h3>
-<p>En Ciencia de Datos puede ser necesario realizar tranformación de las
-variables como la estandarización o la normalización depediendo algunos
-requerimientos específicos del proceso de modelamientoo algoritmos
-utilizados</p>
+<p>En Ciencia de Datos puede ser necesario realizar transformación de
+las variables como la estandarización o la normalización dependiendo
+algunos requerimientos específicos del proceso de modelamiento
+algoritmos utilizados</p>
 <p>En el caso de algoritmos relacionados con aprendizaje automático,
 regresión lineal o en casos donde se requiera la comparación de los
 resultados, será necesario realizar procesos de estandarización (pasar a
 media cero y varianza uno).</p>
 <p>En el caso de algunos algoritmos de redes neuronales, puede ser
 necesario que los datos originales se distribuyan en el mismo rango o en
-el caso de mejorar la velocidad de convergencia de uno de los metodos de
-optimización será necesario realizar normalización de las variables (una
+el caso de mejorar la velocidad de convergencia de uno de los métodos de
+optimizan será necesario realizar normalización de las variables (una
 misma escala con el mismo rango)</p>
 </div>
 </div>

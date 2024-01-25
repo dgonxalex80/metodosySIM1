@@ -465,14 +465,12 @@ partes de igual proporción (50% : 50%). Es decir que corresponde al
 percentil 50.</p>
 <div class="content-box-blue">
 <p><span class="math display">\[Me = \left \{
-                \begin{matrix}
-                 \dfrac{x_{(n+1)}}{2} &amp; \mbox{       si n es impar
-}\\
-                           &amp; \\
-                \dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  &amp; \mbox{si n es
-par}
-                \end{matrix}\right.  
-                \]</span></p>
+\begin{matrix}
+    \dfrac{x_{(n+1)}}{2} &amp; \mbox{       si n es impar }\\
+    &amp; \\
+    \dfrac{x_{(n/2)}+ x_{(n/2)+1}}{2}  &amp; \mbox{si n es par}
+\end{matrix}\right.  
+\]</span></p>
 <p><span class="math display">\[Me = P_{50} = D_{5} = Q_{2}
 \]</span></p>
 </div>
@@ -487,7 +485,7 @@ x
 
 cat(&quot;mediana = &quot;, median(x))</code></pre>
 <pre>
-     x1       x2       x3       x4       x5       x6       x7  
+x1       x2       x3       x4       x5       x6       x7  
 [1]  50.97    60.38    61.10    81.48    83.05    88.77    91.33
 mediana =  x4 = 81.48
 n       =  7
@@ -510,11 +508,11 @@ x = round(CarreraLuz22_c1F$timerun/60, 2)
 df &lt;- data.frame(x = x)
 
 ggplot(df, aes(x = x)) +
-  geom_boxplot(fill = &quot;#0EB0C6&quot;) +
-  theme_minimal() +
-  labs(title = &quot;Tiempo de Carrera categoría juvenil femenina&quot;,
-       x = &quot;tiempo (minutos)&quot;)+
-  Theme1</code></pre>
+geom_boxplot(fill = &quot;#0EB0C6&quot;) +
+theme_minimal() +
+labs(title = &quot;Tiempo de Carrera categoría juvenil femenina&quot;,
+x = &quot;tiempo (minutos)&quot;)+
+Theme1</code></pre>
 <p><img src="recurso23_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
 <center>
 <strong>Figura 1.10</strong> Tiempos hombres categoría juvenil<br />
@@ -574,8 +572,8 @@ class="math inline">\(\bar{x}_{_{0.10}}\)</span>)</p>
 x1     x2     x3     x4     x5     x6     x7     x8     x9     x10    x11    x12      
 41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05
 
-      (42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
-      
+(42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98) 
+
 media truncada al 10% : 59.748
 </pre>
 <pre class="r"><code>x= c(41.67, 42.23, 45.53, 50.82, 52.93, 57.03, 61.13, 62.48, 72.77, 75.58, 76.98, 78.05)

@@ -390,7 +390,7 @@ razón requieren un tipo de gráficas que permita visualizar sus
 principales características : centro, dispersión y forma.</p>
 <p>Empezaremos con el diagrama de tallos y hojas, que aunque no es un
 gráfico y corresponde a un ordenamiento de los datos, permite visualizar
-de una forma rápida su forma. Tambien permite ubicar el valor mínimo y
+de una forma rápida su forma. También permite ubicar el valor mínimo y
 el máximo.</p>
 <div id="diagrama-de-tallos-y-hojas" class="section level2">
 <h2><span style="color:#034a94"><strong>Diagrama de tallos y
@@ -424,12 +424,12 @@ stem(x) # Diagrama de tallos y hojas</code></pre>
 <h2><span style="color:#034a94"><strong>Histograma</strong></span></h2>
 <p><br/></p>
 <p>Para la construcción del histograma se el rango de los datos en
-intervalos que pueden ser de igual o diferente tamaño, recomendandose
+intervalos que pueden ser de igual o diferente tamaño, recomendándose
 que tenga un número de divisiones apropiado ( 7 a 15) que permita
 resumir los datos.</p>
-<p>Aparentemente se puede semejar con un diagra de barras, pues los
-rectangulos que lo conforman representan frecuencias, indicando que
-rectangulos más altos estan indicando una mayor frecuencia de datos en
+<p>Aparentemente se puede semejar con un diagrama de barras, pues los
+rectángulos que lo conforman representan frecuencias, indicando que
+rectángulos más altos están indicando una mayor frecuencia de datos en
 su intervalo.</p>
 <p>Este tipo de gráficos permite visualizar además de la forma de los
 datos, su rango.</p>
@@ -439,12 +439,12 @@ data(&quot;CarreraLuz22&quot;)
 dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
 x=dataFc4$timerun/60
 hist(x, 
-     breaks = 6,
-     las=1,
-     main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
-     xlab=&quot;tiempo (min)&quot;,
-     ylab = &quot;frecuencia&quot;,
-     col =&quot;#ee964b&quot;)</code></pre>
+breaks = 6,
+las=1,
+main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+xlab=&quot;tiempo (min)&quot;,
+ylab = &quot;frecuencia&quot;,
+col =&quot;#ee964b&quot;)</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div id="retos" class="section level3 content-box-yellow">
 <h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
@@ -459,11 +459,11 @@ dataFc4 &lt;- subset(CarreraLuz22, (CarreraLuz22$sex == &quot;Mujer&quot; &amp; 
 
 # Crear el histograma con ggplot2
 p = ggplot(dataFc4, aes(x = timerun/60)) +
-  geom_histogram(bins = 6, fill = &quot;#ee964b&quot;, color = &quot;white&quot;, alpha = 0.7) +
-  labs(title = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
-       x = &quot;Tiempo (min)&quot;,
-       y = &quot;Frecuencia&quot;) +
-  theme_minimal()
+geom_histogram(bins = 6, fill = &quot;#ee964b&quot;, color = &quot;white&quot;, alpha = 0.7) +
+labs(title = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+x = &quot;Tiempo (min)&quot;,
+y = &quot;Frecuencia&quot;) +
+theme_minimal()
 
 ggplotly(p)</code></pre>
 </div>
@@ -474,9 +474,9 @@ ggplotly(p)</code></pre>
 densidad</strong></span></h2>
 <p><br/></p>
 <p>Este diagrama permite visualizar la forma de los datos, su rango y en
-que parte se concentra la mayoria de los datos. Es útil para establecer
+que parte se concentra la mayoría de los datos. Es útil para establecer
 comparaciones con modelos de probabilidad teóricos como la distribución
-normal, unifirme, ji-cuadrado, ….</p>
+normal, uniforme, ji-cuadrado, ….</p>
 <pre class="r"><code>par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
 plot(density(x), lwd=3, col=&quot;#0d3b66&quot;,
 main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
@@ -515,12 +515,12 @@ data(&quot;CarreraLuz22&quot;)
 
 # Crear el boxplot con ggplot2
 p =ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = sex)) +
-  geom_boxplot() +
-  labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
-       x = &quot;Sexo&quot;,
-       y = &quot;Tiempo (min)&quot;) +
-  scale_fill_manual(values = c(&quot;#f4d35e&quot;, &quot;#ee964b&quot;)) +
-  theme_minimal()
+geom_boxplot() +
+labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+x = &quot;Sexo&quot;,
+y = &quot;Tiempo (min)&quot;) +
+scale_fill_manual(values = c(&quot;#f4d35e&quot;, &quot;#ee964b&quot;)) +
+theme_minimal()
 ggplotly(p)</code></pre>
 <pre class="r"><code>library(paqueteMETODOS)
 library(ggplot2)
@@ -531,12 +531,12 @@ paleta &lt;- colorRampPalette(c(&quot;#001B48&quot;, &quot;#97CADB&quot;))(5)
 
 # Crear el boxplot con ggplot2
 p &lt;- ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = categoria)) +
-  geom_boxplot() +
-  labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
-       x = &quot;Sexo&quot;,
-       y = &quot;Tiempo (min)&quot;) +
-  scale_fill_manual(values = paleta) +
-  theme_minimal()
+geom_boxplot() +
+labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+x = &quot;Sexo&quot;,
+y = &quot;Tiempo (min)&quot;) +
+scale_fill_manual(values = paleta) +
+theme_minimal()
 
 # Mostrar el gráfico ggplot2
 p</code></pre>
@@ -547,8 +547,8 @@ p</code></pre>
 <h2><span style="color:#034a94"><strong>Gráfico de series de
 tiempo</strong></span></h2>
 <p><br/></p>
-<p>El grafico de lineas es muy utilizado para representar series de
-tiempo, pudiendo visualizar sus principales caracteristicas como son :
+<p>El gráfico de lineas es muy utilizado para representar series de
+tiempo, pudiendo visualizar sus principales características como son :
 tendencia, estacionalidad, ciclicidad y componentes aleatorios</p>
 <pre class="r"><code>#----------------------------------------------------------------------
 library(tidyverse)
@@ -584,7 +584,7 @@ df &lt;- data.frame(year, inflacion)
 
 # Crear el gráfico animado con ggplot2 y gganimate
 ggplot(df, aes(x=year, y=inflacion)) + geom_point() + 
-          geom_line() + theme_minimal() +transition_reveal(year)</code></pre>
+geom_line() + theme_minimal() +transition_reveal(year)</code></pre>
 </div>
 <p><br/><br/><br/></p>
 <p>Aunque en los retos previos se ha empleado el paquete gráfico
@@ -642,7 +642,7 @@ declaradas</li>
 geom_point()     # grafico de puntos</code></pre>
 <p><img src="recurso32_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p><br/></p>
-<p>Para declarar el tipo de grafico se emplean diferentes geometrias, en
+<p>Para declarar el tipo de gráfico se emplean diferentes geometrías, en
 este caso se utiliza <code>geom_point()</code></p>
 <table>
 <colgroup>

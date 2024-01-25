@@ -3,6 +3,9 @@ title: <span style="color:#034a94"> **Importación de datos**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
     code_folding: hide
     css: style.css
 ---
@@ -68,7 +71,7 @@ knitr::include_graphics("img/importar_datos.png")
 |
 |:------------------------|:--------------------------------------------|:------------------------------------|
 |   **formato .txt**      | *File/Import Dataset/From Text (base)*      | formato texto separado por espacios |
-|   **formato .csv**      | *File/Import Dataset/From text (base)*      | fomato csv separado por ;  o por ,  |
+|   **formato .csv**      | *File/Import Dataset/From text (base)*      | formato csv separado por ;  o por ,  |
 |   **formato .xlsx**     | *File/Import Dataset/ From Excel*           | formato excel                       |
 |   **formato .dat**      | *File/Import Dataset/ From SPSS*            | formato SPSS - programa estadístico |
 |   **formato .sas7bdat** | *File/Import Dataset/ From SAS*             | formato SAS - programa estadístico  | 
@@ -88,13 +91,13 @@ Los anteriores caso implican que tengamos la base de datos descargada en una car
 
 ### <span style="color:#034a94">**2. Utilizando API y token desde un repositorio externo**</span>
 
-Podemos importar la base de datos de un repositorio que maneje API a traves de un token. En este caso debemos solicitar el token e instalar el paquete `RSocrata`
+Podemos importar la base de datos de un repositorio que maneje API a través de un token. En este caso debemos solicitar el token e instalar el paquete `RSocrata`
 
 </br></br>
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
-El siguiente código importa la base de datos de la Secretaria de Salud correspondiente a las parsonas reportadas con Covid-19 para el territorio Colombiano.  Para ello se debe solicitar en la plataforma de Datos Abiertos Colombia un token y realizar la siguiente solicitud  
+El siguiente código importa la base de datos de la Secretaria de Salud correspondiente a las personas reportadas con Covid-19 para el territorio Colombiano.  Para ello se debe solicitar en la plataforma de Datos Abiertos Colombia un token y realizar la siguiente solicitud  
 
 
 ```{r, eval=FALSE }
@@ -117,7 +120,7 @@ Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app
 
 Este proceso tarde unos minutos pues  la base es grande
 
-Para guardar el archivo en una carpeta `data`, se recomienda el formarto RDS por ocupar menos espacio.  En este caso se guarda el archivo descargado con el nombre de *Colombia.RDS* en la carpeta *data/*
+Para guardar el archivo en una carpeta `data`, se recomienda el formato `RDS` por ocupar menos espacio.  En este caso se guarda el archivo descargado con el nombre de *Colombia.RDS* en la carpeta *data/*
 
 </br>
 
@@ -135,7 +138,7 @@ saveRDS(Colombia, file = "data/Colombia.RDS")
 
 ### <span style="color:#034a94">**4. Desde un paquete de R instalado**</span> 
 
-Es psosible trabajar con una dataset disponible en los paquetes de R. Para ello solo utilizamos la función `data()`
+Es psosible trabajar con una `dataset` disponible en los paquetes de R. Para ello solo utilizamos la función `data()`
 
 </br></br>
 
@@ -207,7 +210,7 @@ token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token - cada uno puede obtener su token 
 Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token) # lectura 
 ```
 
-* Importa la base de datos del dataset :  `flights` del paquete `nycflights13` y explore sus principales caracteristicas
+* Importa la base de datos del `dataset` :  `flights` del paquete `nycflights13` y explore sus principales características
 
 </div>
 
