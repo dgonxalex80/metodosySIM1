@@ -50,6 +50,8 @@ title =element_text(size=20, face='bold')
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
+load("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/CarreraLu22F.rda")
+
 ```
 
 </br>
@@ -116,8 +118,6 @@ El siguiente gráfico de puntos representa los tiempos alcanzados por los partic
 
 
 ```{r, message=FALSE,warning=FALSE, fig.align='center', fig.height=5, fig.width=10 }
-library(paqueteMETODOS)
-data(CarreraLuz22F)
 paleta6=c("#447270", "#6B9493", "#F6E271", "#F6B916", "#F69312", "#BC6C25")
 p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
 geom_jitter(color="#034A94", size=1, alpha=0.9) +

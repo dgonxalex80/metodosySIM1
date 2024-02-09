@@ -192,9 +192,10 @@ Si se estudia el peso promedio de los estudiantes en una carrera de la universid
 
 </br>
 
+
 ## <span style="color:#034a94">**Variable**</span>  
 
-Corresponde a características tomadas de la unidad de análisis.  Las variables se pueden clasificar según su origen, naturaleza o relación con otras variables :
+Corresponde a características tomadas de la unidad de análisis. A esta variable se asocia un número o una palabra, carater, de acuerdo a reglas predeterminadas.  Las variables se pueden clasificar según su origen, naturaleza o relación con otras variables :
 
 <br/>
 
@@ -450,14 +451,15 @@ knitr::include_graphics("img/muestreos.png")
 ```
 
 **Figura 1.4** Tipos de muestreo
+
 </center>
 
-<br/>
+<br/><br/>
 
 <div class="content-box-gray">
-### <span style="color:#686868">**Nota**</span> 
+### <span style="color:#686868">**Reto**</span> 
 
-Los muestreos por internet utilizando redes sociales se clasifica dentro de los muestreos no probabilísticos descritos
+Los muestreos por internet utilizando redes sociales se clasifica dentro de los muestreos no probabilísticos descritos.
+
 </div>
-
 

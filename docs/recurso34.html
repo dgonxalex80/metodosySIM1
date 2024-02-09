@@ -12,7 +12,7 @@
 <meta name="author" content="Métodos y Simulación Estadística" />
 
 
-<title> Visualización de avanzada</title>
+<title> Parámetros de gráficos</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -333,6 +333,9 @@ $(document).ready(function () {
     <li>
       <a href="recurso33.html">Visualización multivariada</a>
     </li>
+    <li>
+      <a href="recurso34.html">Parámetros de gráficos</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -375,16 +378,84 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
-<strong>Visualización de avanzada</strong></span></h1>
+<strong>Parámetros de gráficos</strong></span></h1>
 <h4 class="author">Métodos y Simulación Estadística</h4>
 
 </div>
 
 
+<p></br></br></p>
+<p>A continuación se presentan algunos de los parámetros para el manejo
+de gráficos</p>
 <p></br></p>
-<div id="xxx" class="section level1">
-<h1><span style="color:#034a94"><strong>xxx</strong></span></h1>
+<div id="margenes-de-los-gráficos" class="section level1">
+<h1><strong>Margenes de los gráficos</strong></h1>
 <p></br></p>
+<p>Es posible que se requiera aumentar los margenes de los gráfico con
+el propósito de que aparezcan las etiquetas completamente.</p>
+<p>A partir del siguiente gráfico se realizan algunos ajustes en cuanto
+sus pargenes y tamaño de los textos</p>
+<pre class="r"><code># Grafico normal
+x=rnorm(100,100,20)
+plot(density(x))</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p></br></br></p>
+<div id="margenes-de-la-gráfica-cbottom-left-top-right"
+class="section level3">
+<h3><strong>margenes de la gráfica c(bottom, left, top,
+right)</strong></h3>
+<pre class="r"><code>par(mar = c(5, 4, 4, 2) + 0.1)
+x=rnorm(100,100,20)
+plot(density(x))</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p></br></br></p>
+</div>
+<div id="margenes-de-la-gráfica" class="section level3">
+<h3><strong>margenes de la gráfica</strong></h3>
+<pre class="r"><code>par(mai = c(1.5, 1.5, 1.5, 1.5))
+x=rnorm(100,100,20)
+plot(density(x))</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p></br></br></p>
+<p>### <strong>Matriz de gráficos mfrow = c(2, 2)</strong></p>
+<p>Para presentar varios gráficos en una sola imagen se emplea el
+parámetro mfrow para indicar cuantas filas y columnas tendrá la
+figura</p>
+<pre class="r"><code>x=rnorm(100,100,20)
+y=rnorm(100,100,25)
+z=rbinom(100,4,0.30)
+t=1:100
+par(mfrow = c(2, 2) ) # definición de la matriz
+
+plot(density(x))
+barplot(table(z))
+hist(x)
+plot(x,y)</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p></br></br></p>
+</div>
+<div id="margenes-exteriores-cbottom-left-top-right"
+class="section level3">
+<h3><strong>margenes exteriores c(bottom, left, top,
+right)</strong></h3>
+<pre class="r"><code>par(mfrow = c(2, 2),   # matriz de graficos 2x2
+    oma = c(3, 5, 2, 4) )  # margenes de la imagen
+plot(density(x))
+barplot(table(z))
+hist(x)
+plot(x,y)</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p></br></br></p>
+</div>
+</div>
+<div id="tamaño-texto" class="section level1">
+<h1><strong>Tamaño texto</strong></h1>
+<pre class="r"><code>x=rnorm(100,100,20)
+plot(density(x),cex.lab=.8,  # tamaño de etiqueta ejes
+                cex.axis=2, # tamaño escalas de los ejes 
+                cex.main=1.5, # tamaño del titulo
+                cex.sub=1)    # tamaño del subtitulo</code></pre>
+<p><img src="recurso34_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 
 

@@ -35,4 +35,4 @@ animate(animacion, width = 700, height = 432, fps = 5, duration = 30, rewind = F
 # ... (Código anterior)
 
 # Grabar animación como un archivo GIF
-anim_save("animacion.gif", animate(animacion, width = 700, height = 432, fps = 5, duration = 30, rewind = FALSE))
+anim_save("img/animacion.gif", animate(animacion, width = 700, height = 432, fps = 5, duration = 30, rewind = FALSE))

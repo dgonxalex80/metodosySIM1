@@ -35,6 +35,7 @@ title =element_text(size=12, face='bold')
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
+load("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/CarreraLu22_c1F.rda")
 ```
 
 </br>
@@ -135,8 +136,6 @@ Continuando con la misma información sobre los tiempos correspondientes a la ca
 
 
 ```{r, warning=FALSE, message=FALSE, eval=FALSE}
-library(paqueteMETODOS)
-data("CarreraLu22_c1F")
 x= round(CarreraLuz22_c1F$timerun/60, 2)
 x
 

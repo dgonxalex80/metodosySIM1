@@ -333,6 +333,9 @@ $(document).ready(function () {
     <li>
       <a href="recurso33.html">Visualización multivariada</a>
     </li>
+    <li>
+      <a href="recurso34.html">Parámetros de gráficos</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -432,9 +435,7 @@ Veteranos A, Veteranos B y Veteranos C para hombre y mujeres).</p>
 los participantes por categoría y sexo empleados para recorrer los 10
 kilómetros de la competencia.</p>
 <p></br></br></p>
-<pre class="r"><code>library(paqueteMETODOS)
-data(CarreraLuz22F)
-paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
+<pre class="r"><code>paleta6=c(&quot;#447270&quot;, &quot;#6B9493&quot;, &quot;#F6E271&quot;, &quot;#F6B916&quot;, &quot;#F69312&quot;, &quot;#BC6C25&quot;)
 p1=ggplot(CarreraLuz22F, aes(y=timerun/60, x=categoria))+
 geom_jitter(color=&quot;#034A94&quot;, size=1, alpha=0.9) +
 aes(color=paleta6)+

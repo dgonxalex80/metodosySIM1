@@ -14,14 +14,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 #install.packages("devtools") # solo una vez
-# devtools::install_github("dgonxalex80/paqueteMETODOS", force = TRUE)
+#devtools::install_github("dgonxalex80/paqueteMETODOS", force = TRUE)
 library(readr)
 library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
 
 data("CarreraLuz22")
-data("Cali")
+Cali <- readRDS("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/Cali.RDS")
 ```
 
 <br/><br/>
@@ -43,7 +43,6 @@ Tambien es posible determinar si existen problemas de sistematización en los da
 
 ```{r}
 library(paqueteMETODOS)
-data(Cali)
 table(Cali$ubicacion)
 ```
 

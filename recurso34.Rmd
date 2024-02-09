@@ -1,5 +1,5 @@
 ---
-title: <span style="color:#034a94"> **Visualización de avanzada**</span>
+title: <span style="color:#034a94"> **Parámetros de gráficos**</span>
 author: "Métodos y Simulación Estadística"
 output:
   html_document:
@@ -22,12 +22,98 @@ data("evaluacion")
 data("inflacionov22")
 ```
 
+</br></br>
+
+A continuación se presentan algunos de los parámetros para el manejo de gráficos
+
+
 </br>
 
-# <span style="color:#034a94">**xxx**</span> 
+#  **Margenes de los gráficos**
 
 </br>
 
+Es posible que se requiera aumentar los margenes de los gráfico con el propósito de que aparezcan las etiquetas completamente.
+
+A partir del siguiente gráfico se realizan algunos ajustes en cuanto sus pargenes y  tamaño de los textos
+
+```{r}
+# Grafico normal
+x=rnorm(100,100,20)
+plot(density(x))
+```
+
+</br></br>
+
+### **margenes de la gráfica  c(bottom, left, top, right)**
+
+```{r}
+
+par(mar = c(5, 4, 4, 2) + 0.1)
+x=rnorm(100,100,20)
+plot(density(x))
+```
+
+</br></br>
+
+###  **margenes de la gráfica**
+
+```{r}
+
+par(mai = c(1.5, 1.5, 1.5, 1.5))
+x=rnorm(100,100,20)
+plot(density(x))
+
+```
+ 
+ </br></br>
+ 
+ ### **Matriz de gráficos mfrow = c(2, 2)**
+
+Para presentar varios gráficos en una sola imagen se emplea el parámetro mfrow para indicar cuantas filas y columnas tendrá la figura
+
+
+```{r}
+x=rnorm(100,100,20)
+y=rnorm(100,100,25)
+z=rbinom(100,4,0.30)
+t=1:100
+par(mfrow = c(2, 2) ) # definición de la matriz
+
+plot(density(x))
+barplot(table(z))
+hist(x)
+plot(x,y)
+```
+
+</br></br>
+
+### **margenes exteriores c(bottom, left, top, right)**
+
+```{r}
+
+par(mfrow = c(2, 2),   # matriz de graficos 2x2
+    oma = c(3, 5, 2, 4) )  # margenes de la imagen
+plot(density(x))
+barplot(table(z))
+hist(x)
+plot(x,y)
+
+```
+
+</br></br>
+
+# **Tamaño texto**
+
+
+
+```{r}
+x=rnorm(100,100,20)
+plot(density(x),cex.lab=.8,  # tamaño de etiqueta ejes
+                cex.axis=2, # tamaño escalas de los ejes 
+                cex.main=1.5, # tamaño del titulo
+                cex.sub=1)    # tamaño del subtitulo
+```
 
 
 
